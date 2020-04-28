@@ -15,7 +15,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=ZCOOL KuaiLe:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
@@ -26,9 +26,9 @@
 
   <meta name="description" content="𝕮𝖔𝖑𝖉𝕮𝖆𝖗𝖉&#39;𝖘 𝕭𝖑𝖔𝖌">
 <meta property="og:type" content="website">
-<meta property="og:title" content="𝕭𝖑𝖔𝖌">
+<meta property="og:title" content="ColdCard的日志">
 <meta property="og:url" content="http://coldcard.wang/categories/Steam/">
-<meta property="og:site_name" content="𝕭𝖑𝖔𝖌">
+<meta property="og:site_name" content="ColdCard的日志">
 <meta property="og:description" content="𝕮𝖔𝖑𝖉𝕮𝖆𝖗𝖉&#39;𝖘 𝕭𝖑𝖔𝖌">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="ColdCard">
@@ -52,19 +52,9 @@
     lang   : 'zh-CN'
   };
 </script>
-<script type="text/javascript">
-    var OriginTitile = document.title,
-        st;
-    document.addEventListener("visibilitychange", function () {
-        document.hidden ? (document.title = "𝕮𝖔𝖑𝖉𝕮𝖆𝖗𝖉'𝖘 𝕭𝖑𝖔𝖌", clearTimeout(st)) : (document.title =
-            "欢迎回来", st = setTimeout(function () {
-                document.title = OriginTitile
-            }, 3e3))
-    })
-</script>
 
 
-  <title>分类: Steam | 𝕭𝖑𝖔𝖌</title>
+  <title>分类: Steam | ColdCard的日志</title>
   
 
 
@@ -115,7 +105,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">𝕭𝖑𝖔𝖌</h1>
+      <h1 class="site-title">ColdCard的日志</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
       <p class="site-subtitle" itemprop="description">去看生活，去看世界，去目击伟大的历史事件，去看穷人的面孔和骄傲着的姿态，去看不同寻常的事物，机器，军队，群众，以及丛林中和月球上的阴影，去看人类的杰作，绘画，建筑，和发明，去看千里之外的世界，去看隐藏在高墙和房间内的事物，以及难以接近的危险事件，去看那些被男人所爱着的女人们，还有孩子，去看，并且享受愉悦，去看，并被感动，去看，并被教育</p>
@@ -561,34 +551,48 @@ var translateButtonId = "translateLink"; //默认互换id
 translateInitilization();
 </script>
 
-<div id="days"></div>
-<script>
-function show_date_time(){
-    window.setTimeout("show_date_time()", 1000);
-    BirthDay=new Date("07/8/2018 0:0:0");
-    today=new Date();
-    timeold=(today.getTime()-BirthDay.getTime());
-    sectimeold=timeold/1000
-    secondsold=Math.floor(sectimeold);
-    msPerDay=24*60*60*1000
-    e_daysold=timeold/msPerDay
-    daysold=Math.floor(e_daysold);
-    e_hrsold=(e_daysold-daysold)*24;
-    hrsold=setzero(Math.floor(e_hrsold));
-    e_minsold=(e_hrsold-hrsold)*60;
-    minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
-    seconds=setzero(Math.floor((e_minsold-minsold)*60));
-    document.getElementById('days').innerHTML="已运行 "+daysold+" 天 "+hrsold+" 小时 "+minsold+" 分 "+seconds+" 秒";
-}
-function setzero(i) {
-    if (i<10) {
-        i="0" + i
-    };
-    return i;
-}
-show_date_time();
-</script>
 
+
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment-precise-range-plugin@1.3.0/moment-precise-range.min.js"></script>
+  <script>
+    function timer() {
+      var ages = moment.preciseDiff(moment(),moment(20180708000000,"YYYYMMDDHHmmss"));
+      ages = ages.replace(/years?/, "年");
+      ages = ages.replace(/months?/, "月");
+      ages = ages.replace(/days?/, "天");
+      ages = ages.replace(/hours?/, "小时");
+      ages = ages.replace(/minutes?/, "分");
+      ages = ages.replace(/seconds?/, "秒");
+      ages = ages.replace(/\d+/g, '<span style="color:#C399FC">$&</span>');
+      div.innerHTML = `本站已运行 ${ages}`;
+    }
+    var div = document.createElement("div");
+    //插入到copyright之后
+    var copyright = document.querySelector(".copyright");
+    document.querySelector(".footer-inner").insertBefore(div, copyright.nextSibling);
+    timer();
+    setInterval("timer()",1000)
+  </script>
+
+
+
+
+  <script>
+    var OriginTitile = document.title;
+    var titleTime;
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        document.title = '警告 | ' + OriginTitile;
+        clearTimeout(titleTime);
+      } else {
+        document.title = '欢迎回来 | ' + OriginTitile;
+        titleTime = setTimeout(function() {
+          document.title = OriginTitile;
+        }, 2000);
+      }
+    });
+  </script>
 
 
         
@@ -698,6 +702,8 @@ show_date_time();
   
 
   
+
+
 
 
 <script>
@@ -830,8 +836,6 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
   }, window.Valine);
 });
 </script>
-
-
 
 
   <script async src="/js/cursor/fireworks.js"></script>
