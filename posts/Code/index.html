@@ -28,7 +28,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="博客样式代码（写予自己的一篇教程）">
 <meta property="og:url" content="http://coldcard.wang/posts/Code/">
-<meta property="og:site_name" content="ColdCard的日志">
+<meta property="og:site_name" content="ColdCard的小黑屋">
 <meta property="og:description" content="对于这个博客来说，我在它身上花了太多时间，为了以后方便，写出更美观的文章，我特意整理了一下自己博客现有及可用的样式代码。总的来说，这篇文章对我是十分重要的一篇教程，对于他人是可借鉴可无视的一篇文章">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-08-22T10:00:34.000Z">
@@ -55,7 +55,7 @@
 </script>
 
 
-  <title>博客样式代码（写予自己的一篇教程） | ColdCard的日志</title>
+  <title>博客样式代码（写予自己的一篇教程） | ColdCard的小黑屋</title>
   
 
 
@@ -106,7 +106,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">ColdCard的日志</h1>
+      <h1 class="site-title">ColdCard的小黑屋</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
       <p class="site-subtitle" itemprop="description">去看生活，去看世界，去目击伟大的历史事件，去看穷人的面孔和骄傲着的姿态，去看不同寻常的事物，机器，军队，群众，以及丛林中和月球上的阴影，去看人类的杰作，绘画，建筑，和发明，去看千里之外的世界，去看隐藏在高墙和房间内的事物，以及难以接近的危险事件，去看那些被男人所爱着的女人们，还有孩子，去看，并且享受愉悦，去看，并被感动，去看，并被教育</p>
@@ -230,7 +230,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ColdCard的日志">
+      <meta itemprop="name" content="ColdCard的小黑屋">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -1226,6 +1226,23 @@ translateInitilization();
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey    : 'GwXRbN4w2UOCQM3dvfceKfv1lwPYN6UpXfYiH8zwHG3gUqab8LsOvftLQW1RAEwT',
+      shortname : 'coldcard',
+      url       : "http://coldcard.wang/posts/Code/",
+      identifier: "posts/Code/",
+      title     : "博客样式代码（写予自己的一篇教程）",
+    });
+  }, window.DisqusJS);
+});
+</script>
+
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
 <script>
@@ -1243,23 +1260,6 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
     });
     gitalk.render('gitalk-container');
   }, window.Gitalk);
-});
-</script>
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
-    window.dsqjs = new DisqusJS({
-      api       : 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
-      apikey    : 'GwXRbN4w2UOCQM3dvfceKfv1lwPYN6UpXfYiH8zwHG3gUqab8LsOvftLQW1RAEwT',
-      shortname : 'coldcard',
-      url       : "http://coldcard.wang/posts/Code/",
-      identifier: "posts/Code/",
-      title     : "博客样式代码（写予自己的一篇教程）",
-    });
-  }, window.DisqusJS);
 });
 </script>
 
