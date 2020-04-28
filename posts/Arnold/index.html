@@ -879,43 +879,6 @@ show_date_time();
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '5cb1798a739444534259',
-      clientSecret: '9488309d28c1210630a79809297858d70d20d5a9',
-      repo        : 'Comments',
-      owner       : 'Cold-Card',
-      admin       : ['Cold-Card'],
-      id          : '836b55b7b5ff4b73ebaaff778cf32254',
-        language: 'zh-CN',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
-</script>
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
-    window.dsqjs = new DisqusJS({
-      api       : 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
-      apikey    : 'GwXRbN4w2UOCQM3dvfceKfv1lwPYN6UpXfYiH8zwHG3gUqab8LsOvftLQW1RAEwT',
-      shortname : 'coldcard',
-      url       : "http://coldcard.wang/posts/Arnold/",
-      identifier: "posts/Arnold/",
-      title     : "Maya-Arnold（阿诺德）渲染器插件替换破解",
-    });
-  }, window.DisqusJS);
-});
-</script>
-
 
 <script>
 NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
@@ -1045,6 +1008,43 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       } 
     });
   }, window.Valine);
+});
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey    : 'GwXRbN4w2UOCQM3dvfceKfv1lwPYN6UpXfYiH8zwHG3gUqab8LsOvftLQW1RAEwT',
+      shortname : 'coldcard',
+      url       : "http://coldcard.wang/posts/Arnold/",
+      identifier: "posts/Arnold/",
+      title     : "Maya-Arnold（阿诺德）渲染器插件替换破解",
+    });
+  }, window.DisqusJS);
+});
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '5cb1798a739444534259',
+      clientSecret: '9488309d28c1210630a79809297858d70d20d5a9',
+      repo        : 'Comments',
+      owner       : 'Cold-Card',
+      admin       : ['Cold-Card'],
+      id          : '836b55b7b5ff4b73ebaaff778cf32254',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
 });
 </script>
 

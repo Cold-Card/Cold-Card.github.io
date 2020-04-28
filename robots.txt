@@ -15,5 +15,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: http://ColdCard.wang/sitemap.xml
+Sitemap: http://ColdCard.wang/other/sitemap.xml
 Sitemap: http://ColdCard.wang/baidusitemap.xml
