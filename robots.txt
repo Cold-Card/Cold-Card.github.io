@@ -5,8 +5,8 @@ Allow: /categories/
 Allow: /tags/ 
 Allow: /about/ 
 Allow: /guestbook/
-Allow: /schedule/
-Allow: /picture/
+Allow: /other/schedule/
+Allow: /other/picture/
 Allow: /other/
 Disallow: /vendors/
 Disallow: /js/
