@@ -1358,23 +1358,6 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
 });
 </script>
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
-    window.dsqjs = new DisqusJS({
-      api       : 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
-      apikey    : 'GwXRbN4w2UOCQM3dvfceKfv1lwPYN6UpXfYiH8zwHG3gUqab8LsOvftLQW1RAEwT',
-      shortname : 'coldcard',
-      url       : "https://coldcard.wang/posts/Code/",
-      identifier: "posts/Code/",
-      title     : "博客样式代码（写予自己的一篇教程）",
-    });
-  }, window.DisqusJS);
-});
-</script>
-
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
 <script>
@@ -1392,6 +1375,23 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
     });
     gitalk.render('gitalk-container');
   }, window.Gitalk);
+});
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey    : 'GwXRbN4w2UOCQM3dvfceKfv1lwPYN6UpXfYiH8zwHG3gUqab8LsOvftLQW1RAEwT',
+      shortname : 'coldcard',
+      url       : "https://coldcard.wang/posts/Code/",
+      identifier: "posts/Code/",
+      title     : "博客样式代码（写予自己的一篇教程）",
+    });
+  }, window.DisqusJS);
 });
 </script>
 
