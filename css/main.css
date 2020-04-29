@@ -1287,7 +1287,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #87dff2;
+  background: #ff71b0;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3613,6 +3613,15 @@ blockquote.question {
   a#download {
     color: #8b8b8b;
     border: 2px solid #8b8b8b;
+  }
+  .gt-container .gt-comment-admin .gt-comment-content {
+    background-color: #353535 !important;
+  }
+  .gt-container .gt-svg svg,
+  .gt-container .gt-comment-username,
+  .gt-container a,
+  .gt-container .gt-header-controls-tip {
+    color: #b16bff !important;
   }
 }
 @media (prefers-color-scheme: light) {
