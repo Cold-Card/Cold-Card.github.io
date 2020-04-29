@@ -1287,7 +1287,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff71b0;
+  background: #f74f28;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3614,14 +3614,25 @@ blockquote.question {
     color: #8b8b8b;
     border: 2px solid #8b8b8b;
   }
-  .gt-container .gt-comment-admin .gt-comment-content {
+  .gt-container .gt-comment-admin .gt-comment-content,
+  .gt-container .gt-popup {
     background-color: #353535 !important;
   }
-  .gt-container .gt-svg svg,
-  .gt-container .gt-comment-username,
-  .gt-container a,
-  .gt-container .gt-header-controls-tip {
-    color: #b16bff !important;
+  .gt-container .gt-comment-admin .gt-comment-content:hover,
+  .gt-container .gt-popup:hover {
+    box-shadow: 0px 0px 13px 3px rgba(255,255,255,0.5);
+  }
+  .gt-container .gt-comment-username:hover,
+  .gt-container .gt-header-controls-tip:hover {
+    border: 2px dashed #fff !important;
+  }
+  .gt-container .gt-comment-username:hover,
+  .gt-container a:hover,
+  .gt-container .gt-header-controls-tip:hover {
+    color: #fff !important;
+  }
+  .gt-container .gt-comment-body {
+    background-color: #a7a7a7 !important;
   }
 }
 @media (prefers-color-scheme: light) {
@@ -3877,6 +3888,29 @@ blockquote.question {
   }
   .v[data-class=v] .vicon.actived {
     fill: #b688ff !important;
+  }
+  .gt-container .gt-comment-admin .gt-comment-content,
+  .gt-container .gt-popup {
+    background-color: #e8e8e8 !important;
+  }
+  .gt-container .gt-comment-admin .gt-comment-content:hover,
+  .gt-container .gt-popup:hover {
+    box-shadow: 0px 0px 13px 3px rgba(0,0,0,0.5);
+  }
+  .gt-container .gt-comment-username:hover,
+  .gt-container .gt-header-controls-tip:hover {
+    border: 2px dashed #000 !important;
+  }
+  .gt-container .gt-comment-username:hover,
+  .gt-container a:hover,
+  .gt-container .gt-header-controls-tip:hover {
+    color: #000 !important;
+  }
+  .gt-container .gt-btn:hover {
+    color: #000 !important;
+  }
+  .gt-container .gt-comment-body {
+    background-color: #fff !important;
   }
   .atss .at-share-btn .at-icon-wrapper {
     background-color: #fff !important;
@@ -4234,4 +4268,53 @@ body,
   body {
     font-size: 1.1em;
   }
+}
+.gt-container .gt-comment-admin .gt-comment-content,
+.gt-container .gt-popup {
+  transition-property: color, background;
+  transition-delay: 0s;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+}
+.gt-container .gt-comment-username:hover,
+.gt-container .gt-header-controls-tip:hover {
+  padding: 0px 3px !important;
+}
+.gt-container .gt-popup {
+  transition-duration: 0s;
+}
+.gt-container .gt-comment-username,
+.gt-container a,
+.gt-container .gt-header-controls-tip {
+  transition-property: padding, border, color, background;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  color: #aba7d5 !important;
+}
+.gt-container .gt-comment-username:hover,
+.gt-container a:hover,
+.gt-container .gt-header-controls-tip:hover {
+  font-weight: bold !important;
+}
+.gt-container .gt-svg svg {
+  fill: #ccc !important;
+}
+.gt-container .gt-svg svg:hover {
+  fill: #aba7d5 !important;
+}
+.gt-container .gt-btn {
+  background-color: #9996bd !important;
+  color: #fff !important;
+  border: 1px solid #a29fc9 !important;
+}
+.gt-container .gt-btn:hover {
+  color: #000 !important;
+}
+.gt-container .gt-comment-body {
+  transition-property: color, background;
+  transition-delay: 0s;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+  padding: 0px 3px !important;
 }
