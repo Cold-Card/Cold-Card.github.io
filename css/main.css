@@ -221,7 +221,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'ZCOOL KuaiLe', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'ZCOOL KuaiLe', 'ZCOOL KuaiLe', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 20px 0 15px;
@@ -1078,7 +1078,7 @@ pre .javascript .function {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: 'ZCOOL KuaiLe', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'ZCOOL KuaiLe', 'ZCOOL KuaiLe', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   margin: 0;
@@ -1287,7 +1287,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #50a4ff;
+  background: #cd81cf;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1703,7 +1703,7 @@ pre .javascript .function {
   top: 0;
 }
 .post-body {
-  font-family: 'ZCOOL KuaiLe', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Noto Sans SC', 'ZCOOL KuaiLe', "PingFang SC", "Microsoft YaHei", sans-serif;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
@@ -2001,7 +2001,7 @@ pre .javascript .function {
 }
 .posts-expand .post-meta {
   color: #999;
-  font-family: 'ZCOOL KuaiLe', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Noto Sans SC', 'ZCOOL KuaiLe', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 0.75em;
   margin: 3px 0 60px 0;
   text-align: center;
@@ -3946,7 +3946,8 @@ blockquote.question {
   margin-top: 50px;
   margin-bottom: 50px;
   padding: 25px;
-  box-shadow: 0 0 13px 3px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 0 13px 3px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0 0 13px 3px rgba(0,0,0,0.5);
 }
 .post-sticky-flag {
   color: #a596c6;
