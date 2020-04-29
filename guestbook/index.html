@@ -27,7 +27,7 @@
   <meta name="description" content="给博主留言，尽量填写邮箱地址，方便博主接收以及回复">
 <meta property="og:type" content="website">
 <meta property="og:title" content="留言">
-<meta property="og:url" content="http://coldcard.wang/guestbook/">
+<meta property="og:url" content="https://coldcard.wang/guestbook/">
 <meta property="og:site_name" content="ColdCard的小黑屋">
 <meta property="og:description" content="给博主留言，尽量填写邮箱地址，方便博主接收以及回复">
 <meta property="og:locale" content="zh_CN">
@@ -42,7 +42,7 @@
 <meta property="article:tag" content="Next">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://coldcard.wang/guestbook/">
+<link rel="canonical" href="https://coldcard.wang/guestbook/">
 
 
 <script id="page-configurations">
@@ -689,43 +689,6 @@ translateInitilization();
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '5cb1798a739444534259',
-      clientSecret: '9488309d28c1210630a79809297858d70d20d5a9',
-      repo        : 'Comments',
-      owner       : 'Cold-Card',
-      admin       : ['Cold-Card'],
-      id          : 'ee32b958a1e8378265c129fec3e30bf4',
-        language: 'zh-CN',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
-</script>
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
-    window.dsqjs = new DisqusJS({
-      api       : 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
-      apikey    : 'GwXRbN4w2UOCQM3dvfceKfv1lwPYN6UpXfYiH8zwHG3gUqab8LsOvftLQW1RAEwT',
-      shortname : 'coldcard',
-      url       : "http://coldcard.wang/guestbook/",
-      identifier: "guestbook/index.html",
-      title     : "留言",
-    });
-  }, window.DisqusJS);
-});
-</script>
-
 
 <script>
 NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
@@ -855,6 +818,43 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       } 
     });
   }, window.Valine);
+});
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey    : 'GwXRbN4w2UOCQM3dvfceKfv1lwPYN6UpXfYiH8zwHG3gUqab8LsOvftLQW1RAEwT',
+      shortname : 'coldcard',
+      url       : "https://coldcard.wang/guestbook/",
+      identifier: "guestbook/index.html",
+      title     : "留言",
+    });
+  }, window.DisqusJS);
+});
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '5cb1798a739444534259',
+      clientSecret: '9488309d28c1210630a79809297858d70d20d5a9',
+      repo        : 'Comments',
+      owner       : 'Cold-Card',
+      admin       : ['Cold-Card'],
+      id          : 'ee32b958a1e8378265c129fec3e30bf4',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
 });
 </script>
 
