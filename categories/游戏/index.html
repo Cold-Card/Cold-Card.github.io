@@ -605,7 +605,7 @@ translateInitilization();
       ages = ages.replace(/minutes?/, "分");
       ages = ages.replace(/seconds?/, "秒");
       ages = ages.replace(/\d+/g, '<span style="color:#C399FC">$&</span>');
-      div.innerHTML = `本站已运行 ${ages}`;
+      div.innerHTML = `已运行 ${ages}`;
     }
     var div = document.createElement("div");
     //插入到copyright之后
