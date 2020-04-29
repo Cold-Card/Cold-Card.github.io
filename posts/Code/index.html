@@ -21,7 +21,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"coldcard.wang","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"hide","padding":30,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#3c3c3c","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":"disqusjs","storage":true,"lazyload":false,"nav":{"disqusjs":{"text":"Disqus评论","order":-2},"valine":{"text":"Valine评论","order":-1},"gitalk":{"text":"Gitalk评论","order":-3}},"activeClass":"disqusjs"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"expandIn","post_header":"expandIn","post_body":"expandIn","coll_header":"expandIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"coldcard.wang","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"hide","padding":30,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#3c3c3c","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":"valine","storage":true,"lazyload":false,"nav":{"disqusjs":{"text":"Valine评论","order":-2},"valine":{"text":"Gitalk评论","order":-1}},"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"expandIn","post_header":"expandIn","post_body":"expandIn","coll_header":"expandIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="对于这个博客来说，我在它身上花了太多时间，为了以后方便，写出更美观的文章，我特意整理了一下自己博客现有及可用的样式代码。总的来说，这篇文章对我是十分重要的一篇教程，对于他人是可借鉴可无视的一篇文章">
@@ -797,24 +797,14 @@
           </div>
           
       <div class="comment-button-group">
-          <a class="btn comment-button gitalk">Gitalk评论</a>
-          <a class="btn comment-button disqusjs">Disqus评论</a>
-          <a class="btn comment-button valine">Valine评论</a>
+          <a class="btn comment-button valine">Gitalk评论</a>
+          <a class="btn comment-button gitalk">gitalk</a>
       </div>
-        <div class="comment-position gitalk">
-          <div class="comments" id="gitalk-container"></div>
-        </div>
-        <div class="comment-position disqusjs">
-          
-  <div class="comments">
-    <div id="disqus_thread">
-      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-    </div>
-  </div>
-  
-        </div>
         <div class="comment-position valine">
           <div class="comments" id="valine-comments"></div>
+        </div>
+        <div class="comment-position gitalk">
+          <div class="comments" id="gitalk-container"></div>
         </div>
       <script>
         (function() {
@@ -1226,6 +1216,26 @@ translateInitilization();
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '5cb1798a739444534259',
+      clientSecret: '9488309d28c1210630a79809297858d70d20d5a9',
+      repo        : 'Comments',
+      owner       : 'Cold-Card',
+      admin       : ['Cold-Card'],
+      id          : '0d631ecbbdeb4c390a9e76e764287757',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
 
 <script>
 NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
@@ -1355,43 +1365,6 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       } 
     });
   }, window.Valine);
-});
-</script>
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '5cb1798a739444534259',
-      clientSecret: '9488309d28c1210630a79809297858d70d20d5a9',
-      repo        : 'Comments',
-      owner       : 'Cold-Card',
-      admin       : ['Cold-Card'],
-      id          : '0d631ecbbdeb4c390a9e76e764287757',
-        language: 'zh-CN',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
-</script>
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
-    window.dsqjs = new DisqusJS({
-      api       : 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
-      apikey    : 'GwXRbN4w2UOCQM3dvfceKfv1lwPYN6UpXfYiH8zwHG3gUqab8LsOvftLQW1RAEwT',
-      shortname : 'coldcard',
-      url       : "https://coldcard.wang/posts/Code/",
-      identifier: "posts/Code/",
-      title     : "博客样式代码（写予自己的一篇教程）",
-    });
-  }, window.DisqusJS);
 });
 </script>
 
