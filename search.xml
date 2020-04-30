@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Maya-Arnold（阿诺德）渲染器插件替换破解</title>
+    <url>/posts/Arnold/</url>
+    <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title=" 介绍 "></a><center> 介绍 <center></h1><div class="note default no-icon">
+
+<p>  插件版本：<strong>v4.0.2</strong><br>  插件适用版本：<strong>Maya 2018/2019/2020 （Windows）</strong><br>  <strong>适用于没有订购阿诺德许可，而在<a href="https://knowledge.autodesk.com/zh-hans/support/maya/troubleshooting/caas/sfdcarticles/sfdcarticles/CHS/Batch-Rendering-on-one-machine-with-Arnold-produces-Watermark.html" target="_blank" rel="noopener">进行“批渲染”时有水印</a>以及其他问题</strong><br>  <strong>如果Maya已有阿诺德渲染器，只需下载替换文件，直接进行替换破解就行</strong></p>
+</div>
+
+<div class="note info no-icon">
+
+<p>  <strong>小贴士：不使用批渲染，而使用<a href="https://knowledge.autodesk.com/zh-hans/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2017/CHS/Maya/files/GUID-79387725-EE83-4383-90E2-4BAE28B4EA4C-htm.html" target="_blank" rel="noopener">渲染序列</a>不会出现水印</strong></p>
+</div>
+
+<a id="more"></a>
+
+<hr>
+<h1 id="教程"><a href="#教程" class="headerlink" title=" 教程 "></a><center> 教程 <center></h1><p><span id="div-border-left-yellow"><span id="inline-yellow">1</span> <strong>下载对应版本</strong><br><span id="inline-yellow">2</span> <strong>启动 <code>exe</code> 文件，安装阿诺德渲染器插件</strong> <span class="label danger">已有插件的请跳过</span><br><span id="inline-yellow">3</span> <strong>将 <code>ai.dll</code> 文件移至 <code>系统盘:\solidangle\mtoadeploy\Maya版本\bin</code> 替换</strong><br><span id="inline-yellow">4</span> <strong>重启Maya</strong></span></p>
+<p><span id="div-border-left-red"><strong>如果 <code>mtoadeploy</code> 文件内没有对应的Maya版本</strong><em>（我的Maya2020就没有，可能我没有安装到系统盘）</em><strong>或者没有破解效果，可以去 <code>系统盘:\Program Files\Autodesk\Arnold</code> 中找Maya版本进行替换</strong></span></p>
+<hr>
+<h1 id="下载"><a href="#下载" class="headerlink" title=" 下载 "></a><center> 下载 <center></h1><p><span id="div-border-top-purple"><strong>Arnold 2018：</strong><a href="https://hostlocmjj-my.sharepoint.com/:u:/g/personal/1526555253_uoe_men/ESY9svWkJTJJpZCu0cmoQoYBz_GCGbipcH0EHo8fYaKRSw?e=6H39et" target="_blank" rel="noopener">Onedrive</a> —— <a href="https://drive.google.com/open?id=1FX4YsPcd2lp-APDUYKp6FYF92WkrghQM" target="_blank" rel="noopener">DoogleDrive</a> —— <a href="https://pan.baidu.com/s/1_-V0DqjuNAOlX8QOwg3Zfw" target="_blank" rel="noopener">百度网盘</a><em>（提取码：v7f9）</em><br><strong>Arnold 2019：</strong><a href="https://hostlocmjj-my.sharepoint.com/:u:/g/personal/1526555253_uoe_men/EQX4lsCmwVlOkGo3Tbh5QUQBOfiNi8ixQfJMR2Q_aBX9uA?e=3WvZVt" target="_blank" rel="noopener">Onedrive</a> —— <a href="https://drive.google.com/open?id=1zy4lm46saA37KXsSA4OlypEP-H9XMsHt" target="_blank" rel="noopener">DoogleDrive</a> —— <a href="https://pan.baidu.com/s/1stSMivcr33UCFd_m_Cz24g" target="_blank" rel="noopener">百度网盘</a><em>（提取码：phja）</em><br><strong>Arnold 2020：</strong><a href="https://hostlocmjj-my.sharepoint.com/:u:/g/personal/1526555253_uoe_men/ERGexL3UuKlMsc666a-7tJEB3eZwdK0Aj1wI3FEVAX86cg?e=lkZyyt" target="_blank" rel="noopener">Onedrive</a> —— <a href="https://drive.google.com/open?id=1pY0b_nu56qyKtmPBS_XUwv9lfajhcMXa" target="_blank" rel="noopener">DoogleDrive</a> —— <a href="https://pan.baidu.com/s/1UWM9HITj0-U5OAlFO_5zNw" target="_blank" rel="noopener">百度网盘</a><em>（提取码：m8an）</em><br><strong>替换文件：</strong><a href="https://hostlocmjj-my.sharepoint.com/:u:/g/personal/1526555253_uoe_men/EdQoFEaLE8xMgROrtLGiKVcBuEB6PMw7RKmjr0xI3CnjnQ?e=f8lGiV" target="_blank" rel="noopener">Onedrive</a> —— <a href="https://drive.google.com/open?id=10H0FnJoWFsoNytCXcG00uWJ_8bxiRbkW" target="_blank" rel="noopener">DoogleDrive</a> —— <a href="https://pan.baidu.com/s/1TMepAGKQLIlr2ejFczHWDQ" target="_blank" rel="noopener">百度网盘</a><em>（提取码：rfd9）</em></span></p>
+]]></content>
+      <categories>
+        <category>软件</category>
+        <category>Maya</category>
+      </categories>
+      <tags>
+        <tag>Maya</tag>
+        <tag>Arnold</tag>
+        <tag>阿诺德</tag>
+        <tag>软件</tag>
+        <tag>插件</tag>
+        <tag>破解</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Minecraft-Hypixel-BedWars日志</title>
     <url>/posts/Hypixel_BedWars/</url>
     <content><![CDATA[<p><img src="https://hypixel.net/styles/hypixel-uix/hypixel/logo2.png" alt=""></p>
@@ -347,40 +381,6 @@
         <tag>游戏</tag>
         <tag>Minecraft</tag>
         <tag>Hypixel</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Maya-Arnold（阿诺德）渲染器插件替换破解</title>
-    <url>/posts/Arnold/</url>
-    <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title=" 介绍 "></a><center> 介绍 <center></h1><div class="note default no-icon">
-
-<p>  插件版本：<strong>v4.0.2</strong><br>  插件适用版本：<strong>Maya 2018/2019/2020 （Windows）</strong><br>  <strong>适用于没有订购阿诺德许可，而在<a href="https://knowledge.autodesk.com/zh-hans/support/maya/troubleshooting/caas/sfdcarticles/sfdcarticles/CHS/Batch-Rendering-on-one-machine-with-Arnold-produces-Watermark.html" target="_blank" rel="noopener">进行“批渲染”时有水印</a>以及其他问题</strong><br>  <strong>如果Maya已有阿诺德渲染器，只需下载替换文件，直接进行替换破解就行</strong></p>
-</div>
-
-<div class="note info no-icon">
-
-<p>  <strong>小贴士：不使用批渲染，而使用<a href="https://knowledge.autodesk.com/zh-hans/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2017/CHS/Maya/files/GUID-79387725-EE83-4383-90E2-4BAE28B4EA4C-htm.html" target="_blank" rel="noopener">渲染序列</a>不会出现水印</strong></p>
-</div>
-
-<a id="more"></a>
-
-<hr>
-<h1 id="教程"><a href="#教程" class="headerlink" title=" 教程 "></a><center> 教程 <center></h1><p><span id="div-border-left-yellow"><span id="inline-yellow">1</span> <strong>下载对应版本</strong><br><span id="inline-yellow">2</span> <strong>启动 <code>exe</code> 文件，安装阿诺德渲染器插件</strong> <span class="label danger">已有插件的请跳过</span><br><span id="inline-yellow">3</span> <strong>将 <code>ai.dll</code> 文件移至 <code>系统盘:\solidangle\mtoadeploy\Maya版本\bin</code> 替换</strong><br><span id="inline-yellow">4</span> <strong>重启Maya</strong></span></p>
-<p><span id="div-border-left-red"><strong>如果 <code>mtoadeploy</code> 文件内没有对应的Maya版本</strong><em>（我的Maya2020就没有，可能我没有安装到系统盘）</em><strong>或者没有破解效果，可以去 <code>系统盘:\Program Files\Autodesk\Arnold</code> 中找Maya版本进行替换</strong></span></p>
-<hr>
-<h1 id="下载"><a href="#下载" class="headerlink" title=" 下载 "></a><center> 下载 <center></h1><p><span id="div-border-top-purple"><strong>Arnold 2018：</strong><a href="https://hostlocmjj-my.sharepoint.com/:u:/g/personal/1526555253_uoe_men/ESY9svWkJTJJpZCu0cmoQoYBz_GCGbipcH0EHo8fYaKRSw?e=6H39et" target="_blank" rel="noopener">Onedrive</a> —— <a href="https://drive.google.com/open?id=1FX4YsPcd2lp-APDUYKp6FYF92WkrghQM" target="_blank" rel="noopener">DoogleDrive</a> —— <a href="https://pan.baidu.com/s/1_-V0DqjuNAOlX8QOwg3Zfw" target="_blank" rel="noopener">百度网盘</a><em>（提取码：v7f9）</em><br><strong>Arnold 2019：</strong><a href="https://hostlocmjj-my.sharepoint.com/:u:/g/personal/1526555253_uoe_men/EQX4lsCmwVlOkGo3Tbh5QUQBOfiNi8ixQfJMR2Q_aBX9uA?e=3WvZVt" target="_blank" rel="noopener">Onedrive</a> —— <a href="https://drive.google.com/open?id=1zy4lm46saA37KXsSA4OlypEP-H9XMsHt" target="_blank" rel="noopener">DoogleDrive</a> —— <a href="https://pan.baidu.com/s/1stSMivcr33UCFd_m_Cz24g" target="_blank" rel="noopener">百度网盘</a><em>（提取码：phja）</em><br><strong>Arnold 2020：</strong><a href="https://hostlocmjj-my.sharepoint.com/:u:/g/personal/1526555253_uoe_men/ERGexL3UuKlMsc666a-7tJEB3eZwdK0Aj1wI3FEVAX86cg?e=lkZyyt" target="_blank" rel="noopener">Onedrive</a> —— <a href="https://drive.google.com/open?id=1pY0b_nu56qyKtmPBS_XUwv9lfajhcMXa" target="_blank" rel="noopener">DoogleDrive</a> —— <a href="https://pan.baidu.com/s/1UWM9HITj0-U5OAlFO_5zNw" target="_blank" rel="noopener">百度网盘</a><em>（提取码：m8an）</em><br><strong>替换文件：</strong><a href="https://hostlocmjj-my.sharepoint.com/:u:/g/personal/1526555253_uoe_men/EdQoFEaLE8xMgROrtLGiKVcBuEB6PMw7RKmjr0xI3CnjnQ?e=f8lGiV" target="_blank" rel="noopener">Onedrive</a> —— <a href="https://drive.google.com/open?id=10H0FnJoWFsoNytCXcG00uWJ_8bxiRbkW" target="_blank" rel="noopener">DoogleDrive</a> —— <a href="https://pan.baidu.com/s/1TMepAGKQLIlr2ejFczHWDQ" target="_blank" rel="noopener">百度网盘</a><em>（提取码：rfd9）</em></span></p>
-]]></content>
-      <categories>
-        <category>软件</category>
-        <category>Maya</category>
-      </categories>
-      <tags>
-        <tag>Maya</tag>
-        <tag>Arnold</tag>
-        <tag>阿诺德</tag>
-        <tag>软件</tag>
-        <tag>插件</tag>
-        <tag>破解</tag>
       </tags>
   </entry>
   <entry>
