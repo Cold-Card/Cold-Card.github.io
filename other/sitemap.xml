@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://coldcard.wang/other/</loc>
+    
+    <lastmod>2020-05-01T12:47:04.876Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://coldcard.wang/guestbook/</loc>
     
-    <lastmod>2020-04-29T09:35:47.914Z</lastmod>
+    <lastmod>2020-05-01T12:23:40.500Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://coldcard.wang/about/</loc>
+    
+    <lastmod>2020-05-01T12:12:33.801Z</lastmod>
     
   </url>
   
@@ -19,13 +33,6 @@
     <loc>https://coldcard.wang/posts/Arnold/</loc>
     
     <lastmod>2020-04-29T07:52:41.099Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://coldcard.wang/about/</loc>
-    
-    <lastmod>2020-04-28T06:55:57.972Z</lastmod>
     
   </url>
   
@@ -124,13 +131,6 @@
     <loc>https://coldcard.wang/tags/</loc>
     
     <lastmod>2020-04-25T10:16:46.138Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://coldcard.wang/other/</loc>
-    
-    <lastmod>2020-04-25T10:16:24.059Z</lastmod>
     
   </url>
   
