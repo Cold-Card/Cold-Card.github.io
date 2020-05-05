@@ -2,9 +2,65 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://coldcard.wang/posts/Hexo_Updata(2020.04.17)/</loc>
+    
+    <lastmod>2020-05-05T10:09:49.784Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://coldcard.wang/other/schedule/</loc>
+    
+    <lastmod>2020-05-04T06:30:23.304Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://coldcard.wang/other/picture/</loc>
+    
+    <lastmod>2020-05-04T06:30:08.054Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://coldcard.wang/other/</loc>
+    
+    <lastmod>2020-05-04T06:29:51.842Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://coldcard.wang/guestbook/</loc>
+    
+    <lastmod>2020-05-04T06:29:36.910Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://coldcard.wang/404</loc>
+    
+    <lastmod>2020-05-04T03:56:55.088Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://coldcard.wang/posts/Code/</loc>
+    
+    <lastmod>2020-05-03T17:01:28.702Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://coldcard.wang/about/</loc>
     
-    <lastmod>2020-05-01T15:13:44.764Z</lastmod>
+    <lastmod>2020-05-03T11:53:04.458Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://coldcard.wang/posts/Imbox/</loc>
+    
+    <lastmod>2020-05-03T11:50:38.649Z</lastmod>
     
   </url>
   
@@ -19,27 +75,6 @@
     <loc>https://coldcard.wang/posts/Battlefield_2/</loc>
     
     <lastmod>2020-05-01T14:48:17.862Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://coldcard.wang/other/</loc>
-    
-    <lastmod>2020-05-01T12:47:04.876Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://coldcard.wang/guestbook/</loc>
-    
-    <lastmod>2020-05-01T12:23:40.500Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://coldcard.wang/404</loc>
-    
-    <lastmod>2020-04-29T07:55:32.236Z</lastmod>
     
   </url>
   
@@ -100,20 +135,6 @@
   </url>
   
   <url>
-    <loc>https://coldcard.wang/posts/Imbox/</loc>
-    
-    <lastmod>2020-04-27T04:39:13.341Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://coldcard.wang/posts/Code/</loc>
-    
-    <lastmod>2020-04-27T04:39:06.638Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://coldcard.wang/posts/OVERLORD_1/</loc>
     
     <lastmod>2020-04-27T04:36:18.557Z</lastmod>
@@ -121,23 +142,9 @@
   </url>
   
   <url>
-    <loc>https://coldcard.wang/other/picture/</loc>
-    
-    <lastmod>2020-04-25T10:35:34.862Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://coldcard.wang/tags/</loc>
     
     <lastmod>2020-04-25T10:16:46.138Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://coldcard.wang/other/schedule/</loc>
-    
-    <lastmod>2020-04-25T10:16:10.092Z</lastmod>
     
   </url>
   
