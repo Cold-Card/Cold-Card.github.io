@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">var defaultEncoding = 2; // 网站默认语言，1: 繁體中文, 2: 简体中文
+var defaultEncoding = 2; // 网站默认语言，1: 繁體中文, 2: 简体中文
 var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
 var cookieDomain = "https://ColdCard.wang"; //更改为你的博客网址
 var msgToTraditionalChinese = "简体"; //此处可以更改为你想要显示的文字
