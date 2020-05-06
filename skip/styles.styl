@@ -1,3 +1,6 @@
+// 修改日期 2020.05.06
+
+
 del {
     text-decoration-color: #6db8ff;
     text-decoration-style: double;
@@ -1980,7 +1983,7 @@ body, .post-block, .comments {
     padding: 0px 3px !important;
 }
 //徽章
-.version {
+.shields {
     display: inline;
     margin: 6px 6px;
 }
@@ -1995,4 +1998,19 @@ body, .post-block, .comments {
 #footnotes {
     font-weight: 300 !important;
 }
+//404.html
+.notfound > span {
+    &:hover {
+        font-size: 1.1em
+        font-weight: bold
+    }
+}
+@media (min-width: 767px)
+    .notfound {
+        margin: auto 5%
+    }
+@media (max-width: 767px)
+    .notfound {
+        font-size: 0.7em
+    }
 

@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://coldcard.wang/404</loc>
+    
+    <lastmod>2020-05-06T12:30:22.774Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://coldcard.wang/posts/Hexo_Updata(2020.04.17)/</loc>
     
-    <lastmod>2020-05-06T05:00:28.698Z</lastmod>
+    <lastmod>2020-05-06T12:28:00.204Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://coldcard.wang/posts/Code/</loc>
+    
+    <lastmod>2020-05-06T06:03:41.257Z</lastmod>
     
   </url>
   
@@ -33,20 +47,6 @@
     <loc>https://coldcard.wang/guestbook/</loc>
     
     <lastmod>2020-05-04T06:29:36.910Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://coldcard.wang/404</loc>
-    
-    <lastmod>2020-05-04T03:56:55.088Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://coldcard.wang/posts/Code/</loc>
-    
-    <lastmod>2020-05-03T17:01:28.702Z</lastmod>
     
   </url>
   
