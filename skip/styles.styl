@@ -1,4 +1,4 @@
-// 2020.05.06
+// 2020.05.07
 
 
 del {
@@ -2022,3 +2022,158 @@ body, .post-block, .comments {
         font-size: 0.7em
     }
 
+//折叠
+//color
+$color-mac-blue = #6483a5
+$color-mac-blue1 = #284c73
+$color-mac-cyan = #6c9aa3
+$color-mac-cyan1 = #275963
+$color-mac-green = #9ab59d
+$color-mac-green1 = #336b39
+$color-mac-yellow = #afa37d
+$color-mac-yellow1 = #6b5b28
+$color-mac-red = #b78f8f
+$color-mac-red1 = #692929
+// transition time
+$time = 0.5s
+
+details {
+    display: block
+    margin: 1rem 0
+    border-top-left-radius: 2px
+    border-top-right-radius: 2px
+    background: #282828
+    font-size: 0.9em
+    transition: all $time ease
+    -moz-transition: all $time ease
+    -webkit-transition: all $time ease
+    -o-transition: all $time ease
+    box-shadow: 0px 0 13px 3px rgba(0,0,0,0.5);
+    border-bottom: 6px dashed #181818;
+
+    summary {
+        cursor: pointer;
+        border-top-left-radius: 2px
+        border-top-right-radius: 2px
+        padding: 10px
+        outline: none;
+        font-weight: bold
+        position: relative
+        line-height: normal
+        color: #ccc
+        &:hover {
+            color: #000000
+            &:after {
+                position: absolute
+                color: #fff
+                content: '+'
+                text-align: center
+                top: 50%
+                transform: translateY(-50%)
+                right: 16px
+            }
+        }
+        >p, h1, h2, h3, h4, h5, h6 {
+            display: inline !important
+            border-bottom: none !important
+        }
+    }
+    &[blue] {
+        border-color: $color-mac-blue
+        > summary {
+            background:$color-mac-blue
+        }
+    }
+    &[cyan] {
+        border-color:$color-mac-cyan
+        > summary {
+            background:$color-mac-cyan
+        }
+    }
+    &[green] {
+        border-color:$color-mac-green
+        > summary {
+            background:$color-mac-green
+        }
+    }
+    &[yellow] {
+        border-color:$color-mac-yellow
+        > summary {
+            background:$color-mac-yellow
+        }
+    }
+    &[red] {
+        border-color:$color-mac-red
+        > summary {
+            background:$color-mac-red
+        }
+    }
+}
+details[open] {
+    > summary {
+        border-bottom: 4px solid #3e3e3e
+        color: #555
+        margin-bottom: 0
+        &:hover {
+            &:after {
+                content: '-'
+            }
+        }
+    }
+    &[blue] {
+        border-color: #181818
+        > summary {
+            border-bottom: 4px solid $color-mac-blue1
+        }
+    }
+    &[cyan] {
+        border-color: #181818
+        > summary {
+            border-bottom: 4px solid $color-mac-cyan1
+        }
+    }
+    &[green] {
+        border-color: #181818
+        > summary{
+            border-bottom: 4px solid $color-mac-green1
+        }
+    }
+    &[yellow] {
+        border-color: #181818
+        > summary {
+            border-bottom: 4px solid $color-mac-yellow1
+        }
+    }
+    &[red] {
+        border-color: #181818 
+        > summary {
+            border-bottom: 4px solid $color-mac-red1
+        }
+    }
+    > div.content {
+        padding: 16px
+        margin-top: 0
+    }
+}
+@media (prefers-color-scheme: light)
+    details {
+        background: #f7f7f7
+        border-bottom: none;
+        box-shadow: 0px 0 13px 3px rgba(0,0,0,0.3);
+        summary {
+            color: #000
+            &:hover {
+                color: #ccc
+                &:after {
+                    color: #000
+                }
+            }
+        }
+    }
+    details[open] {
+        > summary {
+            color: #555
+            border-bottom: 4px solid #e0e0e0
+        }
+    }
+    

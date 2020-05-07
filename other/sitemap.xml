@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://coldcard.wang/posts/Code/</loc>
+    
+    <lastmod>2020-05-07T18:29:25.911Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://coldcard.wang/posts/Hexo_Updata(2020.04.17)/</loc>
     
-    <lastmod>2020-05-06T16:19:33.975Z</lastmod>
+    <lastmod>2020-05-07T18:18:24.288Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://coldcard.wang/posts/OVERLORD_2/</loc>
+    
+    <lastmod>2020-05-07T18:06:24.384Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://coldcard.wang/posts/OVERLORD_1/</loc>
+    
+    <lastmod>2020-05-07T18:03:22.393Z</lastmod>
     
   </url>
   
@@ -12,13 +33,6 @@
     <loc>https://coldcard.wang/404</loc>
     
     <lastmod>2020-05-06T12:30:22.774Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://coldcard.wang/posts/Code/</loc>
-    
-    <lastmod>2020-05-06T06:03:41.257Z</lastmod>
     
   </url>
   
@@ -100,13 +114,6 @@
   </url>
   
   <url>
-    <loc>https://coldcard.wang/posts/OVERLORD_2/</loc>
-    
-    <lastmod>2020-04-27T16:30:44.313Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://coldcard.wang/posts/SteamDB/</loc>
     
     <lastmod>2020-04-27T15:24:25.003Z</lastmod>
@@ -131,13 +138,6 @@
     <loc>https://coldcard.wang/posts/Steam_Warning/</loc>
     
     <lastmod>2020-04-27T04:39:14.637Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://coldcard.wang/posts/OVERLORD_1/</loc>
-    
-    <lastmod>2020-04-27T04:36:18.557Z</lastmod>
     
   </url>
   
