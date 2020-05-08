@@ -1287,7 +1287,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff95ff;
+  background: #8ea3f0;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3945,6 +3945,9 @@ blockquote.question {
   hr {
     background-image: repeating-linear-gradient(-45deg, #f76c6c, #b2b2b2 4px, transparent 4px, transparent 8px);
   }
+  .atss .at-share-btn .at-icon-wrapper {
+    background-color: #fff !important;
+  }
 }
 @media (prefers-color-scheme: light) and (max-width: 767px) {
   .pagination .page-number.current {
@@ -3956,6 +3959,19 @@ blockquote.question {
   .pagination .page-number:hover {
     border-bottom-color: #000;
   }
+}
+.atss .at-share-btn .at-icon-wrapper {
+  transition-property: color, background;
+  transition-delay: 0s;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+}
+#at4-share,
+#at4-soc {
+  box-shadow: 0 0 13px 3px rgba(0,0,0,0.5);
+}
+.atss .at-share-btn:hover {
+  box-shadow: 0 0 13px 3px rgba(0,0,0,0.5);
 }
 ::-webkit-scrollbar {
   width: 10px;
