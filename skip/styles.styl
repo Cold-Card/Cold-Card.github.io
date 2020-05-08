@@ -1,4 +1,4 @@
-// 2020.05.07
+// 2020.05.09
 
 
 del {
@@ -464,10 +464,8 @@ border-radius: 3px;
 // 标题
 .posts-expand .post-title {
     font-weight: bold;
-    transition-property: border,color,background;
-    transition-duration: 0.2s;
+    transition: border 0.2s,color 1s,background 1s;
     transition-timing-function: ease-in-out;
-    transition-delay: 0s;
     &:hover {
         border-left: 15px solid;
     }
@@ -1706,9 +1704,7 @@ a {
 // 菜单超链接样式
 .menu .menu-item a {
     padding: 3px 5px;
-    transition-property: padding,color,background;
-    transition-delay: 0s;
-    transition-duration: 0.2s;
+    transition: padding 0.2s,color 1s,background 1s;
     transition-timing-function: ease-in-out;
     &:hover {
         padding: 3px 10px;
@@ -1722,14 +1718,12 @@ a {
 }
 // 站点名背景
 .brand{
-    transition-property: padding,font-size,color,background;
-    transition-delay: 0s;
-    transition-duration: 0.3s;
+    transition: padding 0.3s,font-size 0.3s,color 1s,background 1s;
     transition-timing-function: ease-in-out;
     box-shadow: 0 0 13px 3px rgba(0, 0, 0, 0.5);
     &:hover {
-        font-size: 1.5em;
-        padding: 10px 50px;
+        font-size: 1.1em;
+        padding: 5px 50px;
         box-shadow: inset 0px 0 13px 3px rgba(0,0,0,0.5)
     }
 }
@@ -2176,4 +2170,71 @@ details[open] {
             border-bottom: 4px solid #e0e0e0
         }
     }
-    
+//日程
+.event-list hr::after, .event-list hr, .event-list .event, .event-list .event .event-details, .event-list .event .event-details::before, .event-list .event .event-summary {
+    transition: color 1s ease-in-out,background 1s ease-in-out,margin 0.2s ease-in-out;
+}
+.event-list hr::after {
+    content: '未来一周';
+}
+.event-list hr {
+    &::after {
+        box-shadow: 0px 0 13px 3px rgba(0,0,0,0.3);
+    }
+}
+.event-list .event {
+    box-shadow: 0px 0 13px 3px rgba(0,0,0,0.3);
+    &:hover {
+        margin: 20px -12px
+    }
+    .event-details {
+        padding-top: 6px
+    }
+}
+@media (prefers-color-scheme: light)
+    .event-list hr {
+        background: #fff;
+        &::after {
+            background: #fff;
+            color: #3f3f3f
+        }
+    }
+    .event-list .event {
+        background: #fff;
+        .event-summary {
+            color: #000
+            &::before {
+                color: #3f3f3f
+            }
+        }
+        .event-details {
+            color: #3f3f3f
+            &::before {
+                color: #828282
+            }
+        }
+        .event-relative-time {
+            color: #b1b1b1
+        }
+    }
+@media (prefers-color-scheme: dark)
+    .event-list hr {
+        background: #222;
+        &::after {
+            background: #222;
+        }
+    }
+    .event-list .event {
+        background: #222;
+        .event-summary {
+        }
+        .event-details {
+            color: #c9c9c9
+            &::before {
+                color: #ccc
+            }
+        }
+        .event-relative-time {
+            color: #6b6b6b
+        }
+    }
