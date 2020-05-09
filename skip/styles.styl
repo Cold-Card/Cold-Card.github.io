@@ -1072,10 +1072,10 @@ blockquote.question {
 
     //归档
     .posts-collapse .post-header {
-        background-color: rgba(27, 27, 27, 0.5);
+        background-color: rgb(27, 27, 27);
         box-shadow: inset 0px 0 13px 3px rgba(0,0,0,0.5)
         &:hover {
-            background-color: rgba(27, 27, 27, 1);
+            background-color: rgb(27, 27, 27);
             box-shadow: 0 0 13px 3px rgba(0,0,0,0.5)        
         }
     }
@@ -1324,12 +1324,15 @@ blockquote.question {
     }
     //归档
     .posts-collapse .post-header {
-        background-color: rgba(255,255,255,0.5);
+        background-color: rgb(255,255,255);
         box-shadow: inset 0px 0 13px 3px rgba(0,0,0,0.3)
         &:hover {
-            background-color: rgba(255,255,255,1);
+            background-color: rgb(255,255,255);
             box-shadow: 0 0 13px 3px rgba(0,0,0,0.3)        
         }
+    }
+    .posts-collapse::before {
+        background: #b7b7b7;
     }
     // 文章底部页面跳转
     .post-nav-item a {
@@ -1660,15 +1663,17 @@ a {
 .posts-collapse .post-header {
     border-bottom: none;
     font-size: 15px;
-    transition-property: font-size,margin,color,background;
-    transition-delay: 0s;
-    transition-duration: 0.2s;
+    transition: font-size 0.2s,margin 0.2s,color 1s,background 1s;
     transition-timing-function: ease-in-out;
     &:hover {
         font-weight: bold;
         font-size: 1.6em;
         margin-right: -40px;
     }
+}
+.posts-collapse::before {
+    transition: background 1s;
+    transition-timing-function: ease-in-out;
 }
 //评论
 .comments {
