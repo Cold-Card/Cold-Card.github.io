@@ -7,6 +7,7 @@ Allow: /about/
 Allow: /guestbook/
 Allow: /other/schedule/
 Allow: /other/picture/
+Allow: /other/styles/
 Allow: /other/
 Disallow: /vendors/
 Disallow: /js/
