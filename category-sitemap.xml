@@ -8,22 +8,22 @@
     </url>
 
     <url>
-        <loc>https://coldcard.wang/categories/Anime/</loc>
-        <lastmod>2020-05-10T13:00:51.282Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://coldcard.wang/categories/Hexo/Updata/</loc>
-        <lastmod>2020-05-09T14:45:20.612Z</lastmod>
+        <lastmod>2020-05-12T11:07:29.750Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://coldcard.wang/categories/Hexo/</loc>
-        <lastmod>2020-05-09T14:45:20.612Z</lastmod>
+        <lastmod>2020-05-12T11:07:29.750Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/categories/Anime/</loc>
+        <lastmod>2020-05-10T13:00:51.282Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

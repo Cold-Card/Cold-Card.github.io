@@ -1,4 +1,4 @@
-// 2020.05.11
+// 2020.05.12
 
 
 del {
@@ -2203,20 +2203,59 @@ details[open] {
     }
     .event-list .event {
         background: #fff;
+        //标题
         .event-summary {
-            color: #000
+            color: #727272
             &::before {
-                color: #3f3f3f
+                color: #727272
             }
         }
+        //详情
         .event-details {
-            color: #3f3f3f
+            color: #727272
             &::before {
                 color: #828282
             }
         }
+        //时间
         .event-relative-time {
             color: #b1b1b1
+        }
+    }
+    //现在
+    .event-list .event-now {
+        //标题
+        .event-summary {
+            color: #b189dd
+            &::before {
+                color: #b189dd
+            }
+        }
+        //详情
+        .event-details {
+            color: #b189dd
+            &::before {
+                color: #b189dd
+            }
+        }
+        //时间
+        .event-relative-time {
+            color: #b189dd
+        }
+
+    }
+    //上一个
+    .event-list .event-past {
+        //标题
+        .event-summary {
+            opacity: 0.5;
+            &::before {
+                opacity: 0.5;
+            }
+        }
+        //详情
+        .event-details {
+            opacity: 0.5;
         }
     }
 @media (prefers-color-scheme: dark)
@@ -2228,16 +2267,56 @@ details[open] {
     }
     .event-list .event {
         background: #222;
+        //标题
         .event-summary {
+            color: #c9c9c9;
         }
+        //详情
         .event-details {
-            color: #c9c9c9
+            color: #ababab
             &::before {
                 color: #ccc
             }
         }
+        //时间
         .event-relative-time {
             color: #6b6b6b
+        }
+    }
+    //现在
+    .event-list .event-now {
+        //标题
+        .event-summary {
+            color: #fff;
+            &::before {
+                color: #b189dd
+            }
+        }
+        //详情
+        .event-details {
+            color: #c9c9c9;
+            &::before {
+                color: #b189dd
+            }
+        }
+        //时间
+        .event-relative-time {
+            color: #b189dd
+        }
+
+    }
+    //上一个
+    .event-list .event-past {
+        //标题
+        .event-summary {
+            opacity: 0.5;
+            &::before {
+                opacity: 0.5;
+            }
+        }
+        //详情
+        .event-details {
+            opacity: 0.5;
         }
     }
 //全站图片
