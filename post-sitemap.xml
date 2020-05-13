@@ -8,8 +8,24 @@
     </url>
 
     <url>
+        <loc>https://ColdCard.wang/posts/Hexo_Updata(2020.05.13)/</loc>
+        <lastmod>2020-05-13T11:02:05.452Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://ColdCard.wang/posts/Hexo_Updata(2020.04.17)/</loc>
-        <lastmod>2020-05-12T11:07:29.750Z</lastmod>
+        <lastmod>2020-05-13T10:47:47.999Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://ColdCard.wang/posts/Code/</loc>
+        <lastmod>2020-05-13T09:35:45.039Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -18,14 +34,6 @@
     <url>
         <loc>https://ColdCard.wang/posts/Anime/</loc>
         <lastmod>2020-05-10T13:00:51.282Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://ColdCard.wang/posts/Code/</loc>
-        <lastmod>2020-05-09T05:17:28.390Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

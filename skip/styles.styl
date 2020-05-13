@@ -1,4 +1,4 @@
-// 2020.05.12
+// 2020.05.13
 
 
 del {
@@ -137,6 +137,7 @@ span#inline-gray {
 } 
 
 a#download { 
+    font-family: 'ZCOOL KuaiLe'
     display: inline-block; 
     padding: 0 10px; 
     color: #000; 
@@ -152,6 +153,7 @@ a#download {
 } 
 
 a#youtube { 
+    font-family: 'ZCOOL KuaiLe'
     display: inline-block; 
     padding: 0 10px; 
     color: #FF0000; 
@@ -167,6 +169,7 @@ a#youtube {
 } 
 
 a#bilibili { 
+    font-family: 'ZCOOL KuaiLe'
     display: inline-block; 
     padding: 0 10px; 
     color: #4682B4; 
@@ -671,6 +674,8 @@ text-rendering: auto;
     color: #aaaaaa
 }
 .reward-container button {
+    border: 2px solid #4e4e4e;
+    color: #b8a6f0
     background: #4e4e4e;
     border-radius: 3px;
     transition-duration: 0.3s;
@@ -754,24 +759,31 @@ text-rendering: auto;
 
 
 // 文章```代码块diff样式
-pre .addition {
+pre .hljs-addition {
+    transition: color 1s,background 1s;
+    transition-timing-function: ease-in-out;
     color: #6eff6e;
     background: #4e4e4e;
 }
-pre .deletion {
-    color: #ff6262;
+pre .hljs-deletion {
+    transition: color 1s,background 1s;
+    transition-timing-function: ease-in-out;
+    color: #ff8181
     background: #4e4e4e;
 }
 // 文章```代码块顶部样式
 .highlight figcaption {
     font-family: "ZCOOL KuaiLe";
-    border-bottom: 2px solid #4c4c4c;
     font-weight: bold;
-    color: #7b7b7b;
 }
-// 文章```代码块左侧样式
-.highlight .gutter pre {
-    
+//```代码块
+.highlight {
+    box-shadow: 0 0 13px 3px rgba(0, 0, 0, 0.5);
+}
+//```代码块文字
+.highlight, .highlight figcaption, .highlight .code pre, .highlight .gutter pre {
+    transition: color 1s,background 1s;
+    transition-timing-function: ease-in-out;
 }
 // 文章```代码块复制按钮样式
 .copy-btn {
@@ -781,19 +793,12 @@ pre .deletion {
         color: #969696;
     }
 }
-.highlight-container {
-    box-shadow: 0 0 13px 3px rgba(0, 0, 0, 0.5);
-}
 // 文章```代码块选中样式
 .highlight ::selection {
     background: #ffffff;
     color: #000000;
 }
 
-// 文章```代码块主体样式
-.highlight, .highlight .code pre {
-    background-color: #252525;
-}
 // 自定义的数字块
 span#inline-toc {
     display: inline-block;
@@ -828,6 +833,39 @@ blockquote.question {
 
 // 暗主题
 @media (prefers-color-scheme: dark)
+    // 文章```代码块顶部样式
+    .highlight figcaption {
+        border-bottom: 2px solid #747474;
+        color: #bcbcbc;
+        background-color: #121212
+    }
+    // 文章```代码块左侧样式
+    .highlight .gutter pre {
+        background-color: #121212
+        color: #bcbcbc;
+    }
+    .highlight, .highlight .code pre {
+        background-color: #252525
+    }
+    //```代码块
+    .highlight {
+        opacity: 0.8;
+        box-shadow: 0 0 13px 3px rgba(0, 0, 0, 0.5);
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    //代码颜色
+    .hljs-title, .hljs-attr, .hljs-selector-id, .hljs-selector-class, .hljs-selector-attr, .hljs-selector-pseudo {
+        color: #a67fed;
+    }
+    .hljs-string, .hljs-bullet {
+        color: #ebecc4;
+    }
+    .hljs-section, .hljs-name {
+        color: #d06a6a;
+    }
     // 左侧边框红色块级
     span#div-border-left-red {
     background-color: rgba(0, 0, 0, 0.20);
@@ -1034,8 +1072,10 @@ blockquote.question {
     .menu .menu-item a {
         box-shadow: 0px 0 13px 3px rgba(0,0,0,0.5)
         background-color: rgba(27, 27, 27, 0.5);
+        border: none !important;
         &:hover {
             box-shadow: inset 0px 0 13px 3px rgba(0,0,0,0.5)
+            border: none !important;
         }
     }
 
@@ -1166,6 +1206,33 @@ blockquote.question {
     }
 // 亮主题
 @media (prefers-color-scheme: light)
+    // 文章```代码块顶部样式
+    .highlight figcaption {
+        border-bottom: 2px solid #bcbcbc;
+        color: #777
+    }
+    // 文章```代码块diff样式
+    pre .hljs-addition {
+        background: #eaeaea;
+        color: #49ab49;
+    }
+    pre .hljs-deletion {
+        background: #eaeaea;
+    }
+    // 文章```代码块选中样式
+    .highlight ::selection {
+        background: #b6b6b6;
+    }
+    //打赏
+    .reward-container button {
+        border: 2px solid #a9a9a9
+        background: #a9a9a9
+        color: #ffffff
+        &:hover {
+            background: #737373;
+        }
+    }
+
     // 左侧边框红色块级
     span#div-border-left-red {
     background-color: rgba(197,197,197, 0.20);
@@ -1308,7 +1375,7 @@ blockquote.question {
     }
     // 文章超链接样式
     .post-body p a{
-        color: rgb(177, 177, 177);
+        color: #b6adff
         &:hover {
             color: rgb(0,0,0);
         }
@@ -1360,8 +1427,10 @@ blockquote.question {
     .menu .menu-item a {
         box-shadow: 0px 0 13px 3px rgba(0,0,0,0.3)
         background-color: rgba(255, 255, 255, 0.6);
+        border: none !important;
         &:hover {
             box-shadow: inset 0px 0 13px 3px rgba(0,0,0,0.3)
+            border: none !important;
         }
     }
     // 站点子标题
@@ -1635,7 +1704,6 @@ blockquote.question {
 }
 // 文章超链接样式
 .post-body p a {
-    border-bottom: none;
     &:hover {
         font-weight: bold;
         border-bottom: 2px solid #696969;
@@ -2327,10 +2395,22 @@ img {
         transform: scale(1.03);
     }
 }
+.post-body img {
+    &:hover {
+        box-shadow: 0px 0 13px 3px rgba(0,0,0,0.3);
+    }
+}
 //图标
 .fa, .fab, .fad, .fal, .far, .fas {
     transition: transform 1s ease-out;
     &:hover {
         transform:rotateY(360deg);
+    }
+}
+//分类
+.category-list-link {
+    &:hover {
+        color: #000000
+        font-weight: bold
     }
 }
