@@ -1,4 +1,4 @@
-// 2020.05.13
+// 2020.05.14
 
 
 del {
@@ -746,14 +746,13 @@ text-rendering: auto;
 //tag云
 .tag-cloud a {
     border: 2px dashed #8f8f8f00;
-    transition-property: padding,font-weight,border,color,background;
-    transition-delay: 0s;
-    transition-duration: 0.2s;
+    padding: 0px 3px
+    transition: transform 0.2s,font-weight 0.2s,border 0.2s,color 1s,background 1s;
     transition-timing-function: ease-in-out;
     &:hover {
         font-weight: bold;
         border: 2px dashed #8f8f8f;
-        padding: 0px 5px;
+        transform: scale(1.3);
     }
 }
 
@@ -1070,15 +1069,17 @@ blockquote.question {
     }
     // 菜单超链接样式
     .menu .menu-item a {
+        border: none !important;
         box-shadow: 0px 0 13px 3px rgba(0,0,0,0.5)
         background-color: rgba(27, 27, 27, 0.5);
-        border: none !important;
         &:hover {
             box-shadow: inset 0px 0 13px 3px rgba(0,0,0,0.5)
             border: none !important;
         }
     }
-
+    .menu-item-active a {
+        box-shadow: inset 0px 0 13px 3px rgba(0,0,0,0.5) !important;
+    }
     // 更好的侧边滚动条
     ::-webkit-scrollbar-thumb {
         background-color: rgba(0,0,0,.2);
@@ -1203,6 +1204,12 @@ blockquote.question {
     //分割线
     hr {
         background-image: repeating-linear-gradient(-45deg, #ac9ae0, #767676 4px, transparent 4px, transparent 8px);
+    }
+    //分类
+    .category-list-link {
+        &:hover {
+            color: #fff
+        }
     }
 // 亮主题
 @media (prefers-color-scheme: light)
@@ -1433,6 +1440,9 @@ blockquote.question {
             border: none !important;
         }
     }
+    .menu-item-active a {
+        box-shadow: inset 0px 0 13px 3px rgba(0,0,0,0.3) !important;
+    }
     // 站点子标题
     .site-subtitle {
         color: rgb(144, 144, 144); 
@@ -1600,6 +1610,12 @@ blockquote.question {
     //Gitalk评论文字背景
     .gt-container .gt-comment-body {
         background-color: #fff !important;
+    }
+    //分类
+    .category-list-link {
+        &:hover {
+            color: #000000
+        }
     }
     //分割线
     hr {
@@ -1977,13 +1993,16 @@ code {
 //Valine表情
 .v[data-class=v] .vwrap .vemojis {
     max-height: none !important;
+    padding-bottom: 15px !important;
+    padding-left: 15px
+    padding-right: 15px
 }
 .v[data-class=v] .emoji, .v[data-class=v] .vemoji {
     max-width: 100% !important;
 }
 .v[data-class=v] .vwrap .vemojis i {
     &:hover {
-        padding-top: 3px !important;
+        transform: scale(1.6);
     }
 }
 //Valine按钮
@@ -2410,7 +2429,6 @@ img {
 //分类
 .category-list-link {
     &:hover {
-        color: #000000
         font-weight: bold
     }
 }
