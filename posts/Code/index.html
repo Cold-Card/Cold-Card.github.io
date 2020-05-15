@@ -111,7 +111,21 @@ document.addEventListener('pjax:success', () => {
       .bootstrap();
   }
   NexT.utils.updateSidebarPosition();
-});</script><script data-pjax>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><script data-pjax>CONFIG.page.isPost&&(wpac_init=window.wpac_init||[],wpac_init.push({widget:"Rating",id:13266,el:"wpac-rating",color:"a4c2f4"}),function(){if(!("WIDGETPACK_LOADED"in window)){WIDGETPACK_LOADED=!0;var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="//embed.widgetpack.com/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t.nextSibling)}}())</script><script src="/js/local-search.js"></script><div id="pjax"><script>NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+});</script><script data-pjax>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><script data-pjax>CONFIG.page.isPost&&(wpac_init=window.wpac_init||[],wpac_init.push({widget:"Rating",id:13266,el:"wpac-rating",color:"a4c2f4"}),function(){if(!("WIDGETPACK_LOADED"in window)){WIDGETPACK_LOADED=!0;var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="//embed.widgetpack.com/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t.nextSibling)}}())</script><script src="/js/local-search.js"></script><div id="pjax"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css"><script>NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '5cb1798a739444534259',
+      clientSecret: '9488309d28c1210630a79809297858d70d20d5a9',
+      repo        : 'Comments',
+      owner       : 'Cold-Card',
+      admin       : ['Cold-Card'],
+      id          : '0d631ecbbdeb4c390a9e76e764287757',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});</script><script>NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
     new Valine(Object.assign({
       el         : '#valine-comments',
@@ -335,18 +349,4 @@ document.addEventListener('pjax:success', () => {
     }, {"enable":true,"appId":"WIRW7NrtflvQq6NW3XwQ2Dip-gzGzoHsz","appKey":"LwTPMd185WYI1TikNSttWLYX","notify":false,"verify":false,"placeholder":"评论，建议填写邮箱，方便作者接收以及回复 （目前使用的是 Gravatar 作为评论列表头像。请自行登录或注册 Gravatar，然后修改自己的头像。评论的时候，留下在 Gravatar 注册时所使用的邮箱即可。如果你修改了头像后发现没有更新，请不要慌张，因为gravatar.cat.net 有七天的缓存期，安静的等待吧~ ）","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"language":"zh-cn","visitor":true,"comment_count":true,"recordIP":false,"serverURLs":null}
     ));
   }, window.Valine);
-});</script><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css"><script>NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '5cb1798a739444534259',
-      clientSecret: '9488309d28c1210630a79809297858d70d20d5a9',
-      repo        : 'Comments',
-      owner       : 'Cold-Card',
-      admin       : ['Cold-Card'],
-      id          : '0d631ecbbdeb4c390a9e76e764287757',
-        language: 'zh-CN',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
 });</script><script async src="/js/fireworks.js"></script><script src="/js/activate-power-mode.min.js"></script><script>POWERMODE.colorful=!0,POWERMODE.shake=!0,document.body.addEventListener("input",POWERMODE)</script></div></body></html>
