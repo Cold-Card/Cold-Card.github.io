@@ -6,7 +6,7 @@ Allow: /tags/
 Allow: /about/ 
 Allow: /guestbook/
 Allow: /other/schedule/
-Allow: /other/picture/
+Allow: /other/pictures/
 Allow: /other/styles/
 Allow: /other/
 Disallow: /vendors/
