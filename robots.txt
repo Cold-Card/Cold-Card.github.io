@@ -8,6 +8,7 @@ Allow: /guestbook/
 Allow: /other/schedule/
 Allow: /other/pictures/
 Allow: /other/styles/
+Allow: /other/anime/
 Allow: /other/
 Disallow: /vendors/
 Disallow: /js/
