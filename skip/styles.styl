@@ -1,4 +1,4 @@
-// 2020.05.17
+// 2020.05.18
 
 
 del {
@@ -1124,16 +1124,6 @@ blockquote.question {
     .with-love {
         color: #ffffff;
     }
-    // 代码折叠功能添加
-    .hider_title{
-        background-color: #313131;
-        box-shadow: 0px 0 13px 3px rgba(0,0,0,0.5);
-    }
-    .fold {
-        box-shadow: 0px 6px 13px 3px rgba(0,0,0,0.5);
-        background-color: rgba(53, 53, 53, 0.3);
-        border-bottom: 6px dashed #131313;
-    }
     //文章标题
     .post-body h1 {
         border-left: 6px solid #5b5b5b;
@@ -1498,16 +1488,6 @@ blockquote.question {
                 border-bottom-color: #000;
             }
         }
-    // 代码折叠功能添加
-    .hider_title{
-        box-shadow: 0px 0 4px 3px rgba(0, 0, 0, 0.2);
-        background-color: #e4e4e4;
-    }
-    .fold {
-        box-shadow: 0px 6px 4px 3px rgba(0, 0, 0, 0.2);
-        background-color: rgba(228, 228, 228, 0.3);
-        border-bottom: 6px dashed #cccccc;
-    }
     //引用
     blockquote {
         border-left-color: #b5b5b5;
@@ -1905,26 +1885,6 @@ code {
     margin 0px 2px;
     font-size: 0.7em
 }
-// 代码折叠功能添加
-.hider_title{
-    padding-left: 9px
-    font-weight: bold;
-    cursor: pointer;
-}
-.fold {
-    padding-top: 9px;
-    padding-left: 9px;
-    padding-right: 9px;
-    margin-bottom: 9px
-}
-.close:after{
-    font-family: "ZCOOL KuaiLe";
-    content: " ▼（由于折叠功能与“PJAX”功能有冲突，如果出现反复开折情况，请刷新页面）";
-}
-.open:after{
-    font-family: "ZCOOL KuaiLe";
-    content: " ▲（由于折叠功能与“PJAX”功能有冲突，如果出现反复开折情况，请刷新页面）";
-}
 //Valine输入区
 .v[data-class=v] .vwrap {
     transition-property: color,background;
@@ -2021,10 +1981,6 @@ body, .post-block, .comments {
     transition-duration: 1s;
     transition-timing-function: ease-in-out;
 }
-@media (min-width: 992px)
-    body {
-        font-size: 1.1em
-    }
 //Gitalk
 .gt-container .gt-comment-admin .gt-comment-content, .gt-container .gt-popup {
     transition-property: color,background;
@@ -2471,4 +2427,5 @@ img {
     color: #fff !important;
     font-weight: bold !important;
 }
+
 
