@@ -1082,7 +1082,6 @@ blockquote.question {
     }
     // 更好的侧边滚动条
     ::-webkit-scrollbar-thumb {
-        background-color: rgba(0,0,0,.2);
         &:hover {
             background-color: rgba(0,0,0,1);
         }
@@ -1353,7 +1352,7 @@ blockquote.question {
             background-color: rgba(120, 120, 120,1);
         }
         &:active {
-            background-color: #a49bec;
+            background-color: #343434;
         }
     }
     // 主页文章添加阴影效果
@@ -1632,6 +1631,18 @@ blockquote.question {
 }
 ::-webkit-scrollbar-thumb {
     background-color: rgba(0,0,0,.2);
+    background-image: -webkit-linear-gradient(
+        45deg,
+        transparent 20%,
+        rgba(255, 255, 255, 0.1) 20%,
+        rgba(255, 255, 255, 0.1) 40%,
+        transparent 40%,
+        transparent 60%,
+        rgba(255, 255, 255, 0.1) 60%,
+        rgba(255, 255, 255, 0.1) 80%,
+        transparent 80%,
+        transparent
+    );
     &:hover {
         border-radius: 8px;
     }
@@ -1641,8 +1652,7 @@ blockquote.question {
     margin-top 50px
     margin-bottom: 50px;
     padding: 25px;
-    -webkit-box-shadow: 0 0 13px 3px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0 0 13px 3px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 13px 3px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -2376,7 +2386,7 @@ img {
     }
 }
 //图标
-.fa, .fab, .fad, .fal, .far, .fas {
+.fa, .fab, .fad, .fal, .far, .fas, .iconfont {
     transition: transform 1s ease-out;
     &:hover {
         transform:rotateY(360deg);
@@ -2427,5 +2437,12 @@ img {
     color: #fff !important;
     font-weight: bold !important;
 }
+//阿里图标
+.iconfont {
+    font-size: 1.05em !important;
+    display: inline-block;
+}
+
+
 
 
