@@ -2,8 +2,8 @@ User-agent: *
 Allow: /
 Allow: /archives/
 Allow: /categories/
-Allow: /tags/ 
-Allow: /about/ 
+Allow: /tags/
+Allow: /other/about/
 Allow: /guestbook/
 Allow: /other/schedule/
 Allow: /other/pictures/
