@@ -1,4 +1,4 @@
-// 2020.05.18
+// 2020.05.19
 
 
 del {
@@ -778,6 +778,9 @@ pre .hljs-deletion {
 //```代码块
 .highlight {
     box-shadow: 0 0 13px 3px rgba(0, 0, 0, 0.5);
+    .table-container {
+        max-height: 60em
+    }
 }
 //```代码块文字
 .highlight, .highlight figcaption, .highlight .code pre, .highlight .gutter pre {
@@ -1630,22 +1633,13 @@ blockquote.question {
     }
 }
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(0,0,0,.2);
-    background-image: -webkit-linear-gradient(
-        45deg,
-        transparent 20%,
-        rgba(255, 255, 255, 0.1) 20%,
-        rgba(255, 255, 255, 0.1) 40%,
-        transparent 40%,
-        transparent 60%,
-        rgba(255, 255, 255, 0.1) 60%,
-        rgba(255, 255, 255, 0.1) 80%,
-        transparent 80%,
-        transparent
-    );
+    background-color: rgba(0,0,0,.3);
     &:hover {
         border-radius: 8px;
     }
+}
+::-webkit-scrollbar-corner {
+  background-color: transparent;
 }
 // 主页文章添加阴影效果
 .post-block {
@@ -1729,6 +1723,9 @@ a {
     &:hover {
         transform: scale(1.2,1.05);
         border: 3px dashed;
+    }
+    .iconfont {
+        font-weight: normal
     }
 }
 //归档
@@ -2113,10 +2110,13 @@ details {
         &:hover {
             color: #000000
             &:after {
+                font-family:"iconfont" !important;
                 position: absolute
+                font-weight: normal
                 color: #fff
-                content: '+'
+                content: "\e601"
                 text-align: center
+                font-size: 1.5em
                 top: 50%
                 transform: translateY(-50%)
                 right: 16px
@@ -2165,7 +2165,8 @@ details[open] {
         margin-bottom: 0
         &:hover {
             &:after {
-                content: '-'
+                font-family:"iconfont" !important;
+                content: "\e643"
             }
         }
     }
@@ -2442,6 +2443,7 @@ img {
     font-size: 1.05em !important;
     display: inline-block;
 }
+
 
 
 
