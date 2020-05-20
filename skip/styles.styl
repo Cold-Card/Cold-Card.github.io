@@ -1,4 +1,4 @@
-// 2020.05.19
+// 2020.05.20
 
 
 del {
@@ -610,6 +610,10 @@ text-rendering: auto;
 .links-of-blogroll-list {
     font-size: 13px;
 }
+.links-of-blogroll-item {
+    padding: 0px 10px
+    line-height: 1.6em
+}
 
 // 侧栏链接
 .links-of-author a, .links-of-author span.exturl {
@@ -993,7 +997,7 @@ blockquote.question {
     }
     // 文章底部的tags
     .posts-expand .post-tags a {
-        background: #303030;
+        background: #383838;
         &:hover {
             background: #737373;
         }
@@ -1033,7 +1037,7 @@ blockquote.question {
     }
     // 主页文章添加阴影效果
     .post-block {
-        background-color: rgba(27, 27, 27, 0.5);
+        background-color: rgba(27, 27, 27, 0.7);
     }
 
     // 站点名背景
@@ -1344,9 +1348,9 @@ blockquote.question {
     }
     // 文章底部的tags
     .posts-expand .post-tags a {
-        background: #F3F3F3;
+        background: #e5e5e5;
         &:hover {
-            background: #D8D8D8;
+            background: #cecece;
         }
     }
     // 更好的侧边滚动条
@@ -1360,7 +1364,7 @@ blockquote.question {
     }
     // 主页文章添加阴影效果
     .post-block {
-        background-color: rgba(255, 255, 255, 0.6);
+        background-color: rgba(255, 255, 255, 0.7);
     }
     //搜索间隔
     .search-popup p.search-result {
@@ -1607,6 +1611,14 @@ blockquote.question {
     .atss .at-share-btn .at-icon-wrapper {
         background-color: #ffffff !important;
     }
+    //文章底部横线
+    .post-widgets {
+        border-top: 1px solid #9a9a9a;
+    }
+    .post-nav {
+        border-top: 1px solid #9a9a9a;
+    }
+
 //addthis
 .atss .at-share-btn .at-icon-wrapper {
     transition-property: color,background;
@@ -2443,6 +2455,21 @@ img {
     font-size: 1.05em !important;
     display: inline-block;
 }
+// 背景图片
+@media (min-width: 767px)
+    @media (prefers-color-scheme: dark)
+        body {
+            background-image: url('/images/background_dark.webp') !important;
+        }
+    @media (prefers-color-scheme: light)
+        body {
+            background-image: url('/images/background_light.webp') !important;
+        }
+        .footer-inner {
+            color: #838383
+        }
+
+
 
 
 
