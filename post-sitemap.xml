@@ -8,64 +8,8 @@
     </url>
 
     <url>
-        <loc>https://coldcard.wang/posts/Imbox/</loc>
-        <lastmod>2020-05-21T03:27:09.884Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/posts/Hexo_Updata(2020.04.17)/</loc>
-        <lastmod>2020-05-19T12:33:26.622Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/posts/Hexo_Updata(2020.05.13)/</loc>
-        <lastmod>2020-05-18T04:01:07.289Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/posts/Valine_Updata/</loc>
-        <lastmod>2020-05-17T14:14:03.373Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/posts/Code/</loc>
-        <lastmod>2020-05-16T17:43:18.907Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/posts/Anime/</loc>
-        <lastmod>2020-05-16T16:17:33.771Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/posts/Battlefield5_1/</loc>
-        <lastmod>2020-05-15T07:32:40.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/posts/Battlefield5_2/</loc>
-        <lastmod>2020-05-15T07:32:34.000Z</lastmod>
+        <loc>https://coldcard.wang/posts/OVERLORD_1/</loc>
+        <lastmod>2020-05-21T10:54:26.561Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -73,23 +17,7 @@
 
     <url>
         <loc>https://coldcard.wang/posts/OVERLORD_2/</loc>
-        <lastmod>2020-05-07T18:06:26.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/posts/OVERLORD_1/</loc>
-        <lastmod>2020-05-07T18:03:24.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/posts/Arnold/</loc>
-        <lastmod>2020-04-29T07:52:42.000Z</lastmod>
+        <lastmod>2020-05-21T10:54:20.112Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -97,7 +25,15 @@
 
     <url>
         <loc>https://coldcard.wang/posts/OVERLORD_All/</loc>
-        <lastmod>2020-04-28T03:47:52.000Z</lastmod>
+        <lastmod>2020-05-21T10:54:12.243Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/Valine_Updata/</loc>
+        <lastmod>2020-05-21T10:54:04.034Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -105,15 +41,7 @@
 
     <url>
         <loc>https://coldcard.wang/posts/SteamDB/</loc>
-        <lastmod>2020-04-27T15:24:26.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/posts/Hypixel_BedWars/</loc>
-        <lastmod>2020-04-27T15:09:56.000Z</lastmod>
+        <lastmod>2020-05-21T10:53:57.405Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -121,7 +49,7 @@
 
     <url>
         <loc>https://coldcard.wang/posts/Steam_Buy/</loc>
-        <lastmod>2020-04-27T04:39:18.000Z</lastmod>
+        <lastmod>2020-05-21T10:53:50.319Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -129,7 +57,79 @@
 
     <url>
         <loc>https://coldcard.wang/posts/Steam_Warning/</loc>
-        <lastmod>2020-04-27T04:39:16.000Z</lastmod>
+        <lastmod>2020-05-21T10:53:45.403Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/Imbox/</loc>
+        <lastmod>2020-05-21T10:53:40.831Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/Hypixel_BedWars/</loc>
+        <lastmod>2020-05-21T10:53:32.694Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/Arnold/</loc>
+        <lastmod>2020-05-21T10:53:25.494Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/Anime/</loc>
+        <lastmod>2020-05-21T10:53:20.348Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/Battlefield5_1/</loc>
+        <lastmod>2020-05-21T10:53:08.845Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/Battlefield5_2/</loc>
+        <lastmod>2020-05-21T10:52:58.297Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/Code/</loc>
+        <lastmod>2020-05-21T10:52:43.722Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/Hexo_Updata(2020.05.13)/</loc>
+        <lastmod>2020-05-21T10:52:35.151Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/Hexo_Updata(2020.04.17)/</loc>
+        <lastmod>2020-05-21T10:52:27.243Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
