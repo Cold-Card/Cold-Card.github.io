@@ -8,6 +8,27 @@
     </url>
 
     <url>
+        <loc>https://coldcard.wang/categories/Games/Minecraft/Imbox/</loc>
+        <lastmod>2020-05-21T03:27:09.884Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/categories/Games/Minecraft/</loc>
+        <lastmod>2020-05-21T03:27:09.884Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/categories/Games/</loc>
+        <lastmod>2020-05-21T03:27:09.884Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://coldcard.wang/categories/Hexo/Updata/</loc>
         <lastmod>2020-05-19T12:33:26.622Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -36,29 +57,8 @@
     </url>
 
     <url>
-        <loc>https://coldcard.wang/categories/Games/</loc>
-        <lastmod>2020-05-15T07:32:40.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://coldcard.wang/categories/Anime/OVERLORD/</loc>
         <lastmod>2020-05-07T18:06:26.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/categories/Games/Minecraft/Imbox/</loc>
-        <lastmod>2020-05-03T11:50:40.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/categories/Games/Minecraft/</loc>
-        <lastmod>2020-05-03T11:50:40.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
