@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">// JavaScript Document
+// JavaScript Document
 $(document).ready(function(e) {
    /* Todo:
  • Merge this with Node.js, almost done
@@ -23,18 +23,18 @@ $(document).ready(function(e) {
    var previouscommands = [];
    var currentcommand = 0;
    var pages = [ /*Can be populated with various methods*/
-      ["index", "Welcome to Koya.io", "Simply, this is just a sandbox in which to add to; no real point - a couple of features that I plan to add though:", "URL shortner and open tracker, just enter a URL into the command line and press enter and you will get 2 links - 1 which looks like [http://koya.io/XXXXXX](http://koya.io/XXXXXX) and another [http://koya.io/u/XXXXXX](http://koya.io/u/XXXXXX) : they will both forward but the second will show a preview of the full url so they know where you are going.", "You can also save small messages with `/msg <string <160 chars>` and you will get a url like [http://koya.io/XXXXXX](http://koya.io/XXXXXX)","Pressing Ctrl+v will paste the short text or image and you will get a link.", "There will be accounts but likely given out rather than being able to register them whenever, this is a personal site so idk."],
-      ["about", "About Koya.io", "Personal power website for Finn 'Koya' Shackleton.", "Will include some features which too are mainly for personal use: Link shortner, image host, pastebin and any sandbox testing", "The colours have been taken from [https://github.com/Poorchop/darktooth-theme-ports/tree/8c852e8edde8df57d831dc8631493b0565fadbbc/hexchat-darktooth](Poorchop's Darktooth HexChat theme)", "In the process of turning the website into a server sided thing, currently what you can read is in the [http://koya.io/scripts.js](JavaScript file)!"],
-	  ["connect", "Connect with Koya",
-	  "[mailto:_@koya.io](Email _@koya.io)",
-	  "[skype:finn.shackleton](Skype)",
-	  "[^http://steamcommunity.com/id/bananabutterscotchmaplepancakes](Steam) < Always available",
-	  "[^https://codepen.io/OfficialAntarctica](Codepen)",
-	  "[^http://everybodyedits.com/profiles/bbmp](Everybody Edits)"]
-   ];
+      ["index", "Welcome to ColdCard's Blog", "Simply, this is just a sandbox in which to add to; no real point - a couple of features that I plan to add though:", "URL shortner and open tracker, just enter a URL into the command line and press enter and you will get 2 links - 1 which looks like [http://koya.io/XXXXXX](http://koya.io/XXXXXX) and another [http://koya.io/u/XXXXXX](http://koya.io/u/XXXXXX) : they will both forward but the second will show a preview of the full url so they know where you are going.", "You can also save small messages with `/msg <string <160 chars>` and you will get a url like [http://koya.io/XXXXXX](http://koya.io/XXXXXX)","Pressing Ctrl+v will paste the short text or image and you will get a link.", "There will be accounts but likely given out rather than being able to register them whenever, this is a personal site so idk."],
+      ["about", "About ColdCard's Blog", "Personal power website for Finn 'Koya' Shackleton.", "Will include some features which too are mainly for personal use: Link shortner, image host, pastebin and any sandbox testing", "The colours have been taken from [https://github.com/Poorchop/darktooth-theme-ports/tree/8c852e8edde8df57d831dc8631493b0565fadbbc/hexchat-darktooth](Poorchop's Darktooth HexChat theme)", "In the process of turning the website into a server sided thing, currently what you can read is in the [http://koya.io/scripts.js](JavaScript file)!"],
+      ["connect", "Connect with ColdCard",
+      "[mailto:ColdCard@qq.com](Email ColdCard@qq.com)",
+      "[^https://steamcommunity.com/id/ColdCard](Steam) < Always available",
+      "[^https://account.xbox.com/profile?gamertag=ColdCard1230](XboX)",
+      "[^https://my.playstation.com/profile/X-ColdCard-X](PlayStation)",
+      "[^https://space.bilibili.com/85970713](BiliBili)"]
+      ];
    var pageindex = ["index", "about", "connect"];
-   var currentpage = "landing";
-   var url = "http://koya.io/"
+   var currentpage = "404";
+   var url = "https://coldcard.wang/"
       /*
          Custom Text Syntax
          Links:      
@@ -51,15 +51,17 @@ $(document).ready(function(e) {
       setInterval(time);
       console.clear();
       console.log(new Date().getTime());
-      log("Website", "A! _____ _____ __ __ _____ ");
-      log("Website", "A!|  |  |     |  |  |  _  |");
-      log("Website", "A!|    -|  |  |_   _|     |");
-      log("Website", "A!|__|__|_____| |_| |__|__|");
-      log("Website", '[^http://koya.io/](*Koya.io*)');
+      log("Website", "A! ___ ___ ___                               _      ___               _      ");   
+      log("Website", "A!| | |   | | |   ___ ___ ___ ___    ___ ___| |_   |  _|___ _ _ ___ _| |     ");  
+      log("Website", "A!|_  | | |_  |  | . | .'| . | -_|  |   | . |  _|  |  _| . | | |   | . |   _ ");
+      log("Website", "A!  |_|___| |_|  |  _|__,|_  |___|  |_|_|___|_|    |_| |___|___|_|_|___|  |_|");
+      log("Website", "A!               |_|     |___|                                               ");
       log("Website", "");
-      log("Website", "E!I'm no longer using this at [^http://koya.io/](*Koya.io*)");
+      log("Website", "A![^https://coldcard.wang/](*ColdCard's Blog*)");
       log("Website", "");
-	  urlvars();
+      log("Website", "E!I'm no longer using this at [^https://coldcard.wang/](*ColdCard's Blog*)");
+      log("Website", "");
+     urlvars();
       log("Client", "For help say '/help'");
 	  setInterval(favicon,500);
    }
@@ -281,7 +283,7 @@ $(document).ready(function(e) {
             }
             break;
 		 case "/gl":
-			//window.location.href = "http://koya.io" + (currentpage == "landing" ? "" : "/" + currentpage);
+			//window.location.href = "https://coldcard.wang" + (currentpage == "landing" ? "" : "/" + currentpage);
 			window.history.pushState(currentpage, 'InpagePage', (currentpage == "landing" ? "/" : "/" + currentpage));
 			break;
          case "/clear":
