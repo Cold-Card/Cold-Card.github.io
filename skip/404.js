@@ -15,7 +15,7 @@ $(document).ready(function(e) {
       ["/help", "Show commands"],
       ["/list", "List all pages on the website"],
       ["/nav &lt;location&gt;", "Navigate to location"],
-	   ["/gl", "Generate a url for the current page - [^http://koya.io/](This doesn't work in an iframe, try it at *Koya.io*) outputs something like [^http://koya.io/connect](*koya.io/connect*)"],
+	   ["/gl", "Generate a url for the current page"],
       ["/clear", "Clear the console"],
       ["/login &lt;username&gt; &lt;password&gt;", "Login to your account - This is not set up and when implemeneted it'll be '/login username' then request password without printing into the cmd prompt"],
       ["/upload", "Upload file, must be logged in."]
@@ -23,16 +23,67 @@ $(document).ready(function(e) {
    var previouscommands = [];
    var currentcommand = 0;
    var pages = [ /*Can be populated with various methods*/
-      ["index", "Welcome to ColdCard's Blog", "Simply, this is just a sandbox in which to add to; no real point - a couple of features that I plan to add though:", "URL shortner and open tracker, just enter a URL into the command line and press enter and you will get 2 links - 1 which looks like [http://koya.io/XXXXXX](http://koya.io/XXXXXX) and another [http://koya.io/u/XXXXXX](http://koya.io/u/XXXXXX) : they will both forward but the second will show a preview of the full url so they know where you are going.", "You can also save small messages with `/msg <string <160 chars>` and you will get a url like [http://koya.io/XXXXXX](http://koya.io/XXXXXX)","Pressing Ctrl+v will paste the short text or image and you will get a link.", "There will be accounts but likely given out rather than being able to register them whenever, this is a personal site so idk."],
-      ["about", "About ColdCard's Blog", "Personal power website for Finn 'Koya' Shackleton.", "Will include some features which too are mainly for personal use: Link shortner, image host, pastebin and any sandbox testing", "The colours have been taken from [https://github.com/Poorchop/darktooth-theme-ports/tree/8c852e8edde8df57d831dc8631493b0565fadbbc/hexchat-darktooth](Poorchop's Darktooth HexChat theme)", "In the process of turning the website into a server sided thing, currently what you can read is in the [http://koya.io/scripts.js](JavaScript file)!"],
-      ["connect", "Connect with ColdCard",
-      "[mailto:ColdCard@qq.com](Email ColdCard@qq.com)",
+      ["index",
+      "",
+      "Welcome to ColdCard's Blog",
+      "",
+      "A!E!_________        .__       .____________                  .___",
+      "A!E!\\_   ___ \\  ____ |  |    __| _/\\_   ___ \\_____ _______  __| _/",
+      "A!E!/    \\  \\/ /  _ \\|  |   / __ | /    \\  \\/\\__  \\\\_  __ \\/ __ | ",
+      "A!E!\\     \\___(  <_> )  |__/ /_/ | \\     \\____/ __ \\|  | \\/ /_/ | ",
+      "A!E! \\______  /\\____/|____/\\____ |  \\______  (____  /__|  \\____ | ",
+      "A!E!       \\/                  \\/         \\/     \\/           \\/ ",
+      "",
+      "本博客是我在业余时间制作，本人不擅长写日志，所以日志也没几篇，本人学习的是动画相关专业，没有学习过网页前端等专业知识，但是我比较喜欢建设博客的过程。",
+      "This blog is made in my spare time, I am not good at writing posts, so there are few posts, I studied animation related majors, I have not learned the front-end webpage and other professional knowledge.",
+      "But I prefer the process of building a blog.",
+      "",
+      "此页面是我在 [^https://codepen.io/](*CodePen*) 网站中找到，并在原有的基础上修改得到的。",
+      "I found this page on the [^https://codepen.io/](*CodePen*) website and modified it based on the original.",
+      "至于具体的修改样式及代码，可以查看[^https://coldcard.wang/posts/404](*此日志*)。",
+      "As for the specific modification style and code, you can view [^https://coldcard.wang/posts/404](*this post*).",
+      "",
+      ],
+      ["other/about",
+      "",
+      "About ColdCard's Blog",
+      "",
+      "A!E!  ___ ___                       ",
+      "A!E! /   |   \\   ____ ___  _______  ",
+      "A!E!/    ~    \\_/ __ \\\\  \\/  /  _ \\ ",
+      "A!E!\\    Y    /\\  ___/ >    <  <_> )",
+      "A!E! \\___|_  /  \\___  >__/\\_ \\____/ ",
+      "A!E!       \\/       \\/      \\/      ",
+      "",
+      "Personal power website for ColdCard.",
+      "",
+      "本博客使用 [^https://hexo.io/](*Hexo*) 的 [^https://github.com/next-theme/hexo-theme-next](*NexT*) 主题",
+      "This blog uses [^https://github.com/next-theme/hexo-theme-next](*NexT*) theme of [^https://hexo.io/](*Hexo*)",
+      "",
+      ],
+      ["connect", 
+      "",
+      "Connect with ColdCard",
+      "",
+      "A!E! __  __     ______     __         __         ______    ",
+      "A!E!/\\ \\_\\ \\   /\\  ___\\   /\\ \\       /\\ \\       /\\  __ \\   ",
+      "A!E!\\ \\  __ \\  \\ \\  __\\   \\ \\ \\____  \\ \\ \\____  \\ \\ \\/\\ \\  ",
+      "A!E! \\ \\_\\ \\_\\  \\ \\_____\\  \\ \\_____\\  \\ \\_____\\  \\ \\_____\\ ",
+      "A!E!  \\/_/\\/_/   \\/_____/   \\/_____/   \\/_____/   \\/_____/ ",
+      "",
+      "[mailto:ColdCard@qq.com](Email ColdCard@qq.com) < Maine",
+      "[^https://github.com/Cold-Card](GitHub)",
+      "[https://cold-card.coding.net](Coding)",
       "[^https://steamcommunity.com/id/ColdCard](Steam) < Always available",
       "[^https://account.xbox.com/profile?gamertag=ColdCard1230](XboX)",
       "[^https://my.playstation.com/profile/X-ColdCard-X](PlayStation)",
-      "[^https://space.bilibili.com/85970713](BiliBili)"]
-      ];
-   var pageindex = ["index", "about", "connect"];
+      "[^https://space.bilibili.com/85970713](BiliBili) < subscribe",
+      "[^https://www.youtube.com/channel/UCuh30UopOLnAi39YQ3uP5Pw](YouTube) < subscribe",
+      "[^https://discordapp.com/channels/@ColdCard](Discord)",
+      "[^https://t.me/X_ColdCard_X](Telegram)",
+      "",
+      ]];
+   var pageindex = ["index", "other/about", "connect"];
    var currentpage = "404";
    var url = "https://coldcard.wang/"
       /*
@@ -51,15 +102,25 @@ $(document).ready(function(e) {
       setInterval(time);
       console.clear();
       console.log(new Date().getTime());
-      log("Website", "A! ___ ___ ___                               _      ___               _      ");   
-      log("Website", "A!| | |   | | |   ___ ___ ___ ___    ___ ___| |_   |  _|___ _ _ ___ _| |     ");  
-      log("Website", "A!|_  | | |_  |  | . | .'| . | -_|  |   | . |  _|  |  _| . | | |   | . |   _ ");
-      log("Website", "A!  |_|___| |_|  |  _|__,|_  |___|  |_|_|___|_|    |_| |___|___|_|_|___|  |_|");
-      log("Website", "A!               |_|     |___|                                               ");
+      log("Website", "A!   _____  _______      _____                                                __    ___________                      .___     ");
+      log("Website", "A!  /  |  | \\   _  \\    /  |  |  ______   ____   ____   ____     ____   _____/  |_  \\_   _____/___  __ __  ____    __| _/     ");
+      log("Website", "A! /   |  |_/  /_\\  \\  /   |  |_ \\____ \\_/ __ \\ / ___\\_/ __ \\   /    \\ /  _ \\   __\\  |    __)/  _ \\|  |  \\/    \\  / __ |      ");
+      log("Website", "A!/    ^   /\\  \\_/   \\/    ^   / |  |_> >  ___// /_/  >  ___/  |   |  |  <_> |  |    |     \\|  <_> |  |  /   |  \\/ /_/ |      ");
+      log("Website", "A!\\____   |  \\_____  /\\____   |  |   __/ \\___  >___  / \\___  > |___|  /\\____/|__|    \\___  / \\____/|____/|___|  /\\____ |   /\\ ");
+      log("Website", "A!     |__|        \\/      |__|  |__|        \\/_____/      \\/       \\/                   \\/                   \\/      \\/   \\/ ");
+      log("Website", ""); 
+      log("Website", "A!E!   ___ _ _   _        _      __        ___         _ _           ");
+      log("Website", "A!E!  / __(_) |_| |_ _  _| |__  / _|___   / __|___  __| (_)_ _  __ _ ");
+      log("Website", "A!E! | (_ | |  _| ' \\ || | '_ \\ > _|_ _| | (__/ _ \\/ _` | | ' \\/ _` |");
+      log("Website", "A!E!  \\___|_|\\__|_||_\\_,_|_.__/ \\_____|   \\___\\___/\\__,_|_|_||_\\__, |");
+      log("Website", "A!E!                                                           |___/ ");
       log("Website", "");
       log("Website", "A![^https://coldcard.wang/](*ColdCard's Blog*)");
       log("Website", "");
       log("Website", "E!I'm no longer using this at [^https://coldcard.wang/](*ColdCard's Blog*)");
+      log("Website", "");
+      log("Website", "E!嗯。。。你居然到了这里，你也看到了，这里是 404 页面，你可以有很多方法回去，不过你也可以在这个页面玩会。");
+      log("Website", "E!'/gl' 回到主页（如果你没用 '/nav' ）");
       log("Website", "");
      urlvars();
       log("Client", "For help say '/help'");
@@ -83,7 +144,7 @@ $(document).ready(function(e) {
                loadpage($.inArray(pageloc, pageindex));
             } else {
                //Un-note next line to show 404 errors with wrong urls
-               //log("Client", "404 - The page '" + pageloc + "' does not exist. To "); 
+               log("Client", "404 - The page '" + pageloc + "' does not exist. To "); 
             }
 		}
 		if(pageloc == "") {
@@ -283,8 +344,8 @@ $(document).ready(function(e) {
             }
             break;
 		 case "/gl":
-			//window.location.href = "https://coldcard.wang" + (currentpage == "landing" ? "" : "/" + currentpage);
-			window.history.pushState(currentpage, 'InpagePage', (currentpage == "landing" ? "/" : "/" + currentpage));
+			window.location.href = "https://coldcard.wang" + (currentpage == "404" ? "" : "/" + currentpage);
+			window.history.pushState(currentpage, 'InpagePage', (currentpage == "404" ? "/" : "/" + currentpage));
 			break;
          case "/clear":
             $(".stream").text("");
