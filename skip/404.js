@@ -40,8 +40,8 @@ $(document).ready(function(e) {
       "",
       "此页面是我在 [^https://codepen.io/](*CodePen*) 网站中找到，并在原有的基础上修改得到的。",
       "I found this page on the [^https://codepen.io/](*CodePen*) website and modified it based on the original.",
-      "至于具体的修改样式及代码，可以查看[^https://coldcard.wang/posts/404](*此日志*)。",
-      "As for the specific modification style and code, you can view [^https://coldcard.wang/posts/404](*this post*).",
+      "至于具体的修改样式及代码，可以查看[^/posts/Page_Not_Found/](*此日志*)。",
+      "As for the specific modification style and code, you can view [^/posts/Page_Not_Found/](*this post*).",
       "",
       ],
       ["other/about",
@@ -73,7 +73,7 @@ $(document).ready(function(e) {
       "",
       "[mailto:ColdCard@qq.com](Email ColdCard@qq.com) < Maine",
       "[^https://github.com/Cold-Card](GitHub)",
-      "[https://cold-card.coding.net](Coding)",
+      "[^https://cold-card.coding.net](Coding)",
       "[^https://steamcommunity.com/id/ColdCard](Steam) < Always available",
       "[^https://account.xbox.com/profile?gamertag=ColdCard1230](XboX)",
       "[^https://my.playstation.com/profile/X-ColdCard-X](PlayStation)",
@@ -85,7 +85,7 @@ $(document).ready(function(e) {
       ]];
    var pageindex = ["index", "other/about", "connect"];
    var currentpage = "404";
-   var url = "https://coldcard.wang/"
+   var url = "/"
       /*
          Custom Text Syntax
          Links:      
@@ -102,12 +102,12 @@ $(document).ready(function(e) {
       setInterval(time);
       console.clear();
       console.log(new Date().getTime());
-      log("Website", "A!   _____  _______      _____                                                __    ___________                      .___     ");
-      log("Website", "A!  /  |  | \\   _  \\    /  |  |  ______   ____   ____   ____     ____   _____/  |_  \\_   _____/___  __ __  ____    __| _/     ");
-      log("Website", "A! /   |  |_/  /_\\  \\  /   |  |_ \\____ \\_/ __ \\ / ___\\_/ __ \\   /    \\ /  _ \\   __\\  |    __)/  _ \\|  |  \\/    \\  / __ |      ");
-      log("Website", "A!/    ^   /\\  \\_/   \\/    ^   / |  |_> >  ___// /_/  >  ___/  |   |  |  <_> |  |    |     \\|  <_> |  |  /   |  \\/ /_/ |      ");
-      log("Website", "A!\\____   |  \\_____  /\\____   |  |   __/ \\___  >___  / \\___  > |___|  /\\____/|__|    \\___  / \\____/|____/|___|  /\\____ |   /\\ ");
-      log("Website", "A!     |__|        \\/      |__|  |__|        \\/_____/      \\/       \\/                   \\/                   \\/      \\/   \\/ ");
+      log("Website", "A!   _____  _______      _____   __________                          _______          __    ___________                      .___");
+      log("Website", "A!  /  |  | \\   _  \\    /  |  |  \\______   \\_____     ____   ____    \\      \\   _____/  |_  \\_   _____/___  __ __  ____    __| _/");
+      log("Website", "A! /   |  |_/  /_\\  \\  /   |  |_  |     ___/\\__  \\   / ___\\_/ __ \\   /   |   \\ /  _ \\   __\\  |    __)/  _ \\|  |  \\/    \\  / __ | ");
+      log("Website", "A!/    ^   /\\  \\_/   \\/    ^   /  |    |     / __ \\_/ /_/  >  ___/  /    |    (  <_> )  |    |     \\(  <_> )  |  /   |  \\/ /_/ | ");
+      log("Website", "A!\\____   |  \\_____  /\\____   |   |____|    (____  /\\___  / \\___  > \\____|__  /\\____/|__|    \\___  / \\____/|____/|___|  /\\____ | ");
+      log("Website", "A!     |__|        \\/      |__|                  \\//_____/      \\/          \\/                   \\/                   \\/      \\/ ");
       log("Website", ""); 
       log("Website", "A!E!   ___ _ _   _        _      __        ___         _ _           ");
       log("Website", "A!E!  / __(_) |_| |_ _  _| |__  / _|___   / __|___  __| (_)_ _  __ _ ");
@@ -115,9 +115,9 @@ $(document).ready(function(e) {
       log("Website", "A!E!  \\___|_|\\__|_||_\\_,_|_.__/ \\_____|   \\___\\___/\\__,_|_|_||_\\__, |");
       log("Website", "A!E!                                                           |___/ ");
       log("Website", "");
-      log("Website", "A![^https://coldcard.wang/](*ColdCard's Blog*)");
+      log("Website", "A![^/](*ColdCard's Blog*)");
       log("Website", "");
-      log("Website", "E!I'm no longer using this at [^https://coldcard.wang/](*ColdCard's Blog*)");
+      log("Website", "E!I'm no longer using this at [^/](*ColdCard's Blog*)");
       log("Website", "");
       log("Website", "E!嗯。。。你居然到了这里，你也看到了，这里是 404 页面，你可以有很多方法回去，不过你也可以在这个页面玩会。");
       log("Website", "E!'/gl' 回到主页（如果你没用 '/nav' ）");

@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="CfWT-L59Os1n4ZD7u8uaT69r5eOmLQmocdamdmWqTPg">
+  <meta name="msvalidate.01" content="2DE0C7065614AA2F8129CDE77232E711">
+  <meta name="baidu-site-verification" content="fPhfc3BpV5">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=ZCOOL KuaiLe:300,300italic,400,400italic,700,700italic|Noto Serif SC:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css">
+  <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"coldcard.wang","root":"/","scheme":"Muse","version":"8.0.0-rc.2","exturl":false,"sidebar":{"position":"right","display":"hide","padding":30,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#3c3c3c","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"buttons","active":"valine","storage":true,"lazyload":false,"nav":{"disqusjs":{"text":null,"order":-3},"valine":{"text":"Valine评论","order":-2},"gitalk":{"text":"Gitalk评论","order":-1}},"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"expandIn","post_header":"expandIn","post_body":"expandIn","coll_header":"expandIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="前言最近在 CodePen 网站闲逛时，发现了一个命令行式的 404 页面，觉得挺 cool 的，于是我下载下来做了一些内容和样式的修改，作为新的 404 页面。 过程接下来一我自己的为例。 步骤一 新建 404 页面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义 404 页面">
+<meta property="og:url" content="https://coldcard.wang/posts/Page_Not_Found/">
+<meta property="og:site_name" content="ColdCard的小黑屋">
+<meta property="og:description" content="前言最近在 CodePen 网站闲逛时，发现了一个命令行式的 404 页面，觉得挺 cool 的，于是我下载下来做了一些内容和样式的修改，作为新的 404 页面。 过程接下来一我自己的为例。 步骤一 新建 404 页面">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-25T11:41:35.000Z">
+<meta property="article:modified_time" content="2020-05-25T13:44:38.208Z">
+<meta property="article:author" content="ColdCard">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="NexT">
+<meta property="article:tag" content="404">
+<meta property="article:tag" content="Page Not Found">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://coldcard.wang/posts/Page_Not_Found/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@200;300;400;500;600;700;900&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,900&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1826906_b8h0lsvrpzv.css">
+  <title>自定义 404 页面 | ColdCard的小黑屋</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-165566180-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7d6eaf72d767b8c2dcbbe7121baaf220";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ColdCard的小黑屋</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">去看生活，去看世界，去目击伟大的历史事件，去看穷人的面孔和骄傲着的姿态，去看不同寻常的事物，机器，军队，群众，以及丛林中和月球上的阴影，去看人类的杰作，绘画，建筑，和发明，去看千里之外的世界，去看隐藏在高墙和房间内的事物，以及难以接近的危险事件，去看那些被男人所爱着的女人们，还有孩子，去看，并且享受愉悦，去看，并被感动，去看，并被教育</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">17</span></a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a>
+
+  </li>
+        <li class="menu-item menu-item-guestbook">
+
+    <a href="/guestbook/" rel="section"><i class="fas fa-comment-dots fa-fw"></i>留言</a>
+
+  </li>
+        
+            
+  <li class="menu-item menu-item-other">
+
+    <a href="/other/" rel="section"><i class="fas fa-plus-square fa-fw"></i>更多</a>
+
+  </li>
+
+
+      
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://coldcard.wang/posts/Page_Not_Found/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="ColdCard">
+      <meta itemprop="description" content="没技术，纯爱好">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ColdCard的小黑屋">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          自定义 404 页面
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-05-25 19:41:35 / 修改时间：21:44:38" itemprop="dateCreated datePublished" datetime="2020-05-25T19:41:35+08:00">2020-05-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/posts/Page_Not_Found/" class="post-meta-item leancloud_visitors" data-flag-title="自定义 404 页面" title="热度">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">评论：</span>
+    
+    <a title="Valine 评论数" href="/posts/Page_Not_Found/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/Page_Not_Found/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>17k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>15 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在 <a href="https://codepen.io/" target="_blank" rel="noopener external nofollow noreferrer">CodePen</a> 网站闲逛时，发现了一个命令行式的 404 页面，觉得挺 cool 的，于是我下载下来做了一些内容和样式的修改，作为新的 404 页面。</p>
+<h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><p>接下来一我自己的为例。</p>
+<h2 id="步骤一"><a href="#步骤一" class="headerlink" title="步骤一"></a>步骤一</h2><ul>
+<li><strong>新建 404 页面</strong><a id="more"></a>
+
+</li>
+</ul>
+<figure class="highlight html"><figcaption><span>位置：博客\source\404\index.html（没有则自建）</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">permalink: /404</span><br><span class="line">layout: false</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>404 | ColdCard的小黑屋<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"apple-touch-icon"</span> <span class="attr">sizes</span>=<span class="string">"180x180"</span> <span class="attr">href</span>=<span class="string">"/images/apple-touch-icon-next.png"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"icon"</span> <span class="attr">type</span>=<span class="string">"image/png"</span> <span class="attr">sizes</span>=<span class="string">"32x32"</span> <span class="attr">href</span>=<span class="string">"/images/favicon-32x32-next.png"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"icon"</span> <span class="attr">type</span>=<span class="string">"image/png"</span> <span class="attr">sizes</span>=<span class="string">"16x16"</span> <span class="attr">href</span>=<span class="string">"/images/favicon-16x16-next.png"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">'stylesheet'</span> <span class="attr">href</span>=<span class="string">'https://fonts.loli.net/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,900&amp;family=Noto+Serif+SC:wght@200;300;400;500;600;700;900'</span>&gt;</span><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"/skip/404.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- partial:index.partial.html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"stream"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"line editline"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"time"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"name"</span>&gt;</span><span class="symbol">&amp;gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">contenteditable</span>=<span class="string">"true"</span> <span class="attr">autocomplete</span>=<span class="string">"off"</span> <span class="attr">autocorrect</span>=<span class="string">"off"</span> <span class="attr">autocapitalize</span>=<span class="string">"off"</span> <span class="attr">spellcheck</span>=<span class="string">"false"</span> <span class="attr">class</span>=<span class="string">"information edit"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- partial --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">'https://codepen.io/z-/pen/dcdf9b1e328493afd4bd982ed98266d3.js'</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span><span class="tag">&lt;<span class="name">script</span>  <span class="attr">src</span>=<span class="string">"/skip/404.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="keyword">var</span> titleTime,OriginTitile=<span class="built_in">document</span>.title;<span class="built_in">document</span>.addEventListener(<span class="string">"visibilitychange"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">document</span>.hidden?(<span class="built_in">document</span>.title=<span class="string">"警告 | "</span>+OriginTitile,clearTimeout(titleTime)):(<span class="built_in">document</span>.title=<span class="string">"欢迎回来 | "</span>+OriginTitile,titleTime=setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">document</span>.title=OriginTitile&#125;,<span class="number">2e3</span>))&#125;)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&#123;# 鼠标点击特效 #&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"/js/fireworks.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&#123;# 打字特效 #&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/js/activate-power-mode.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript">POWERMODE.colorful=!<span class="number">0</span>,POWERMODE.shake=!<span class="number">0</span>,<span class="built_in">document</span>.body.addEventListener(<span class="string">"input"</span>,POWERMODE)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="步骤二"><a href="#步骤二" class="headerlink" title="步骤二"></a>步骤二</h2><ul>
+<li><strong>新建 404.css 样式文件</strong><br>注意要<span class="label danger">让 css 样式文件跳过渲染</span>，所以最好启用<code>skip</code>文件夹功能。</li>
+</ul>
+<figure class="highlight diff"><figcaption><span>位置：博客\_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">  ···</span><br><span class="line"># Directory</span><br><span class="line">source_dir: source</span><br><span class="line">public_dir: public</span><br><span class="line">tag_dir: tags</span><br><span class="line">archive_dir: archives</span><br><span class="line">category_dir: categories</span><br><span class="line">code_dir: downloads/code</span><br><span class="line">i18n_dir: :lang</span><br><span class="line"><span class="deletion">- skip_render:</span></span><br><span class="line"><span class="addition">+ skip_render: "skip/**/*"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><figcaption><span>位置：博客\source\skip\404.css（没有则自建）</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#3A3A3A</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#EFEFAE</span>;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">'Source Code Pro'</span>,<span class="string">'Noto Serif SC'</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">overflow-x</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#7ad8cb</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#ff5b5b</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#464646</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> <span class="selector-class">.stream</span> &#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">8px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> <span class="selector-class">.line</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-direction</span>: row;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">4px</span>;</span><br><span class="line">  <span class="attribute">padding-top</span>: <span class="number">2px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="built_in">calc</span>(<span class="number">100%</span> - <span class="number">12px</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> <span class="selector-class">.line</span> <span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> <span class="selector-class">.line</span> <span class="selector-class">.name</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">min-width</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: right;</span><br><span class="line">  <span class="attribute">padding-right</span>: <span class="number">6px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> <span class="selector-class">.editline</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#262626</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">2px</span> <span class="number">4px</span> <span class="number">0px</span> <span class="number">4px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="built_in">calc</span>(<span class="number">100%</span>);</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">8px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> <span class="selector-class">.editline</span> <span class="selector-class">.edit</span> &#123;</span><br><span class="line">  <span class="attribute">min-width</span>: <span class="built_in">calc</span>(<span class="number">100%</span> - <span class="number">200px</span>);</span><br><span class="line">  <span class="attribute">outline</span>: none;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#ffb4b4</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> <span class="selector-class">.editline</span> <span class="selector-class">.time</span> &#123;</span><br><span class="line">  <span class="attribute">user-select</span>: none;</span><br><span class="line">  <span class="attribute">cursor</span>: default;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.information</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#a7a1d0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.whitet</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#FFFFAE</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.redt</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#d75f5f</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.important</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#E3A786</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.bluet</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#5f8787</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.greent</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#afaf00</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.selft</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#83A598</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-pseudo">::selection</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#5eff4f</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#cacaca</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-pseudo">::-webkit-scrollbar</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#3A3A3A</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-pseudo">::-webkit-scrollbar-thumb</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#bcbcbc</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-pseudo">::-webkit-scrollbar-corner</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#3A3A3A</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-pseudo">::-webkit-resizer</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#3A3A3A</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.phjspenheader</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#D44C2A</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="步骤三"><a href="#步骤三" class="headerlink" title="步骤三"></a>步骤三</h2><ul>
+<li><strong>新建 404.js 脚本文件</strong><br>与<code>404.css</code>文件一样，放到<code>skip</code>文件夹中。</li>
+</ul>
+<figure class="highlight js"><figcaption><span>位置：博客\source\skip\404.js（没有则自建）</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// JavaScript Document</span></span><br><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">   <span class="comment">/* Todo:</span></span><br><span class="line"><span class="comment"> • Merge this with Node.js, almost done</span></span><br><span class="line"><span class="comment"> • Webpages in a database/more editable version</span></span><br><span class="line"><span class="comment"> • Add cookies to track previous commands? (You can press up and down to browse previous commands this session)</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">   <span class="keyword">var</span> faviconnumber = <span class="number">1</span>;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">favicon</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		favicon = favicon == <span class="number">1</span> ? <span class="number">2</span> : <span class="number">1</span>;</span><br><span class="line">		$(<span class="string">'.favicon'</span>).attr(<span class="string">'href'</span>,<span class="string">'favicon'</span> + favicon + <span class="string">".png"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">   <span class="built_in">console</span>.clear();</span><br><span class="line">   <span class="keyword">var</span> commandlist = [ <span class="comment">/*Can be populated with various methods*/</span></span><br><span class="line">      [<span class="string">"/help"</span>, <span class="string">"Show commands"</span>],</span><br><span class="line">      [<span class="string">"/list"</span>, <span class="string">"List all pages on the website"</span>],</span><br><span class="line">      [<span class="string">"/nav &amp;lt;location&amp;gt;"</span>, <span class="string">"Navigate to location"</span>],</span><br><span class="line">	   [<span class="string">"/gl"</span>, <span class="string">"Generate a url for the current page"</span>],</span><br><span class="line">      [<span class="string">"/clear"</span>, <span class="string">"Clear the console"</span>],</span><br><span class="line">      [<span class="string">"/login &amp;lt;username&amp;gt; &amp;lt;password&amp;gt;"</span>, <span class="string">"Login to your account - This is not set up and when implemeneted it'll be '/login username' then request password without printing into the cmd prompt"</span>],</span><br><span class="line">      [<span class="string">"/upload"</span>, <span class="string">"Upload file, must be logged in."</span>]</span><br><span class="line">   ];</span><br><span class="line">   <span class="keyword">var</span> previouscommands = [];</span><br><span class="line">   <span class="keyword">var</span> currentcommand = <span class="number">0</span>;</span><br><span class="line">   <span class="keyword">var</span> pages = [ <span class="comment">/*Can be populated with various methods*/</span></span><br><span class="line">      [<span class="string">"index"</span>,</span><br><span class="line">      <span class="string">""</span>,</span><br><span class="line">      <span class="string">"Welcome to ColdCard's Blog"</span>,</span><br><span class="line">      <span class="string">""</span>,</span><br><span class="line">      <span class="string">"A!E!_________        .__       .____________                  .___"</span>,</span><br><span class="line">      <span class="string">"A!E!\\_   ___ \\  ____ |  |    __| _/\\_   ___ \\_____ _______  __| _/"</span>,</span><br><span class="line">      <span class="string">"A!E!/    \\  \\/ /  _ \\|  |   / __ | /    \\  \\/\\__  \\\\_  __ \\/ __ | "</span>,</span><br><span class="line">      <span class="string">"A!E!\\     \\___(  &lt;_&gt; )  |__/ /_/ | \\     \\____/ __ \\|  | \\/ /_/ | "</span>,</span><br><span class="line">      <span class="string">"A!E! \\______  /\\____/|____/\\____ |  \\______  (____  /__|  \\____ | "</span>,</span><br><span class="line">      <span class="string">"A!E!       \\/                  \\/         \\/     \\/           \\/ "</span>,</span><br><span class="line">      <span class="string">""</span>,</span><br><span class="line">      <span class="string">"本博客是我在业余时间制作，本人不擅长写日志，所以日志也没几篇，本人学习的是动画相关专业，没有学习过网页前端等专业知识，但是我比较喜欢建设博客的过程。"</span>,</span><br><span class="line">      <span class="string">"This blog is made in my spare time, I am not good at writing posts, so there are few posts, I studied animation related majors, I have not learned the front-end webpage and other professional knowledge."</span>,</span><br><span class="line">      <span class="string">"But I prefer the process of building a blog."</span>,</span><br><span class="line">      <span class="string">""</span>,</span><br><span class="line">      <span class="string">"此页面是我在 [^https://codepen.io/](*CodePen*) 网站中找到，并在原有的基础上修改得到的。"</span>,</span><br><span class="line">      <span class="string">"I found this page on the [^https://codepen.io/](*CodePen*) website and modified it based on the original."</span>,</span><br><span class="line">      <span class="string">"至于具体的修改样式及代码，可以查看[^/posts/Page_Not_Found/](*此日志*)。"</span>,</span><br><span class="line">      <span class="string">"As for the specific modification style and code, you can view [^/posts/Page_Not_Found/](*this post*)."</span>,</span><br><span class="line">      <span class="string">""</span>,</span><br><span class="line">      ],</span><br><span class="line">      [<span class="string">"other/about"</span>,</span><br><span class="line">      <span class="string">""</span>,</span><br><span class="line">      <span class="string">"About ColdCard's Blog"</span>,</span><br><span class="line">      <span class="string">""</span>,</span><br><span class="line">      <span class="string">"A!E!  ___ ___                       "</span>,</span><br><span class="line">      <span class="string">"A!E! /   |   \\   ____ ___  _______  "</span>,</span><br><span class="line">      <span class="string">"A!E!/    ~    \\_/ __ \\\\  \\/  /  _ \\ "</span>,</span><br><span class="line">      <span class="string">"A!E!\\    Y    /\\  ___/ &gt;    &lt;  &lt;_&gt; )"</span>,</span><br><span class="line">      <span class="string">"A!E! \\___|_  /  \\___  &gt;__/\\_ \\____/ "</span>,</span><br><span class="line">      <span class="string">"A!E!       \\/       \\/      \\/      "</span>,</span><br><span class="line">      <span class="string">""</span>,</span><br><span class="line">      <span class="string">"Personal power website for ColdCard."</span>,</span><br><span class="line">      <span class="string">""</span>,</span><br><span class="line">      <span class="string">"本博客使用 [^https://hexo.io/](*Hexo*) 的 [^https://github.com/next-theme/hexo-theme-next](*NexT*) 主题"</span>,</span><br><span class="line">      <span class="string">"This blog uses [^https://github.com/next-theme/hexo-theme-next](*NexT*) theme of [^https://hexo.io/](*Hexo*)"</span>,</span><br><span class="line">      <span class="string">""</span>,</span><br><span class="line">      ],</span><br><span class="line">      [<span class="string">"connect"</span>, </span><br><span class="line">      <span class="string">""</span>,</span><br><span class="line">      <span class="string">"Connect with ColdCard"</span>,</span><br><span class="line">      <span class="string">""</span>,</span><br><span class="line">      <span class="string">"A!E! __  __     ______     __         __         ______    "</span>,</span><br><span class="line">      <span class="string">"A!E!/\\ \\_\\ \\   /\\  ___\\   /\\ \\       /\\ \\       /\\  __ \\   "</span>,</span><br><span class="line">      <span class="string">"A!E!\\ \\  __ \\  \\ \\  __\\   \\ \\ \\____  \\ \\ \\____  \\ \\ \\/\\ \\  "</span>,</span><br><span class="line">      <span class="string">"A!E! \\ \\_\\ \\_\\  \\ \\_____\\  \\ \\_____\\  \\ \\_____\\  \\ \\_____\\ "</span>,</span><br><span class="line">      <span class="string">"A!E!  \\/_/\\/_/   \\/_____/   \\/_____/   \\/_____/   \\/_____/ "</span>,</span><br><span class="line">      <span class="string">""</span>,</span><br><span class="line">      <span class="string">"[mailto:ColdCard@qq.com](Email ColdCard@qq.com) &lt; Maine"</span>,</span><br><span class="line">      <span class="string">"[^https://github.com/Cold-Card](GitHub)"</span>,</span><br><span class="line">      <span class="string">"[^https://cold-card.coding.net](Coding)"</span>,</span><br><span class="line">      <span class="string">"[^https://steamcommunity.com/id/ColdCard](Steam) &lt; Always available"</span>,</span><br><span class="line">      <span class="string">"[^https://account.xbox.com/profile?gamertag=ColdCard1230](XboX)"</span>,</span><br><span class="line">      <span class="string">"[^https://my.playstation.com/profile/X-ColdCard-X](PlayStation)"</span>,</span><br><span class="line">      <span class="string">"[^https://space.bilibili.com/85970713](BiliBili) &lt; subscribe"</span>,</span><br><span class="line">      <span class="string">"[^https://www.youtube.com/channel/UCuh30UopOLnAi39YQ3uP5Pw](YouTube) &lt; subscribe"</span>,</span><br><span class="line">      <span class="string">"[^https://discordapp.com/channels/@ColdCard](Discord)"</span>,</span><br><span class="line">      <span class="string">"[^https://t.me/X_ColdCard_X](Telegram)"</span>,</span><br><span class="line">      <span class="string">""</span>,</span><br><span class="line">      ]];</span><br><span class="line">   <span class="keyword">var</span> pageindex = [<span class="string">"index"</span>, <span class="string">"other/about"</span>, <span class="string">"connect"</span>];</span><br><span class="line">   <span class="keyword">var</span> currentpage = <span class="string">"404"</span>;</span><br><span class="line">   <span class="keyword">var</span> url = <span class="string">"/"</span></span><br><span class="line">      <span class="comment">/*</span></span><br><span class="line"><span class="comment">         Custom Text Syntax</span></span><br><span class="line"><span class="comment">         Links:      </span></span><br><span class="line"><span class="comment">            [URLPATH](NAME) - regular</span></span><br><span class="line"><span class="comment">            [^URLPATH](NAME) - open in new tab</span></span><br><span class="line"><span class="comment">            </span></span><br><span class="line"><span class="comment">         Styles:</span></span><br><span class="line"><span class="comment">            *TEXT* - bold text</span></span><br><span class="line"><span class="comment">            E! - Text is an error/notification</span></span><br><span class="line"><span class="comment">            A! - spaces are converted to non-breaking spaces (it's for ascii art - after all, this is a text based website)</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      setInterval(time);</span><br><span class="line">      <span class="built_in">console</span>.clear();</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">new</span> <span class="built_in">Date</span>().getTime());</span><br><span class="line">      log(<span class="string">"Website"</span>, <span class="string">"A!   _____  _______      _____   __________                          _______          __    ___________                      .___"</span>);</span><br><span class="line">      log(<span class="string">"Website"</span>, <span class="string">"A!  /  |  | \\   _  \\    /  |  |  \\______   \\_____     ____   ____    \\      \\   _____/  |_  \\_   _____/___  __ __  ____    __| _/"</span>);</span><br><span class="line">      log(<span class="string">"Website"</span>, <span class="string">"A! /   |  |_/  /_\\  \\  /   |  |_  |     ___/\\__  \\   / ___\\_/ __ \\   /   |   \\ /  _ \\   __\\  |    __)/  _ \\|  |  \\/    \\  / __ | "</span>);</span><br><span class="line">      log(<span class="string">"Website"</span>, <span class="string">"A!/    ^   /\\  \\_/   \\/    ^   /  |    |     / __ \\_/ /_/  &gt;  ___/  /    |    (  &lt;_&gt; )  |    |     \\(  &lt;_&gt; )  |  /   |  \\/ /_/ | "</span>);</span><br><span class="line">      log(<span class="string">"Website"</span>, <span class="string">"A!\\____   |  \\_____  /\\____   |   |____|    (____  /\\___  / \\___  &gt; \\____|__  /\\____/|__|    \\___  / \\____/|____/|___|  /\\____ | "</span>);</span><br><span class="line">      log(<span class="string">"Website"</span>, <span class="string">"A!     |__|        \\/      |__|                  \\//_____/      \\/          \\/                   \\/                   \\/      \\/ "</span>);</span><br><span class="line">      log(<span class="string">"Website"</span>, <span class="string">""</span>); </span><br><span class="line">      log(<span class="string">"Website"</span>, <span class="string">"A!E!   ___ _ _   _        _      __        ___         _ _           "</span>);</span><br><span class="line">      log(<span class="string">"Website"</span>, <span class="string">"A!E!  / __(_) |_| |_ _  _| |__  / _|___   / __|___  __| (_)_ _  __ _ "</span>);</span><br><span class="line">      log(<span class="string">"Website"</span>, <span class="string">"A!E! | (_ | |  _| ' \\ || | '_ \\ &gt; _|_ _| | (__/ _ \\/ _` | | ' \\/ _` |"</span>);</span><br><span class="line">      log(<span class="string">"Website"</span>, <span class="string">"A!E!  \\___|_|\\__|_||_\\_,_|_.__/ \\_____|   \\___\\___/\\__,_|_|_||_\\__, |"</span>);</span><br><span class="line">      log(<span class="string">"Website"</span>, <span class="string">"A!E!                                                           |___/ "</span>);</span><br><span class="line">      log(<span class="string">"Website"</span>, <span class="string">""</span>);</span><br><span class="line">      log(<span class="string">"Website"</span>, <span class="string">"A![^/](*ColdCard's Blog*)"</span>);</span><br><span class="line">      log(<span class="string">"Website"</span>, <span class="string">""</span>);</span><br><span class="line">      log(<span class="string">"Website"</span>, <span class="string">"E!I'm no longer using this at [^/](*ColdCard's Blog*)"</span>);</span><br><span class="line">      log(<span class="string">"Website"</span>, <span class="string">""</span>);</span><br><span class="line">      log(<span class="string">"Website"</span>, <span class="string">"E!嗯。。。你居然到了这里，你也看到了，这里是 404 页面，你可以有很多方法回去，不过你也可以在这个页面玩会。"</span>);</span><br><span class="line">      log(<span class="string">"Website"</span>, <span class="string">"E!'/gl' 回到主页（如果你没用 '/nav' ）"</span>);</span><br><span class="line">      log(<span class="string">"Website"</span>, <span class="string">""</span>);</span><br><span class="line">     urlvars();</span><br><span class="line">      log(<span class="string">"Client"</span>, <span class="string">"For help say '/help'"</span>);</span><br><span class="line">	  setInterval(favicon,<span class="number">500</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">urlvars</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	   <span class="keyword">var</span> pagelocs = <span class="built_in">window</span>.location.pathname.replace(<span class="string">"/"</span>,<span class="string">""</span>).split(<span class="string">"/"</span>);</span><br><span class="line">	   <span class="keyword">var</span> pageloc = pagelocs[<span class="number">0</span>];</span><br><span class="line">	   <span class="built_in">console</span>.log(pageloc);</span><br><span class="line">	   <span class="comment">//alert();</span></span><br><span class="line">		<span class="keyword">if</span>(pageloc != <span class="string">""</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> ($.inArray(pageloc, pageindex) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">               currentpage = pageloc;</span><br><span class="line">            &#125;</span><br><span class="line">		&#125;</span><br><span class="line">      	log(<span class="string">"Website"</span>, <span class="string">"You are currently on page: *"</span> + currentpage + <span class="string">"*"</span>);</span><br><span class="line">		<span class="keyword">if</span>(pageloc != <span class="string">""</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> ($.inArray(pageloc, pageindex) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">               currentpage = pageloc;</span><br><span class="line">               loadpage($.inArray(pageloc, pageindex));</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">               <span class="comment">//Un-note next line to show 404 errors with wrong urls</span></span><br><span class="line">               log(<span class="string">"Client"</span>, <span class="string">"404 - The page '"</span> + pageloc + <span class="string">"' does not exist. To "</span>); </span><br><span class="line">            &#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(pageloc == <span class="string">""</span>) &#123;</span><br><span class="line">      		log(<span class="string">"Client"</span>, <span class="string">"What would you like to access?"</span>);	</span><br><span class="line">		&#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">getParam</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">		name = name.replace(<span class="regexp">/[\[]/</span>,<span class="string">"\\\["</span>).replace(<span class="regexp">/[\]]/</span>,<span class="string">"\\\]"</span>);</span><br><span class="line">		<span class="keyword">var</span> regexS = <span class="string">"[\\?&amp;]"</span>+name+<span class="string">"=([^&amp;#]*)"</span>;</span><br><span class="line">		<span class="keyword">var</span> regex = <span class="keyword">new</span> <span class="built_in">RegExp</span>( regexS );</span><br><span class="line">		<span class="keyword">var</span> results = regex.exec (<span class="built_in">window</span>.location.href);</span><br><span class="line">		<span class="keyword">if</span> (results == <span class="literal">null</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>  &#123;</span><br><span class="line">			<span class="keyword">return</span> results[<span class="number">1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params">name, information</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">      <span class="keyword">var</span> hours = ((d.getHours() &lt; <span class="number">10</span>) ? <span class="string">"0"</span> : <span class="string">""</span>) + d.getHours();</span><br><span class="line">      <span class="keyword">var</span> minutes = ((d.getMinutes() &lt; <span class="number">10</span>) ? <span class="string">"0"</span> : <span class="string">""</span>) + d.getMinutes();</span><br><span class="line">      <span class="keyword">var</span> seconds = ((d.getSeconds() &lt; <span class="number">10</span>) ? <span class="string">"0"</span> : <span class="string">""</span>) + d.getSeconds();</span><br><span class="line">      <span class="keyword">var</span> colour = <span class="string">"whitet"</span>;</span><br><span class="line">      <span class="keyword">var</span> textcolour = <span class="string">""</span>;</span><br><span class="line">      <span class="keyword">var</span> postcolour = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">switch</span> (name[<span class="number">0</span>]) &#123;</span><br><span class="line">         <span class="keyword">case</span> <span class="string">"!"</span>:</span><br><span class="line">            postcolour = <span class="string">" important"</span>;</span><br><span class="line">            name = name.substr(<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">switch</span> (name) &#123;</span><br><span class="line">         <span class="keyword">case</span> <span class="string">"Website"</span>:</span><br><span class="line">            colour = <span class="string">"redt"</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">         <span class="keyword">case</span> <span class="string">"Server"</span>:</span><br><span class="line">            colour = <span class="string">"bluet"</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">         <span class="keyword">case</span> <span class="string">"Client"</span>:</span><br><span class="line">            colour = <span class="string">"bluet"</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">         <span class="keyword">case</span> <span class="string">"User"</span>:</span><br><span class="line">            colour = <span class="string">"greent"</span>;</span><br><span class="line">            postcolour = <span class="string">" selft"</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (information[<span class="number">0</span>] == <span class="string">"A"</span> &amp;&amp; information[<span class="number">1</span>] == <span class="string">"!"</span>) &#123;</span><br><span class="line">         information = information.substr(<span class="number">2</span>);</span><br><span class="line">         information = information.replace(<span class="regexp">/ /g</span>, <span class="string">'\u00A0'</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (information[<span class="number">0</span>] == <span class="string">"E"</span> &amp;&amp; information[<span class="number">1</span>] == <span class="string">"!"</span>) &#123;</span><br><span class="line">         information = information.substr(<span class="number">2</span>);</span><br><span class="line">         postcolour = <span class="string">" important"</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">while</span> (information.indexOf(<span class="string">"]("</span>) &gt;= <span class="number">0</span>) &#123; <span class="comment">//URL parser</span></span><br><span class="line"></span><br><span class="line">         <span class="keyword">var</span> NAMEregExp = <span class="regexp">/\(([^)]+)\)/</span>;</span><br><span class="line">         <span class="keyword">var</span> uname = NAMEregExp.exec(information)[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">         <span class="keyword">var</span> URLregExp = <span class="regexp">/\[([^)]+)\]/</span>;</span><br><span class="line">         <span class="keyword">var</span> url = URLregExp.exec(information)[<span class="number">1</span>];</span><br><span class="line">         <span class="keyword">var</span> newpage = <span class="literal">false</span>;</span><br><span class="line">         <span class="keyword">if</span> (url[<span class="number">0</span>] == <span class="string">"^"</span>) &#123;</span><br><span class="line">            newpage = <span class="literal">true</span>;</span><br><span class="line">            url = url.substr(<span class="number">1</span>);</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">var</span> start = information.indexOf(<span class="string">"["</span>);</span><br><span class="line">         <span class="keyword">var</span> end = information.indexOf(<span class="string">")"</span>);</span><br><span class="line">         <span class="keyword">if</span> (newpage) &#123;</span><br><span class="line">            information = information.replace(information.substring(start, end + <span class="number">1</span>), <span class="string">""</span>).splice(start, <span class="number">0</span>, <span class="string">'&lt;a href="'</span> + url + <span class="string">'" target="_blank"&gt;'</span> + uname + <span class="string">'&lt;/a&gt;'</span>);</span><br><span class="line">         &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            information = information.replace(information.substring(start, end + <span class="number">1</span>), <span class="string">""</span>).splice(start, <span class="number">0</span>, <span class="string">'&lt;a href="'</span> + url + <span class="string">'"&gt;'</span> + uname + <span class="string">'&lt;/a&gt;'</span>);</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="comment">//information = '&lt;a href="' + url + '"&gt;' + uname + '&lt;/a&gt;'; //working</span></span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">var</span> tobold = <span class="literal">true</span>;</span><br><span class="line">      <span class="keyword">var</span> boldnumber = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; information.length; i++) &#123;</span><br><span class="line">         <span class="keyword">if</span> (information[i] == <span class="string">"*"</span> &amp;&amp; information[i - <span class="number">1</span>] != <span class="string">"*"</span> &amp;&amp; information[i + <span class="number">1</span>] != <span class="string">"*"</span>) &#123;</span><br><span class="line">            boldnumber++;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">while</span> (information.indexOf(<span class="string">"*"</span>) &gt;= <span class="number">0</span>) &#123; <span class="comment">//Bold parser</span></span><br><span class="line">         <span class="keyword">var</span> pos = information.indexOf(<span class="string">"*"</span>);</span><br><span class="line">         information = information.replace(<span class="string">"*"</span>, <span class="string">""</span>);</span><br><span class="line">         <span class="keyword">if</span> (tobold) &#123;</span><br><span class="line">            information = information.splice(pos, <span class="number">0</span>, <span class="string">'&lt;b&gt;'</span>);</span><br><span class="line">         &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            information = information.splice(pos, <span class="number">0</span>, <span class="string">'&lt;/b&gt;'</span>);</span><br><span class="line">         &#125;</span><br><span class="line">         tobold = !tobold;</span><br><span class="line">         <span class="keyword">if</span> (tobold &amp;&amp; boldnumber &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="comment">//information = '&lt;a href="' + url + '"&gt;' + uname + '&lt;/a&gt;'; //working</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">var</span> tounderline = <span class="literal">true</span>;</span><br><span class="line">      <span class="keyword">var</span> underlinenumber = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; information.length; i++) &#123;</span><br><span class="line">         <span class="keyword">if</span> (information[i] == <span class="string">"*"</span> &amp;&amp; information[i - <span class="number">1</span>] != <span class="string">"*"</span> &amp;&amp; information[i + <span class="number">1</span>] != <span class="string">"*"</span>) &#123;</span><br><span class="line">            underlinenumber++;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">while</span> (information.indexOf(<span class="string">"**"</span>) &gt;= <span class="number">0</span>) &#123; <span class="comment">//Bold parser</span></span><br><span class="line">         <span class="keyword">var</span> pos = information.indexOf(<span class="string">"**"</span>);</span><br><span class="line">         information = information.replace(<span class="string">"**"</span>, <span class="string">""</span>);</span><br><span class="line">         <span class="keyword">if</span> (tounderline) &#123;</span><br><span class="line">            information = information.splice(pos, <span class="number">0</span>, <span class="string">'&lt;u&gt;'</span>);</span><br><span class="line">         &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            information = information.splice(pos, <span class="number">0</span>, <span class="string">'&lt;/u&gt;'</span>);</span><br><span class="line">         &#125;</span><br><span class="line">         tounderline = !tounderline;</span><br><span class="line">         <span class="keyword">if</span> (tounderline &amp;&amp; underlinenumber &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="comment">//information = '&lt;a href="' + url + '"&gt;' + uname + '&lt;/a&gt;'; //working</span></span><br><span class="line">      &#125; <span class="comment">/**/</span></span><br><span class="line"><span class="comment">      $(".stream").append('&lt;div class="line"&gt;' +</span></span><br><span class="line"><span class="comment">         '&lt;p class="time"&gt;[' + hours + ":" + minutes + ":" + seconds + ']&lt;/p&gt;' +</span></span><br><span class="line"><span class="comment">         '&lt;p class="name ' + colour + '"&gt;' + name + '&lt;/p&gt;' +</span></span><br><span class="line"><span class="comment">         '&lt;p class="information' + postcolour + '"&gt;' + information + '&lt;/p&gt;' +</span></span><br><span class="line"><span class="comment">         '&lt;/div&gt;');</span></span><br><span class="line"><span class="comment">      $(document).scrollTop($(document).height() - $(window).height());</span></span><br><span class="line"><span class="comment">   &#125;</span></span><br><span class="line"><span class="comment">	var timestring = "";</span></span><br><span class="line"><span class="comment">   function time() &#123;</span></span><br><span class="line"><span class="comment">      var d = new Date();</span></span><br><span class="line"><span class="comment">      var hours = d.getHours();</span></span><br><span class="line"><span class="comment">      var minutes = d.getMinutes();</span></span><br><span class="line"><span class="comment">      var seconds = d.getSeconds();</span></span><br><span class="line"><span class="comment">      if (hours &lt; 10) &#123;</span></span><br><span class="line"><span class="comment">         hours = "0" + hours;</span></span><br><span class="line"><span class="comment">      &#125;</span></span><br><span class="line"><span class="comment">      if (minutes &lt; 10) &#123;</span></span><br><span class="line"><span class="comment">         minutes = "0" + minutes;</span></span><br><span class="line"><span class="comment">      &#125;</span></span><br><span class="line"><span class="comment">      if (seconds &lt; 10) &#123;</span></span><br><span class="line"><span class="comment">         seconds = "0" + seconds;</span></span><br><span class="line"><span class="comment">      &#125;</span></span><br><span class="line"><span class="comment">	  var temptimestring = "[" + hours + ":" + minutes + ":" + seconds + "]";</span></span><br><span class="line"><span class="comment">	  if (temptimestring != timestring) &#123;</span></span><br><span class="line"><span class="comment">		  timestring = temptimestring;</span></span><br><span class="line"><span class="comment">      	$(".editline .time").text(timestring);</span></span><br><span class="line"><span class="comment">	  &#125;</span></span><br><span class="line"><span class="comment">   &#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   var ctrldown = false;</span></span><br><span class="line"><span class="comment">   $(".editline .edit").keydown(function(e) &#123;</span></span><br><span class="line"><span class="comment">      var text = $(".editline .edit").text();</span></span><br><span class="line"><span class="comment">      console.log(e.which);</span></span><br><span class="line"><span class="comment">      if (e.which == 13 &amp;&amp; text !== "" &amp;&amp; !ctrldown) &#123;</span></span><br><span class="line"><span class="comment">         var commands = text.split(' ');</span></span><br><span class="line"><span class="comment">         var output = "";</span></span><br><span class="line"><span class="comment">         if (commands[0] == "help") &#123;</span></span><br><span class="line"><span class="comment">            text = "/" + text;</span></span><br><span class="line"><span class="comment">         &#125;</span></span><br><span class="line"><span class="comment">         $(".editline .edit").text("");</span></span><br><span class="line"><span class="comment">         log("User", text);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">         previouscommands[currentcommand] = text;</span></span><br><span class="line"><span class="comment">         currentcommand = previouscommands.length;</span></span><br><span class="line"><span class="comment">         $(".editline .edit").keydown(35);</span></span><br><span class="line"><span class="comment">         cmd(commands[0], text, commands);</span></span><br><span class="line"><span class="comment">         /*Add mod commands*/</span></span><br><span class="line">         <span class="comment">//modcmd(commands[0], text, commands);</span></span><br><span class="line">         <span class="comment">/*Add mod commands*/</span></span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (e.which == <span class="number">38</span>) &#123; <span class="comment">//up</span></span><br><span class="line">         <span class="keyword">if</span> (currentcommand &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            currentcommand--;</span><br><span class="line">            $(<span class="string">".editline .edit"</span>).text(previouscommands[currentcommand]);</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (e.which == <span class="number">40</span>) &#123; <span class="comment">//down</span></span><br><span class="line"></span><br><span class="line">         <span class="keyword">if</span> (currentcommand &lt; previouscommands.length) &#123;</span><br><span class="line">            currentcommand++;</span><br><span class="line">            $(<span class="string">".editline .edit"</span>).text(previouscommands[currentcommand]);</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;);</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">cmd</span>(<span class="params">command, words, word</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">switch</span> (word[<span class="number">0</span>]) &#123;</span><br><span class="line">         <span class="keyword">case</span> <span class="string">"/help"</span>:</span><br><span class="line">         <span class="keyword">case</span> <span class="string">"help"</span>:</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; commandlist.length; i++) &#123;</span><br><span class="line">               output = commandlist[i][<span class="number">0</span>] + <span class="string">" : "</span> + commandlist[i][<span class="number">1</span>];</span><br><span class="line">               <span class="comment">//console.log(command[i][0]);</span></span><br><span class="line">               log(<span class="string">"Client"</span>, output);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">		 <span class="keyword">case</span> <span class="string">"/gl"</span>:</span><br><span class="line">			<span class="built_in">window</span>.location.href = <span class="string">"https://coldcard.wang"</span> + (currentpage == <span class="string">"404"</span> ? <span class="string">""</span> : <span class="string">"/"</span> + currentpage);</span><br><span class="line">			<span class="built_in">window</span>.history.pushState(currentpage, <span class="string">'InpagePage'</span>, (currentpage == <span class="string">"404"</span> ? <span class="string">"/"</span> : <span class="string">"/"</span> + currentpage));</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">         <span class="keyword">case</span> <span class="string">"/clear"</span>:</span><br><span class="line">            $(<span class="string">".stream"</span>).text(<span class="string">""</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">         <span class="keyword">case</span> <span class="string">"/nav"</span>:</span><br><span class="line">            <span class="keyword">if</span> ($.inArray(word[<span class="number">1</span>], pageindex) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">               currentpage = word[<span class="number">1</span>];</span><br><span class="line">               log(<span class="string">"Website"</span>, <span class="string">"You are now in "</span> + currentpage);</span><br><span class="line">               loadpage($.inArray(word[<span class="number">1</span>], pageindex));</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">               log(<span class="string">"Client"</span>, <span class="string">"'"</span> + word[<span class="number">1</span>] + <span class="string">"' does not exist."</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">         <span class="keyword">case</span> <span class="string">"/list"</span>:</span><br><span class="line">            $.each(pageindex, <span class="function"><span class="keyword">function</span>(<span class="params">id, content</span>) </span>&#123;</span><br><span class="line">               log(<span class="string">"Client"</span>, <span class="string">"&gt; "</span> + content);</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">         <span class="keyword">case</span> <span class="string">"/login"</span>:</span><br><span class="line">            <span class="keyword">if</span> (word.length &gt;= <span class="number">3</span>) &#123;</span><br><span class="line">               log(<span class="string">"Client"</span>, <span class="string">"Attempting to login to "</span> + word[<span class="number">1</span>] + <span class="string">" with "</span> + <span class="built_in">Array</span>(word[<span class="number">2</span>].length + <span class="number">1</span>).join(<span class="string">"â€¢"</span>));</span><br><span class="line">               loginreturn = <span class="literal">false</span>;</span><br><span class="line">               <span class="comment">//log("Client", "ER1");</span></span><br><span class="line">               setTimeout(loginemptyreturn, <span class="number">20000</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">               log(<span class="string">"Client"</span>, <span class="string">"Not enough arguments to log in, you need a USERNAME and a PASSWORD."</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">         <span class="keyword">default</span>:</span><br><span class="line">            output = <span class="string">"Unrecognised command '"</span> + word[<span class="number">0</span>] + <span class="string">"'."</span>;</span><br><span class="line">            log(<span class="string">"Client"</span>, output);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">loadpage</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">      $.each(pages[i], <span class="function"><span class="keyword">function</span>(<span class="params">id, content</span>) </span>&#123;</span><br><span class="line">         <span class="keyword">if</span> (content != pageindex[i]) &#123;</span><br><span class="line">            log(<span class="string">"Website"</span>, content);</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">var</span> loginreturn = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">loginemptyreturn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">//log("Client", "ER2");</span></span><br><span class="line">      <span class="keyword">if</span> (!loginreturn) &#123;</span><br><span class="line">         log(<span class="string">"Client"</span>, <span class="string">"E![LOGIN] No Return Recieved"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="built_in">String</span>.prototype.splice = <span class="function"><span class="keyword">function</span>(<span class="params">idx, rem, str</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.slice(<span class="number">0</span>, idx) + str + <span class="keyword">this</span>.slice(idx + <span class="built_in">Math</span>.abs(rem));</span><br><span class="line">   &#125;;</span><br><span class="line">   init();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    <div> 
+     
+        <div style="text-align:center;color: #606060;font-size:14px;">--------- <i class="fa fa-chevron-left"></i> 本文结束，感谢阅读 <i class="fa fa-chevron-right"></i> ---------</div> 
+     
+</div> 
+
+
+        <div class="reward-container">
+  <div><i class="fa fa-align-right"></i> 用币加油,用爱发电 <i class="fa fa-align-left"></i></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    <i class="fas fa-qrcode"></i>
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="ColdCard 微信">
+        <p>微信</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="ColdCard 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>ColdCard
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://coldcard.wang/posts/Page_Not_Found/" title="自定义 404 页面">https://coldcard.wang/posts/Page_Not_Found/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>我的游戏频道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://steamcommunity.com/id/ColdCard" rel="external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-steam"></i>
+            </span>
+
+            <span class="label">Steam</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://my.playstation.com/profile/X-ColdCard-X" rel="external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-playstation"></i>
+            </span>
+
+            <span class="label">PlayStation</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://account.xbox.com/profile?gamertag=ColdCard1230" rel="external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-xbox"></i>
+            </span>
+
+            <span class="label">Xbox</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/posts/Valine_Updata/" rel="next" title="Valine 评论升级">
+      Valine 评论升级 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+      <div class="comment-button-group">
+          <a class="btn comment-button valine">Valine评论</a>
+          <a class="btn comment-button gitalk">Gitalk评论</a>
+      </div>
+        <div class="comment-position valine">
+          <div class="comments" id="valine-comments"></div>
+        </div>
+        <div class="comment-position gitalk">
+          <div class="comments" id="gitalk-container"></div>
+        </div>
+      <script data-pjax>
+        (function() {
+          let commentButton = document.querySelectorAll('.comment-button');
+            commentButton.forEach(element => {
+            let commentClass = element.classList[2];
+            element.addEventListener('click', () => {
+              commentButton.forEach(rmActive => rmActive.classList.remove('active'));
+              element.classList.add('active');
+              document.querySelectorAll('.comment-position').forEach(rmActive => rmActive.classList.remove('active'));
+              document.querySelector(`.comment-position.${commentClass}`).classList.add('active');
+              if (CONFIG.comments.storage) {
+                localStorage.setItem('comments_active', commentClass);
+              }
+            });
+          });
+          let { activeClass } = CONFIG.comments;
+          if (CONFIG.comments.storage) {
+            activeClass = localStorage.getItem('comments_active') || activeClass;
+          }
+          if (activeClass) {
+            let activeButton = document.querySelector(`.comment-button.${activeClass}`);
+            if (activeButton) {
+              activeButton.click();
+            }
+          }
+        })();
+      </script>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#过程"><span class="nav-number">2.</span> <span class="nav-text">过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤一"><span class="nav-number">2.1.</span> <span class="nav-text">步骤一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤二"><span class="nav-number">2.2.</span> <span class="nav-text">步骤二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤三"><span class="nav-number">2.3.</span> <span class="nav-text">步骤三</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <a href="/about">
+    <img class="site-author-image" itemprop="image" alt="ColdCard"
+      src="/images/avatar.png">
+    </a>
+  <p class="site-author-name" itemprop="name">ColdCard</p>
+  <div class="site-description" itemprop="description">没技术，纯爱好</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Cold-Card" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Cold-Card" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://cold-card.coding.net/" title="Coding → https:&#x2F;&#x2F;cold-card.coding.net" rel="noopener external nofollow noreferrer" target="_blank"><i class="iconfont icon-coding fa-fw"></i>Coding</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ColdCard@qq.com" title="E-Mail → mailto:ColdCard@qq.com" rel="noopener external nofollow noreferrer" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/card_cold" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;card_cold" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/ColdCard1230" title="Facebook → https:&#x2F;&#x2F;www.facebook.com&#x2F;ColdCard1230" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-facebook fa-fw"></i>Facebook</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.youtube.com/channel/UCuh30UopOLnAi39YQ3uP5Pw" title="YouTube → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCuh30UopOLnAi39YQ3uP5Pw" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-youtube fa-fw"></i>YouTube</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/cardcold" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;cardcold" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/X_ColdCard_X" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;X_ColdCard_X" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-telegram fa-fw"></i>Telegram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://discordapp.com/channels/@ColdCard" title="Discord → https:&#x2F;&#x2F;discordapp.com&#x2F;channels&#x2F;@ColdCard" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-discord fa-fw"></i>Discord</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://account.xbox.com/profile?gamertag=ColdCard1230" title="Xbox → https:&#x2F;&#x2F;account.xbox.com&#x2F;profile?gamertag&#x3D;ColdCard1230" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-xbox fa-fw"></i>Xbox</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://my.playstation.com/profile/X-ColdCard-X" title="PlayStation → https:&#x2F;&#x2F;my.playstation.com&#x2F;profile&#x2F;X-ColdCard-X" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-playstation fa-fw"></i>PlayStation</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://steamcommunity.com/id/ColdCard" title="Steam → https:&#x2F;&#x2F;steamcommunity.com&#x2F;id&#x2F;ColdCard" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-steam fa-fw"></i>Steam</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/85970713" title="BiliBili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;85970713" rel="noopener external nofollow noreferrer" target="_blank"><i class="iconfont icon-bilibili fa-fw"></i>BiliBili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.origin.com/" title="Origin → https:&#x2F;&#x2F;www.origin.com" rel="noopener external nofollow noreferrer" target="_blank"><i class="iconfont icon-origin fa-fw"></i>Origin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://support.ubisoft.com/" title="Uplay → https:&#x2F;&#x2F;support.ubisoft.com" rel="noopener external nofollow noreferrer" target="_blank"><i class="iconfont icon-ubisoft fa-fw"></i>Uplay</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.epicgames.com/" title="Epic → https:&#x2F;&#x2F;www.epicgames.com" rel="noopener external nofollow noreferrer" target="_blank"><i class="iconfont icon-epicgames fa-fw"></i>Epic</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.imboxmc.org/" title="https:&#x2F;&#x2F;www.imboxmc.org" rel="noopener external nofollow noreferrer" target="_blank">Minecraft-Imbox服务器官网</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://discord.gg/ZRnK6S6" title="https:&#x2F;&#x2F;discord.gg&#x2F;ZRnK6S6" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-discord"></i> Imbox-Discord频道</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://minecraft.net/" title="https:&#x2F;&#x2F;minecraft.net" rel="noopener external nofollow noreferrer" target="_blank"><i class="iconfont icon-minecraft"></i> Minecraft</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.mcbbs.net/" title="http:&#x2F;&#x2F;www.mcbbs.net" rel="noopener external nofollow noreferrer" target="_blank">MCBBS</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.pinterest.com/" title="https:&#x2F;&#x2F;www.pinterest.com&#x2F;" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-pinterest"></i> Pinterest</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.pixiv.net/" title="https:&#x2F;&#x2F;www.pixiv.net" rel="noopener external nofollow noreferrer" target="_blank"><i class="iconfont icon-pixiv"></i> Pixiv</a>
+        </li>
+    </ul>
+  </div>
+
+    <div class="links-of-blogroll motion-element links-of-blogroll-block">
+      <div class="links-of-blogroll-title">
+        <!-- modify icon to fire by szw -->
+        <i class="fa fa-history fa-" aria-hidden="true"></i>
+        近期文章
+      </div>
+      <ul class="links-of-blogroll-list">
+        
+        
+          <li>
+            <a href="/posts/Page_Not_Found/" title="自定义 404 页面" target="_blank">自定义 404 页面</a>
+          </li>
+        
+          <li>
+            <a href="/posts/Valine_Updata/" title="Valine 评论升级" target="_blank">Valine 评论升级</a>
+          </li>
+        
+          <li>
+            <a href="/posts/Hexo_Updata(2020.05.13)/" title="博客升级记录（2020.05.13）" target="_blank">博客升级记录（2020.05.13）</a>
+          </li>
+        
+          <li>
+            <a href="/posts/Hexo_Updata(2020.04.17)/" title="博客升级记录（2020.04.17）" target="_blank">博客升级记录（2020.04.17）</a>
+          </li>
+        
+          <li>
+            <a href="/posts/Arnold/" title="Maya-Arnold（阿诺德）渲染器插件替换破解" target="_blank">Maya-Arnold（阿诺德）渲染器插件替换破解</a>
+          </li>
+        
+      </ul>
+    </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">𝕮𝖔𝖑𝖉𝕮𝖆𝖗𝖉</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">125k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:53</span>
+</div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b6687f4da65b9ba" async="async"></script>
+  </div><script>
+if (screen && screen.width > 767) {
+  document.write('<script color="126, 126, 126" opacity="0.5" zIndex="-1" count="100" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"><\/script>');
+}
+</script>
+
+<div id="pjax">
+<div class="translate-style">
+当前中文字体：<a id="translateLink" href="javascript:translatePage();" rel="external nofollow noreferrer">简体
+</a>
+</div>
+<script type="text/javascript" src="/js/tw_cn.js"></script>
+<script type="text/javascript">
+var defaultEncoding = 2; //网站编写字体是否繁体，1-繁体，2-简体
+var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
+var cookieDomain = "https://ColdCard.wang/"; //Cookie地址, 一定要设定, 通常为你的网址
+var msgToTraditionalChinese = "简体"; //此处可以更改为你想要显示的文字
+var msgToSimplifiedChinese = "繁體"; //同上，但两处均不建议更改
+var translateButtonId = "translateLink"; //默认互换id
+translateInitilization();
+</script>
+</div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment-precise-range-plugin@1.3.0/moment-precise-range.min.js"></script>
+  <script>
+    function timer() {
+      var ages = moment.preciseDiff(moment(),moment(20180708000000,"YYYYMMDDHHmmss"));
+      ages = ages.replace(/years?/, "年");
+      ages = ages.replace(/months?/, "月");
+      ages = ages.replace(/days?/, "天");
+      ages = ages.replace(/hours?/, "小时");
+      ages = ages.replace(/minutes?/, "分");
+      ages = ages.replace(/seconds?/, "秒");
+      ages = ages.replace(/\d+/g, '<span style="color:#C399FC">$&</span>');
+      div.innerHTML = `已运行 ${ages}`;
+    }
+    var div = document.createElement("div");
+    //插入到copyright之后
+    var copyright = document.querySelector(".copyright");
+    document.querySelector(".footer-inner").insertBefore(div, copyright.nextSibling);
+    timer();
+    setInterval("timer()",1000)
+  </script>
+
+
+
+
+  <script>
+    var OriginTitile = document.title;
+    var titleTime;
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        document.title = '警告 | ' + OriginTitile;
+        clearTimeout(titleTime);
+      } else {
+        document.title = '欢迎回来 | ' + OriginTitile;
+        titleTime = setTimeout(function() {
+          document.title = OriginTitile;
+        }, 2000);
+      }
+    });
+  </script>
+
+
+<div>
+<a href="https://hexo.io" target="_blank" rel="noopener external nofollow noreferrer">
+  <img class="shields" src="https://img.shields.io/npm/v/hexo?label=Hexo&logo=hexo&style=social" title="Hexo 最新版本">
+</a>
+<a href="https://github.com/next-theme/hexo-theme-next" target="_blank" rel="noopener external nofollow noreferrer">
+  <img class="shields" src="https://img.shields.io/npm/v/hexo-theme-next?label=NexT&style=social&logo=npm" title="NexT 最新版本">
+</a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/next-theme/pjax@0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#bangumi-item1',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script data-pjax>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+  <script data-pjax>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 13266,
+      el    : 'wpac-rating',
+      color : 'a4c2f4'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el         : '#valine-comments',
+      path       : location.pathname,
+    }, {"master":["17c761316cbf8e50477f65965dbbff35","a6461f33aaaa003157d3ad8e0b8d9d2b","71f016c76277115eb6618041f7cf1120","f88154bb32b1730b6d95456cae271e10","420de95bdf2c77ead7a74941d493c35f"],"friends":["03cad9d324ac0217088df8f473cee9a4","dd6a848a2c05432fddd891435c4ffc83","2554753bfe3b935dfa202cdc4469b460"],"metaPlaceholder":{"nick":"昵称/ QQ 号（必须）","mail":"邮箱（昵称输入 QQ 号可自动识别输入）"},"enableQQ":true,"requiredFields":["nick"],"tagMeta":["博主","友人","访客"],"emojiCDN":"https://valinecdn.bili33.top/","emojiMaps":{"doge":"bilibilitv/[tv_doge].png","亲亲":"bilibilitv/[tv_亲亲].png","偷笑":"bilibilitv/[tv_偷笑].png","再见":"bilibilitv/[tv_再见].png","冷漠":"bilibilitv/[tv_冷漠].png","发怒":"bilibilitv/[tv_发怒].png","发财":"bilibilitv/[tv_发财].png","可爱":"bilibilitv/[tv_可爱].png","吐血":"bilibilitv/[tv_吐血].png","呆":"bilibilitv/[tv_呆].png","呕吐":"bilibilitv/[tv_呕吐].png","困":"bilibilitv/[tv_困].png","坏笑":"bilibilitv/[tv_坏笑].png","大佬":"bilibilitv/[tv_大佬].png","大哭":"bilibilitv/[tv_大哭].png","委屈":"bilibilitv/[tv_委屈].png","害羞":"bilibilitv/[tv_害羞].png","尴尬":"bilibilitv/[tv_尴尬].png","微笑":"bilibilitv/[tv_微笑].png","思考":"bilibilitv/[tv_思考].png","惊吓":"bilibilitv/[tv_惊吓].png","打脸":"bilibilitv/[tv_打脸].png","抓狂":"bilibilitv/[tv_抓狂].png","抠鼻":"bilibilitv/[tv_抠鼻].png","斜眼笑":"bilibilitv/[tv_斜眼笑].png","无奈":"bilibilitv/[tv_无奈].png","晕":"bilibilitv/[tv_晕].png","流汗":"bilibilitv/[tv_流汗].png","流泪":"bilibilitv/[tv_流泪].png","流鼻血":"bilibilitv/[tv_流鼻血].png","点赞":"bilibilitv/[tv_点赞].png","生气":"bilibilitv/[tv_生气].png","生病":"bilibilitv/[tv_生病].png","疑问":"bilibilitv/[tv_疑问].png","白眼":"bilibilitv/[tv_白眼].png","皱眉":"bilibilitv/[tv_皱眉].png","目瞪口呆":"bilibilitv/[tv_目瞪口呆].png","睡着":"bilibilitv/[tv_睡着].png","笑哭":"bilibilitv/[tv_笑哭].png","腼腆":"bilibilitv/[tv_腼腆].png","色":"bilibilitv/[tv_色].png","调侃":"bilibilitv/[tv_调侃].png","调皮":"bilibilitv/[tv_调皮].png","鄙视":"bilibilitv/[tv_鄙视].png","闭嘴":"bilibilitv/[tv_闭嘴].png","难过":"bilibilitv/[tv_难过].png","馋":"bilibilitv/[tv_馋].png","鬼脸":"bilibilitv/[tv_鬼脸].png","黑人问号":"bilibilitv/[tv_黑人问号].png","鼓掌":"bilibilitv/[tv_鼓掌].png","2233娘_卖萌":"bilibili2233/[2233娘_卖萌].png","2233娘_吃惊":"bilibili2233/[2233娘_吃惊].png","2233娘_吐魂":"bilibili2233/[2233娘_吐魂].png","2233娘_喝水":"bilibili2233/[2233娘_喝水].png","2233娘_困惑":"bilibili2233/[2233娘_困惑].png","2233娘_大哭":"bilibili2233/[2233娘_大哭].png","2233娘_大笑":"bilibili2233/[2233娘_大笑].png","2233娘_委屈":"bilibili2233/[2233娘_委屈].png","2233娘_怒":"bilibili2233/[2233娘_怒].png","2233娘_无言":"bilibili2233/[2233娘_无言].png","2233娘_汗":"bilibili2233/[2233娘_汗].png","2233娘_疑问":"bilibili2233/[2233娘_疑问].png","2233娘_第一":"bilibili2233/[2233娘_第一].png","2233娘_耶":"bilibili2233/[2233娘_耶].png","2233娘_郁闷":"bilibili2233/[2233娘_郁闷].png","妙":"bilibiliHotKey/1.jpg","你细品":"bilibiliHotKey/10.jpg","锤":"bilibiliHotKey/11.jpg","秀":"bilibiliHotKey/12.jpg","你币有了":"bilibiliHotKey/13.jpg","这次一定":"bilibiliHotKey/14.jpg","酸了":"bilibiliHotKey/15.jpg","打卡":"bilibiliHotKey/16.jpg","神仙UP":"bilibiliHotKey/17.jpg","我太南了":"bilibiliHotKey/18.jpg","吹爆":"bilibiliHotKey/19.jpg","危":"bilibiliHotKey/2.jpg","奥力给":"bilibiliHotKey/20.jpg","AWSL":"bilibiliHotKey/21.jpg","猛男必看":"bilibiliHotKey/22.jpg","害":"bilibiliHotKey/23.jpg","知识盲区":"bilibiliHotKey/24.jpg","我全都要":"bilibiliHotKey/25.jpg","咕":"bilibiliHotKey/26.jpg","可以":"bilibiliHotKey/27.jpg","真香":"bilibiliHotKey/28.jpg","完结":"bilibiliHotKey/29.jpg","有内味了":"bilibiliHotKey/3.jpg","有生之年":"bilibiliHotKey/30.jpg","大师球":"bilibiliHotKey/31.jpg","爷关更":"bilibiliHotKey/32.jpg","高产":"bilibiliHotKey/4.jpg","我枯了":"bilibiliHotKey/5.jpg","不愧是你":"bilibiliHotKey/6.jpg","三连":"bilibiliHotKey/7.jpg","镇站之宝":"bilibiliHotKey/8.jpg","狼火":"bilibiliHotKey/9.jpg","Snow-Miku1":"Snow-Miku/3583066@2x.png","Snow-Miku2":"Snow-Miku/3583067@2x.png","Snow-Miku3":"Snow-Miku/3583068@2x.png","Snow-Miku4":"Snow-Miku/3583069@2x.png","Snow-Miku5":"Snow-Miku/3583070@2x.png","Snow-Miku6":"Snow-Miku/3583071@2x.png","Snow-Miku7":"Snow-Miku/3583072@2x.png","Snow-Miku8":"Snow-Miku/3583073@2x.png","Snow-Miku9":"Snow-Miku/3583074@2x.png","Snow-Miku10":"Snow-Miku/3583075@2x.png","Snow-Miku11":"Snow-Miku/3583076@2x.png","Snow-Miku12":"Snow-Miku/3583077@2x.png","Snow-Miku13":"Snow-Miku/3583078@2x.png","Snow-Miku14":"Snow-Miku/3583079@2x.png","Snow-Miku15":"Snow-Miku/3583080@2x.png","Snow-Miku16":"Snow-Miku/3583081@2x.png","Snow-Miku17":"Snow-Miku/3583082@2x.png","Snow-Miku18":"Snow-Miku/3583083@2x.png","Snow-Miku19":"Snow-Miku/3583084@2x.png","Snow-Miku20":"Snow-Miku/3583085@2x.png","Snow-Miku21":"Snow-Miku/3583086@2x.png","Snow-Miku22":"Snow-Miku/3583087@2x.png","Snow-Miku23":"Snow-Miku/3583088@2x.png","Snow-Miku24":"Snow-Miku/3583089@2x.png","Snow-Miku25":"Snow-Miku/3583090@2x.png","Snow-Miku26":"Snow-Miku/3583091@2x.png","Snow-Miku27":"Snow-Miku/3583092@2x.png","Snow-Miku28":"Snow-Miku/3583093@2x.png","Snow-Miku29":"Snow-Miku/3583094@2x.png","Snow-Miku30":"Snow-Miku/3583095@2x.png","Snow-Miku31":"Snow-Miku/3583096@2x.png","Snow-Miku32":"Snow-Miku/3583097@2x.png","Snow-Miku33":"Snow-Miku/3583098@2x.png","Snow-Miku34":"Snow-Miku/3583099@2x.png","Snow-Miku35":"Snow-Miku/3583100@2x.png","Snow-Miku36":"Snow-Miku/3583101@2x.png","Snow-Miku37":"Snow-Miku/3583102@2x.png","Snow-Miku38":"Snow-Miku/3583103@2x.png","Snow-Miku39":"Snow-Miku/3583104@2x.png","Snow-Miku40":"Snow-Miku/3583105@2x.png","Sweetie-Bunny1":"Sweetie-Bunny/12311678.png","Sweetie-Bunny2":"Sweetie-Bunny/12311679.png","Sweetie-Bunny3":"Sweetie-Bunny/12311680.png","Sweetie-Bunny4":"Sweetie-Bunny/12311681.png","Sweetie-Bunny5":"Sweetie-Bunny/12311682.png","Sweetie-Bunny6":"Sweetie-Bunny/12311683.png","Sweetie-Bunny7":"Sweetie-Bunny/12311684.png","Sweetie-Bunny8":"Sweetie-Bunny/12311685.png","Sweetie-Bunny9":"Sweetie-Bunny/12311686.png","Sweetie-Bunny10":"Sweetie-Bunny/12311687.png","Sweetie-Bunny11":"Sweetie-Bunny/12311688.png","Sweetie-Bunny12":"Sweetie-Bunny/12311689.png","Sweetie-Bunny13":"Sweetie-Bunny/12311690.png","Sweetie-Bunny14":"Sweetie-Bunny/12311691.png","Sweetie-Bunny15":"Sweetie-Bunny/12311692.png","Sweetie-Bunny16":"Sweetie-Bunny/12311693.png","Sweetie-Bunny17":"Sweetie-Bunny/12311694.png","Sweetie-Bunny18":"Sweetie-Bunny/12311695.png","Sweetie-Bunny19":"Sweetie-Bunny/12311696.png","Sweetie-Bunny20":"Sweetie-Bunny/12311697.png","Sweetie-Bunny21":"Sweetie-Bunny/12311698.png","Sweetie-Bunny22":"Sweetie-Bunny/12311699.png","Sweetie-Bunny23":"Sweetie-Bunny/12311700.png","Sweetie-Bunny24":"Sweetie-Bunny/12311701.png","Sweetie-Bunny25":"Sweetie-Bunny/12311702.png","Sweetie-Bunny26":"Sweetie-Bunny/12311703.png","Sweetie-Bunny27":"Sweetie-Bunny/12311704.png","Sweetie-Bunny28":"Sweetie-Bunny/12311705.png","Sweetie-Bunny29":"Sweetie-Bunny/12311706.png","Sweetie-Bunny30":"Sweetie-Bunny/12311707.png","Sweetie-Bunny31":"Sweetie-Bunny/12311708.png","Sweetie-Bunny32":"Sweetie-Bunny/12311709.png","Sweetie-Bunny33":"Sweetie-Bunny/12311710.png","Sweetie-Bunny34":"Sweetie-Bunny/12311711.png","Sweetie-Bunny35":"Sweetie-Bunny/12311712.png","Sweetie-Bunny36":"Sweetie-Bunny/12311713.png","Sweetie-Bunny37":"Sweetie-Bunny/12311714.png","Sweetie-Bunny38":"Sweetie-Bunny/12311715.png","Sweetie-Bunny39":"Sweetie-Bunny/12311716.png","Sweetie-Bunny40":"Sweetie-Bunny/12311717.png","Mafumafu1":"Mafumafu/199749454.png","Mafumafu2":"Mafumafu/199749455.png","Mafumafu3":"Mafumafu/199749456.png","Mafumafu4":"Mafumafu/199749457.png","Mafumafu5":"Mafumafu/199749458.png","Mafumafu6":"Mafumafu/199749459.png","Mafumafu7":"Mafumafu/199749460.png","Mafumafu8":"Mafumafu/199749461.png","Mafumafu9":"Mafumafu/199749462.png","Mafumafu10":"Mafumafu/199749463.png","Mafumafu11":"Mafumafu/199749464.png","Mafumafu12":"Mafumafu/199749465.png","Mafumafu13":"Mafumafu/199749466.png","Mafumafu14":"Mafumafu/199749467.png","Mafumafu15":"Mafumafu/199749468.png","Mafumafu16":"Mafumafu/199749469.png","Mafumafu17":"Mafumafu/199749470.png","Mafumafu18":"Mafumafu/199749471.png","Mafumafu19":"Mafumafu/199749472.png","Mafumafu20":"Mafumafu/199749473.png","Mafumafu21":"Mafumafu/199749474.png","Mafumafu22":"Mafumafu/199749475.png","Mafumafu23":"Mafumafu/199749476.png","Mafumafu24":"Mafumafu/199749477.png","HONKAI3-Stan1":"HONKAI3-Stan/15214d9eece7e739f8cc764233c26dd981678f34.gif","HONKAI3-Stan2":"HONKAI3-Stan/166eacc0ea878b41902238fef44835bcca320999.gif","HONKAI3-Stan3":"HONKAI3-Stan/4f921b8ad8c16f3d2c73e3c04c5735ca9b41187b.gif","HONKAI3-Stan4":"HONKAI3-Stan/70677f9c51bd601e60881da47d77a4e6189ad895.gif","HONKAI3-Stan5":"HONKAI3-Stan/7ba34abc0fb1273591b75037e26972c2fb97de7d.gif","HONKAI3-Stan6":"HONKAI3-Stan/7f6655ee3e70f338dd4ccb1cc1d984a9b92628ea.gif","HONKAI3-Stan7":"HONKAI3-Stan/a0a41607578a6286f8d245338addd0d41bbd609b.gif","HONKAI3-Stan8":"HONKAI3-Stan/b7768611702b6c74b959f285a4b780cdf5606e38.gif","HONKAI3-Stan9":"HONKAI3-Stan/f044641b50e2de64469972528aab39a35fbc85b7.gif"},"enable":true,"appId":"WIRW7NrtflvQq6NW3XwQ2Dip-gzGzoHsz","appKey":"LwTPMd185WYI1TikNSttWLYX","notify":false,"verify":false,"placeholder":"昵称如果填写 QQ 号可自动获取 QQ 昵称、QQ 头像、QQ 邮箱（除 QQ 头像外，本评论还使用 Gravatar 作为评论列表头像。请自行登录或注册 Gravatar，然后修改自己的头像。评论的时候，留下在 Gravatar 注册时所使用的邮箱即可。如果你修改了头像后发现没有更新，请不要慌张，因为 gravatar.cat.net 有七天的缓存期，安静的等待吧~ ）","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"language":"zh-cn","visitor":true,"comment_count":true,"recordIP":false,"serverURLs":null}
+    ));
+  }, window.Valine);
+});
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '5cb1798a739444534259',
+      clientSecret: '9488309d28c1210630a79809297858d70d20d5a9',
+      repo        : 'Comments',
+      owner       : 'Cold-Card',
+      admin       : ['Cold-Card'],
+      id          : '2049b5ca7c061d6bb80e12aa104f993c',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+<script async src="/js/fireworks.js"></script>
+
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+  <script>
+    POWERMODE.colorful = true;
+    POWERMODE.shake = true;
+    document.body.addEventListener('input', POWERMODE);
+  </script>
+
+
+  
+
+    </div>
+</body>
+</html>
