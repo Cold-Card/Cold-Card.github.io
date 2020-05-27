@@ -8,8 +8,88 @@
     </url>
 
     <url>
+        <loc>https://coldcard.wang/posts/Arnold_Lights/</loc>
+        <lastmod>2020-05-27T07:15:16.037Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/Battlefield5_2/</loc>
+        <lastmod>2020-05-27T04:10:51.577Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/Battlefield5_1/</loc>
+        <lastmod>2020-05-27T04:10:21.857Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/Arnold/</loc>
+        <lastmod>2020-05-27T04:07:57.602Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/Valine_Updata/</loc>
+        <lastmod>2020-05-27T03:58:24.680Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://coldcard.wang/posts/Page_Not_Found/</loc>
-        <lastmod>2020-05-25T18:04:51.342Z</lastmod>
+        <lastmod>2020-05-27T03:57:37.149Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/SteamDB/</loc>
+        <lastmod>2020-05-27T03:57:23.859Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/Steam_Buy/</loc>
+        <lastmod>2020-05-27T03:57:20.592Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/Steam_Warning/</loc>
+        <lastmod>2020-05-27T03:57:16.525Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/Imbox/</loc>
+        <lastmod>2020-05-27T03:56:59.884Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/Hypixel_BedWars/</loc>
+        <lastmod>2020-05-27T03:56:51.136Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -18,30 +98,6 @@
     <url>
         <loc>https://coldcard.wang/posts/Hexo_Updata(2020.05.13)/</loc>
         <lastmod>2020-05-25T13:09:42.134Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/posts/Steam_Warning/</loc>
-        <lastmod>2020-05-25T12:52:34.670Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/posts/Steam_Buy/</loc>
-        <lastmod>2020-05-25T12:52:33.209Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/posts/Hypixel_BedWars/</loc>
-        <lastmod>2020-05-25T12:52:20.964Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -80,56 +136,8 @@
     </url>
 
     <url>
-        <loc>https://coldcard.wang/posts/Valine_Updata/</loc>
-        <lastmod>2020-05-21T10:54:06.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/posts/SteamDB/</loc>
-        <lastmod>2020-05-21T10:53:58.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/posts/Imbox/</loc>
-        <lastmod>2020-05-21T10:53:42.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/posts/Arnold/</loc>
-        <lastmod>2020-05-21T10:53:26.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://coldcard.wang/posts/Anime/</loc>
         <lastmod>2020-05-21T10:53:22.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/posts/Battlefield5_1/</loc>
-        <lastmod>2020-05-21T10:53:10.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/posts/Battlefield5_2/</loc>
-        <lastmod>2020-05-21T10:53:00.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

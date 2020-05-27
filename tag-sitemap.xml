@@ -3,36 +3,113 @@
 
 
     <url>
-        <loc>https://coldcard.wang/tags/Hexo/</loc>
-        <lastmod>2020-05-25T18:04:51.342Z</lastmod>
+        <loc>https://coldcard.wang/tags/Plugins/</loc>
+        <lastmod>2020-05-27T07:15:16.037Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://coldcard.wang/tags/Steam/</loc>
-        <lastmod>2020-05-25T12:52:34.670Z</lastmod>
+        <loc>https://coldcard.wang/tags/App/</loc>
+        <lastmod>2020-05-27T07:15:16.037Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/tags/Arnold/</loc>
+        <lastmod>2020-05-27T07:15:16.037Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/tags/Maya/</loc>
+        <lastmod>2020-05-27T07:15:16.037Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/tags/Lightning-Strike/</loc>
+        <lastmod>2020-05-27T04:10:51.577Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/tags/Battlefield/</loc>
+        <lastmod>2020-05-27T04:10:51.577Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://coldcard.wang/tags/Games/</loc>
-        <lastmod>2020-05-25T12:52:33.209Z</lastmod>
+        <lastmod>2020-05-27T04:10:51.577Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://coldcard.wang/tags/Hypixel/</loc>
-        <lastmod>2020-05-25T12:52:20.964Z</lastmod>
+        <loc>https://coldcard.wang/tags/Trial-By-Fire/</loc>
+        <lastmod>2020-05-27T04:10:21.857Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/tags/Crack/</loc>
+        <lastmod>2020-05-27T04:07:57.602Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/tags/Valine/</loc>
+        <lastmod>2020-05-27T03:58:24.680Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/tags/Hexo/</loc>
+        <lastmod>2020-05-27T03:58:24.680Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/tags/SteamDB/</loc>
+        <lastmod>2020-05-27T03:57:23.859Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/tags/Steam/</loc>
+        <lastmod>2020-05-27T03:57:23.859Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/tags/Imbox/</loc>
+        <lastmod>2020-05-27T03:56:59.884Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://coldcard.wang/tags/Minecraft/</loc>
-        <lastmod>2020-05-25T12:52:20.964Z</lastmod>
+        <lastmod>2020-05-27T03:56:59.884Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/tags/Hypixel/</loc>
+        <lastmod>2020-05-27T03:56:51.136Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -47,90 +124,6 @@
     <url>
         <loc>https://coldcard.wang/tags/Anime/</loc>
         <lastmod>2020-05-21T10:54:28.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/tags/Valine/</loc>
-        <lastmod>2020-05-21T10:54:06.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/tags/SteamDB/</loc>
-        <lastmod>2020-05-21T10:53:58.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/tags/Imbox/</loc>
-        <lastmod>2020-05-21T10:53:42.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/tags/Crack/</loc>
-        <lastmod>2020-05-21T10:53:26.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/tags/Plugins/</loc>
-        <lastmod>2020-05-21T10:53:26.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/tags/App/</loc>
-        <lastmod>2020-05-21T10:53:26.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/tags/Arnold/</loc>
-        <lastmod>2020-05-21T10:53:26.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/tags/Arnold/</loc>
-        <lastmod>2020-05-21T10:53:26.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/tags/Maya/</loc>
-        <lastmod>2020-05-21T10:53:26.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/tags/Trial-By-Fire/</loc>
-        <lastmod>2020-05-21T10:53:10.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/tags/Battlefield/</loc>
-        <lastmod>2020-05-21T10:53:10.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/tags/Lightning-Strike/</loc>
-        <lastmod>2020-05-21T10:53:00.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
