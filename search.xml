@@ -417,7 +417,7 @@
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="通用设置"><a href="#通用设置" class="headerlink" title="通用设置"></a>通用设置</h1><p>在 Maya Arnold 插件的菜单栏下，<code>Arnold</code>-&gt;<code>Lights</code>，包括 <a href="#Area-Light（区域光）">Area Light（区域光）</a>、<a href="#Skydome-Light（天穹灯光）">Skydome Light（天穹灯光）</a>、<a href="#Mesh-Light（几何体灯光）">Mesh Light（几何体灯光）</a>、<a href="#Photometric-Light（光度学灯光）">Photometric Light（光度学灯光）</a>、<a href="#Light-Portal（灯光引导口）">Light Portal（灯光引导口）</a>、<a href="#Physical-Sky（物理天空）">Physical Sky（物理天空）</a>。<br>无论是 Arnold 灯光还是 Maya 内置灯光，都有一些通用的属性，以下部分资料参考了 <a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557238" target="_blank" rel="noopener external nofollow noreferrer">Arnold 的官方技术文档和图片范例</a>。</p>
 <h2 id="Use-Color-Temperature（使用色温）"><a href="#Use-Color-Temperature（使用色温）" class="headerlink" title="Use Color Temperature（使用色温）"></a>Use Color Temperature（使用色温）</h2><ul>
 <li><span class="label info">默认关闭。</span>在灯光的 Arnold 卷展栏下，勾选 Use Color Temperature ，将启用标准的灯光照明计算，通过色温（单位：开尔文，符号 K ）来定义灯光的冷暖程度<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="理想的黑体辐射器的温度，以开尔文为单位，用于确定光源的颜色。默认颜色设置为 6500 K，国际照明委员会 (CIE) 将此视为白点。颜色范围从红色到白色再到蓝色。值大于 6500 K 时颜色为冷色，而小于 6500 K 的颜色为暖色。">[1]</span></a></sup>。开启后将忽略用户自定义的灯光颜色，包括连接到 Color 通道的纹理贴图。
-<img data-src="./color-temp-chart-kelvin.jpg" alt="上面的图像显示了以开尔文为单位的色温对场景的影响"><a id="more"></a>
+<img data-src="https://coldcard.wang/posts/Arnold_Lights/color-temp-chart-kelvin.jpg" alt="上面的图像显示了以开尔文为单位的色温对场景的影响"><a id="more"></a>
 
 </li>
 </ul>
@@ -1267,8 +1267,8 @@
         <category>Steam</category>
       </categories>
       <tags>
-        <tag>游戏</tag>
         <tag>Steam</tag>
+        <tag>游戏</tag>
       </tags>
   </entry>
   <entry>
