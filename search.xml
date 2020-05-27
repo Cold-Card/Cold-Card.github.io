@@ -510,10 +510,12 @@
 <h1 id="Mesh-Light（几何体灯光）"><a href="#Mesh-Light（几何体灯光）" class="headerlink" title="Mesh Light（几何体灯光）"></a>Mesh Light（几何体灯光）</h1><p>在传统灯光形状无法满足要求的一些情况下，几何体灯光会更合适。几何体灯光可用于创建其他照明方式无法实现的有趣照明效果。例如，霓虹灯照明或车灯运动轨迹效果都可以通过几何体灯光轻松实现。</p>
 <p>当前使用几何体灯光的限制包括：</p>
 <ul>
-<li>几何体灯光会忽略多边形对象上的平滑处理。 </li>
-<li>NURBS 曲面当前无法与几何体灯光结合使用。</li>
+<li><span class="label danger">几何体灯光会忽略多边形对象上的平滑处理。</span> </li>
+<li><span class="label danger">NURBS 曲面当前无法与几何体灯光结合使用。</span>
+
+</li>
 </ul>
-<p><strong>相比材质的自发光（ Emission ）属性，网格灯光的照明效果更明显，产生的画面噪点也更少，并且网格灯光可以产生间接照明效果，而材质自发光只能进行直接照明，缺少光线的环境反弹。</strong></p>
+<span class="label success">相比材质的自发光（ Emission ）属性，网格灯光的照明效果更明显，产生的画面噪点也更少，并且网格灯光可以产生间接照明效果，而材质自发光只能进行直接照明，缺少光线的环境反弹。</span>
 <h2 id="In-Mesh（输入网格）"><a href="#In-Mesh（输入网格）" class="headerlink" title="In Mesh（输入网格）"></a>In Mesh（输入网格）</h2><ul>
 <li>显示用作几何体灯光的形状名称。</li>
 </ul>
@@ -1267,8 +1269,8 @@
         <category>Steam</category>
       </categories>
       <tags>
-        <tag>Steam</tag>
         <tag>游戏</tag>
+        <tag>Steam</tag>
       </tags>
   </entry>
   <entry>
