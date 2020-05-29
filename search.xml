@@ -415,9 +415,14 @@
     <title>Maya 学习日志：Arnold（阿诺德）灯光</title>
     <url>/posts/Arnold_Lights/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="通用设置"><a href="#通用设置" class="headerlink" title="通用设置"></a>通用设置</h1><p>在 Maya Arnold 插件的菜单栏下，<code>Arnold</code>-&gt;<code>Lights</code>，包括 <a href="#Area-Light（区域光）">Area Light（区域光）</a>、<a href="#Skydome-Light（天穹灯光）">Skydome Light（天穹灯光）</a>、<a href="#Mesh-Light（几何体灯光）">Mesh Light（几何体灯光）</a>、<a href="#Photometric-Light（光度学灯光）">Photometric Light（光度学灯光）</a>、<a href="#Light-Portal（灯光引导口）">Light Portal（灯光引导口）</a>、<a href="#Physical-Sky（物理天空）">Physical Sky（物理天空）</a>。<br>无论是 Arnold 灯光还是 Maya 内置灯光，都有一些通用的属性，以下部分资料参考了 <a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557238" target="_blank" rel="noopener external nofollow noreferrer">Arnold 的官方技术文档和图片范例</a>。</p>
+<details cyan><summary> <p>属性编辑器</p> </summary>
+              <div class='content'>
+              <p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/Ai-light.png" alt=""></p>
+              </div>
+            </details>
 <h2 id="Use-Color-Temperature（使用色温）"><a href="#Use-Color-Temperature（使用色温）" class="headerlink" title="Use Color Temperature（使用色温）"></a>Use Color Temperature（使用色温）</h2><ul>
 <li><span class="label info">默认关闭。</span>在灯光的 Arnold 卷展栏下，勾选 Use Color Temperature ，将启用标准的灯光照明计算，通过色温（单位：开尔文，符号 K ）来定义灯光的冷暖程度<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="理想的黑体辐射器的温度，以开尔文为单位，用于确定光源的颜色。默认颜色设置为 6500 K，国际照明委员会 (CIE) 将此视为白点。颜色范围从红色到白色再到蓝色。值大于 6500 K 时颜色为冷色，而小于 6500 K 的颜色为暖色。">[1]</span></a></sup>。开启后将忽略用户自定义的灯光颜色，包括连接到 Color 通道的纹理贴图。
-<img data-src="https://coldcard.wang/posts/Arnold_Lights/color-temp-chart-kelvin.jpg" alt="上面的图像显示了以开尔文为单位的色温对场景的影响"><a id="more"></a>
+<img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/color-temp-chart-kelvin.jpg" alt="上面的图像显示了以开尔文为单位的色温对场景的影响"><a id="more"></a>
 
 </li>
 </ul>
@@ -438,17 +443,20 @@
 <li><span class="label info">默认启用。</span>启用后灯光照射物体才能产生阴影。
 </li>
 <li><h3 id="Shadow-Density（阴影密度）"><a href="#Shadow-Density（阴影密度）" class="headerlink" title="Shadow Density（阴影密度）"></a>Shadow Density（阴影密度）</h3><ul>
-<li>值为 0 不会产生阴影，值为 1 产生不透明的黑色阴影，0 至 1 之间是具有透明度的阴影。</li>
+<li>值为 0 不会产生阴影，值为 1 产生不透明的黑色阴影，0 至 1 之间是具有透明度的阴影。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/pointLight_shadow_density_A_0.png" alt="0"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/pointLight_shadow_density_B_0.5.png" alt="0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/pointLight_shadow_density_C_1.png" alt="1（默认值）"></div></div></div>
+</li>
 </ul>
 </li>
 <li><h3 id="Shadow-Color（阴影颜色）"><a href="#Shadow-Color（阴影颜色）" class="headerlink" title="Shadow Color（阴影颜色）"></a>Shadow Color（阴影颜色）</h3><ul>
-<li>设置阴影的颜色，通常为黑色。表现艺术氛围时，也会根据光源的色温进行反相调节。</li>
+<li>设置阴影的颜色，通常为黑色。表现艺术氛围时，也会根据光源的色温进行反相调节。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/shadow_colour_black.png" alt="黑色（默认值）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/shadow_colour_red.png" alt="红色"></div></div></div>
+
+</li>
 </ul>
 </li>
 </ul>
 <h2 id="Cast-Volumetric-Shadows（投射体积阴影）"><a href="#Cast-Volumetric-Shadows（投射体积阴影）" class="headerlink" title="Cast Volumetric Shadows（投射体积阴影）"></a>Cast Volumetric Shadows（投射体积阴影）</h2><ul>
 <li><p>启用后会计算体积阴影效果，例如浓雾中的光束阴影。</p>
-<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="./volumetric-shadows-enabled.gif" alt="启用（默认）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="./volumetric-shadows-disabled.gif" alt="禁用"></div></div></div>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/volumetric-shadows-enabled.gif" alt="启用（默认）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/volumetric-shadows-disabled.gif" alt="禁用"></div></div></div>
 </li>
 <li><h3 id="Volume-Samples（体积采样数）"><a href="#Volume-Samples（体积采样数）" class="headerlink" title="Volume Samples（体积采样数）"></a>Volume Samples（体积采样数）</h3><ul>
 <li>体积采样数参数控制从直接灯光求内散射积分时使用的采样数。与曲面的“采样数”(samples)参数一样，它也是一个平方数。</li>
@@ -456,7 +464,9 @@
 </li>
 </ul>
 <h2 id="Visibility（可见性）"><a href="#Visibility（可见性）" class="headerlink" title="Visibility（可见性）"></a>Visibility（可见性）</h2><ul>
-<li><strong>Diffuse（漫反射）、Specular（镜面反射）、SSS（次表面散射）、Volume（体积）</strong>都建议保持数值1，以保证真实的物理效果。<br>Sky Dome Light 会多出两个特殊的参数：<strong>Camera（摄像机）和 Transmission（透射）</strong>。<br>Camera 数值 1 是将灯光 Color 通道的贴图作为背景渲染可见，设置为 0 将得到透明的背景。这在我们仅需要 HDR 贴图作为光照信息并分离背景时会很有用。<br>Transmission 应保持数值 1，它是天穹光穿过透明物体的能力，低于 1 将得不到正确的物理结果。</li>
+<li><span class="label danger">Diffuse（漫反射）、Specular（镜面反射）、SSS（次表面散射）、Volume（体积）都建议保持数值1，以保证真实的物理效果。</span></li>
+<li><span class="label danger">Sky Dome Light 会多出两个特殊的参数：Camera（摄像机）和 Transmission（透射）。</span></li>
+<li>Camera 数值 1 是将灯光 Color 通道的贴图作为背景渲染可见，设置为 0 将得到透明的背景。这在我们仅需要 HDR 贴图作为光照信息并分离背景时会很有用。<br>Transmission 应保持数值 1，它是天穹光穿过透明物体的能力，低于 1 将得不到正确的物理结果。</li>
 </ul>
 <h3 id="Indirect（间接）"><a href="#Indirect（间接）" class="headerlink" title="Indirect（间接）"></a>Indirect（间接）</h3><ul>
 <li>每次反弹的相对能量损失（或增益）。该选项值应保留为默认值 1.0，以生成在物理上有意义的结果。值大于 1 时，GI 算法将无法收敛到稳定的解。</li>
@@ -465,21 +475,26 @@
 <li>允许来自此灯光的能量在场景中反弹的最大次数。“最大反弹次数”(Max Bounces)值为 0 意味着灯光只是直接照明计算的一部分，实际上会禁用此灯光的 GI。请注意，此值会与全局光线深度控件一同发挥作用，因此每灯光 999 次反弹这一默认值只是理论上的最大值；在实践中，全局光线深度限制的设置要小得多。</li>
 </ul>
 <hr>
-<h1 id="Area-Light（区域光）"><a href="#Area-Light（区域光）" class="headerlink" title="Area Light（区域光）"></a>Area Light（区域光）</h1><p>常用于模拟室内照明。它有三种形状：<strong>Quad（矩形）、Cylinder（圆柱）、Disk（圆盘）</strong>，可在 <span class="label danger">Light Shape</span> 下拉菜单中选择。Quad 常用于模拟面片光源，例如显示器、透过窗外到达室内的光线；Cylinder 用于模拟圆柱体光源，例如灯管、激光；Disk 用于模拟圆盘状光源，例如月亮、圆形顶灯。其中，Quad 形状的区域光参数最丰富，可以设定灯光的 <strong>Spread（扩散）、Resolution（分辨率）、Roundness（圆度）、Soft Edge（软边）</strong>。</p>
-<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="./quad-light.png" alt="矩形灯光"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="./cylinder-light.png" alt="圆柱灯光"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="./disk-light.png" alt="圆盘灯光"></div></div></div>
+<h1 id="Area-Light（区域光）"><a href="#Area-Light（区域光）" class="headerlink" title="Area Light（区域光）"></a>Area Light（区域光）</h1><p>常用于模拟室内照明。它有三种形状：<strong>Quad（矩形）、Cylinder（圆柱）、Disk（圆盘）</strong>，可在 <span class="label danger">Light Shape</span> 下拉菜单中选择。Quad 常用于模拟面片光源，例如显示器、透过窗外到达室内的光线；Cylinder 用于模拟圆柱体光源，例如灯管、激光；Disk 用于模拟圆盘状光源，例如月亮、圆形顶灯。<span class="label default">其中，Quad 形状的区域光参数最丰富，可以设定灯光的 Spread（扩散）、Resolution（分辨率）、Roundness（圆度）、Soft Edge（软边）。</span></p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/quad-light.png" alt="矩形灯光"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/cylinder-light.png" alt="圆柱灯光"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/disk-light.png" alt="圆盘灯光"></div></div></div>
+<details red><summary> <p>属性编辑器</p> </summary>
+              <div class='content'>
+              <p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/Ai-Area-Light.png" alt=""></p>
+              </div>
+            </details>
 <h2 id="Spread（扩散）"><a href="#Spread（扩散）" class="headerlink" title="Spread（扩散）"></a>Spread（扩散）</h2><ul>
 <li><span class="label success">发射沿法线方向聚焦的灯光。默认的扩散值为 1，会提供漫反射自发光，而值越低，灯光会越聚焦，直到几乎变成一束激光（此时值为 0）。</span>当前不支持完全聚焦的激光束（值为 0），始终有一个非零的最小扩散。相比默认的高扩散值，扩散值越低，产生的噪波可能会越多，因此请谨慎使用低值。
-<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="./spread-1.png" alt="1（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="./spread-0.3.png" alt="0.3"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="./spread-0.2.png" alt="0.2"></div></div></div>
-<img data-src="./spread.gif" alt="“扩散”(Spread)值从 1 开始降低（四边形灯光）"></li>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/spread-1.png" alt="1（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/spread-0.3.png" alt="0.3"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/spread-0.2.png" alt="0.2"></div></div></div>
+<img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/spread.gif" alt="“扩散”(Spread)值从 1 开始降低（四边形灯光）"></li>
 </ul>
 <h2 id="Roundness（圆度）"><a href="#Roundness（圆度）" class="headerlink" title="Roundness（圆度）"></a>Roundness（圆度）</h2><ul>
-<li>更改灯光的形状，从 0 时的方形到圆角再到 1 时的圆盘。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="./roundness-0.png" alt="0（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="./roundness-0.5.png" alt="0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="./roundness-1.png" alt="1"></div></div></div>
+<li>更改灯光的形状，从 0 时的方形到圆角再到 1 时的圆盘。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/roundness-0.png" alt="0（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/roundness-0.5.png" alt="0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/roundness-1.png" alt="1"></div></div></div>
 
 </li>
 </ul>
 <h2 id="Soft-Edge（软边）"><a href="#Soft-Edge（软边）" class="headerlink" title="Soft Edge（软边）"></a>Soft Edge（软边）</h2><ul>
 <li><span class="label info">默认值为 0 ，</span>灯光边缘无衰减。数值增大，灯光边缘出现衰减模糊；值为 1 时，灯光边缘将达到最大的衰减。
-<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="./roundness-0.png" alt="0（默认）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="./roundness-1.png" alt="1"></div></div></div>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/roundness-0.png" alt="0（默认）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/roundness-1.png" alt="1"></div></div></div>
 
 </li>
 </ul>
@@ -494,13 +509,20 @@
 <ul>
 <li><strong>使用 HDRI 技术得到 HDR 图片，然后通过 IBL 技术，将 HDR 图片（后缀可以是 .hdr 或者 .exr ）作为三维场景的环境照明参考。</strong></li>
 </ul>
+<details red><summary> <p>属性编辑器</p> </summary>
+              <div class='content'>
+              <p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/Ai-Skydome-Light.png" alt=""></p>
+              </div>
+            </details>
 <h2 id="Resolution（分辨率）"><a href="#Resolution（分辨率）" class="headerlink" title="Resolution（分辨率）"></a>Resolution（分辨率）</h2><ul>
 <li><span class="label info">默认值为 1000 。</span>同 Area Light ，分辨率必须设置为与 HDRI 图像的分辨率相匹配，但是在许多情况下，也可以设置为较低的分辨率而在反射中不会有明显的细节损失。参数越高，skydome_light 预先计算灯光的重要性表所需的时间就越长，这会增加场景启动时间。
 
 </li>
 </ul>
 <h2 id="Portal-Mode（入口模式）"><a href="#Portal-Mode（入口模式）" class="headerlink" title="Portal Mode（入口模式）"></a>Portal Mode（入口模式）</h2><ul>
-<li><strong><span class="label info">默认 interior_only</span> 。off ，关闭入口；interior_only ，阻挡入口外的灯光；interior_exterior ，允许入口外的灯光通过。</strong><br>如果场景中没有使用 Light Portal（灯光引导口），这个参数不起作用。使用 Light Portal 时， Portal Mode 要设置为 Interior_exterior 才能得到全部的灯光效果。值得一提，设置为 interior_only 会加快渲染速度，尽管它会失去一些小缝隙处的光线引入，但画面表现效果有时会好于 Interior_exterior 模式。</li>
+<li><strong><span class="label info">默认 interior_only</span> 。off ，关闭入口；interior_only ，阻挡入口外的灯光；interior_exterior ，允许入口外的灯光通过。</strong></li>
+<li><span class="label danger">如果场景中没有使用 Light Portal（灯光引导口），这个参数不起作用。</span></li>
+<li><strong>使用 Light Portal 时， Portal Mode 要设置为 Interior_exterior 才能得到全部的灯光效果。</strong>值得一提，设置为 interior_only 会加快渲染速度，尽管它会失去一些小缝隙处的光线引入，但画面表现效果有时会好于 Interior_exterior 模式。</li>
 </ul>
 <h2 id="Format（格式）"><a href="#Format（格式）" class="headerlink" title="Format（格式）"></a>Format（格式）</h2><ul>
 <li><span class="label info">默认 Lat-long 。</span>有四种方式：Lat-long（经度-纬度）、 Mirrored Ball（镜像球）、 Angular（角度）。 Lat-long 是最常用的，匹配多数 HDR 贴图的布局方式。
@@ -508,9 +530,9 @@
 </li>
 </ul>
 <h1 id="Mesh-Light（几何体灯光）"><a href="#Mesh-Light（几何体灯光）" class="headerlink" title="Mesh Light（几何体灯光）"></a>Mesh Light（几何体灯光）</h1><p>在传统灯光形状无法满足要求的一些情况下，几何体灯光会更合适。几何体灯光可用于创建其他照明方式无法实现的有趣照明效果。例如，霓虹灯照明或车灯运动轨迹效果都可以通过几何体灯光轻松实现。</p>
-<p>当前使用几何体灯光的限制包括：</p>
+<span class="label danger">当前使用几何体灯光的限制包括：</span>
 <ul>
-<li><span class="label danger">几何体灯光会忽略多边形对象上的平滑处理。</span> </li>
+<li><span class="label danger">几何体灯光会忽略多边形对象上的平滑处理。</span></li>
 <li><span class="label danger">NURBS 曲面当前无法与几何体灯光结合使用。</span>
 
 </li>
@@ -525,19 +547,25 @@
 <h2 id="Light-Visible（灯光可见）"><a href="#Light-Visible（灯光可见）" class="headerlink" title="Light Visible（灯光可见）"></a>Light Visible（灯光可见）</h2><ul>
 <li>使光源对摄影机可见。</li>
 </ul>
-<h1 id="Photometric-Light（光度学灯光）"><a href="#Photometric-Light（光度学灯光）" class="headerlink" title="Photometric Light（光度学灯光）"></a>Photometric Light（光度学灯光）</h1><p>光度学灯光使用的是从真实世界灯光测量得到的数据，通常直接来自灯泡和灯罩制造商。您可以导入来自 <a href="http://www.erco.com/products/download/others/downloaddaten-3992/en/dltut-1.php?aktion=nop&sprache=en&dir=40_planning_luminaire/25_ies/00005_complete" target="_blank" rel="noopener external nofollow noreferrer">Erco</a>、<a href="http://www.lamp.es/en/catalog" target="_blank" rel="noopener external nofollow noreferrer">Lamp</a>、<a href="http://www.osram.com/osram_com/tools-and-services/tools/dialux-and-relux/index.jsp" target="_blank" rel="noopener external nofollow noreferrer">Osram</a> 和 <a href="http://www.usa.lighting.philips.com/support/support/literature/photometric-data" target="_blank" rel="noopener external nofollow noreferrer">Philips</a> 等公司的 IES 数据图；这些 IES 文件提供给定灯光模型的精确强度和扩散数据。<br><img data-src="./ies-lights.jpg" alt="IES 灯光剖面示例"></p>
-<h1 id="Light-Portal（灯光引导口）"><a href="#Light-Portal（灯光引导口）" class="headerlink" title="Light Portal（灯光引导口）"></a>Light Portal（灯光引导口）</h1><p>需要场景中存在 Skydome Light 才能使用，作用是将室外光线引导到室内进行照明。Skydome Light 针对开阔的室外场景进行了照明的优化，但对于光线穿透建筑物门窗进行的室内照明存在不足，会产生大量噪波。因此需要 Light Portal 对特定区域进行 Skydome Light 光线的引导。<br><img data-src="./Light-Portal.png" alt="灯光引导口从窗户外部指向内部"></p>
+<h1 id="Photometric-Light（光度学灯光）"><a href="#Photometric-Light（光度学灯光）" class="headerlink" title="Photometric Light（光度学灯光）"></a>Photometric Light（光度学灯光）</h1><p>光度学灯光使用的是从真实世界灯光测量得到的数据，通常直接来自灯泡和灯罩制造商。您可以导入来自 <a href="http://www.erco.com/products/download/others/downloaddaten-3992/en/dltut-1.php?aktion=nop&sprache=en&dir=40_planning_luminaire/25_ies/00005_complete" target="_blank" rel="noopener external nofollow noreferrer">Erco</a>、<a href="http://www.lamp.es/en/catalog" target="_blank" rel="noopener external nofollow noreferrer">Lamp</a>、<a href="http://www.osram.com/osram_com/tools-and-services/tools/dialux-and-relux/index.jsp" target="_blank" rel="noopener external nofollow noreferrer">Osram</a> 和 <a href="http://www.usa.lighting.philips.com/support/support/literature/photometric-data" target="_blank" rel="noopener external nofollow noreferrer">Philips</a> 等公司的 IES 数据图；这些 IES 文件提供给定灯光模型的精确强度和扩散数据。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/ies-lights.jpg" alt="IES 灯光剖面示例"></p>
+<h1 id="Light-Portal（灯光引导口）"><a href="#Light-Portal（灯光引导口）" class="headerlink" title="Light Portal（灯光引导口）"></a>Light Portal（灯光引导口）</h1><span class="label danger">需要场景中存在 Skydome Light 才能使用，作用是将室外光线引导到室内进行照明。</span>Skydome Light 针对开阔的室外场景进行了照明的优化，但对于光线穿透建筑物门窗进行的室内照明存在不足，会产生大量噪波。因此需要 Light Portal 对特定区域进行 Skydome Light 光线的引导。
+<p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/Light-Portal.png" alt="灯光引导口从窗户外部指向内部"></p>
 <h1 id="Physical-Sky（物理天空）"><a href="#Physical-Sky（物理天空）" class="headerlink" title="Physical Sky（物理天空）"></a>Physical Sky（物理天空）</h1><p>用于模拟真实的天空照明，可设定太阳的位置、尺寸和照明强度。事实上 Physical Sky 就是在 Color 通道连接上物理天空纹理节点（ aiPhysicalSky ）的 Skydome Light 。物理天空通常用于构建简单的大气照明环境，快速展示场景效果。</p>
+<details red><summary> <p>属性编辑器</p> </summary>
+              <div class='content'>
+              <p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/Ai-Physical-Sky.png" alt=""></p>
+              </div>
+            </details>
 <h2 id="Turbidity（浑浊度）"><a href="#Turbidity（浑浊度）" class="headerlink" title="Turbidity（浑浊度）"></a>Turbidity（浑浊度）</h2><ul>
 <li><p>浑浊度确定空气中的总体气溶胶含量（灰尘、湿气、冰、雾）。可以使用它轻松定义天空外观，而且它会影响太阳和天空的颜色。</p>
 </li>
 <li><p>浑浊度值范围为 1 到 10：<br>2：产生类似于北极地区非常晴朗的天空。<br>3（默认值）：温和气候下的晴朗天空。<br>6：温暖、潮湿天气下的天空。<br>10：稍微有点雾蒙蒙的天空。</p>
-<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="./turbidity-0.png" alt="0"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="./turbidity-3-default.png" alt="3（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="./turbidity-5.png" alt="5"></div></div></div>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/turbidity-0.png" alt="0"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/turbidity-3-default.png" alt="3（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/turbidity-5.png" alt="5"></div></div></div>
 
 </li>
 </ul>
 <h2 id="Ground-Albedo（地面反照率）"><a href="#Ground-Albedo（地面反照率）" class="headerlink" title="Ground Albedo（地面反照率）"></a>Ground Albedo（地面反照率）</h2><ul>
-<li>从地球表面反射回大气的灯光量。这是一个介于 0 和 1 之间的 RGB 值，其中 0 0 0 对应于黑色地面，而 1 1 1 对应于白色地面。请注意，这是一个细微的效果（在下图顶部边角较为明显）。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="./ground-albedo-0.1.png" alt="0.1（默认值）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="./ground-albedo-1.png" alt="1"></div></div></div>
+<li>从地球表面反射回大气的灯光量。这是一个介于 0 和 1 之间的 RGB 值，其中 0 0 0 对应于黑色地面，而 1 1 1 对应于白色地面。请注意，这是一个细微的效果（在下图顶部边角较为明显）。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/ground-albedo-0.1.png" alt="0.1（默认值）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/ground-albedo-1.png" alt="1"></div></div></div>
 
 </li>
 </ul>
@@ -548,12 +576,12 @@
 <li>太阳绕地平线的角度。从北方开始度量，并朝东方逐渐增加（0 到 360 度）。</li>
 </ul>
 <h2 id="Sky-Tint（天空染色）"><a href="#Sky-Tint（天空染色）" class="headerlink" title="Sky Tint（天空染色）"></a>Sky Tint（天空染色）</h2><ul>
-<li>允许设置一种颜色对天空颜色进行染色。天空染色应该用于精细的着色。例如，让天空具有稍微深一点的蓝色。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="./sky-tint-white.png" alt="白色（默认值）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="./sky-tint-blue.png" alt="蓝色"></div></div></div>
+<li>允许设置一种颜色对天空颜色进行染色。天空染色应该用于精细的着色。例如，让天空具有稍微深一点的蓝色。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/sky-tint-white.png" alt="白色（默认值）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/sky-tint-blue.png" alt="蓝色"></div></div></div>
 
 </li>
 </ul>
 <h2 id="Sun-Tint（太阳染色）"><a href="#Sun-Tint（太阳染色）" class="headerlink" title="Sun Tint（太阳染色）"></a>Sun Tint（太阳染色）</h2><ul>
-<li>允许设置一种颜色对太阳颜色进行染色。这是用于小幅度细微着色调整的 RGB 倍增。大幅度着色调整将产生物理上不准确的结果，并会导致太阳与天空颜色不一致（除非两种染色完全相同）。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="./sun-tint-white.png" alt="白色（默认值）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="./sun-tint-yellow.png" alt="黄色"></div></div></div>
+<li>允许设置一种颜色对太阳颜色进行染色。这是用于小幅度细微着色调整的 RGB 倍增。大幅度着色调整将产生物理上不准确的结果，并会导致太阳与天空颜色不一致（除非两种染色完全相同）。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/sun-tint-white.png" alt="白色（默认值）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/sun-tint-yellow.png" alt="黄色"></div></div></div>
 
 </li>
 </ul>
@@ -563,7 +591,184 @@
 <h2 id="Enable-Sun（启用太阳）"><a href="#Enable-Sun（启用太阳）" class="headerlink" title="Enable Sun（启用太阳）"></a>Enable Sun（启用太阳）</h2><ul>
 <li>启用/禁用太阳可见性的切换开关。</li>
 </ul>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">理想的黑体辐射器的温度，以开尔文为单位，用于确定光源的颜色。默认颜色设置为 6500 K，国际照明委员会 (CIE) 将此视为白点。颜色范围从红色到白色再到蓝色。值大于 6500 K 时颜色为冷色，而小于 6500 K 的颜色为暖色。<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557238" target="_blank" rel="noopener external nofollow noreferrer">Arnold for Maya 用户手册</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+<hr>
+<h1 id="Light-Filters（灯光过滤器）"><a href="#Light-Filters（灯光过滤器）" class="headerlink" title="Light Filters（灯光过滤器）"></a>Light Filters（灯光过滤器）</h1><p>Arnold 灯光过滤器属于任意着色器，它们可以基于距离、位置或其他因素修改灯光输出。因此，使用此类过滤器可以轻松地为内置光源增添附加效果。</p>
+<details blue><summary> <p>属性编辑器</p> </summary>
+              <div class='content'>
+              <p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/Ai-Light-Filters.png" alt=""></p>
+              </div>
+            </details>
+<h2 id="Gobo"><a href="#Gobo" class="headerlink" title="Gobo"></a>Gobo</h2><ul>
+<li><span class="label danger">Gobo 过滤器只能与聚光灯结合使用。</span>在剧院舞台照明下，gobo（也称为“cookie”，即 Cucoloris 的行业叫法）是一个带孔的金属薄片，用来将光束分成更自然的不规则图案（例如树叶等）。在计算机图形领域，gobo 有时指代“滑动投影仪”（有时也称为“投影灯”，但请注意，在 Arnold 中，gobo 不是光源本身，而是应用于聚光灯光源的过滤器）。任何纹理贴图或程序着色器都可通过灯光投影。
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/Normal-spotlight.png" alt="未使用 gobo 过滤器的聚光灯"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/spotlight-with-gobo-filter.png" alt="使用 gobo 过滤器的聚光灯"></div></div></div>
+
+</li>
+</ul>
+<details blue><summary> <p>属性编辑器</p> </summary>
+              <div class='content'>
+              <p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/Ai-Gobo.png" alt=""></p>
+              </div>
+            </details>
+<ul>
+<li><h3 id="Filter-Mode（过滤器模式）"><a href="#Filter-Mode（过滤器模式）" class="headerlink" title="Filter Mode（过滤器模式）"></a>Filter Mode（过滤器模式）</h3><ul>
+<li>用于将 gobo 滑动贴图与灯光输出结合起来的混合方程式。<strong>“混合”(Blend)会创建默认 gobo 效果。“替换”(Replace)会在聚光灯基础上倍增滑动贴图。“相加”(Add)会在 gobo 基础上倍增聚光灯。“相减”(Sub)会反转滑动贴图的 RGB 值。“融合”(Mix)会在聚光灯和滑动贴图之间对结果进行均匀地平均处理。</strong><div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="filter_mode_E_add.png" alt="相加（Add）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/filter_mode_A_blend.png" alt="混合（Blend）（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/filter_mode_D_replace.png" alt="替换（Replace）"></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/filter_mode_C_sub.png" alt="相减（Sub）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/filter_mode_B_mix.png" alt="融合（Mix）"></div></div></div>
+</li>
+</ul>
+</li>
+<li><h3 id="Slide-Map（滑动贴图）"><a href="#Slide-Map（滑动贴图）" class="headerlink" title="Slide Map（滑动贴图）"></a>Slide Map（滑动贴图）</h3><ul>
+<li>用来创建 gobo 效果的纹理贴图。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/gobo_blinds_A_without_slide_map.png" alt="未使用滑动贴图"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/gobo_blinds_B_with_slide_map.png" alt="使用滑动贴图"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/gobo_blinds_C_slide_texture.png" alt="滑动贴图纹理"></div></div></div>
+</li>
+</ul>
+</li>
+<li><h3 id="Density（密度）"><a href="#Density（密度）" class="headerlink" title="Density（密度）"></a>Density（密度）</h3><ul>
+<li>控制 gobo 的密度。值越高，gobo 越不透明，通过的灯光也越少。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/gobo_density_0.png" alt="0（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/gobo_density_B_0.5.png" alt="0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/gobo_density_C_0.75.png" alt="0.75"></div></div></div>
+</li>
+</ul>
+</li>
+<li><h3 id="Offset（偏移）"><a href="#Offset（偏移）" class="headerlink" title="Offset（偏移）"></a>Offset（偏移）</h3><ul>
+<li>用来偏移滑动贴图方向的 UV 坐标值。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/X_0.3.png" alt="X：0.3"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/X_offset-0.png" alt="X：0（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/x_-0.3.png" alt="X：-0.3"></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/Y_0.3.png" alt="Y：0.3"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/Y_offset-0.png" alt="Y：0（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/Y_-0.3.png" alt="Y：-0.3"></div></div></div>
+</li>
+</ul>
+</li>
+<li><h3 id="Scale-S（横向比例）"><a href="#Scale-S（横向比例）" class="headerlink" title="Scale S（横向比例）"></a>Scale S（横向比例）</h3><ul>
+<li>在 S 方向缩放用于滑动贴图的纹理。</li>
+</ul>
+</li>
+<li><h3 id="Scale-T（纵向比例）"><a href="#Scale-T（纵向比例）" class="headerlink" title="Scale T（纵向比例）"></a>Scale T（纵向比例）</h3><ul>
+<li>在 T 方向缩放用于滑动贴图的纹理。</li>
+</ul>
+</li>
+<li><h3 id="Wrap-S（横向包裹）"><a href="#Wrap-S（横向包裹）" class="headerlink" title="Wrap S（横向包裹）"></a>Wrap S（横向包裹）</h3><ul>
+<li>控制 2D 纹理贴图如何在曲面的 S 方向上重复。</li>
+</ul>
+</li>
+<li><h3 id="Wrap-T（纵向包裹）"><a href="#Wrap-T（纵向包裹）" class="headerlink" title="Wrap T（纵向包裹）"></a>Wrap T（纵向包裹）</h3><ul>
+<li>控制 2D 纹理贴图如何在曲面的 T 方向上重复。</li>
+</ul>
+</li>
+</ul>
+<h2 id="Barndoor（挡光板）"><a href="#Barndoor（挡光板）" class="headerlink" title="Barndoor（挡光板）"></a>Barndoor（挡光板）</h2><ul>
+<li><span class="label danger">此灯光过滤器只能与聚光灯结合使用。</span>此挡光板过滤器引入了四个挡光板翻板<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="挡光板是连接到灯光开口侧面的不透明可移动面板。它们通常在剧院和电影照明场景下使用，用于对光束形状进行进一步的控制。">[2]</span></a></sup>。<span class="label default">每个挡光板翻板都有三个参数。前两个参数控制翻板两端在灯光面的位置。第三个参数（“边”(Edge)）控制边的柔和度。相关位置指的是距相应边的距离。边柔和度是一种渐变宽度。</span>渐变从挡光板边上的 1（全开）开始，并根据边宽度在聚光灯周长方向逐渐减小为 0。</li>
+<li>例如，坐标为“0.25, 0.25”且边为 0.125 的翻板将在 0.25 处恰好“打开”，并在 0.375 处恰好“关闭”。边效果从挡光板边缘开始，并一直朝外（而不是朝内）延伸。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/without_barndoor.png" alt="未使用挡光板"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/with_barndoor.png" alt="使用挡光板"></div></div></div>
+
+</li>
+</ul>
+<details blue><summary> <p>属性编辑器</p> </summary>
+              <div class='content'>
+              <p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/Ai-Barndoor.png" alt=""></p>
+              </div>
+            </details>
+<h2 id="Light-Blocker（挡光对象）"><a href="#Light-Blocker（挡光对象）" class="headerlink" title="Light Blocker（挡光对象）"></a>Light Blocker（挡光对象）</h2><ul>
+<li><strong>挡光对象是一种灯光过滤器，用来指定“几何体类型”(Geometry Type)（长方体、球体、圆柱体或平面）中定义的基本体体积，在连接到灯光节点后将阻挡或修改穿过该体积的灯光<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="挡光对象可为照明 TD 提供很好的灵活性。 它们用来以人工方式遮罩场景中的灯光，而不会产生添加额外几何体所需的开销。如果使用得当，它们可提供一定的艺术自由度，便于以非物理方式定义灯光边界。">[3]</span></a></sup>。</strong><span class="label success">与其他过滤器一样，挡光对象只影响它连接到的灯光（即该几何体不会影响任何其他灯光，包括 GI，而且它是不可见的）。</span></li>
+<li>一个简单的用途是模拟复杂灯外壳的效果（可能需要与挡光板过滤器结合使用），而无需对灯几何体进行建模。</li>
+<li>另一个用途是在场景中创建看起来与平常不同的阴影。</li>
+</ul>
+<details blue><summary> <p>属性编辑器</p> </summary>
+              <div class='content'>
+              <p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/Ai-Light-Blocker.png" alt=""></p>
+              </div>
+            </details>
+<ul>
+<li><h3 id="Geometry-Type（几何体类型）"><a href="#Geometry-Type（几何体类型）" class="headerlink" title="Geometry Type（几何体类型）"></a>Geometry Type（几何体类型）</h3><ul>
+<li>确定被遮挡灯光的形状。挡光对象可以是长方体、圆柱体、球体或平面。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/light_blocker_village_box.jpg" alt="长方体"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/light_blocker_village_cylinder.jpg" alt="圆柱体"></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/light_blocker_village_sphere.jpg" alt="球体"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/light_blocker_village_plane.jpg" alt="平面"></div></div></div>
+</li>
+</ul>
+</li>
+<li><h3 id="Density（密度）-1"><a href="#Density（密度）-1" class="headerlink" title="Density（密度）"></a>Density（密度）</h3><ul>
+<li>此值是挡光对象效果的强度。只有密度值大于 0，挡光对象才会产生效果。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/density-0.2.png" alt="0.2"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/density-0.5.png" alt="0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/density-1.png" alt="1"></div></div></div>
+</li>
+</ul>
+</li>
+<li><h3 id="Shader（着色器）"><a href="#Shader（着色器）" class="headerlink" title="Shader（着色器）"></a>Shader（着色器）</h3><ul>
+<li>在此插入要用作遮罩效果的着色器的输出。</li>
+<li>例如，用于表示某些树叶的阴影的纹理贴图。不同于 gobo，您可以不受灯光变换的影响调整阴影位置。</li>
+<li>它适用于所有类型的灯光，而不是只适用于聚光灯（不同于 gobo，gobo 也会为场景贡献照明）。</li>
+<li><span class="label danger">它仅在“几何体类型”(Geometry Type)设置为“长方体”(Box)时起作用。</span>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/light-blocker-shader.gif" alt="树遮罩连接到着色器，灯光位置变化时，遮罩是静态的。"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/tree-mask.png" alt=""></div></div></div>
+</li>
+</ul>
+</li>
+<li><h3 id="Axis（轴）"><a href="#Axis（轴）" class="headerlink" title="Axis（轴）"></a>Axis（轴）</h3><ul>
+<li>基于设置的方向衰减渐变。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/ramp-axis-x.png" alt="x"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/ramp-axis-y.png" alt="y"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/ramp-axis-z.png" alt="z"></div></div></div>
+</li>
+</ul>
+</li>
+<li><h3 id="Ramp（渐变）"><a href="#Ramp（渐变）" class="headerlink" title="Ramp（渐变）"></a>Ramp（渐变）</h3><ul>
+<li>这是渐变倍增的幅值，沿渐变轴方向应用。负值会翻转渐变轴方向。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/ramp-0.25.png" alt="0.25"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/ramp-0.5.png" alt="0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/ramp-0.75.png" alt="0.75"></div></div></div>
+</li>
+</ul>
+</li>
+<li><h3 id="Height-Edge（高度边）"><a href="#Height-Edge（高度边）" class="headerlink" title="Height Edge（高度边）"></a>Height Edge（高度边）</h3><ul>
+<li>衰减挡光对象高度的边。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/height-edge-0.1.png" alt="0.1"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/height-edge-0.25.png" alt="0.25"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/height-edge-0.5.png" alt="0.5"></div></div></div>
+</li>
+</ul>
+</li>
+<li><h3 id="Width-Edge（宽度边）"><a href="#Width-Edge（宽度边）" class="headerlink" title="Width Edge（宽度边）"></a>Width Edge（宽度边）</h3><ul>
+<li>衰减挡光对象宽度的边。 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/width-edge-0.1.png" alt="0.1"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/width-edge-0.25.png" alt="0.25"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/width-edge-0.5.png" alt="0.5"></div></div></div>
+</li>
+</ul>
+</li>
+<li><h3 id="Roundness（圆度）-1"><a href="#Roundness（圆度）-1" class="headerlink" title="Roundness（圆度）"></a>Roundness（圆度）</h3><ul>
+<li>改善平面挡光对象的圆形形状。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/light-blocker-roundness_0.png" alt="0"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/light-blocker-roundness_0.5.png" alt="0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/light-blocker-roundness_1.png" alt="1"></div></div></div>
+
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Light-Decay（灯光衰退）"><a href="#Light-Decay（灯光衰退）" class="headerlink" title="Light Decay（灯光衰退）"></a>Light Decay（灯光衰退）</h2><ul>
+<li><span class="label success">该过滤器可以添加到所有 Arnold 灯光。</span>可以在该过滤器中指定衰减范围。默认情况下，Arnold 中的所有灯光都使用基于物理的衰减，但灯光衰退过滤器可出于美观目的调整衰减。
+
+</li>
+</ul>
+<details blue><summary> <p>属性编辑器</p> </summary>
+              <div class='content'>
+              <p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/Ai-Light-Decay.png" alt=""></p>
+              </div>
+            </details>
+<ul>
+<li><h3 id="Use-Near-Attenuation（使用近距衰减）"><a href="#Use-Near-Attenuation（使用近距衰减）" class="headerlink" title="Use Near Attenuation（使用近距衰减）"></a>Use Near Attenuation（使用近距衰减）</h3><ul>
+<li><p>“近距衰减”值可用于设置灯光强度“淡入”的距离。它的工作原理类似于反向衰退。从光源到“近距衰减”开始范围，灯光不会发射。随后，灯光亮度会逐渐增强，直至达到“近距衰减”结束范围。</p>
+<ul>
+<li><h4 id="Near-Start（近距开始）"><a href="#Near-Start（近距开始）" class="headerlink" title="Near Start（近距开始）"></a>Near Start（近距开始）</h4><ul>
+<li>灯光开始淡入的距离。即 0 = 光源。 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/lightDecay_nearStart_shed_2.png" alt="2"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/lightDecay_nearStart_shed_4.png" alt="4"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/lightDecay_nearStart_shed_8.png" alt="8"></div></div></div>
+</li>
+</ul>
+</li>
+<li><h4 id="Near-End（近距结束）"><a href="#Near-End（近距结束）" class="headerlink" title="Near End（近距结束）"></a>Near End（近距结束）</h4><ul>
+<li>灯光达到其全值的距离。 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/lightDecay_nearEnd_shed_5.png" alt="5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/lightDecay_nearEnd_shed_10.png" alt="10"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/lightDecay_nearEnd_shed_20.png" alt="20"></div></div></div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h3 id="使用远距衰减-Use-Far-Attenuation"><a href="#使用远距衰减-Use-Far-Attenuation" class="headerlink" title="使用远距衰减(Use Far Attenuation)"></a>使用远距衰减(Use Far Attenuation)</h3><ul>
+<li><p>“远距衰减”值可用于设置灯光“淡出”的距离。它的工作原理类似于普通衰退，但您可以指定开始和结束距离。从“远距开始”(Far Start)范围到“远距结束”(Far End)范围，灯光强度通过平滑的渐变不断减弱。</p>
+<ul>
+<li><h4 id="Far-Start（远距开始）"><a href="#Far-Start（远距开始）" class="headerlink" title="Far Start（远距开始）"></a>Far Start（远距开始）</h4><ul>
+<li>灯光开始淡出的距离。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/lightDecay_farStart_shed_05.png" alt="5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/lightDecay_farStart_shed_10.png" alt="10"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/lightDecay_farStart_shed_20.png" alt="20"></div></div></div>
+</li>
+</ul>
+</li>
+<li><h4 id="Far-End（远距结束）"><a href="#Far-End（远距结束）" class="headerlink" title="Far End（远距结束）"></a>Far End（远距结束）</h4><ul>
+<li>灯光亮度淡出为零的距离。 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/lightDecay_farEnd_shed_05.png" alt="5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/lightDecay_farEnd_shed_10.png" alt="10"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/lightDecay_farEnd_shed_20.png" alt="20"></div></div></div>
+
+
+
+
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">理想的黑体辐射器的温度，以开尔文为单位，用于确定光源的颜色。默认颜色设置为 6500 K，国际照明委员会 (CIE) 将此视为白点。颜色范围从红色到白色再到蓝色。值大于 6500 K 时颜色为冷色，而小于 6500 K 的颜色为暖色。<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">挡光板是连接到灯光开口侧面的不透明可移动面板。它们通常在剧院和电影照明场景下使用，用于对光束形状进行进一步的控制。<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">挡光对象可为照明 TD 提供很好的灵活性。 它们用来以人工方式遮罩场景中的灯光，而不会产生添加额外几何体所需的开销。如果使用得当，它们可提供一定的艺术自由度，便于以非物理方式定义灯光边界。<a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557238" target="_blank" rel="noopener external nofollow noreferrer">Arnold for Maya 用户手册</a><a href="#fnref:4" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
       <categories>
         <category>软件</category>
         <category>Maya</category>
@@ -854,6 +1059,7 @@
 <p>解析<sup id="fnref:9"><a href="#fn:9" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="分流解析时注意线路类型
 ">[9]</span></a></sup></p>
 <img data-src="/posts/Hexo_Updata(2020.04.17)/%E8%A7%A3%E6%9E%90.png" class="">
+<p>效果还是挺明显的<br><img data-src="%E5%88%86%E6%B5%81.png" alt=""></p>
 <h3 id="暗、亮"><a href="#暗、亮" class="headerlink" title="暗、亮"></a>暗、亮</h3><span class="label primary">本博客已支持 亮/暗 样式切换，可根据“系统亮暗主题”或“浏览器亮暗主题”自动切换（其实还想加个手动切换，但是至今没找到合适的方法）。</span>
 <figure class="highlight yml"><figcaption><span>位置：主题\_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># Dark Mode</span></span><br><span class="line"><span class="attr">darkmode:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <p>自定义样式可参考本博客的<a href="/other/styles"><code>styles.styl</code></a></p>

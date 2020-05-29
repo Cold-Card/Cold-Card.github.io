@@ -9,7 +9,15 @@
 
     <url>
         <loc>https://coldcard.wang/posts/Arnold_Lights/</loc>
-        <lastmod>2020-05-27T15:21:37.659Z</lastmod>
+        <lastmod>2020-05-29T13:42:27.043Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/Hexo_Updata(2020.04.17)/</loc>
+        <lastmod>2020-05-29T08:19:39.995Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -98,14 +106,6 @@
     <url>
         <loc>https://coldcard.wang/posts/Hexo_Updata(2020.05.13)/</loc>
         <lastmod>2020-05-25T13:09:42.134Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/posts/Hexo_Updata(2020.04.17)/</loc>
-        <lastmod>2020-05-25T11:39:36.727Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
