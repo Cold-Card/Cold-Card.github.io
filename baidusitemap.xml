@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://coldcard.wang/posts/aiStandardSurface/</loc>
+    <lastmod>2020-06-02</lastmod>
+  </url>  <url>
     <loc>https://coldcard.wang/posts/Arnold_Lights/</loc>
-    <lastmod>2020-05-29</lastmod>
+    <lastmod>2020-06-02</lastmod>
   </url>  <url>
     <loc>https://coldcard.wang/posts/Hexo_Updata(2020.04.17)/</loc>
-    <lastmod>2020-05-29</lastmod>
+    <lastmod>2020-06-02</lastmod>
+  </url>  <url>
+    <loc>https://coldcard.wang/posts/Hypixel_BedWars/</loc>
+    <lastmod>2020-06-01</lastmod>
+  </url>  <url>
+    <loc>https://coldcard.wang/posts/Imbox/</loc>
+    <lastmod>2020-06-01</lastmod>
   </url>  <url>
     <loc>https://coldcard.wang/posts/Battlefield5_2/</loc>
     <lastmod>2020-05-27</lastmod>
@@ -29,12 +38,6 @@
     <lastmod>2020-05-27</lastmod>
   </url>  <url>
     <loc>https://coldcard.wang/posts/Steam_Warning/</loc>
-    <lastmod>2020-05-27</lastmod>
-  </url>  <url>
-    <loc>https://coldcard.wang/posts/Imbox/</loc>
-    <lastmod>2020-05-27</lastmod>
-  </url>  <url>
-    <loc>https://coldcard.wang/posts/Hypixel_BedWars/</loc>
     <lastmod>2020-05-27</lastmod>
   </url>  <url>
     <loc>https://coldcard.wang/posts/Hexo_Updata(2020.05.13)/</loc>

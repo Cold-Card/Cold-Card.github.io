@@ -412,6 +412,354 @@
       </tags>
   </entry>
   <entry>
+    <title>Maya 学习日志：Arnold（阿诺德）aiStandardSurface（标准曲面着色器）</title>
+    <url>/posts/aiStandardSurface/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="标准曲面"><a href="#标准曲面" class="headerlink" title="标准曲面"></a>标准曲面</h1><p>标准曲面着色器是一种基于物理的着色器，能够生成许多类型的材质。它包括漫反射层、适用于金属的具有复杂菲涅尔的镜面反射层、适用于玻璃的镜面反射透射、适用于皮肤的次表面散射、适用于水和冰的薄散射、次镜面反射涂层和灯光发射。</p>
+<ul>
+<li>以下部分资料参考了 <a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557238" target="_blank" rel="noopener external nofollow noreferrer">Arnold 的官方技术文档和图片范例</a>。</li>
+</ul>
+<p>此着色器对包含十个组件的材质进行建模，这些组件会进行分层并按层次结构进行混合，如下图所示。各个组件的特性在曲面上会发生变化。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/standard_surface.png" alt="standard_surface 模拟的理想化材质模型的示意图。组件的水平堆叠表示统计混合，垂直堆叠表示分层。标有星号的组件是可选组件。"></p>
+<a id="more"></a>
+<h2 id="材质类型"><a href="#材质类型" class="headerlink" title="材质类型"></a>材质类型</h2><p>默认情况下，这些参数适用于塑料、木材、石头等材质。通过将几个关键参数设置为 1，可以快速创建不同类型的材质：</p>
+<ul>
+<li><strong>Metalness</strong>（金属度）：金、银、铁、汽车涂料。</li>
+<li><strong>Transmission</strong>（透射）：玻璃、水、蜂蜜、肥皂泡。</li>
+<li><strong>Subsurface</strong>（次表面）：皮肤、大理石、蜡、纸、树叶。</li>
+<li><strong>Thin Walled</strong>（薄壁）：纸、树叶、肥皂泡。</li>
+</ul>
+<p>介于 0 和 1 之间的参数值可用于创建由基本材质类型混合而成的比较复杂的材质。</p>
+<table>
+<tbody>
+<tr>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/title_Gold1.png"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/title_Thin_Plastic1.png"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/title_Glass1.png"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/title_Frosted_Glass1.png"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/title_Clay1.png"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/title_Car_Paint1.png"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/title_Brushed_Metal1.png"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/title_Blood.png"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/title_Honey1.png"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/title_Copper1.png"></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="能量守恒"><a href="#能量守恒" class="headerlink" title="能量守恒"></a>能量守恒</h2><p>默认情况下，标准曲面着色器能量守恒。其所有层是保持平衡的，以使离开曲面的光量不超过入射光的量。例如，随着曲面的金属特性增强而使镜面反射层贡献增加，漫反射层贡献会随之减小以确保能量守恒。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/law_of_conservation_of_energy.png" alt="Arnold 中提供的标准曲面材质预设示例"></p>
+<div class="note warning">使用值大于 1 的层权重或颜色时，能量守恒会被打破。建议不要创建此类材质，因为在不同的照明下，它们的表现不可预料，并可能导致噪波增加及渲染性能降低。</div>
+
+<hr>
+<p><strong>由于控件数量较多，标准曲面着色器分为若干个组。以下将分别详细介绍每个组的设置。</strong></p>
+<details cyan><summary> <p>属性编辑器</p> </summary>
+              <div class='content'>
+              <p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/aiStandardSurface.png" alt=""></p>
+              </div>
+            </details>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> <a href="#Base（基础）"><code>Base（基础）</code></a> ⇠</li>
+<li><input checked="" disabled="" type="checkbox"> <a href="#Specular（镜面反射）"><code>Specular（镜面反射）</code></a> ⇠</li>
+<li><input checked="" disabled="" type="checkbox"> <a href="#Transmission（透射）"><code>Transmission（透射）</code></a> ⇠</li>
+<li><input checked="" disabled="" type="checkbox"> <a href="#Subsurface（次表面）"><code>Subsurface（次表面）</code></a> ⇠</li>
+<li><input disabled="" type="checkbox"> <a href="#Coat（图层）">Coat（图层）</a></li>
+<li><input disabled="" type="checkbox"> <a href="#Emission（自发光）">Emission（自发光）</a></li>
+<li><input disabled="" type="checkbox"> <a href="#Thin-Film（薄膜）">Thin Film（薄膜）</a></li>
+<li><input disabled="" type="checkbox"> <a href="#Geometry（几何体）">Geometry（几何体）</a></li>
+<li><input disabled="" type="checkbox"> <a href="#Matte（蒙版）">Matte（蒙版）</a></li>
+<li><input disabled="" type="checkbox"> <a href="#Advanced（高级）">Advanced（高级）</a></li>
+</ul>
+<h1 id="Base（基础）"><a href="#Base（基础）" class="headerlink" title="Base（基础）"></a>Base（基础）</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Ai-base.png" alt=""></p>
+<ul>
+<li><h2 id="Weight（权重）"><a href="#Weight（权重）" class="headerlink" title="Weight（权重）"></a>Weight（权重）</h2><p>基础颜色权重（默认值为 0.8）。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Base_Weight_0.png" alt="0"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Base_Weight_0o5.png" alt="0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Base_Weight_1.png" alt="1"></div></div></div></li>
+<li><h2 id="Color（颜色）"><a href="#Color（颜色）" class="headerlink" title="Color（颜色）"></a>Color（颜色）</h2><p>基础颜色设置使用白色光源（强度为 100%）直接照亮时的曲面亮度。它定义灯光在曲面下散射时，未被吸收的 RGB 光谱的每个分量百分比。金属的基础颜色通常为黑色或非常暗，但是，生锈的金属需要一些基础颜色。通常需要基础颜色贴图。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Base_Color_R.png" alt="红色"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Base_Color_G.png" alt="绿色"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Base_Color_B.png" alt="蓝色"></div></div></div>
+<table>
+<tbody>
+<tr>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/blocks-rough.png"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/oak-floor.png"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/sculpted-floor-board.png"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/mybricks.png"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/wood-frame.png"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/bamboo.png"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/cratered-rock.png"></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><h2 id="Diffuse-Roughness（漫反射粗糙度）"><a href="#Diffuse-Roughness（漫反射粗糙度）" class="headerlink" title="Diffuse Roughness（漫反射粗糙度）"></a>Diffuse Roughness（漫反射粗糙度）</h2><p>基础组件会遵循具有曲面粗糙度的 Oren-Nayar 反射模型。如果值为 0.0，则相当于 Lambert 反射。值越高，会产生越粗糙的曲面，看起来更适用于混凝土、灰泥或沙子等材质。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Base_Roughness_0.png" alt="0（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Base_Roughness_0o5.png" alt="0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Base_Roughness_1.png" alt="1"></div></div></div></li>
+<li><h2 id="Metalness（金属度）"><a href="#Metalness（金属度）" class="headerlink" title="Metalness（金属度）"></a>Metalness（金属度）</h2><p>金属度为 1.0 时，曲面的表现类似于金属，使用完全镜面反射和复杂菲涅尔。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Metalness_0.png" alt="0（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Metalness_0o5.png" alt="0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Metalness_1.png" alt="1"></div></div></div>
+<div class="note success">要获得非常清晰、堪比镜子的反射，请将“金属度”(Metalness)增加到 1 并将镜面反射的“粗糙度”(Roughness)降低到 0。将基础“权重”(Weight)设置为 1。</div>
+<div class="note info">启用了“金属度”(Metalness)时，镜面反射的“权重”(Weight)和“颜色”(Color)仅控制边染色，而“基础”(Base)仍受粗糙度影响。</div>
+</li>
+<li><p>金属外观由“基础颜色”(Base Color)（朝向）和镜面反射的“颜色”(Color)（边染色）参数控制。这些会自动转换为物理 η 和 κ 值以达到相同的外观，但具有可轻松调整和设置纹理的颜色。下面是金属的一些实际值示例。</p>
+<table>
+<thead>
+<tr>
+<th>金属</th>
+<th align="center">色块</th>
+<th>基础颜色（Base Color）</th>
+<th align="center">色块</th>
+<th>镜面反射颜色（Specular Color）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>铝 (Al)</td>
+<td align="center"><svg width="20" height="20"><rect width="20" height="20" fill="rgb(233,233,235)"></rect></svg></td>
+<td>0.912 0.914 0.920</td>
+<td align="center"><svg width="20" height="20"><rect width="20" height="20" fill="rgb(247,250,252)"></rect></svg></td>
+<td>0.970 0.979 0.988</td>
+</tr>
+<tr>
+<td>铜 (Cu)</td>
+<td align="center"><svg width="20" height="20"><rect width="20" height="20" fill="rgb(236,184,129)"></rect></svg></td>
+<td>0.926 0.721 0.504</td>
+<td align="center"><svg width="20" height="20"><rect width="20" height="20" fill="rgb(254,244,210)"></rect></svg></td>
+<td>0.996 0.957 0.823</td>
+</tr>
+<tr>
+<td>金 (Au)</td>
+<td align="center"><svg width="20" height="20"><rect width="20" height="20" fill="rgb(241,198,95)"></rect></svg></td>
+<td>0.944 0.776 0.373</td>
+<td align="center"><svg width="20" height="20"><rect width="20" height="20" fill="rgb(254,250,192)"></rect></svg></td>
+<td>0.998 0.981 0.751</td>
+</tr>
+<tr>
+<td>铁 (Fe)</td>
+<td align="center"><svg width="20" height="20"><rect width="20" height="20" fill="rgb(131,131,126)"></rect></svg></td>
+<td>0.531 0.512 0.496</td>
+<td align="center"><svg width="20" height="20"><rect width="20" height="20" fill="rgb(146,138,149)"></rect></svg></td>
+<td>0.571 0.540 0.586</td>
+</tr>
+<tr>
+<td>铅 (Pb)</td>
+<td align="center"><svg width="20" height="20"><rect width="20" height="20" fill="rgb(161,160,163)"></rect></svg></td>
+<td>0.632 0.626 0.641</td>
+<td align="center"><svg width="20" height="20"><rect width="20" height="20" fill="rgb(205,206,220)"></rect></svg></td>
+<td>0.803 0.808 0.862</td>
+</tr>
+<tr>
+<td>汞 (Hg)</td>
+<td align="center"><svg width="20" height="20"><rect width="20" height="20" fill="rgb(199,199,199)"></rect></svg></td>
+<td>0.781 0.779 0.779</td>
+<td align="center"><svg width="20" height="20"><rect width="20" height="20" fill="rgb(224,232,240)"></rect></svg></td>
+<td>0.879 0.910 0.941</td>
+</tr>
+<tr>
+<td>镍 (Ni)</td>
+<td align="center"><svg width="20" height="20"><rect width="20" height="20" fill="rgb(165,156,138)"></rect></svg></td>
+<td>0.649 0.610 0.541</td>
+<td align="center"><svg width="20" height="20"><rect width="20" height="20" fill="rgb(203,204,201)"></rect></svg></td>
+<td>0.797 0.801 0.789</td>
+</tr>
+<tr>
+<td>铂 (Pt)</td>
+<td align="center"><svg width="20" height="20"><rect width="20" height="20" fill="rgb(173,164,150)"></rect></svg></td>
+<td>0.679 0.642 0.588</td>
+<td align="center"><svg width="20" height="20"><rect width="20" height="20" fill="rgb(200,201,200)"></rect></svg></td>
+<td>0.785 0.789 0.784</td>
+</tr>
+<tr>
+<td>银 (Ag)</td>
+<td align="center"><svg width="20" height="20"><rect width="20" height="20" fill="rgb(245,242,235)"></rect></svg></td>
+<td>0.962 0.949 0.922</td>
+<td align="center"><svg width="20" height="20"><rect width="20" height="20" fill="rgb(255,254,254)"></rect></svg></td>
+<td>0.999 0.998 0.998</td>
+</tr>
+</tbody></table>
+</li>
+<li><table>
+<tbody>
+<tr>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/aluminium1.png" alt="铝"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Copper1.png" alt="铜"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/gold1.png" alt="金"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/iron1.png" alt="铁"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/lead1.png" alt="铅"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/mercury2.png" alt="汞"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/nickel1.png" alt="镍"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/platinum.png" alt="铂"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/silver2.png" alt="银"></td>
+</tr>
+</tbody>
+</table>
+
+</li>
+</ul>
+<hr>
+<h1 id="Specular（镜面反射）"><a href="#Specular（镜面反射）" class="headerlink" title="Specular（镜面反射）"></a>Specular（镜面反射）</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Ai-Specular.png" alt=""></p>
+<ul>
+<li><h2 id="权重-Weight"><a href="#权重-Weight" class="headerlink" title="权重(Weight)"></a>权重(Weight)</h2><p>镜面反射权重。影响镜面反射高光的亮度。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Specular_Weight_0.png" alt="0"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Specular_Weight_0o5.png" alt="0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Specular_Weight_1.png" alt="1（默认值）"></div></div></div></li>
+<li><h2 id="Color（颜色）-1"><a href="#Color（颜色）-1" class="headerlink" title="Color（颜色）"></a>Color（颜色）</h2><p>用于调整镜面反射的颜色。使用此颜色为镜面反射高光“染色”。您仅应对某些<strong>金属</strong>使用彩色镜面反射，而<strong>非金属</strong>曲面通常应采用单色镜面反射颜色。<strong>非金属</strong>曲面通常没有彩色镜面反射。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Specular_Color_R.png" alt="红色"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Specular_Color_G.png" alt="绿色"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Specular_Color_B.png" alt="蓝色"></div></div></div></li>
+<li><h2 id="Roughness（粗糙度）"><a href="#Roughness（粗糙度）" class="headerlink" title="Roughness（粗糙度）"></a>Roughness（粗糙度）</h2><p>控制镜面反射的光泽度。值越小，反射越清晰。对于两种极限条件，值为 0 将带来完美清晰的镜像反射效果，而 1.0 则会产生接近漫反射的反射效果。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Specular_Roughness_0o1_default.png" alt="0.2（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Specular_Roughness_0o3.png" alt="0.4"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Specular_Roughness_0o6.png" alt="0.6"></div></div></div>
+<p>曲面的“微小”特征会影响灯光的漫反射和反射。这种“微曲面”的细节对镜面反射的影响最为明显。 在下图中，当每束光线以不同方向射到曲面的某个部位时，平行入射光在从粗糙曲面反射之后开始变得发散。<span class="label primary">总之，曲面越粗糙，反射光越发散或越“模糊”。</span><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/roughness.png" alt="通常用来衡量粗糙度的“微曲面”细节（此曲面的镜面反射“粗糙度”(Roughness)值较高）。"></p>
+</li>
+<li><h2 id="IOR（折射率）"><a href="#IOR（折射率）" class="headerlink" title="IOR（折射率）"></a>IOR（折射率）</h2><p>IOR（折射率）参数定义了材质的<strong>菲涅尔反射率</strong>，并且默认情况下使用角函数。实际上，IOR 将定义曲面上面向查看者的反射与曲面边上的反射之间的平衡。您可以看到反射强度保持不变，但前侧的反射强度发生很大变化。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/sphere_ior-1.png" alt="1"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/sphere_ior-1.1.png" alt="1.1"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/sphere_ior-1.5.png" alt="1.5（默认值）"></div></div></div>
+<div class="note info">使用非常高的 IOR 值的效果与使用“金属度”(Metalness)非常相似。如果将“基础颜色”(Base Color)设置为镜面反射的“颜色”(Color)，并将镜面反射的“颜色”(Color)设置为黑色，则看起来相同。区别在于，边上会有额外的反射，且由镜面反射的“颜色”(Color)控制边染色。金属菲涅尔的工作方式与新的复数折射率着色器相同，并使用适合艺术家的参数。</div>
+<div class="note success"style="font-weight:bold">通常，应该为塑料、玻璃或皮肤等材质（绝缘体菲涅尔）使用 IOR，为金属（传导菲涅尔，使用“复数折射率”(Complex IOR)）使用“金属度”(Metalness)。另一个原因在于，“金属度”(Metalness)更易于设置纹理，因为它在 0 到 1 的范围内，并且在使用“金属度”(Metalness)而非 IOR 时，使用应用程序（例如 Substance Painter）中的纹理最适合。</div>
+</li>
+<li><p><strong>镜面反射 IOR 与透射</strong><br>默认值 1.0 是真空的折射率，也就是说，真空空间中 IOR 为 1.0 的对象不会折射任何光线。简而言之，1.0 表示“无折射”。标准曲面着色器假定任意几何体的法线朝外，对象处于大气之中（IOR 为 1.0），并假定没有重叠曲面。</p>
+<table>
+<tbody>
+<tr>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/standard_ior_1.0.png" alt="1"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/standard_ior_1.1.png" alt="1.1"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/standard_ior_1.2.png" alt="1.2"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/standard_ior_1.3.png" alt="1.3"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/standard_ior_1.4.png" alt="1.4"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/standard_ior_1.5.png" alt="1.5"></td>
+</tr>
+</tbody>
+</table>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/refraction_arnold_pool_1.0.png" alt="1"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/refraction_arnold_pool_1.5.png" alt="1.5（默认值）"></div></div></div>
+</li>
+<li><h2 id="Anisotropy（各向异性）"><a href="#Anisotropy（各向异性）" class="headerlink" title="Anisotropy（各向异性）"></a>Anisotropy（各向异性）</h2><p>“各向异性”(Anisotropy)在反射和透射灯光时具有方向偏差，使得材质在某些方向上显得更粗糙或更光亮。“各向异性”(Anisotropy)的默认值为 0，表示“各向同性”。当您移动控制柄接近 1.0 时，曲面将在 U 轴上变得更具各向异性。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Anisotropy_0.png" alt="0（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Anisotropy_0o5.png" alt="0.6"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Anisotropy_0o9.png" alt="0.9"></div></div></div>
+<p>“各向异性”(Anisotropy)适用于具有清晰笔刷方向的材质。例如，具有微小凹槽的拉丝金属，其中将形成“拉伸”各向异性反射。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Anisotropy.png" alt="许多小圆盘放在一起形成各向异性高光效果"></p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/standard_coke_can_anisotropy_0.3.png" alt="0（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/standard_coke_can_anisotropy_0.6.png" alt="0.6"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/standard_coke_can_anisotropy_0.9.png" alt="0.9"></div></div></div>
+<p>各向异性反射有助于形成拉丝金属效果，如下例所示：<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Anisotropy01.png" alt="为各向异性旋转指定了纹理"></p>
+</li>
+<li><h2 id="Rotation（旋转）"><a href="#Rotation（旋转）" class="headerlink" title="Rotation（旋转）"></a>Rotation（旋转）</h2><p>旋转值将更改 UV 空间中各向异性反射的方向。值为 0.0 时，不会出现任何旋转。值为 1.0 时，呈现效果将旋转 180 度。<strong>对于采用拉丝金属的曲面，这将控制拉丝材质的角度。对于金属曲面，各向异性高光应在与拉丝方向垂直的方向上拉伸。</strong></p>
+<table>
+<tbody>
+<tr>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Anisotropy_Rotation_0.png" alt="0（默认值）"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Anisotropy_Rotation_0o25.png" alt="0.25"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Anisotropy_Rotation_0o5.png" alt="0.5"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Anisotropy_Rotation_0o75.png" alt="0.75"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Anisotropy_Rotation_1.png" alt="1"></td>
+</tr>
+</tbody>
+</table>
+
+</li>
+</ul>
+<hr>
+<h1 id="Transmission（透射）"><a href="#Transmission（透射）" class="headerlink" title="Transmission（透射）"></a>Transmission（透射）</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Ai-transmission.png" alt=""></p>
+<ul>
+<li><h2 id="权重-Weight-1"><a href="#权重-Weight-1" class="headerlink" title="权重(Weight)"></a>权重(Weight)</h2><p>对于玻璃或水等材质，透射允许灯光穿过表面发生散射。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Transparent_Weight_0.png" alt="0（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Transparent_Weight_0o5.png" alt="0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Transparent_Weight_1.png" alt="1"></div></div></div>
+<div class="note warning">请注意，对于已指定标准曲面着色器的网格，还必须禁用“不透明”(Opaque)属性。</div>
+<div class="note danger">如果在应该透明的地方只能看到黑色，则可能是折射光线深度值（位于“渲染设置”(Render Settings)的“光线深度”(Ray Depth)部分）不够高。默认值为 2。</div>
+</li>
+<li><h2 id="Color（颜色）-2"><a href="#Color（颜色）-2" class="headerlink" title="Color（颜色）"></a>Color（颜色）</h2><p>此项会根据折射光线的传播距离过滤折射。灯光在网格内传播得越长，受透射颜色的影响就会越大。因此，光线穿过较厚的部分时，绿色玻璃的颜色将更深。此效应呈指数递增，可以使用比尔定律进行计算。建议使用精细的浅颜色值。</p>
+<div class="note danger">
+如果使用完全饱和的颜色（例如 (1, 0, 0)），解释方式为允许所有红色灯光穿过，而不允许绿色和蓝色灯光穿过。如果透射的“颜色”(Color)值接近 0，则网格内部非常密集以至于阻止所有灯光，之后将“深度”(Depth)倍增设置为较小值（例如 0.001）可能不会产生多大差异，因为“深度”(Depth)还是很大。不建议透射颜色使用完全饱和的颜色。
+
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Transparent_Color_R.png" alt="红色"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Transparent_Color_G.png" alt="绿色"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Transparent_Color_B.png" alt="蓝色"></div></div></div>
+</div>
+</li>
+<li><p><strong><span class="label danger">如果该值具有某种颜色，并且需要使用该颜色进行染色的阴影，则对指定了标准曲面着色器的网格禁用“不透明”(Opaque)属性。</span>在下面的示例中可以看到，当启用“不透明”(Opaque)时，光线无法穿过球体。 反之，当禁用“不透明”(Opaque)时，光线可以穿过球体并吸收透射“颜色”(Color)设置的颜色，从而创建彩色阴影的效果。</strong></p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/standard_glass_sphere_opaque_on.png" alt="不透明(Opaque)：启用"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/standard_glass_sphere_opaque_off.png" alt="不透明(Opaque)：禁用"></div></div></div>
+<div class="note warning">
+请注意，除非启用“薄壁”(Thin Walled)，否则透射“颜色”(Color)将不适用于单面几何体。
+
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/thin-walled_disabled.png" alt="禁用"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/thin-walled_enabled.png" alt="启用。透射颜色可见。"></div></div></div>
+</div>
+</li>
+<li><h2 id="Depth（深度）"><a href="#Depth（深度）" class="headerlink" title="Depth（深度）"></a>Depth（深度）</h2><p>控制透射颜色在体积中达到的深度。 增大此值会使体积变薄，这意味着吸收和散射减少。它是一个比例因子，使您可以设置透射颜色，然后调整“深度”(Depth)，以适合对象大小。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Transparent_depth_1.png" alt="1"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Transparent_depth_2.png" alt="2"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Transparent_depth_10.png" alt="10"></div></div></div>
+<p>可以在下面的动画中看到增加透射“深度”(Depth)后的效果。请注意，在本例中也使用了透射散射颜色。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Transparency-Depth.gif" alt=""></p>
+<div class="note warning">
+深度依赖于场景比例，可以对其外观产生显著影响。 透射“颜色”(Color)和“深度”(Depth)控制透射/吸收，并且与对象比例有关。 因此，对于要查看任何内容的小对象，可能需要设置非常低的“深度”(Depth)，而对于大对象，则需要设置较大“深度”(Depth)。如果您无法看到“深度”(Depth)的效果，则可能需要检查场景的大小。
+
+<p>如果场景比例太小，透射“深度”(Depth)为 1 时，透射“颜色”(Color)（橙色）看起来不正确（左图）。降低透射“深度”(Depth)可修复此问题（右图）。<strong>建议按真实世界比例进行建模，以避免这些情况的发生。</strong></p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/small-car-depth-1.png" alt="1"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/small-car-depth-0.01.png" alt="0.01"></div></div></div>
+</div>
+</li>
+<li><h2 id="Scatter（散射）"><a href="#Scatter（散射）" class="headerlink" title="Scatter（散射）"></a>Scatter（散射）</h2><p>透射散射适用于各类相当稠密的液体或者有足够多的液体能使散射可见的情况，例如深水体或蜂蜜。 如果是一杯水，没有多少散射，但如果是海洋，它是必需的。其他示例包括冰、乳白色玻璃或奶白色玻璃等材质。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/no-transparent_scatter_honey.png" alt="黑色（默认值）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/transparent_scatter_honey.png" alt="橙色（适合厚粘性液体，如蜂蜜）"></div></div></div>
+<div class="note warning">为了使散射发挥作用，应对已指定标准曲面着色器的网格禁用“不透明”(Opaque)。</div>
+</li>
+<li><h2 id="Scatter-Anisotropy（散射各向异性）"><a href="#Scatter-Anisotropy（散射各向异性）" class="headerlink" title="Scatter Anisotropy（散射各向异性）"></a>Scatter Anisotropy（散射各向异性）</h2><p>散射的方向偏差或各向异性。默认值零表示等向散射，灯光在所有方向上均匀散射。正值在灯光方向上向前偏差散射效果，而负值则朝灯光向后偏差散射效果。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/transparent_scatter_anisotropy_-0.5.png" alt="-0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/transparent_scatter_anisotropy_0.png" alt="0（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/transparent_scatter_anisotropy_0.5.png" alt="0.5"></div></div></div></li>
+<li><h2 id="Dispersion-Abbe（色散系数）"><a href="#Dispersion-Abbe（色散系数）" class="headerlink" title="Dispersion Abbe（色散系数）"></a>Dispersion Abbe（色散系数）</h2><p>指定材质的色散系数，用于描述折射率随波长变化的程度。对于玻璃和钻石，此值通常介于 10 到 70 之间，<strong>值越小，色散越多</strong>。默认值为 0，表示禁用色散。<strong>通过增加全局摄影机 (AA) 采样或折射采样，可以减少色度噪波。</strong></p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/transparent_dispersion_1.png" alt="1"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/transparent_dispersion_3.png" alt="3"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/transparent_dispersion_6.png" alt="6"></div></div></div></li>
+<li><p><strong>透射色散非常适用于钻石等宝石材质。</strong><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/diamond-dispersion-abbe.gif" alt=""></p>
+</li>
+<li><h2 id="Extra-Roughness（附加粗糙度）"><a href="#Extra-Roughness（附加粗糙度）" class="headerlink" title="Extra Roughness（附加粗糙度）"></a>Extra Roughness（附加粗糙度）</h2><p>对使用各向同性微面 BTDF 所计算的折射增加一些额外的模糊度。范围从 -1 到 1，其中 0 表示无粗糙度。其计算方式为：</p>
+<ul>
+<li><strong>透射粗糙度 = 镜面反射粗糙度 + 透射附加粗糙度</strong>  <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Extra_Roughness_0.png" alt="0（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Extra_Roughness_0o5.png" alt="0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Extra_Roughness_1.png" alt="1"></div></div></div></li>
+<li><strong>如果值为负，透射粗糙度将低于反射粗糙度。</strong><div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/extra_roughness_0(1).png" alt="0（默认值）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/extra_roughness_-1.png" alt="-1"></div></div></div></li>
+</ul>
+</li>
+<li><h2 id="Transmit-AOVs（透射-AOV）"><a href="#Transmit-AOVs（透射-AOV）" class="headerlink" title="Transmit AOVs（透射 AOV）"></a>Transmit AOVs（透射 AOV）</h2><p>如果启用，透射将穿过 AOV。 如果背景是透明的，透射曲面将变得透明，以便可以合成到另一个背景上。透射将穿过灯光路径表达式 AOV，因此透过透射曲面观察时，漫反射曲面最终将在 diffuse AOV 中。另外，透射还可直接穿过其他 AOV（无需任何不透明度混合），这可以用来创建遮罩。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/transmit_aovs-alpha.jpg" alt="Alpha 遮罩"></p>
+</li>
+</ul>
+<hr>
+<h1 id="Subsurface（次表面）"><a href="#Subsurface（次表面）" class="headerlink" title="Subsurface（次表面）"></a>Subsurface（次表面）</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Ai-Subsurface.png" alt=""><br>次表面散射 (SSS) 用于模拟灯光进入物体并在其表面下方散射的效果。并非所有灯光都会从表面反射回来。其中有些灯光将穿透到照明对象的表面下方。这些灯光将会被材质吸收并在内部散射。其中一部分散射灯光将返回到表面之外，并对摄影机可见。这称为“次表面散射”或“SSS”。要实现大理石、皮肤、树叶、蜡和牛奶等材质的逼真渲染，SSS 必不可少。此着色器中的 SSS 组件将使用暴力式光线跟踪方法计算得出。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Subsurface.png" alt=""></p>
+<ul>
+<li><h2 id="权重-Weight-2"><a href="#权重-Weight-2" class="headerlink" title="权重(Weight)"></a>权重(Weight)</h2><p>在漫反射与次表面散射之间“混合”。设置为 1.0 时，只有次表面散射；设置为 0 时，只有 Lambert。大多数情况下，应将此属性设为 1.0（完全次表面散射）。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Subsurface_Weight_0.png" alt="0（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Subsurface_Weight_0o5.png" alt="0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Subsurface_Weight_1.png" alt="1"></div></div></div></li>
+<li><h2 id="Color（颜色）-3"><a href="#Color（颜色）-3" class="headerlink" title="Color（颜色）"></a>Color（颜色）</h2><p>用于确定次表面散射效果的颜色。例如，复制皮肤材质时，意味着将其设置为肉色。</p>
+<table>
+<tbody>
+<tr>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/sss_color_apple.png" alt="苹果"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/sss_color_chicken.png" alt="鸡肉"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/sss_color_cream.png" alt="奶油"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/sss_color_ketchup.png" alt="蕃茄酱"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/sss_color_Marble.png" alt="大理石"></td>
+</tr>
+<tr>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/sss_color_Potato.png" alt="土豆"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/sss_color_Skim_milk.png" alt="脱脂牛奶"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/sss_color_Skin1.png" alt="皮肤 1"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/sss_color_Skin2.png" alt="皮肤 2"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/sss_color_Whole_Milk.png" alt="全脂牛奶"></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><h2 id="Radius（半径）"><a href="#Radius（半径）" class="headerlink" title="Radius（半径）"></a>Radius（半径）</h2><p>光线在曲面之下可以散射的大概距离，也称为“平均自由程”(MFP)。此参数影响光线在再度散射出曲面前在曲面下可能传播的平均距离。您可以分别为每个颜色分量指定这种距离效果。增大此值，次表面散射的外观将变得平滑，减小此值则会使外观更加浑浊不清。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/standard_radius_b_0.25.png" alt="0.25"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/standard_radius_c_0.5.png" alt="0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/standard_radius_e_1.png" alt="1（默认值）"></div></div></div>
+<p>颜色越浅，散射的灯光越多。值为 0 时不会产生任何散射效果。</p>
+<div class="note success">
+渲染皮肤时，您应使用类似 <font color="red">1.0</font>, <font color="green">0.35</font>, <font color="blue">0.2</font> 的值，表示红色应该散射得最深，绿色和蓝色应该散射得较浅。这将替换皮肤的三层式工作流（深层、中等层和浅层），使深层为红色，以表示深层应在更大的半径范围内散射。只需将 scatter_radius.R 设置为较大的值即可。
+
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/emily_radius_1_0.35_0.2.png" alt="红色"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/emily_radius_1_1_1.png" alt="白色（默认值）"></div></div></div>
+</div>
+</li>
+<li><h2 id="Scale（比例）"><a href="#Scale（比例）" class="headerlink" title="Scale（比例）"></a>Scale（比例）</h2><p>此参数控制灯光在再度反射出曲面前在曲面下可能传播的距离。 它将扩大散射半径，并增加 SSS 半径颜色。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Subsurface_Scale_0.png" alt="0"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Subsurface_Scale_1.png" alt="1（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Subsurface_Scale_2.png" alt="2"></div></div></div>
+<div class="note warning">如果场景以米为单位，则可将“SSS 比例”(SSS Scale)设置为 0.01 来指定以厘米为单位的“SSS 半径”(SSS Radius)。 例如，对于皮肤，“SSS 半径”(SSS Radius)可以是 <font color="red">0.37cm</font>、<font color="green">0.14cm</font>、<font color="blue">0.07cm</font>。</div>
+</li>
+<li><h2 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h2><ul>
+<li><strong>散射</strong><br>使用单一层时，可以捕捉曲面细节和深散射。设计为非常接近完全 Monte-Carlo 模拟的特征，同时保留近似值，这样，与完全随机行走相比，求值开销小很多。</li>
+<li><strong>随机行走（默认值）</strong><br>与基于漫反射理论的经验性 BSSRDF 方法不同，“随机行走”(Randomwalk)方法实际使用真实的随机行走在曲面下进行跟踪，并且不假设几何体是局部平坦的。这意味着它可以照顾到暴力式体积渲染这样的各向异性散射，并且在凹处和小细节周围生成的效果要好得多。另外，对于较大的散射半径（即较大的平均自由程），它也比漫反射要快得多。但是，“随机行走”(Randomwalk)在致密介质（即较小的 mfp）中速度更慢，不支持使用 sss_setname 将两个曲面融合在一起，可能需要重新整理材质才能获得相似的外观，并且对非闭合网格、“开口袋”和可能会投射阴影的内部几何体更加敏感。</li>
+<li><strong>随机行走 v2</strong><br>此方法可穿过高度透明/光学薄对象更加准确深入地进行散射，从而产生 SSS，且对象的精细曲面细节和背光严重的区域周围的颜色更加饱和。请注意，与使用原始方法相比，渲染的开销和噪波将会增加，因为随机行走的平均时间和随机性将会增加。</li>
+</ul>
+</li>
+<li><div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/2sss-diffusion.png" alt="散射"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/2sss-randomwalk.png" alt="随机行走（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/2sss-randomwalkv2.png" alt="随机行走 v2"></div></div></div></li>
+<li><h2 id="Anisotropy（各向异性）-1"><a href="#Anisotropy（各向异性）-1" class="headerlink" title="Anisotropy（各向异性）"></a>Anisotropy（各向异性）</h2><p>Henyey-Greenstein 各向异性系数介于 -1（完全背向散射）和 1（完全正向散射）之间。 默认值 0 表示各向同性散射介质，这种情况下，灯光在所有方向均匀散射，从而产生一致的效果。 正值在灯光方向上向前偏差散射效果，而负值则朝灯光向后偏差散射效果。</p>
+<div class="note warning">此参数仅适用于“随机行走”(randomwalk)这种 SSS 方法。</div>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/sss_anisotropy_-0.7.png" alt="-0.7"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/sss_anisotropy_0.png" alt="0（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/sss_anisotropy_0.7.png" alt="0.7"></div></div></div>
+
+
+
+</li>
+</ul>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557565" target="_blank" rel="noopener external nofollow noreferrer">Arnold for Maya 用户手册：标准曲面</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>软件</category>
+        <category>Maya</category>
+        <category>Arnold 着色器</category>
+      </categories>
+      <tags>
+        <tag>Maya</tag>
+        <tag>Arnold</tag>
+        <tag>软件</tag>
+        <tag>插件</tag>
+        <tag>着色器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Maya 学习日志：Arnold（阿诺德）灯光</title>
     <url>/posts/Arnold_Lights/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="通用设置"><a href="#通用设置" class="headerlink" title="通用设置"></a>通用设置</h1><p>在 Maya Arnold 插件的菜单栏下，<code>Arnold</code>-&gt;<code>Lights</code>，包括 <a href="#Area-Light（区域光）">Area Light（区域光）</a>、<a href="#Skydome-Light（天穹灯光）">Skydome Light（天穹灯光）</a>、<a href="#Mesh-Light（几何体灯光）">Mesh Light（几何体灯光）</a>、<a href="#Photometric-Light（光度学灯光）">Photometric Light（光度学灯光）</a>、<a href="#Light-Portal（灯光引导口）">Light Portal（灯光引导口）</a>、<a href="#Physical-Sky（物理天空）">Physical Sky（物理天空）</a>。<br>无论是 Arnold 灯光还是 Maya 内置灯光，都有一些通用的属性，以下部分资料参考了 <a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557238" target="_blank" rel="noopener external nofollow noreferrer">Arnold 的官方技术文档和图片范例</a>。</p>
@@ -768,7 +1116,7 @@
 </ul>
 </li>
 </ul>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">理想的黑体辐射器的温度，以开尔文为单位，用于确定光源的颜色。默认颜色设置为 6500 K，国际照明委员会 (CIE) 将此视为白点。颜色范围从红色到白色再到蓝色。值大于 6500 K 时颜色为冷色，而小于 6500 K 的颜色为暖色。<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">挡光板是连接到灯光开口侧面的不透明可移动面板。它们通常在剧院和电影照明场景下使用，用于对光束形状进行进一步的控制。<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">挡光对象可为照明 TD 提供很好的灵活性。 它们用来以人工方式遮罩场景中的灯光，而不会产生添加额外几何体所需的开销。如果使用得当，它们可提供一定的艺术自由度，便于以非物理方式定义灯光边界。<a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557238" target="_blank" rel="noopener external nofollow noreferrer">Arnold for Maya 用户手册</a><a href="#fnref:4" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">理想的黑体辐射器的温度，以开尔文为单位，用于确定光源的颜色。默认颜色设置为 6500 K，国际照明委员会 (CIE) 将此视为白点。颜色范围从红色到白色再到蓝色。值大于 6500 K 时颜色为冷色，而小于 6500 K 的颜色为暖色。<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">挡光板是连接到灯光开口侧面的不透明可移动面板。它们通常在剧院和电影照明场景下使用，用于对光束形状进行进一步的控制。<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">挡光对象可为照明 TD 提供很好的灵活性。 它们用来以人工方式遮罩场景中的灯光，而不会产生添加额外几何体所需的开销。如果使用得当，它们可提供一定的艺术自由度，便于以非物理方式定义灯光边界。<a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557106" target="_blank" rel="noopener external nofollow noreferrer">Arnold for Maya 用户手册：灯光</a><a href="#fnref:4" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
       <categories>
         <category>软件</category>
         <category>Maya</category>
@@ -1049,7 +1397,8 @@
 
 <p>Markdown 基本语法中并不包含脚注语法，但是脚注作为一种常见的文本格式，对于文字编辑工作者，特别是喜欢插入引文的人而言，有着很大的使用需求。所以 Multi-Markdown 在其扩充语法集中增添了脚注的语法。大部分的 Markdown 编辑器现在都采用了该语法来渲染脚注。但 Hexo 的默认渲染器是不支持脚注语法的。<br>所以本博客使用 hexo-reference 插件实现脚注功能。</p>
 <ul>
-<li>本博客脚注样式<figure class="highlight styl"><figcaption><span>位置：博客\source\_data\styles.styl（没有则自建）</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment">//脚注</span></span><br><span class="line"><span class="selector-class">.hint--error</span>:after &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#917bb8</span> !important;</span><br><span class="line">    <span class="attribute">text-shadow</span>: <span class="number">0</span> <span class="number">1px</span> <span class="number">3px</span> <span class="number">#000000</span> !important;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.hint--error</span><span class="selector-class">.hint--top-left</span>:before, <span class="selector-class">.hint--error</span><span class="selector-class">.hint--top-right</span>:before, <span class="selector-class">.hint--error</span><span class="selector-class">.hint--top</span>:before &#123;</span><br><span class="line">    <span class="attribute">border-top-color</span>: <span class="number">#917bb8</span> !important;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#footnotelist</span> &#123;</span><br><span class="line">    <span class="attribute">font-weight</span>: <span class="number">300</span> !important;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>本博客脚注样式</p>
+<figure class="highlight styl"><figcaption><span>位置：博客\source\_data\styles.styl（没有则自建）</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment">//脚注</span></span><br><span class="line"><span class="selector-class">.hint--error</span>:after &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#917bb8</span> !important;</span><br><span class="line">    <span class="attribute">text-shadow</span>: <span class="number">0</span> <span class="number">1px</span> <span class="number">3px</span> <span class="number">#000000</span> !important;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.hint--error</span><span class="selector-class">.hint--top-left</span>:before, <span class="selector-class">.hint--error</span><span class="selector-class">.hint--top-right</span>:before, <span class="selector-class">.hint--error</span><span class="selector-class">.hint--top</span>:before &#123;</span><br><span class="line">    <span class="attribute">border-top-color</span>: <span class="number">#917bb8</span> !important;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#footnotelist</span> &#123;</span><br><span class="line">    <span class="attribute">font-weight</span>: <span class="number">300</span> !important;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -1475,8 +1824,8 @@
         <category>Steam</category>
       </categories>
       <tags>
-        <tag>游戏</tag>
         <tag>Steam</tag>
+        <tag>游戏</tag>
       </tags>
   </entry>
   <entry>
@@ -2148,7 +2497,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Minecraft Hypixel-BedWars 日志</title>
+    <title>Minecraft Hypixel BedWars 日志</title>
     <url>/posts/Hypixel_BedWars/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img data-src="https://hypixel.net/styles/hypixel-uix/hypixel/logo2.png" alt=""></p>
 <p><img data-src="https://hypixel.net/styles/hypixel-uix/hypixel/game-icons/BedWars-64.png" alt=""></p>
