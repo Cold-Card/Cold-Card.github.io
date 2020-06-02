@@ -1,4 +1,4 @@
-// 2020.05.20
+// 2020.06.02
 
 
 del {
@@ -1132,12 +1132,12 @@ blockquote.question {
     }
     //文章标题
     .post-body h1 {
-        border-left: 6px solid #5b5b5b;
-        border-bottom: 1px solid #3e3e3e; 
+        border-left: 6px solid #5e5e5e;
+        border-bottom: 1px solid #535353; 
     }
     .post-body h2 {
-        border-left: 5px dashed #383838;
-        border-bottom: 1px dashed #363636;
+        border-left: 5px dashed #5b5b5b;
+        border-bottom: 1px dashed #515151;
     }
     .post-body h3 {
         border-left: 3px dashed #383838;
@@ -1501,11 +1501,11 @@ blockquote.question {
     //文章标题
     .post-body h1 {
         border-left: 6px solid #b1b1b1;
-        border-bottom: 1px solid #d0d0d0;
+        border-bottom: 1px solid #c2c2c2;
     }
     .post-body h2 {
-        border-left: 5px dashed #d4d4d4;
-        border-bottom: 1px dashed #e0e0e0;
+        border-left: 5px dashed #c3c3c3;
+        border-bottom: 1px dashed #c8c8c8;
     }
     .post-body h3 {
         border-left: 3px dashed #d4d4d4;
@@ -2468,6 +2468,36 @@ img {
         .footer-inner {
             color: #838383
         }
+// table
+th, td {
+    border: none
+    border-left: 1px solid #cec5eb;
+    &:first-child {
+        border-left: none
+    }
+}
+th {
+    border-bottom: 3px solid #cec5eb;
+    background: #8484842e;
+}
+tbody tr:nth-of-type(even) {
+    background: #8484842e;
+}
+tbody tr:nth-of-type(odd) {
+    background: none;
+}
+@media (prefers-color-scheme: dark)
+    tbody tr:hover {
+        background-color: #9a9a9a4f
+    }
+@media (prefers-color-scheme: light)
+    tbody tr:hover {
+        background-color: #7070704f
+    }
+// 图片描述
+.post-body .image-caption {
+    margin: auto
+}
 
 
 
