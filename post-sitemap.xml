@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://coldcard.wang/posts/Code/</loc>
+        <lastmod>2020-06-03T14:34:29.548Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://coldcard.wang/posts/aiStandardSurface/</loc>
         <lastmod>2020-06-02T06:00:02.784Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -146,14 +154,6 @@
     <url>
         <loc>https://coldcard.wang/posts/Anime/</loc>
         <lastmod>2020-05-21T10:53:22.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/posts/Code/</loc>
-        <lastmod>2020-05-21T10:52:44.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

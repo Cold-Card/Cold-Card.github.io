@@ -3,6 +3,13 @@
 
 
     <url>
+        <loc>https://coldcard.wang/tags/Hexo/</loc>
+        <lastmod>2020-06-03T14:34:29.548Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://coldcard.wang/tags/Shaders/</loc>
         <lastmod>2020-06-02T06:00:02.784Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -33,13 +40,6 @@
     <url>
         <loc>https://coldcard.wang/tags/Maya/</loc>
         <lastmod>2020-06-02T06:00:02.784Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/tags/Hexo/</loc>
-        <lastmod>2020-06-02T05:17:10.918Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
