@@ -502,6 +502,181 @@
       </tags>
   </entry>
   <entry>
+    <title>Maya 学习日志：Arnold（阿诺德）aiNoise（噪波）</title>
+    <url>/posts/aiNoise/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="噪波"><a href="#噪波" class="headerlink" title="噪波"></a>噪波</h1><p>这是一个对相干噪波函数（可能会对若干倍频程进行汇总，从而提供分形噪波，有时也称为湍流函数）求值的着色器。输出介于 0 到 1 之间（实际上是 [0,1)），可用作若干其他着色器节点的输入来生成各种效果。<strong>可用于创建许多真实图案，例如大理石、花岗岩、皮革等。</strong></p>
+<div class="note warning">该着色器将输出一个浮点值，因此将其连接至 gobo 过滤器等需要颜色值的项目时，它的输出可能不可预测。解决方法是使用 float_to_rgb 着色器，根据噪波纹理的输出构建一个 RGB 颜色。</div>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/Ai-aiNoise.png" alt=""></p>
+<a id="more"></a>
+<h1 id="Octaves（倍频程）"><a href="#Octaves（倍频程）" class="headerlink" title="Octaves（倍频程）"></a>Octaves（倍频程）</h1><p>针对其计算噪波函数的倍频程的数量（分形噪波函数在多个频率（称为倍频程）重复；通常情况下，每个倍频程的频率是前一个的两倍，即大小是前一个的一半，但您可使用间隙度控件对此进行修改）。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/noise_octave_1.png" alt="1（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/noise_octave_2.png" alt="2"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/noise_octave_3.png" alt="3"></div></div></div>
+<h1 id="Distortion（扭曲）"><a href="#Distortion（扭曲）" class="headerlink" title="Distortion（扭曲）"></a>Distortion（扭曲）</h1><p>定义在噪波计算过程中应用于每个点的随机置换度，以便给人以不同的美感。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/noise_distortion_2.png" alt="0（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/noise_distortion_4.png" alt="1"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/noise_distortion_8.png" alt="2"></div></div></div>
+<h1 id="Lacunarity（间隙度）"><a href="#Lacunarity（间隙度）" class="headerlink" title="Lacunarity（间隙度）"></a>Lacunarity（间隙度）</h1><p>控制生成的纹理图案中的平均间隙大小。间隙度意味着每个倍频程之间的比例变化；以音阶来说，间隙度为 2.0，意味着每个倍频程的频率是前一个的两倍/比例是前一个的一半，但在我们的应用中，接近 2.0 的数字（而不恰好是 2.0）效果最佳。在大多数情况下，我们建议使用默认值 1.92。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/lacunarity_1.920-default.png" alt="1.92（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/lacunarity_3.png" alt="3"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/lacunarity_5.png" alt="5"></div></div></div>
+<h1 id="Amplitude（振幅）"><a href="#Amplitude（振幅）" class="headerlink" title="Amplitude（振幅）"></a>Amplitude（振幅）</h1><p>控制输出的振幅或范围。通常，输出值介于 0 和 1 之间，而振幅控件会与此相乘。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/noise_amplitude_A_0.png" alt="0"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/noise_amplitude_B_0.5.png" alt="0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/noise_amplitude_C_1.png" alt="1（默认值）"></div></div></div>
+<h1 id="Scale（缩放）"><a href="#Scale（缩放）" class="headerlink" title="Scale（缩放）"></a>Scale（缩放）</h1><p>控制噪波函数在 X、Y 和 Z 方向的比例。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/noise_scale_A_0.1.png" alt="1（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/noise_scale_B_0.5.png" alt="2"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/noise_scale_C_1_sphere.png" alt="3"></div></div></div>
+<div class="note success">
+
+<p>  只在一个方向上缩放噪波比例，可以生成有趣的结果。<br>  <img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/scale.png" alt="缩放 X:1、Y:0.1、Z:0.1"></p>
+</div>
+
+<h1 id="Offset（偏移）"><a href="#Offset（偏移）" class="headerlink" title="Offset（偏移）"></a>Offset（偏移）</h1><p>在 X、Y 或 Z 方向偏移噪波。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/noise_offset_A_0.png" alt="0（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/noise_offset_B_0.5.png" alt="0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/noise_offset_C_1.png" alt="1"></div></div></div>
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557406" target="_blank" rel="noopener external nofollow noreferrer">Arnold for Maya 用户手册：噪波</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>软件</category>
+        <category>Maya</category>
+        <category>Arnold 着色器</category>
+      </categories>
+      <tags>
+        <tag>Maya</tag>
+        <tag>Arnold</tag>
+        <tag>软件</tag>
+        <tag>着色器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Maya 学习日志：solidFractal（均值分形）</title>
+    <url>/posts/solidFractal/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>表示具有某个特定频率分布（分形）的 3D 随机函数。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/solidFractal/solidFractal.png" alt=""></p>
+<h1 id="Threshold（阈值）"><a href="#Threshold（阈值）" class="headerlink" title="Threshold（阈值）"></a>Threshold（阈值）</h1><p>应用于纹理中所有值的偏移因子。有效范围是 0 到无限。滑块范围是 0 到 1。默认值为 0。</p>
+<h1 id="Amplitude（振幅）⇠"><a href="#Amplitude（振幅）⇠" class="headerlink" title="Amplitude（振幅）⇠"></a>Amplitude（振幅）⇠</h1><p><strong>应用于纹理中所有值的比例因子。有效范围是 0 到无限。滑块范围是 0（无噪波）到 1（强噪波）。默认值为 1。</strong></p>
+<h1 id="Ratio（比率）⇠"><a href="#Ratio（比率）⇠" class="headerlink" title="Ratio（比率）⇠"></a>Ratio（比率）⇠</h1><p><strong>控制分形噪波的频率。取值范围是 0（低频率）到 1（高频率）。默认值为 0.707。</strong></p>
+<a id="more"></a>
+<h1 id="Frequency-Ratio（频率比）"><a href="#Frequency-Ratio（频率比）" class="headerlink" title="Frequency Ratio（频率比）"></a>Frequency Ratio（频率比）</h1><p>确定噪波频率的相对特殊比例。如果不是整数，那么分形就不会在 UV 边界处重复。例如，具有默认放置的圆柱体会显示一条接缝。</p>
+<h1 id="Ripples（涟漪）"><a href="#Ripples（涟漪）" class="headerlink" title="Ripples（涟漪）"></a>Ripples（涟漪）</h1><p>确定纹理在 X、Y 和 Z 方向上的波纹。该值表示用于生成纹理的分形频率比例。取值范围是 0 到无限。默认值为 1。</p>
+<h1 id="Depth（深度）"><a href="#Depth（深度）" class="headerlink" title="Depth（深度）"></a>Depth（深度）</h1><p>用于计算纹理图案的最小和最大迭代数。该参数控制纹理颗粒的精细程度。取值范围是 0 到 20。</p>
+<h1 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h1><p>下列属性可以使“匀值分形”(Solid Fractal)纹理中的噪波图案形成漩涡，以便创建出有趣的效果。</p>
+<h1 id="Bias（偏移）"><a href="#Bias（偏移）" class="headerlink" title="Bias（偏移）"></a>Bias（偏移）</h1><p>将 -1 到 1 的噪波吸引向 1 或 0。大于零的值会导致分形的对比更大；小于零的值会使其更为平坦和尖锐。</p>
+<h1 id="Inflection（弯曲）"><a href="#Inflection（弯曲）" class="headerlink" title="Inflection（弯曲）"></a>Inflection（弯曲）</h1><p>在噪波函数中应用折点。该选项可用于创建膨胀或凹凸效果。默认情况下，“弯曲”(Inflection)处于禁用状态。</p>
+<h1 id="Animated（已设置动画）"><a href="#Animated（已设置动画）" class="headerlink" title="Animated（已设置动画）"></a>Animated（已设置动画）</h1><p>启用以访问“时间”(Time)和“时间比”(Time Ratio)属性（参见以下内容）。</p>
+<ul>
+<li><h2 id="时间-Time"><a href="#时间-Time" class="headerlink" title="时间(Time)"></a>时间(Time)</h2><p>确定噪波频率的相对时间比例。如果不是整数，那么动画就不会在“时间”(Time)为 1 处重复。</p>
+</li>
+<li><h2 id="时间比-Time-Ratio"><a href="#时间比-Time-Ratio" class="headerlink" title="时间比(Time Ratio)"></a>时间比(Time Ratio)</h2><p>默认与“频率比”(Frequency Ratio)设置相等，这意味着噪波频率越高，则移动将与频率成正比地加快。例如，若要创建更加自然的效果（例如水波），如果“频率比”(Frequency Ratio)为 2，则应将“时间比”(Time Ratio)设定为 1.4。</p>
+</li>
+</ul>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<a href="http://help.autodesk.com/view/MAYAUL/2020/CHS/?guid=GUID-14AB46D1-65B6-4E97-A95F-E81BA89980D8" target="_blank" rel="noopener external nofollow noreferrer">Autodesk Maya 2020 帮助：匀值分形(Solid Fractal)</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>软件</category>
+        <category>Maya</category>
+        <category>着色器</category>
+      </categories>
+      <tags>
+        <tag>Maya</tag>
+        <tag>软件</tag>
+        <tag>着色器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Maya 实例练习：水壶材质制作</title>
+    <url>/posts/Kettle/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在制作前，先明确一下步骤：</p>
+<ul>
+<li><strong>这个水壶的材质是由<code>金属</code>与<code>锈迹</code>两大部分组成。</strong></li>
+<li><strong>所以首先，制作<code>金属</code>部分的材质。</strong><ul>
+<li><strong><a href="/posts/aiStandardSurface/">aiStandardSurface（标准曲面着色器）</a> ⇢ <a href="/posts/aiNoise/">aiNoise（噪波）</a> ⇢ <a href="/posts/aiStandardSurface/#Bump-Mapping（凹凸贴图）">bump2d</a></strong></li>
+</ul>
+</li>
+<li><strong>然后，与<code>金属</code>部分制作方法一样，制作<code>锈迹</code>。</strong></li>
+<li><strong>最后通过 <a href="/posts/aiMixShader/">aiMixShader（混合着色器）</a>将<code>金属</code>与<code>锈迹</code>结合。</strong></li>
+</ul>
+<img style="width:30%" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/kettle.jpg" alt="最后效果">
+
+<a id="more"></a>
+<h1 id="金属部分"><a href="#金属部分" class="headerlink" title="金属部分"></a>金属部分</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/Metal.png" alt="金属部分 Hypershade"></p>
+<blockquote>
+<p>通过 aiNoise（噪波）节点来模拟水壶金属颜色部分的不均匀以及斑点</p>
+<blockquote>
+<p>aiNoise1 节点用来制作大块的金属颜色不均匀<br>aiNoise2 节点用来制作金属颜色斑点以及 bump2d 节点的输入值<br>  <table><tbody><tr><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise1.jpg" alt="aiNoise1"></td><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise2.jpg" alt="aiNoise2"></td></tr></tbody></table></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>bump2d 节点以 aiNoise2 节点输出颜色的 RGB 单色通道为输入值</p>
+</blockquote>
+<blockquote>
+<div class="note warning">还可以通过 colorCorrect 节点调整颜色</div>
+</blockquote>
+<h1 id="锈迹部分"><a href="#锈迹部分" class="headerlink" title="锈迹部分"></a>锈迹部分</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/Rust.png" alt="锈迹部分 Hypershade"></p>
+<blockquote>
+<p>与金属部分制作相同</p>
+</blockquote>
+<blockquote>
+<p>只是这次使用了三个 aiNoise（噪波）节点</p>
+<blockquote>
+<p>aiNoise4 节点用来制作主要的锈迹颜色<br>aiNoise5 节点用来制作锈迹斑点颜色以及 bump2d 节点的输入值<br>aiNoise3 节点用来合并 aiNoise4 与 aiNoise5 节点<br>  <table><tbody><tr><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise4.jpg" alt="aiNoise4"></td><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise5.jpg" alt="aiNoise5"></td><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise3.jpg" alt="aiNoise3"></td></tr></tbody></table></p>
+</blockquote>
+</blockquote>
+<h1 id="结合"><a href="#结合" class="headerlink" title="结合"></a>结合</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiMixShader.png" alt=""></p>
+<blockquote>
+<p>通过 <a href="/posts/aiMixShader/">aiMixShader（混合着色器）</a>将<code>金属</code>与<code>锈迹</code>结合。</p>
+</blockquote>
+<blockquote>
+<p>但是由于 <a href="/posts/aiMixShader/">aiMixShader（混合着色器）</a>只能生硬的进行材质叠加，所以还需要使用 <a href="/posts/solidFractal/">solidFractal（匀值分形）</a>节点来更好的结合</p>
+</blockquote>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<div><a href="/posts/aiStandardSurface/">Maya 学习日志：Arnold（阿诺德）aiStandardSurface（标准曲面着色器）</a></div><div><a href="/posts/aiMixShader/">Maya 学习日志：Arnold（阿诺德）aiMixShader（混合着色器）</a></div><div><a href="/posts/solidFractal/">Maya 学习日志：solidFractal（均值分形）</a></div><div><a href="/posts/aiNoise/">Maya 学习日志：Arnold（阿诺德）aiNoise（噪波）</a></div><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>软件</category>
+        <category>Maya</category>
+        <category>练习</category>
+      </categories>
+      <tags>
+        <tag>Maya</tag>
+        <tag>Arnold</tag>
+        <tag>软件</tag>
+        <tag>着色器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Maya 学习日志：Arnold（阿诺德）aiMixShader（混合着色器）</title>
+    <url>/posts/aiMixShader/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="混合着色器"><a href="#混合着色器" class="headerlink" title="混合着色器"></a>混合着色器</h1><p>混合着色器用于混合或添加两个着色器（包括灯光 AOV）。它根据“混合权重”(Mix Weight)属性，返回着色器 1 和着色器 2 的线性插值。“混合权重”(Mix Weight)值为 0 时，将输出着色器 1；值为 1 时，将输出着色器 2，值为 0.5 时，将在着色器 1 和着色器 2 之间均匀地混合。</p>
+<ul>
+<li>以下部分资料参考了 <a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557238" target="_blank" rel="noopener external nofollow noreferrer">Arnold 的官方技术文档和图片范例</a>。</li>
+</ul>
+<div class="note warning">不能混合曲面着色器（“闭包”）和诸如平面(Flat)的 RGBA 着色器，否则曲面着色器的效果将丢失。需要使用两个类型相同的着色器，例如标准曲面着色器。</div>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/aiMixShader.png" alt=""></p>
+<a id="more"></a>
+<h2 id="Mix-Mode（模式）"><a href="#Mix-Mode（模式）" class="headerlink" title="Mix Mode（模式）"></a>Mix Mode（模式）</h2><p>着色器的分层模式。在“混合”(Blend)和“叠加”(Add)之间选择。<br>如果使用不当，“添加”(Add)模式可能会破坏能量守恒。它用于添加两个体积着色器或两个仅发射灯光的着色器，而添加两个曲面着色器（如标准曲面着色器）在物理上不正确。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-mode_blend.png" alt="混合(Blend)（默认值）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-mode_add.png" alt="相加(Add)"></div></div></div>
+<h2 id="Mix-Weight（混合权重）"><a href="#Mix-Weight（混合权重）" class="headerlink" title="Mix Weight（混合权重）"></a>Mix Weight（混合权重）</h2><p>控制着色器之间的混合量。</p>
+<div class="note default">将位图连接到“融合”(Mix)时，可能需要插入范围着色器。</div>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-0.png" alt="0"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-0.5.png" alt="0.5（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-1.png" alt="1"></div></div></div>
+可以将纹理连接到“混合权重”(Mix Weight)以控制着色器 1 和着色器 2 之间的混合。
+<table>
+<tbody>
+<tr>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/shader1.png" alt="着色器 1"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/shader2.png" alt="着色器 2"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/checker-mix-image.png" alt="棋盘格 -> 混合权重"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/shader-mix_result.png" alt="混合着色器的结果"></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="shader1（着色器-1）"><a href="#shader1（着色器-1）" class="headerlink" title="shader1（着色器 1）"></a>shader1（着色器 1）</h2><p>着色器 1 的输入。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-0.jpg" alt=""></p>
+<h2 id="shader2（着色器-2）"><a href="#shader2（着色器-2）" class="headerlink" title="shader2（着色器 2）"></a>shader2（着色器 2）</h2><p>着色器 1 的输入。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-1.jpg" alt=""><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/Hypershade.png" alt="以上示例中使用的着色网络"></p>
+<h2 id="工作流示例"><a href="#工作流示例" class="headerlink" title="工作流示例"></a>工作流示例</h2><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/facing-ratio-melting-snow2.gif" alt="已设置动画的正面比着色器 -&gt;“混合权重”(Mix Weight)。 雪着色器 -&gt; shader1，山脉着色器 -&gt; shader2。"></p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557556" target="_blank" rel="noopener external nofollow noreferrer">Arnold for Maya 用户手册：混合着色器</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>软件</category>
+        <category>Maya</category>
+        <category>Arnold 着色器</category>
+      </categories>
+      <tags>
+        <tag>Maya</tag>
+        <tag>Arnold</tag>
+        <tag>软件</tag>
+        <tag>着色器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Maya 学习日志：Arnold（阿诺德）aiStandardSurface（标准曲面着色器）</title>
     <url>/posts/aiStandardSurface/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="标准曲面"><a href="#标准曲面" class="headerlink" title="标准曲面"></a>标准曲面</h1><p>标准曲面着色器是一种基于物理的着色器，能够生成许多类型的材质。它包括漫反射层、适用于金属的具有复杂菲涅尔的镜面反射层、适用于玻璃的镜面反射透射、适用于皮肤的次表面散射、适用于水和冰的薄散射、次镜面反射涂层和灯光发射。</p>
@@ -877,7 +1052,6 @@
         <tag>Maya</tag>
         <tag>Arnold</tag>
         <tag>软件</tag>
-        <tag>插件</tag>
         <tag>着色器</tag>
       </tags>
   </entry>
@@ -1242,12 +1416,12 @@
       <categories>
         <category>软件</category>
         <category>Maya</category>
+        <category>Arnold 着色器</category>
       </categories>
       <tags>
         <tag>Maya</tag>
         <tag>Arnold</tag>
         <tag>软件</tag>
-        <tag>插件</tag>
       </tags>
   </entry>
   <entry>
@@ -1946,8 +2120,8 @@
         <category>Steam</category>
       </categories>
       <tags>
-        <tag>Steam</tag>
         <tag>游戏</tag>
+        <tag>Steam</tag>
       </tags>
   </entry>
   <entry>

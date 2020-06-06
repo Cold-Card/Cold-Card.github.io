@@ -8,8 +8,48 @@
     </url>
 
     <url>
+        <loc>https://coldcard.wang/posts/aiMixShader/</loc>
+        <lastmod>2020-06-06T09:19:32.986Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/aiNoise/</loc>
+        <lastmod>2020-06-06T09:16:34.394Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/solidFractal/</loc>
+        <lastmod>2020-06-06T09:14:51.415Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/Kettle/</loc>
+        <lastmod>2020-06-06T09:11:57.900Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://coldcard.wang/posts/aiStandardSurface/</loc>
-        <lastmod>2020-06-04T05:22:02.883Z</lastmod>
+        <lastmod>2020-06-06T06:43:51.674Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/Arnold_Lights/</loc>
+        <lastmod>2020-06-06T06:43:17.753Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -18,14 +58,6 @@
     <url>
         <loc>https://coldcard.wang/posts/Code/</loc>
         <lastmod>2020-06-03T14:34:29.548Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/posts/Arnold_Lights/</loc>
-        <lastmod>2020-06-02T05:27:23.229Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
