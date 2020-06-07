@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://coldcard.wang/posts/aiMixShader/</loc>
+    <loc>https://coldcard.wang/posts/aiNoise/</loc>
     <lastmod>2020-06-06</lastmod>
   </url>  <url>
-    <loc>https://coldcard.wang/posts/aiNoise/</loc>
+    <loc>https://coldcard.wang/posts/aiMixShader/</loc>
     <lastmod>2020-06-06</lastmod>
   </url>  <url>
     <loc>https://coldcard.wang/posts/solidFractal/</loc>

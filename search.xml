@@ -507,6 +507,9 @@
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="噪波"><a href="#噪波" class="headerlink" title="噪波"></a>噪波</h1><p>这是一个对相干噪波函数（可能会对若干倍频程进行汇总，从而提供分形噪波，有时也称为湍流函数）求值的着色器。输出介于 0 到 1 之间（实际上是 [0,1)），可用作若干其他着色器节点的输入来生成各种效果。<strong>可用于创建许多真实图案，例如大理石、花岗岩、皮革等。</strong></p>
 <div class="note warning">该着色器将输出一个浮点值，因此将其连接至 gobo 过滤器等需要颜色值的项目时，它的输出可能不可预测。解决方法是使用 float_to_rgb 着色器，根据噪波纹理的输出构建一个 RGB 颜色。</div>
 
+<ul>
+<li>以下部分资料参考了 <a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557238" target="_blank" rel="noopener external nofollow noreferrer">Arnold 的官方技术文档和图片范例</a>。</li>
+</ul>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/Ai-aiNoise.png" alt=""></p>
 <a id="more"></a>
 <h1 id="Octaves（倍频程）"><a href="#Octaves（倍频程）" class="headerlink" title="Octaves（倍频程）"></a>Octaves（倍频程）</h1><p>针对其计算噪波函数的倍频程的数量（分形噪波函数在多个频率（称为倍频程）重复；通常情况下，每个倍频程的频率是前一个的两倍，即大小是前一个的一半，但您可使用间隙度控件对此进行修改）。</p>
