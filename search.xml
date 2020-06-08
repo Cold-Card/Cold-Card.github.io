@@ -502,6 +502,70 @@
       </tags>
   </entry>
   <entry>
+    <title>Maya 实例练习：SSS（次表面）皮肤材质制作</title>
+    <url>/posts/Skin/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong><div class="note danger">此实例是在拥有皮肤材质贴图的基础上进行再一步的修改</div></strong></p>
+<p>在制作前，还是要先明确一下步骤：</p>
+<ul>
+<li><strong>体现皮肤质感最为关键的就是 SSS（次表面）材质的设置。</strong></li>
+<li><strong>所以首先，将阿诺德 <a href="/posts/aiStandardSurface/#Subsurface（次表面）">aiStandardSurface（标准曲面着色器）的 Subsurface（次表面）</a>权重拉满。</strong></li>
+<li><strong>然后将皮肤贴图连接到 SubSurface Color（次表面颜色）节点上，<span class="label danger">由于这个材质贴图并非一张，所以注意 UV Tiling Mode（UV 平铺模式）要改为 UDIM (Mari)。</span></strong></li>
+<li><strong>最后，进行进一步的修改。</strong></li>
+</ul>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img style="width:40%" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Skin/sss_skin.jpg" alt="最后效果"></div><div class="group-picture-column" style="width: 50%;"><img style="width:40%" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Skin/CA_body_1001.jpg" alt="皮肤贴图（脸部）"></div></div></div>
+
+<a id="more"></a>
+<hr>
+<h1 id="修改粗糙度"><a href="#修改粗糙度" class="headerlink" title="修改粗糙度"></a>修改粗糙度</h1><p><strong>由于没有粗糙度贴图，导致材质上的高光非常平均。所以要利用皮肤贴图自己制作一张粗糙度贴图：</strong></p>
+<blockquote>
+<p>通过 Photoshop 将皮肤贴图去色</p>
+</blockquote>
+<blockquote>
+<p>查看去色后图片的平均亮度值，这里我将平均亮度值调到了 50% 左右</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Skin/info.png" alt="图片的亮度值"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Skin/specular.png" alt="specular（高光）"></div></div></div>
+<p><strong><div class="note warning">为何要将亮度值调至 50% 左右：<br>  这里的亮度值对应了阿诺德 aiStandardSurface（标准曲面着色器）的 specular（高光）中的 0.5 粗糙度值，将它调至 50% 是为了设置平均粗糙度<br>  </div></strong></p>
+</blockquote>
+<blockquote>
+<p>用“加深工具”画出要降低粗糙度（平滑）的地方<br><img style="width:30%" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Skin/CA_body_roughness.png" alt="更改后的粗糙度贴图"><br><strong><div class="note warning">为何要用“加深工具”：<br>  在 specular（高光）的粗糙度贴图中，颜色越深，亮度越低，从而粗糙度越小，反之越大<br>  </div></strong></p>
+</blockquote>
+<blockquote>
+<p>最后导出<code>.tif</code>格式图片，然后连接到 specular（高光）中的 roughness（粗糙度）节点上<br><strong><div class="note danger">注意以下几点：<br>  <span id="inline-blue">1.</span> 由于这是一张用黑白亮度信息作为粗糙度的贴图，所以连接后注意勾选<code>Alpha Is Luminance（Alpha 为亮度）</code><br>  <span id="inline-blue">2.</span> 连接后要将<code>Color Space（色彩空间）</code>改为<code>Raw</code><br>  </div></strong></p>
+</blockquote>
+<hr>
+<h1 id="修改-SSS（次表面）中的-Radius（半径）"><a href="#修改-SSS（次表面）中的-Radius（半径）" class="headerlink" title="修改 SSS（次表面）中的 Radius（半径）"></a>修改 SSS（次表面）中的 Radius（半径）</h1><p><strong><div class="note warning">为何要修改 Radius（半径）：<br>  主要是为了增加些面部的血色。由于除了 Radius（半径）还有 Scale（比例）能控制透射度，所以更改 Radius（半径）后可以通过 Scale（比例）回调<br>  </div></strong></p>
+<blockquote>
+<p>还是通过原皮肤贴图进行修改</p>
+</blockquote>
+<blockquote>
+<p>通过 Photoshop 将皮肤贴图稍微提亮，因为要在其上面画出血色，贴图过暗会影响透射效果</p>
+</blockquote>
+<blockquote>
+<p>用画笔在需要添加血色的地方画上红色<br><strong><div class="note success">因为是透射，颜色纯度要高一点</div></strong><br><img style="width:30%" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Skin/CA_body_Radius.png" alt="更改后的 Radius 贴图"></p>
+</blockquote>
+<blockquote>
+<p>最后导出<code>.tif</code>格式图片，然后连接到 Subsurface（次表面）中的 Radius（半径）节点上</p>
+</blockquote>
+<hr>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><blockquote>
+<p>最后可根据效果调节 Scale（比例）等参数</p>
+</blockquote>
+<blockquote>
+<p>由于是次表面渲染，所以要将渲染质量设置提高一点，不然噪点会很多</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>软件</category>
+        <category>Maya</category>
+        <category>练习</category>
+      </categories>
+      <tags>
+        <tag>Maya</tag>
+        <tag>Arnold</tag>
+        <tag>软件</tag>
+        <tag>着色器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Maya 学习日志：Arnold（阿诺德）aiNoise（噪波）</title>
     <url>/posts/aiNoise/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="噪波"><a href="#噪波" class="headerlink" title="噪波"></a>噪波</h1><p>这是一个对相干噪波函数（可能会对若干倍频程进行汇总，从而提供分形噪波，有时也称为湍流函数）求值的着色器。输出介于 0 到 1 之间（实际上是 [0,1)），可用作若干其他着色器节点的输入来生成各种效果。<strong>可用于创建许多真实图案，例如大理石、花岗岩、皮革等。</strong></p>
@@ -965,7 +1029,7 @@
 <ul>
 <li><h2 id="权重-Weight-2"><a href="#权重-Weight-2" class="headerlink" title="权重(Weight)"></a>权重(Weight)</h2><p>在漫反射与次表面散射之间“混合”。设置为 1.0 时，只有次表面散射；设置为 0 时，只有 Lambert。大多数情况下，应将此属性设为 1.0（完全次表面散射）。</p>
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Subsurface_Weight_0.png" alt="0（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Subsurface_Weight_0o5.png" alt="0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Subsurface_Weight_1.png" alt="1"></div></div></div></li>
-<li><h2 id="Color（颜色）-3"><a href="#Color（颜色）-3" class="headerlink" title="Color（颜色）"></a>Color（颜色）</h2><p>用于确定次表面散射效果的颜色。例如，复制皮肤材质时，意味着将其设置为肉色。</p>
+<li><h2 id="SubSurface-Color（次表面颜色）"><a href="#SubSurface-Color（次表面颜色）" class="headerlink" title="SubSurface Color（次表面颜色）"></a>SubSurface Color（次表面颜色）</h2><p>用于确定次表面散射效果的颜色。例如，复制皮肤材质时，意味着将其设置为肉色。</p>
 <table>
 <tbody>
 <tr>
@@ -985,7 +1049,7 @@
 </tbody>
 </table>
 </li>
-<li><h2 id="Radius（半径）"><a href="#Radius（半径）" class="headerlink" title="Radius（半径）"></a>Radius（半径）</h2><p>光线在曲面之下可以散射的大概距离，也称为“平均自由程”(MFP)。此参数影响光线在再度散射出曲面前在曲面下可能传播的平均距离。您可以分别为每个颜色分量指定这种距离效果。增大此值，次表面散射的外观将变得平滑，减小此值则会使外观更加浑浊不清。</p>
+<li><h2 id="Radius（半径）"><a href="#Radius（半径）" class="headerlink" title="Radius（半径）"></a>Radius（半径）</h2><span class="label danger">可简单理解为整体的透光度，可更改颜色（类似于透光滤镜）。</span>光线在曲面之下可以散射的大概距离，也称为“平均自由程”(MFP)。此参数影响光线在再度散射出曲面前在曲面下可能传播的平均距离。您可以分别为每个颜色分量指定这种距离效果。增大此值，次表面散射的外观将变得平滑，减小此值则会使外观更加浑浊不清。
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/standard_radius_b_0.25.png" alt="0.25"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/standard_radius_c_0.5.png" alt="0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/standard_radius_e_1.png" alt="1（默认值）"></div></div></div>
 <p>颜色越浅，散射的灯光越多。值为 0 时不会产生任何散射效果。</p>
 <div class="note success">

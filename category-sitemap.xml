@@ -8,22 +8,29 @@
     </url>
 
     <url>
-        <loc>https://coldcard.wang/categories/App/Maya/Arnold-Shaders/</loc>
-        <lastmod>2020-06-06T12:42:41.451Z</lastmod>
+        <loc>https://coldcard.wang/categories/App/Maya/Exercise/</loc>
+        <lastmod>2020-06-08T12:17:21.703Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://coldcard.wang/categories/App/Maya/</loc>
-        <lastmod>2020-06-06T12:42:41.451Z</lastmod>
+        <lastmod>2020-06-08T12:17:21.703Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://coldcard.wang/categories/App/</loc>
-        <lastmod>2020-06-06T12:42:41.451Z</lastmod>
+        <lastmod>2020-06-08T12:17:21.703Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/categories/App/Maya/Arnold-Shaders/</loc>
+        <lastmod>2020-06-08T09:04:27.831Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -31,13 +38,6 @@
     <url>
         <loc>https://coldcard.wang/categories/App/Maya/Shaders/</loc>
         <lastmod>2020-06-06T09:14:51.415Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/categories/App/Maya/Exercise/</loc>
-        <lastmod>2020-06-06T09:11:57.900Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

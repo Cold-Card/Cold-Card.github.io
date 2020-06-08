@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>https://coldcard.wang/posts/Skin/</loc>
+        <lastmod>2020-06-08T12:17:21.703Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/posts/aiStandardSurface/</loc>
+        <lastmod>2020-06-08T09:04:27.831Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://coldcard.wang/posts/aiNoise/</loc>
         <lastmod>2020-06-06T12:42:41.451Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -34,14 +50,6 @@
     <url>
         <loc>https://coldcard.wang/posts/Kettle/</loc>
         <lastmod>2020-06-06T09:11:57.900Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/posts/aiStandardSurface/</loc>
-        <lastmod>2020-06-06T06:43:51.674Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
