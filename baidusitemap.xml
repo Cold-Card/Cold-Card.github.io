@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://coldcard.wang/posts/aiToon/</loc>
+    <lastmod>2020-06-12</lastmod>
+  </url>  <url>
+    <loc>https://coldcard.wang/posts/Code/</loc>
+    <lastmod>2020-06-12</lastmod>
+  </url>  <url>
+    <loc>https://coldcard.wang/posts/aiCarPaint/</loc>
+    <lastmod>2020-06-12</lastmod>
+  </url>  <url>
     <loc>https://coldcard.wang/posts/Skin/</loc>
     <lastmod>2020-06-08</lastmod>
   </url>  <url>
@@ -21,9 +30,6 @@
   </url>  <url>
     <loc>https://coldcard.wang/posts/Arnold_Lights/</loc>
     <lastmod>2020-06-06</lastmod>
-  </url>  <url>
-    <loc>https://coldcard.wang/posts/Code/</loc>
-    <lastmod>2020-06-03</lastmod>
   </url>  <url>
     <loc>https://coldcard.wang/posts/Hexo_Updata(2020.04.17)/</loc>
     <lastmod>2020-06-02</lastmod>

@@ -120,7 +120,7 @@
 </ul>
 <hr>
 <h2 id="note标签"><a href="#note标签" class="headerlink" title="note标签"></a>note标签</h2><ul>
-<li><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">/* “no-icon”为是否显示图标，若要显示请删除 */</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"note no-icon"</span>&gt;</span> 内容 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">/* “no-icon”为是否显示图标，若要显示请删除 */</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"note no-icon"</span>&gt;</span> 内容 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&#123;% note no-icon %&#125;</span><br><span class="line">内容</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -128,7 +128,7 @@
 <div class="note"> 内容 </div>
 
 <ul>
-<li><figure class="highlight html"><figcaption><span>default</span></figcaption><table><tr><td class="code"><pre><span class="line">/* “no-icon”为是否显示图标，若要显示请删除 */</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"note default no-icon"</span>&gt;</span> 内容 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li><figure class="highlight html"><figcaption><span>default</span></figcaption><table><tr><td class="code"><pre><span class="line">/* “no-icon”为是否显示图标，若要显示请删除 */</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"note default no-icon"</span>&gt;</span> 内容 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&#123;% note default no-icon %&#125;</span><br><span class="line">内容</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -136,7 +136,7 @@
 <div class="note default"> 内容 </div>
 
 <ul>
-<li><figure class="highlight html"><figcaption><span>primary</span></figcaption><table><tr><td class="code"><pre><span class="line">/* “no-icon”为是否显示图标，若要显示请删除 */</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"note primary no-icon"</span>&gt;</span> 内容 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li><figure class="highlight html"><figcaption><span>primary</span></figcaption><table><tr><td class="code"><pre><span class="line">/* “no-icon”为是否显示图标，若要显示请删除 */</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"note primary no-icon"</span>&gt;</span> 内容 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&#123;% note primary no-icon %&#125;</span><br><span class="line">内容</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -144,7 +144,7 @@
 <div class="note primary"> 内容 </div>
 
 <ul>
-<li><figure class="highlight html"><figcaption><span>info</span></figcaption><table><tr><td class="code"><pre><span class="line">/* “no-icon”为是否显示图标，若要显示请删除 */</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"note info no-icon"</span>&gt;</span> 内容 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li><figure class="highlight html"><figcaption><span>info</span></figcaption><table><tr><td class="code"><pre><span class="line">/* “no-icon”为是否显示图标，若要显示请删除 */</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"note info no-icon"</span>&gt;</span> 内容 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&#123;% note info no-icon %&#125;</span><br><span class="line">内容</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -152,7 +152,7 @@
 <div class="note info"> 内容 </div>
 
 <ul>
-<li><figure class="highlight html"><figcaption><span>success</span></figcaption><table><tr><td class="code"><pre><span class="line">/* “no-icon”为是否显示图标，若要显示请删除 */</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"note success no-icon"</span>&gt;</span> 内容 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li><figure class="highlight html"><figcaption><span>success</span></figcaption><table><tr><td class="code"><pre><span class="line">/* “no-icon”为是否显示图标，若要显示请删除 */</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"note success no-icon"</span>&gt;</span> 内容 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&#123;% note success no-icon %&#125;</span><br><span class="line">内容</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -160,7 +160,7 @@
 <div class="note success"> 内容 </div>
 
 <ul>
-<li><figure class="highlight html"><figcaption><span>warning</span></figcaption><table><tr><td class="code"><pre><span class="line">/* “no-icon”为是否显示图标，若要显示请删除 */</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"note warning no-icon"</span>&gt;</span> 内容 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li><figure class="highlight html"><figcaption><span>warning</span></figcaption><table><tr><td class="code"><pre><span class="line">/* “no-icon”为是否显示图标，若要显示请删除 */</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"note warning no-icon"</span>&gt;</span> 内容 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&#123;% note warning no-icon %&#125;</span><br><span class="line">内容</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -168,7 +168,7 @@
 <div class="note warning"> 内容 </div>
 
 <ul>
-<li><figure class="highlight html"><figcaption><span>danger</span></figcaption><table><tr><td class="code"><pre><span class="line">/* “no-icon”为是否显示图标，若要显示请删除 */</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"note danger no-icon"</span>&gt;</span> 内容 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li><figure class="highlight html"><figcaption><span>danger</span></figcaption><table><tr><td class="code"><pre><span class="line">/* “no-icon”为是否显示图标，若要显示请删除 */</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"note danger no-icon"</span>&gt;</span> 内容 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&#123;% note danger no-icon %&#125;</span><br><span class="line">内容</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -499,6 +499,197 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Maya 学习日志：Arnold（阿诺德）aiToon（卡通着色器）</title>
+    <url>/posts/aiToon/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="卡通"><a href="#卡通" class="headerlink" title="卡通"></a>卡通</h1><p>卡通着色器是随轮廓过滤器一起提供的一个非真实照片级渲染 (NPR) 解决方案的一部分。</p>
+<ul>
+<li>以下部分资料参考了 <a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557238" target="_blank" rel="noopener external nofollow noreferrer">Arnold 的官方技术文档和图片范例</a>。</li>
+</ul>
+<p><strong>目前，使用卡通着色器时存在一些限制。如下所述：</strong></p>
+<ul>
+<li><strong>体积、运动模糊、景深和 VR 摄影机目前不能与卡通着色器结合使用。</strong></li>
+<li><strong>如果像素强度大于 1.0（例如，错误地将背景着色器与天穹摄影机可见性组合在一起时），则卡通边可能会变成锯齿状。要解决这一问题，可以对摄影机 (AA) 采样数进行区间限定。</strong></li>
+</ul>
+<span class="label danger">请注意，“基础色调映射”(Base Tonemap)（使用渐变）的外观在天穹照明（软渐变）和带方向性的灯光（硬渐变）条件下差别很大。</span>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/diagram-1.jpg" alt="天穹照明"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/diagram-2.jpg" alt="带方向性的灯光的效果"></div></div></div>
+<a id="more"></a>
+<div class="note danger"><p>以下内容为此着色器部分设置参数，其他与<a href="/posts/aiStandardSurface/">标准曲面着色器</a>类似或相同的设置参数以及容易理解的参数不做说明</p>
+</div>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> <a href="#Edge（边缘）"><code>Edge（边缘）</code></a> ⇠</li>
+<li><input checked="" disabled="" type="checkbox"> <a href="#Edge-Detection（边缘检测）"><code>Edge Detection（边缘检测）</code></a> ⇠</li>
+<li><input checked="" disabled="" type="checkbox"> <a href="#Silhouette（轮廓）"><code>ESilhouette（轮廓）</code></a> ⇠</li>
+<li><input checked="" disabled="" type="checkbox"> <a href="#Base（基础）"><code>Base（基础）</code></a> ⇠</li>
+<li><input checked="" disabled="" type="checkbox"> <a href="#Specular（镜面反射）"><code>Specular（镜面反射）</code></a> ⇠</li>
+<li><input checked="" disabled="" type="checkbox"> <a href="#Stylized-Highlight（风格化高光）"><code>Stylized Highlight（风格化高光）</code></a> ⇠</li>
+<li><input checked="" disabled="" type="checkbox"> <a href="#Rim-Lighting（边缘照明）"><code>Rim Lighting（边缘照明）</code></a> ⇠</li>
+</ul>
+<hr>
+<h1 id="Edge（边缘）"><a href="#Edge（边缘）" class="headerlink" title="Edge（边缘）"></a>Edge（边缘）</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/Edge.png" alt=""></p>
+<h2 id="Edge（边）"><a href="#Edge（边）" class="headerlink" title="Edge（边）"></a>Edge（边）</h2><p>关闭时，将禁用边缘检测（默认情况下已启用）。 </p>
+<div class="note warning"><p>注意，要渲染出 aiToon（卡通着色器）的效果，需要将 Render Settings（渲染设置）⇢ Filter（过滤器）⇢ Type（类型）设置为 contour（轮廓）</p>
+</div>
+<details cyan><summary> <p>图示</p> </summary>
+              <div class='content'>
+              <p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/contour.png" alt=""></p>
+              </div>
+            </details>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/disable_edge-disabled.png" alt="禁用（仅自发光）。"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/disable_edge-enabled.png" alt="启用（默认值）。需要启用“轮廓”(Contour)过滤器。"></div></div></div>
+<h2 id="边色调映射-Edge-Tonemap"><a href="#边色调映射-Edge-Tonemap" class="headerlink" title="边色调映射(Edge Tonemap)"></a>边色调映射(Edge Tonemap)</h2><p>在此处连接一个渐变节点，可根据基础层的着色结果更改边颜色。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/edge_tonemap-0.png" alt="默认值（未连接任何对象）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/edge_tonemap-1.png" alt="坡度渐变"></div></div></div>
+
+<hr>
+<h1 id="Edge-Detection（边缘检测）"><a href="#Edge-Detection（边缘检测）" class="headerlink" title="Edge Detection（边缘检测）"></a>Edge Detection（边缘检测）</h1><h2 id="ID-Difference（ID-差异）"><a href="#ID-Difference（ID-差异）" class="headerlink" title="ID Difference（ID 差异）"></a>ID Difference（ID 差异）</h2><p>如果启用，将利用相邻像素的 ID 差异进行边缘检测。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/id_difference-1.png" alt="启用（默认）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/id_difference-0.png" alt="禁用"></div></div></div>
+<h2 id="Shader-Difference（着色器差异）"><a href="#Shader-Difference（着色器差异）" class="headerlink" title="Shader Difference（着色器差异）"></a>Shader Difference（着色器差异）</h2><p>检测相邻采样的着色器差异。例如，当为单一多边形网格指定多个着色器时，该选项非常有用。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/shader_difference-R1G1B1.png" alt="针对所有 RGB 着色器启用（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/shader_difference-R1G0B0.png" alt="绿色和蓝色：禁用"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/shader_difference-R0G0B1.png" alt="红色：禁用（ID 差异：禁用）"></div></div></div>
+<div class="note warning"><p>确保“角度阈值”(Angle Threshold)足够低，否则，您可能看不出差异。</p>
+</div>
+<h2 id="Mask-Color（遮罩颜色）"><a href="#Mask-Color（遮罩颜色）" class="headerlink" title="Mask Color（遮罩颜色）"></a>Mask Color（遮罩颜色）</h2><p>当相邻像素的遮罩颜色不同时，即表示检测到边缘。通过检测颜色差异来绘制任意形状时，我们假定“遮罩颜色”(Mask Color)已连接了纹理。</p>
+<p>使用此参数，可以在任意位置绘制线条（过滤器会在遮罩颜色发生变化的位置绘制线条）。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/Mask_Color.png" alt="将不同的着色器连接到“遮罩颜色”(Mask Color)所实现的风格化效果"></p>
+<h2 id="UV-Threshold（UV-阈值）"><a href="#UV-Threshold（UV-阈值）" class="headerlink" title="UV Threshold（UV 阈值）"></a>UV Threshold（UV 阈值）</h2><p>如果启用，将利用相邻像素的 UV 差异进行边缘检测。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/uv_threshold-alien-0.png" alt="0（默认值）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/uv_threshold-alien-0.1.png" alt="0.1"></div></div></div>
+<h2 id="Angle-Threshold（角度阈值）"><a href="#Angle-Threshold（角度阈值）" class="headerlink" title="Angle Threshold（角度阈值）"></a>Angle Threshold（角度阈值）</h2><p>当小于 180 时，将利用相邻像素之间的角度差异进行边缘检测。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/angle_threshold_shape-180.png" alt="针对所有 RGB 着色器启用（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/angle_threshold_shape-50.png" alt="绿色和蓝色：禁用"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/angle_threshold_shape-10.png" alt="红色：禁用（ID 差异：禁用）"></div></div></div>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/emily3.gif" alt="“角度阈值”(Angle Threshold)的关键帧已设置为从 180 到 10"></p>
+<hr>
+<h1 id="Silhouette（轮廓）"><a href="#Silhouette（轮廓）" class="headerlink" title="Silhouette（轮廓）"></a>Silhouette（轮廓）</h1><p>对象/着色器 ID 差异检测到的边线称为轮廓。如果此选项处于启用状态，将使用轮廓的“颜色”(Color)、“宽度比例”(Width Scale)、“不透明度”(Opacity)和“色调映射”(Tonemap)来绘制轮廓线。如果此选项处于禁用状态，轮廓线将继承内部边线的设置，即，绘制时采用边的“颜色”(Color)、“宽度比例”(Width Scale)、“不透明度”(Opacity)和“色调映射”(Tonemap)。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/Silhouette.png" alt=""></p>
+<h2 id="Width-Scale（宽度比例）"><a href="#Width-Scale（宽度比例）" class="headerlink" title="Width Scale（宽度比例）"></a>Width Scale（宽度比例）</h2><p>轮廓线的最大宽度由轮廓过滤器的“宽度”(Width)参数决定。实际宽度是它与此参数相乘的结果。 线条样式可结合使用此参数和纹理来进行控制。</p>
+<div class="note warning"><ul>
+<li><strong>卡通着色器强制轮廓宽度始终大于内边宽度。</strong></li>
+<li><strong>要将轮廓的“宽度比例”(Width Scale)增加到大于 1，需要增加轮廓的“过滤器宽度”(Filter Width)。但是，这样会增加渲染时间。</strong></li>
+</ul>
+</div>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/silhouette_width_scale-0.25.png" alt="0.25"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/silhouette_width_scale-0.5.png" alt="0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/silhouette_width_scale-1.png" alt="1（默认值）"></div></div></div>
+
+<hr>
+<h1 id="Base（基础）"><a href="#Base（基础）" class="headerlink" title="Base（基础）"></a>Base（基础）</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/Base.png" alt=""></p>
+<h2 id="Tonemap（色调映射）"><a href="#Tonemap（色调映射）" class="headerlink" title="Tonemap（色调映射）"></a>Tonemap（色调映射）</h2><p>在此处连接一个渐变节点，可创建单元外观（被视为色调映射）。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/base_tonemap-shaderballs-skydome.jpg" alt="天穹照明的效果"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/base_tonemap-shaderballs-direct.jpg" alt="带方向性的灯光"><br>“基础色调映射”(Base Tonemap)对“基础颜色”(Base Color)有倍增效果。将“基础色调映射”(Base Tonemap)的直接漫反射映射到 UV，然后对渐变进行求值。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/Tonemap.png" alt=""></p>
+<hr>
+<h1 id="Specular（镜面反射）"><a href="#Specular（镜面反射）" class="headerlink" title="Specular（镜面反射）"></a>Specular（镜面反射）</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/Specular.png" alt=""></p>
+<h2 id="Roughness（粗糙度）"><a href="#Roughness（粗糙度）" class="headerlink" title="Roughness（粗糙度）"></a>Roughness（粗糙度）</h2><p>控制镜面反射的光泽度。值越小，反射越清晰。对于两种极限条件，值为 0 将带来完美清晰的镜像反射效果，而 1.0 则会产生接近漫反射的反射效果。您应在此处连接贴图，这样可查看镜面反射高光的变化。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/Specular_Roughness_0o1_default_1.png" alt="0.1（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/Specular_Roughness_0o6_1.png" alt="0.6"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/Specular_Roughness_0o3_1.png" alt="0.3"></div></div></div>
+<div class="note warning"><p>请注意，反射曲面中将不显示卡通边，除非镜面反射的“粗糙度”(Roughness)为 0。<br>将卡通着色器指定给地板平面：</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/floor-specular_roughness-0.1.png" alt="0.1（默认值）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/floor-specular_roughness-0.png" alt="0"></div></div></div></div>
+<h2 id="Tonemap（色调映射）-1"><a href="#Tonemap（色调映射）-1" class="headerlink" title="Tonemap（色调映射）"></a>Tonemap（色调映射）</h2><p>在此处连接一个渐变节点，可创建单元外观（被视为色调映射）。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/no-specular_tonemap-sven.png" alt="镜面反射度（无色调映射）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/specular_tonemap-sven.png" alt="渐变连接到镜面反射色调映射"></div></div></div>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/specular_roughness-tonemap.gif" alt="增加镜面反射的“粗糙度”(Roughness)时的镜面反射色调映射"></p>
+<hr>
+<h1 id="Stylized-Highlight（风格化高光）"><a href="#Stylized-Highlight（风格化高光）" class="headerlink" title="Stylized Highlight（风格化高光）"></a>Stylized Highlight（风格化高光）</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/Stylized_Highlight.png" alt=""></p>
+<h2 id="Light（灯光）"><a href="#Light（灯光）" class="headerlink" title="Light（灯光）"></a>Light（灯光）</h2><p>指定风格化高光所用的主灯光的名称。 可以使用以分号分隔的字符串（如“lightShape1;lightShape2”）来指定多个灯光。 支持的灯光类型包括远距离灯光、点光源、聚光灯和光度学灯光。</p>
+<div class="note warning"><ul>
+<li><strong>几何体灯光和天穹灯光不受支持，因为它们会产生模糊效果。</strong></li>
+<li><strong>“风格化高光”(Stylized Highlight)不能与曲线结合使用。 这将在以后的版本中进行修复。</strong></li>
+</ul>
+</div>
+<h2 id="Color（颜色）"><a href="#Color（颜色）" class="headerlink" title="Color（颜色）"></a>Color（颜色）</h2><p>可使用任意纹理（或 RGB 类型节点）在对象上创建风格化高光。<span class="label danger">如果什么都不连接，将禁用风格化高光。</span></p>
+<ul>
+<li><strong>使用连接到风格化高光颜色的纹理时，必须注意以下几点。</strong><div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/stylized_highlight-red-circle.png" alt="红色圆圈内的纹理区域被绘成高光"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/stylized_highlight-square.png" alt="对于方形高光，使用这样的纹理"></div></div></div>
+在下面的示例中，右侧茶壶上作为高光颜色的窗格纹理可以正确渲染，因为图像周围有足够的空间。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/teapot-no-border.png" alt="错误"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/teapot-border.png" alt="正确"></div></div></div>
+
+</li>
+</ul>
+<hr>
+<h1 id="Rim-Lighting（边缘照明）"><a href="#Rim-Lighting（边缘照明）" class="headerlink" title="Rim Lighting（边缘照明）"></a>Rim Lighting（边缘照明）</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/Rim_Lighting.png" alt=""></p>
+<h2 id="Light（灯光）-1"><a href="#Light（灯光）-1" class="headerlink" title="Light（灯光）"></a>Light（灯光）</h2><p>指定此处要使用的灯光的名称。边缘照明受此灯光阴影的影响。支持的灯光类型包括远距离灯光、点光源、聚光灯和光度学灯光。</p>
+<div class="note warning"><ul>
+<li><strong>几何体灯光和天穹灯光不受支持，因为它们会产生模糊效果。</strong></li>
+<li><strong>边缘照明不支持多个灯光。</strong></li>
+</ul>
+</div>
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557763" target="_blank" rel="noopener external nofollow noreferrer">Arnold for Maya 用户手册：卡通</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>软件</category>
+        <category>Maya</category>
+        <category>Arnold 着色器</category>
+      </categories>
+      <tags>
+        <tag>Maya</tag>
+        <tag>Arnold</tag>
+        <tag>软件</tag>
+        <tag>着色器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Maya 学习日志：Arnold（阿诺德）aiCarPaint（汽车涂料着色器）</title>
+    <url>/posts/aiCarPaint/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="汽车涂料"><a href="#汽车涂料" class="headerlink" title="汽车涂料"></a>汽车涂料</h1><p>这个简单易用的着色器可用于创建汽车涂料材质。<strong>它支持三个层：基础层、镜面反射层和透明涂层。</strong>这些层的用法与标准曲面着色器中层的用法相似。但是，汽车涂料着色器有一些独特的属性，专门用来控制颜色渐变、光面颜色和衰减等。另外，我们还可以很容易向镜面反射层添加金属小亮片。</p>
+<ul>
+<li>以下部分资料参考了 <a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557238" target="_blank" rel="noopener external nofollow noreferrer">Arnold 的官方技术文档和图片范例</a>。</li>
+</ul>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/aiCarPaint.png" alt=""></p>
+<div class="note success">当小亮片小于一个像素时，在动画渲染过程中可能会带来渲染瑕疵。增加“摄影机(AA)”(Camera (AA))采样数有助于减少小亮片在长距离时出现闪烁。</div>
+<a id="more"></a>
+<div class="note default">
+  汽车涂料着色器的属性编辑器中提供了一些汽车涂料预设。
+  <table>
+  <tbody>
+  <tr>
+  <td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/red_1.png"></td>
+  <td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/Brown_1.png"></td>
+  <td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/black_1.png"></td>
+  <td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/Gray_1.png"></td>
+  <td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/Blue_1.png"></td>
+  </tr>
+  </tbody>
+  </table>
+</div>
+<details cyan><summary> <p>属性编辑器</p> </summary>
+              <div class='content'>
+              <p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/Ai-aiCarPaint.png" alt=""></p>
+              </div>
+            </details>
+
+<hr>
+<div class="note danger"><p>以下内容为此着色器部分设置参数，其他与<a href="/posts/aiStandardSurface/">标准曲面着色器</a>类似或相同的设置参数以及容易理解的参数不做说明</p>
+</div>
+<h1 id="Specular（镜面反射）"><a href="#Specular（镜面反射）" class="headerlink" title="Specular（镜面反射）"></a>Specular（镜面反射）</h1><h2 id="Flip-Flop（触发器）"><a href="#Flip-Flop（触发器）" class="headerlink" title="Flip Flop（触发器）"></a>Flip Flop（触发器）</h2><p>在此处连接一个渐变着色器，可基于视角调整基础涂层的镜面反射。此设置可用来模拟珠光效果。</p>
+<span class="label danger">可简单理解为：根据视角的不同，会显示不同的颜色</span>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/no-specular_ramp.jpeg" alt=""></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/specular_ramp.jpeg" alt=""></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img style="width:50%" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/Flip_Flop.png"></div></div></div>
+
+<h2 id="Light-Facing-Color（面光颜色）"><a href="#Light-Facing-Color（面光颜色）" class="headerlink" title="Light Facing Color（面光颜色）"></a>Light Facing Color（面光颜色）</h2><p>调整<span class="label danger">面向光源的区域</span>的基础涂层镜面反射颜色。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/specular_light_facing-white.png" alt="白色（镜面反射颜色：蓝色）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/specular_light_facing-yellow.png" alt="黄色（镜面反射颜色：蓝色）。汽车涂料在面光区域的颜色看起来更绿。"></div></div></div>
+<p>可通过组合“光面颜色”(Light Facing Color)和“基础颜色”(Base Color)来创建珠光汽车涂料效果。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/specular_light_facing_m_cyan.png" alt="青色（基础颜色：洋红色）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/specular_light_facing_B.png" alt="蓝色（基础颜色：红色）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/specular_light_facing_G.png" alt="绿色（基础颜色：红色）"></div></div></div>
+<h2 id="Falloff（衰减）"><a href="#Falloff（衰减）" class="headerlink" title="Falloff（衰减）"></a>Falloff（衰减）</h2><p>镜面反射基础涂层的光面颜色的衰减速率。此值越高，区域越窄。它还决定渐变颜色与光面颜色的混合方式。</p>
+<p>在下面的示例中，<font color="green">翻转颜色</font>设置为绿色 ，<font color="red">光面颜色</font>设置为 红色。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/Falloff.png" alt=""><br>将“衰减”(Falloff)设置为 1 将禁用“光面颜色”(Light Facing Color)<font color="red">（红色）</font>：</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/falloff-0.png" alt="0"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/falloff-0.5.png" alt="0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/falloff-1.png" alt="1（默认值）"></div></div></div>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/specular_falloff-0-1.gif" alt="衰减：0 到 1。 翻转颜色：洋红色，光面颜色：红色"></p>
+<h2 id="Transmission-Color（透射颜色）"><a href="#Transmission-Color（透射颜色）" class="headerlink" title="Transmission Color（透射颜色）"></a>Transmission Color（透射颜色）</h2><p>模拟光线因为颜料而发生的衰减。值越低，颜料越浓厚。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/transmission_color_R-0.1.png" alt="红色：0.1"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/transmission_color_R-0.5.png" alt="红色：0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/transmission_color_R-1.png" alt="红色：1"></div></div></div>
+<p>透射颜色还会影响小亮片的外观。例如，当“基础颜色”(Base Color)为蓝色、“透射颜色”(Transmission Color)为黄色时，颜色会相乘并渲染为绿色，而小亮片则染色为黄色。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/Transmission_Color.png" alt=""></p>
+<h1 id="Flakes（小亮片）"><a href="#Flakes（小亮片）" class="headerlink" title="Flakes（小亮片）"></a>Flakes（小亮片）</h1><h2 id="Scale（比例）"><a href="#Scale（比例）" class="headerlink" title="Scale（比例）"></a>Scale（比例）</h2><p>放大或缩小小亮片结构。较小的值将缩小贴图，从而使小亮片数量增加。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/flakes_scale-0.001.png" alt="0.001（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/flakes_scale-0.01.png" alt="0.01"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/flakes_scale-0.05.png" alt="0.05"></div></div></div>
+<h2 id="Density（密度）"><a href="#Density（密度）" class="headerlink" title="Density（密度）"></a>Density（密度）</h2><p>控制小亮片的密度。值为 0，将没有小亮片。值为 1 时，曲面将完全被小亮片覆盖。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/Flakes_Density_0.png" alt="0（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/Flakes_Density_0o1.png" alt="0.1"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/Flakes_Density_0o5.png" alt="0.5"></div></div></div>
+<h2 id="Layer（图层）"><a href="#Layer（图层）" class="headerlink" title="Layer（图层）"></a>Layer（图层）</h2><p>指定小亮片层的数量。位于深层的小亮片被靠近表面的小亮片所覆盖。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/Flakes_Layer_1.png" alt="1（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/Flakes_Layer_2.png" alt="2"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/Flakes_Layer_3.png" alt="3"></div></div></div>
+<h2 id="Normal-Randomize（法线随机化）"><a href="#Normal-Randomize（法线随机化）" class="headerlink" title="Normal Randomize（法线随机化）"></a>Normal Randomize（法线随机化）</h2><p>随机化小亮片的方向。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/Flakes_Normal_Randomize_0o2_default.png" alt="0.2"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/Flakes_Normal_Randomize_0o4.png" alt="0.4"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/Flakes_Normal_Randomize_0o6.png" alt="0.6"></div></div></div>
+<h2 id="Coord-Space（坐标空间）"><a href="#Coord-Space（坐标空间）" class="headerlink" title="Coord Space（坐标空间）"></a>Coord Space（坐标空间）</h2><p>指定用来计算小亮片形状的坐标空间。</p>
+<ul>
+<li>世界(World)：点相对于场景的全局原点。</li>
+<li>对象(Object)：点相对于对象的局部原点（中心）进行表示。</li>
+<li>参考点(Pref)（默认值）：“参考姿势的顶点”的简称。该插件可以将这些顶点传递给 Arnold（还包括常规、变形顶点），然后着色器可以查询它们，使纹理遵循参考姿势，而不会随着网格变形而发生游移。（“参考点”(Pref)不适用于 NURBS 曲面。）</li>
+<li>UV：纹理坐标。</li>
+</ul>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/coord_space-flake-Pref.png" alt="参考点（默认值）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/coord_space-flake-UV.png" alt="UV"></div></div></div>
+<h2 id="Pref-Name（参考点名称）"><a href="#Pref-Name（参考点名称）" class="headerlink" title="Pref Name（参考点名称）"></a>Pref Name（参考点名称）</h2><p>指定引用位置用户数据数组的名称。以前，该名称被硬编码为“Pref”，现在这仍然是默认设置。</p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557493" target="_blank" rel="noopener external nofollow noreferrer">Arnold for Maya 用户手册：汽车涂料</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>软件</category>
+        <category>Maya</category>
+        <category>Arnold 着色器</category>
+      </categories>
+      <tags>
+        <tag>Maya</tag>
+        <tag>Arnold</tag>
+        <tag>软件</tag>
+        <tag>着色器</tag>
       </tags>
   </entry>
   <entry>

@@ -8,6 +8,34 @@
     </url>
 
     <url>
+        <loc>https://coldcard.wang/categories/App/Maya/Arnold-Shaders/</loc>
+        <lastmod>2020-06-12T12:45:48.245Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/categories/App/Maya/</loc>
+        <lastmod>2020-06-12T12:45:48.245Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/categories/App/</loc>
+        <lastmod>2020-06-12T12:45:48.245Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/categories/Hexo/</loc>
+        <lastmod>2020-06-12T11:41:34.703Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://coldcard.wang/categories/App/Maya/Exercise/</loc>
         <lastmod>2020-06-08T12:17:21.703Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -15,36 +43,8 @@
     </url>
 
     <url>
-        <loc>https://coldcard.wang/categories/App/Maya/</loc>
-        <lastmod>2020-06-08T12:17:21.703Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/categories/App/</loc>
-        <lastmod>2020-06-08T12:17:21.703Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/categories/App/Maya/Arnold-Shaders/</loc>
-        <lastmod>2020-06-08T09:04:27.831Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://coldcard.wang/categories/App/Maya/Shaders/</loc>
         <lastmod>2020-06-06T09:14:51.415Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/categories/Hexo/</loc>
-        <lastmod>2020-06-03T14:34:29.548Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
