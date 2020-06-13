@@ -538,7 +538,7 @@
               </div>
             </details>
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/disable_edge-disabled.png" alt="禁用（仅自发光）。"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/disable_edge-enabled.png" alt="启用（默认值）。需要启用“轮廓”(Contour)过滤器。"></div></div></div>
-<h2 id="边色调映射-Edge-Tonemap"><a href="#边色调映射-Edge-Tonemap" class="headerlink" title="边色调映射(Edge Tonemap)"></a>边色调映射(Edge Tonemap)</h2><p>在此处连接一个渐变节点，可根据基础层的着色结果更改边颜色。</p>
+<h2 id="Edge-Tonemap（边色调映射）"><a href="#Edge-Tonemap（边色调映射）" class="headerlink" title="Edge Tonemap（边色调映射）"></a>Edge Tonemap（边色调映射）</h2><p>在此处连接一个渐变节点，可根据基础层的着色结果更改边颜色。</p>
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/edge_tonemap-0.png" alt="默认值（未连接任何对象）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/edge_tonemap-1.png" alt="坡度渐变"></div></div></div>
 
 <hr>
