@@ -9,6 +9,7 @@ Allow: /other/schedule/
 Allow: /other/pictures/
 Allow: /other/styles/
 Allow: /other/anime/
+Allow: /other/link/
 Allow: /other/
 Disallow: /vendors/
 Disallow: /js/
