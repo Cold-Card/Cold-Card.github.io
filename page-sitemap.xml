@@ -8,6 +8,13 @@
     </url>
     
     <url>
+        <loc>https://coldcard.wang/other/styles/</loc>
+        <lastmod>2020-06-30T07:40:57.886Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
         <loc>https://coldcard.wang/other/link/</loc>
         <lastmod>2020-06-29T11:41:05.470Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -17,13 +24,6 @@
     <url>
         <loc>https://coldcard.wang/other/about/</loc>
         <lastmod>2020-06-18T14:10:43.590Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://coldcard.wang/other/styles/</loc>
-        <lastmod>2020-06-02T06:07:05.438Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
