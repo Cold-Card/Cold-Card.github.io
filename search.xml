@@ -187,42 +187,42 @@
 
 </li>
 </ul>
-<span class="label default">内容</span>
+<mark class="label default">内容</mark>
 
 <ul>
 <li><figure class="highlight django"><figcaption><span>primary</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name">label</span> primary@内容%&#125;</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
-<span class="label primary">内容</span>
+<mark class="label primary">内容</mark>
 
 <ul>
 <li><figure class="highlight django"><figcaption><span>success</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name">label</span> success@内容%&#125;</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
-<span class="label success">内容</span>
+<mark class="label success">内容</mark>
 
 <ul>
 <li><figure class="highlight django"><figcaption><span>info</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name">label</span> info@内容%&#125;</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
-<span class="label info">内容</span>
+<mark class="label info">内容</mark>
 
 <ul>
 <li><figure class="highlight django"><figcaption><span>warning</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name">label</span> warning@内容%&#125;</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
-<span class="label warning">内容</span>
+<mark class="label warning">内容</mark>
 
 <ul>
 <li><figure class="highlight django"><figcaption><span>danger</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name">label</span> danger@内容%&#125;</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
-<span class="label danger">内容</span>
+<mark class="label danger">内容</mark>
 
 <hr>
 <h2 id="文字背景色块"><a href="#文字背景色块" class="headerlink" title="文字背景色块"></a>文字背景色块</h2><ul>
@@ -436,11 +436,11 @@
 <center> <a id="youtube"><i class="fab fa-youtube"></i><span> YouTube </span> </a> </center>
 
 <ul>
-<li><figure class="highlight html"><figcaption><span>BiliBili</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">"bilibili"</span> <span class="attr">href</span>=<span class="string">"视频地址"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-paly"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span> BiliBili <span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li><figure class="highlight html"><figcaption><span>BiliBili</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">"bilibili"</span> <span class="attr">href</span>=<span class="string">"视频地址"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"iconfont icon-bilibili fa-fw"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span> BiliBili <span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
-<center> <a id="bilibili"><i class="fa fa-play"></i><span> BiliBili </span> </a> </center>
+<center> <a id="bilibili"><i class="iconfont icon-bilibili fa-fw"></i><span> BiliBili </span> </a> </center>
 
 <ul>
 <li><p><strong>可自定义和增加</strong></p>
@@ -493,7 +493,27 @@
 
 </li>
 </ul>
-]]></content>
+<h2 id="Link-Grid"><a href="#Link-Grid" class="headerlink" title="Link Grid"></a>Link Grid</h2><ul>
+<li><p><strong>使用方法</strong></p>
+<figure class="highlight django"><table><tr><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name">linkgrid</span> [image] [delimiter] [comment] %&#125;</span><span class="template-tag">&#123;% <span class="name">endlinkgrid</span> %&#125;</span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name">lg</span> [image] [delimiter] [comment] %&#125;</span><span class="template-tag">&#123;% <span class="name">endlg</span> %&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&#123;# [image]     : 默认图片 URL #&#125;</span></span><br><span class="line"><span class="comment">&#123;# [delimiter] : 每行中项目的定界符 #&#125;</span></span><br><span class="line"><span class="comment">&#123;# [comment]   : 注释掉一行的符号 #&#125;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<figure class="highlight django"><table><tr><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name">lg</span> /images/apple-touch-icon-next.png , . %&#125;</span></span><br><span class="line"><span class="xml">Theme NexT , https://theme-next.js.org/ , Stay Simple. Stay NexT. , /images/apple-touch-icon-next.png</span></span><br><span class="line"><span class="xml">Theme NexT , https://theme-next.js.org/ , Stay Simple. Stay NexT. , /images/apple-touch-icon-next.png</span></span><br><span class="line"><span class="xml">Theme NexT , https://theme-next.js.org/ , Stay Simple. Stay NexT. , /images/apple-touch-icon-next.png</span></span><br><span class="line"><span class="xml">. Theme NexT , https://theme-next.js.org/ , Stay Simple. Stay NexT. , /images/apple-touch-icon-next.png</span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name">endlg</span> %&#125;</span></span><br></pre></td></tr></table></figure>
+
+<div class="link-grid"><div class="link-grid-container">
+<div class="link-grid-image" style="background-image: url(/images/apple-touch-icon-next.png);"></div>
+<p>Theme NexT</p><p>Stay Simple. Stay NexT.</p>
+<a href="https://theme-next.js.org/" target="_blank" rel="noopener external nofollow noreferrer"></a>
+</div><div class="link-grid-container">
+<div class="link-grid-image" style="background-image: url(/images/apple-touch-icon-next.png);"></div>
+<p>Theme NexT</p><p>Stay Simple. Stay NexT.</p>
+<a href="https://theme-next.js.org/" target="_blank" rel="noopener external nofollow noreferrer"></a>
+</div><div class="link-grid-container">
+<div class="link-grid-image" style="background-image: url(/images/apple-touch-icon-next.png);"></div>
+<p>Theme NexT</p><p>Stay Simple. Stay NexT.</p>
+<a href="https://theme-next.js.org/" target="_blank" rel="noopener external nofollow noreferrer"></a>
+</div></div>]]></content>
       <categories>
         <category>Hexo</category>
       </categories>
@@ -513,7 +533,7 @@
 <li><strong>体积、运动模糊、景深和 VR 摄影机目前不能与卡通着色器结合使用。</strong></li>
 <li><strong>如果像素强度大于 1.0（例如，错误地将背景着色器与天穹摄影机可见性组合在一起时），则卡通边可能会变成锯齿状。要解决这一问题，可以对摄影机 (AA) 采样数进行区间限定。</strong></li>
 </ul>
-<span class="label danger">请注意，“基础色调映射”(Base Tonemap)（使用渐变）的外观在天穹照明（软渐变）和带方向性的灯光（硬渐变）条件下差别很大。</span>
+<mark class="label danger">请注意，“基础色调映射”(Base Tonemap)（使用渐变）的外观在天穹照明（软渐变）和带方向性的灯光（硬渐变）条件下差别很大。</mark>
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/diagram-1.jpg" alt="天穹照明"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/diagram-2.jpg" alt="带方向性的灯光的效果"></div></div></div>
 <a id="more"></a>
 <div class="note danger"><p>以下内容为此着色器部分设置参数，其他与<a href="/posts/aiStandardSurface/">标准曲面着色器</a>类似或相同的设置参数以及容易理解的参数不做说明</p>
@@ -585,7 +605,7 @@
 <li><strong>“风格化高光”(Stylized Highlight)不能与曲线结合使用。 这将在以后的版本中进行修复。</strong></li>
 </ul>
 </div>
-<h2 id="Color（颜色）"><a href="#Color（颜色）" class="headerlink" title="Color（颜色）"></a>Color（颜色）</h2><p>可使用任意纹理（或 RGB 类型节点）在对象上创建风格化高光。<span class="label danger">如果什么都不连接，将禁用风格化高光。</span></p>
+<h2 id="Color（颜色）"><a href="#Color（颜色）" class="headerlink" title="Color（颜色）"></a>Color（颜色）</h2><p>可使用任意纹理（或 RGB 类型节点）在对象上创建风格化高光。<mark class="label danger">如果什么都不连接，将禁用风格化高光。</mark></p>
 <ul>
 <li><strong>使用连接到风格化高光颜色的纹理时，必须注意以下几点。</strong><div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/stylized_highlight-red-circle.png" alt="红色圆圈内的纹理区域被绘成高光"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/stylized_highlight-square.png" alt="对于方形高光，使用这样的纹理"></div></div></div>
 在下面的示例中，右侧茶壶上作为高光颜色的窗格纹理可以正确渲染，因为图像周围有足够的空间。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/teapot-no-border.png" alt="错误"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/teapot-border.png" alt="正确"></div></div></div>
@@ -648,10 +668,10 @@
 <div class="note danger"><p>以下内容为此着色器部分设置参数，其他与<a href="/posts/aiStandardSurface/">标准曲面着色器</a>类似或相同的设置参数以及容易理解的参数不做说明</p>
 </div>
 <h1 id="Specular（镜面反射）"><a href="#Specular（镜面反射）" class="headerlink" title="Specular（镜面反射）"></a>Specular（镜面反射）</h1><h2 id="Flip-Flop（触发器）"><a href="#Flip-Flop（触发器）" class="headerlink" title="Flip Flop（触发器）"></a>Flip Flop（触发器）</h2><p>在此处连接一个渐变着色器，可基于视角调整基础涂层的镜面反射。此设置可用来模拟珠光效果。</p>
-<span class="label danger">可简单理解为：根据视角的不同，会显示不同的颜色</span>
+<mark class="label danger">可简单理解为：根据视角的不同，会显示不同的颜色</mark>
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/no-specular_ramp.jpeg" alt=""></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/specular_ramp.jpeg" alt=""></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img style="width:50%" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/Flip_Flop.png"></div></div></div>
 
-<h2 id="Light-Facing-Color（面光颜色）"><a href="#Light-Facing-Color（面光颜色）" class="headerlink" title="Light Facing Color（面光颜色）"></a>Light Facing Color（面光颜色）</h2><p>调整<span class="label danger">面向光源的区域</span>的基础涂层镜面反射颜色。</p>
+<h2 id="Light-Facing-Color（面光颜色）"><a href="#Light-Facing-Color（面光颜色）" class="headerlink" title="Light Facing Color（面光颜色）"></a>Light Facing Color（面光颜色）</h2><p>调整<mark class="label danger">面向光源的区域</mark>的基础涂层镜面反射颜色。</p>
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/specular_light_facing-white.png" alt="白色（镜面反射颜色：蓝色）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/specular_light_facing-yellow.png" alt="黄色（镜面反射颜色：蓝色）。汽车涂料在面光区域的颜色看起来更绿。"></div></div></div>
 <p>可通过组合“光面颜色”(Light Facing Color)和“基础颜色”(Base Color)来创建珠光汽车涂料效果。</p>
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/specular_light_facing_m_cyan.png" alt="青色（基础颜色：洋红色）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/specular_light_facing_B.png" alt="蓝色（基础颜色：红色）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/specular_light_facing_G.png" alt="绿色（基础颜色：红色）"></div></div></div>
@@ -700,7 +720,7 @@
 <ul>
 <li><strong>体现皮肤质感最为关键的就是 SSS（次表面）材质的设置。</strong></li>
 <li><strong>所以首先，将阿诺德 <a href="/posts/aiStandardSurface/#Subsurface（次表面）">aiStandardSurface（标准曲面着色器）的 Subsurface（次表面）</a>权重拉满。</strong></li>
-<li><strong>然后将皮肤贴图连接到 SubSurface Color（次表面颜色）节点上，<span class="label danger">由于这个材质贴图并非一张，所以注意 UV Tiling Mode（UV 平铺模式）要改为 UDIM (Mari)。</span></strong></li>
+<li><strong>然后将皮肤贴图连接到 SubSurface Color（次表面颜色）节点上，<mark class="label danger">由于这个材质贴图并非一张，所以注意 UV Tiling Mode（UV 平铺模式）要改为 UDIM (Mari)。</mark></strong></li>
 <li><strong>最后，进行进一步的修改。</strong></li>
 </ul>
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img style="width:40%" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Skin/sss_skin.jpg" alt="最后效果"></div><div class="group-picture-column" style="width: 50%;"><img style="width:40%" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Skin/CA_body_1001.jpg" alt="皮肤贴图（脸部）"></div></div></div>
@@ -1120,7 +1140,7 @@
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Specular_Color_R.png" alt="红色"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Specular_Color_G.png" alt="绿色"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Specular_Color_B.png" alt="蓝色"></div></div></div></li>
 <li><h2 id="Roughness（粗糙度）"><a href="#Roughness（粗糙度）" class="headerlink" title="Roughness（粗糙度）"></a>Roughness（粗糙度）</h2><p>控制镜面反射的光泽度。值越小，反射越清晰。对于两种极限条件，值为 0 将带来完美清晰的镜像反射效果，而 1.0 则会产生接近漫反射的反射效果。</p>
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Specular_Roughness_0o1_default.png" alt="0.2（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Specular_Roughness_0o3.png" alt="0.4"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Specular_Roughness_0o6.png" alt="0.6"></div></div></div>
-<p>曲面的“微小”特征会影响灯光的漫反射和反射。这种“微曲面”的细节对镜面反射的影响最为明显。 在下图中，当每束光线以不同方向射到曲面的某个部位时，平行入射光在从粗糙曲面反射之后开始变得发散。<span class="label primary">总之，曲面越粗糙，反射光越发散或越“模糊”。</span><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/roughness.png" alt="通常用来衡量粗糙度的“微曲面”细节（此曲面的镜面反射“粗糙度”(Roughness)值较高）。"></p>
+<p>曲面的“微小”特征会影响灯光的漫反射和反射。这种“微曲面”的细节对镜面反射的影响最为明显。 在下图中，当每束光线以不同方向射到曲面的某个部位时，平行入射光在从粗糙曲面反射之后开始变得发散。<mark class="label primary">总之，曲面越粗糙，反射光越发散或越“模糊”。</mark><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/roughness.png" alt="通常用来衡量粗糙度的“微曲面”细节（此曲面的镜面反射“粗糙度”(Roughness)值较高）。"></p>
 </li>
 <li><h2 id="IOR（折射率）"><a href="#IOR（折射率）" class="headerlink" title="IOR（折射率）"></a>IOR（折射率）</h2><p>IOR（折射率）参数定义了材质的<strong>菲涅尔反射率</strong>，并且默认情况下使用角函数。实际上，IOR 将定义曲面上面向查看者的反射与曲面边上的反射之间的平衡。您可以看到反射强度保持不变，但前侧的反射强度发生很大变化。</p>
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/sphere_ior-1.png" alt="1"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/sphere_ior-1.1.png" alt="1.1"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/sphere_ior-1.5.png" alt="1.5（默认值）"></div></div></div>
@@ -1178,7 +1198,7 @@
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Transparent_Color_R.png" alt="红色"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Transparent_Color_G.png" alt="绿色"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/Transparent_Color_B.png" alt="蓝色"></div></div></div>
 </div>
 </li>
-<li><p><strong><span class="label danger">如果该值具有某种颜色，并且需要使用该颜色进行染色的阴影，则对指定了标准曲面着色器的网格禁用“不透明”(Opaque)属性。</span>在下面的示例中可以看到，当启用“不透明”(Opaque)时，光线无法穿过球体。 反之，当禁用“不透明”(Opaque)时，光线可以穿过球体并吸收透射“颜色”(Color)设置的颜色，从而创建彩色阴影的效果。</strong></p>
+<li><p><strong><mark class="label danger">如果该值具有某种颜色，并且需要使用该颜色进行染色的阴影，则对指定了标准曲面着色器的网格禁用“不透明”(Opaque)属性。</mark>在下面的示例中可以看到，当启用“不透明”(Opaque)时，光线无法穿过球体。 反之，当禁用“不透明”(Opaque)时，光线可以穿过球体并吸收透射“颜色”(Color)设置的颜色，从而创建彩色阴影的效果。</strong></p>
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/standard_glass_sphere_opaque_on.png" alt="不透明(Opaque)：启用"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/standard_glass_sphere_opaque_off.png" alt="不透明(Opaque)：禁用"></div></div></div>
 <div class="note warning">
 请注意，除非启用“薄壁”(Thin Walled)，否则透射“颜色”(Color)将不适用于单面几何体。
@@ -1240,7 +1260,7 @@
 </tbody>
 </table>
 </li>
-<li><h2 id="Radius（半径）"><a href="#Radius（半径）" class="headerlink" title="Radius（半径）"></a>Radius（半径）</h2><span class="label danger">可简单理解为整体的透光度，可更改颜色（类似于透光滤镜）。</span>光线在曲面之下可以散射的大概距离，也称为“平均自由程”(MFP)。此参数影响光线在再度散射出曲面前在曲面下可能传播的平均距离。您可以分别为每个颜色分量指定这种距离效果。增大此值，次表面散射的外观将变得平滑，减小此值则会使外观更加浑浊不清。
+<li><h2 id="Radius（半径）"><a href="#Radius（半径）" class="headerlink" title="Radius（半径）"></a>Radius（半径）</h2><mark class="label danger">可简单理解为整体的透光度，可更改颜色（类似于透光滤镜）。</mark>光线在曲面之下可以散射的大概距离，也称为“平均自由程”(MFP)。此参数影响光线在再度散射出曲面前在曲面下可能传播的平均距离。您可以分别为每个颜色分量指定这种距离效果。增大此值，次表面散射的外观将变得平滑，减小此值则会使外观更加浑浊不清。
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/standard_radius_b_0.25.png" alt="0.25"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/standard_radius_c_0.5.png" alt="0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/standard_radius_e_1.png" alt="1（默认值）"></div></div></div>
 <p>颜色越浅，散射的灯光越多。值为 0 时不会产生任何散射效果。</p>
 <div class="note success">
@@ -1323,26 +1343,26 @@
               </div>
             </details>
 <h2 id="Use-Color-Temperature（使用色温）"><a href="#Use-Color-Temperature（使用色温）" class="headerlink" title="Use Color Temperature（使用色温）"></a>Use Color Temperature（使用色温）</h2><ul>
-<li><span class="label info">默认关闭。</span>在灯光的 Arnold 卷展栏下，勾选 Use Color Temperature ，将启用标准的灯光照明计算，通过色温（单位：开尔文，符号 K ）来定义灯光的冷暖程度<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="理想的黑体辐射器的温度，以开尔文为单位，用于确定光源的颜色。默认颜色设置为 6500 K，国际照明委员会 (CIE) 将此视为白点。颜色范围从红色到白色再到蓝色。值大于 6500 K 时颜色为冷色，而小于 6500 K 的颜色为暖色。">[1]</span></a></sup>。开启后将忽略用户自定义的灯光颜色，包括连接到 Color 通道的纹理贴图。
+<li><mark class="label info">默认关闭。</mark>在灯光的 Arnold 卷展栏下，勾选 Use Color Temperature ，将启用标准的灯光照明计算，通过色温（单位：开尔文，符号 K ）来定义灯光的冷暖程度<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="理想的黑体辐射器的温度，以开尔文为单位，用于确定光源的颜色。默认颜色设置为 6500 K，国际照明委员会 (CIE) 将此视为白点。颜色范围从红色到白色再到蓝色。值大于 6500 K 时颜色为冷色，而小于 6500 K 的颜色为暖色。">[1]</span></a></sup>。开启后将忽略用户自定义的灯光颜色，包括连接到 Color 通道的纹理贴图。
 <img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/color-temp-chart-kelvin.jpg" alt="上面的图像显示了以开尔文为单位的色温对场景的影响"><a id="more"></a>
 
 </li>
 </ul>
 <h2 id="Exposure（曝光）"><a href="#Exposure（曝光）" class="headerlink" title="Exposure（曝光）"></a>Exposure（曝光）</h2><ul>
-<li>曝光是一个 F 制光圈值，用于将强度乘以 2 的 F 制光圈次幂。将曝光增加 1 可导致灯光量加倍。<br>在 Arnold 中，灯光的总强度通过以下公式进行计算：<span class="label info">颜色 * 强度 * 2<sup>曝光</sup></span>
+<li>曝光是一个 F 制光圈值，用于将强度乘以 2 的 F 制光圈次幂。将曝光增加 1 可导致灯光量加倍。<br>在 Arnold 中，灯光的总强度通过以下公式进行计算：<mark class="label info">颜色 * 强度 * 2<sup>曝光</sup></mark>
 
 </li>
 </ul>
 <h2 id="Samples（采样数）"><a href="#Samples（采样数）" class="headerlink" title="Samples（采样数）"></a>Samples（采样数）</h2><ul>
-<li>使用灯光照明时，镜面反射的高光和软阴影的区域会产生噪波（尤其是使用天穹光照明时），可以增大采样值来减少噪波改善画面。灯光采样值会和 Arnold 渲染设置的 AA 采样数相乘，得到实际使用的阴影光线数。<span class="label danger">如果值为 0 ，灯光将会被禁用。</span>采样数越多，渲染时间会越长，通常使用灯光采样 3-5 的数值即可解决直接照明的噪波问题。</li>
+<li>使用灯光照明时，镜面反射的高光和软阴影的区域会产生噪波（尤其是使用天穹光照明时），可以增大采样值来减少噪波改善画面。灯光采样值会和 Arnold 渲染设置的 AA 采样数相乘，得到实际使用的阴影光线数。<mark class="label danger">如果值为 0 ，灯光将会被禁用。</mark>采样数越多，渲染时间会越长，通常使用灯光采样 3-5 的数值即可解决直接照明的噪波问题。</li>
 </ul>
 <h2 id="Normalize（规格化）"><a href="#Normalize（规格化）" class="headerlink" title="Normalize（规格化）"></a>Normalize（规格化）</h2><ul>
-<li><span class="label info">默认启用。</span>启用后，灯光量保持恒定，具有面积的灯光（如 Area Light 和 Mesh Light ）增大尺寸时，照明范围变广，而单位面积的照明强度会降低，阴影会减弱变柔和。如果关闭，灯光的照明强度和表面积成正比。
+<li><mark class="label info">默认启用。</mark>启用后，灯光量保持恒定，具有面积的灯光（如 Area Light 和 Mesh Light ）增大尺寸时，照明范围变广，而单位面积的照明强度会降低，阴影会减弱变柔和。如果关闭，灯光的照明强度和表面积成正比。
 
 </li>
 </ul>
 <h2 id="Cast-Shadows（投射阴影）"><a href="#Cast-Shadows（投射阴影）" class="headerlink" title="Cast Shadows（投射阴影）"></a>Cast Shadows（投射阴影）</h2><ul>
-<li><span class="label info">默认启用。</span>启用后灯光照射物体才能产生阴影。
+<li><mark class="label info">默认启用。</mark>启用后灯光照射物体才能产生阴影。
 </li>
 <li><h3 id="Shadow-Density（阴影密度）"><a href="#Shadow-Density（阴影密度）" class="headerlink" title="Shadow Density（阴影密度）"></a>Shadow Density（阴影密度）</h3><ul>
 <li>值为 0 不会产生阴影，值为 1 产生不透明的黑色阴影，0 至 1 之间是具有透明度的阴影。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/pointLight_shadow_density_A_0.png" alt="0"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/pointLight_shadow_density_B_0.5.png" alt="0.5"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/pointLight_shadow_density_C_1.png" alt="1（默认值）"></div></div></div>
@@ -1366,8 +1386,8 @@
 </li>
 </ul>
 <h2 id="Visibility（可见性）"><a href="#Visibility（可见性）" class="headerlink" title="Visibility（可见性）"></a>Visibility（可见性）</h2><ul>
-<li><span class="label danger">Diffuse（漫反射）、Specular（镜面反射）、SSS（次表面散射）、Volume（体积）都建议保持数值1，以保证真实的物理效果。</span></li>
-<li><span class="label danger">Sky Dome Light 会多出两个特殊的参数：Camera（摄像机）和 Transmission（透射）。</span></li>
+<li><mark class="label danger">Diffuse（漫反射）、Specular（镜面反射）、SSS（次表面散射）、Volume（体积）都建议保持数值1，以保证真实的物理效果。</mark></li>
+<li><mark class="label danger">Sky Dome Light 会多出两个特殊的参数：Camera（摄像机）和 Transmission（透射）。</mark></li>
 <li>Camera 数值 1 是将灯光 Color 通道的贴图作为背景渲染可见，设置为 0 将得到透明的背景。这在我们仅需要 HDR 贴图作为光照信息并分离背景时会很有用。<br>Transmission 应保持数值 1，它是天穹光穿过透明物体的能力，低于 1 将得不到正确的物理结果。</li>
 </ul>
 <h3 id="Indirect（间接）"><a href="#Indirect（间接）" class="headerlink" title="Indirect（间接）"></a>Indirect（间接）</h3><ul>
@@ -1377,7 +1397,7 @@
 <li>允许来自此灯光的能量在场景中反弹的最大次数。“最大反弹次数”(Max Bounces)值为 0 意味着灯光只是直接照明计算的一部分，实际上会禁用此灯光的 GI。请注意，此值会与全局光线深度控件一同发挥作用，因此每灯光 999 次反弹这一默认值只是理论上的最大值；在实践中，全局光线深度限制的设置要小得多。</li>
 </ul>
 <hr>
-<h1 id="Area-Light（区域光）"><a href="#Area-Light（区域光）" class="headerlink" title="Area Light（区域光）"></a>Area Light（区域光）</h1><p>常用于模拟室内照明。它有三种形状：<strong>Quad（矩形）、Cylinder（圆柱）、Disk（圆盘）</strong>，可在 <span class="label danger">Light Shape</span> 下拉菜单中选择。Quad 常用于模拟面片光源，例如显示器、透过窗外到达室内的光线；Cylinder 用于模拟圆柱体光源，例如灯管、激光；Disk 用于模拟圆盘状光源，例如月亮、圆形顶灯。<span class="label default">其中，Quad 形状的区域光参数最丰富，可以设定灯光的 Spread（扩散）、Resolution（分辨率）、Roundness（圆度）、Soft Edge（软边）。</span></p>
+<h1 id="Area-Light（区域光）"><a href="#Area-Light（区域光）" class="headerlink" title="Area Light（区域光）"></a>Area Light（区域光）</h1><p>常用于模拟室内照明。它有三种形状：<strong>Quad（矩形）、Cylinder（圆柱）、Disk（圆盘）</strong>，可在 <mark class="label danger">Light Shape</mark> 下拉菜单中选择。Quad 常用于模拟面片光源，例如显示器、透过窗外到达室内的光线；Cylinder 用于模拟圆柱体光源，例如灯管、激光；Disk 用于模拟圆盘状光源，例如月亮、圆形顶灯。<mark class="label default">其中，Quad 形状的区域光参数最丰富，可以设定灯光的 Spread（扩散）、Resolution（分辨率）、Roundness（圆度）、Soft Edge（软边）。</mark></p>
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/quad-light.png" alt="矩形灯光"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/cylinder-light.png" alt="圆柱灯光"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/disk-light.png" alt="圆盘灯光"></div></div></div>
 <details red><summary> <p>属性编辑器</p> </summary>
               <div class='content'>
@@ -1385,7 +1405,7 @@
               </div>
             </details>
 <h2 id="Spread（扩散）"><a href="#Spread（扩散）" class="headerlink" title="Spread（扩散）"></a>Spread（扩散）</h2><ul>
-<li><span class="label success">发射沿法线方向聚焦的灯光。默认的扩散值为 1，会提供漫反射自发光，而值越低，灯光会越聚焦，直到几乎变成一束激光（此时值为 0）。</span>当前不支持完全聚焦的激光束（值为 0），始终有一个非零的最小扩散。相比默认的高扩散值，扩散值越低，产生的噪波可能会越多，因此请谨慎使用低值。
+<li><mark class="label success">发射沿法线方向聚焦的灯光。默认的扩散值为 1，会提供漫反射自发光，而值越低，灯光会越聚焦，直到几乎变成一束激光（此时值为 0）。</mark>当前不支持完全聚焦的激光束（值为 0），始终有一个非零的最小扩散。相比默认的高扩散值，扩散值越低，产生的噪波可能会越多，因此请谨慎使用低值。
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/spread-1.png" alt="1（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/spread-0.3.png" alt="0.3"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/spread-0.2.png" alt="0.2"></div></div></div>
 <img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/spread.gif" alt="“扩散”(Spread)值从 1 开始降低（四边形灯光）"></li>
 </ul>
@@ -1395,7 +1415,7 @@
 </li>
 </ul>
 <h2 id="Soft-Edge（软边）"><a href="#Soft-Edge（软边）" class="headerlink" title="Soft Edge（软边）"></a>Soft Edge（软边）</h2><ul>
-<li><span class="label info">默认值为 0 ，</span>灯光边缘无衰减。数值增大，灯光边缘出现衰减模糊；值为 1 时，灯光边缘将达到最大的衰减。
+<li><mark class="label info">默认值为 0 ，</mark>灯光边缘无衰减。数值增大，灯光边缘出现衰减模糊；值为 1 时，灯光边缘将达到最大的衰减。
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/roundness-0.png" alt="0（默认）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/roundness-1.png" alt="1"></div></div></div>
 
 </li>
@@ -1417,29 +1437,29 @@
               </div>
             </details>
 <h2 id="Resolution（分辨率）"><a href="#Resolution（分辨率）" class="headerlink" title="Resolution（分辨率）"></a>Resolution（分辨率）</h2><ul>
-<li><span class="label info">默认值为 1000 。</span>同 Area Light ，分辨率必须设置为与 HDRI 图像的分辨率相匹配，但是在许多情况下，也可以设置为较低的分辨率而在反射中不会有明显的细节损失。参数越高，skydome_light 预先计算灯光的重要性表所需的时间就越长，这会增加场景启动时间。
+<li><mark class="label info">默认值为 1000 。</mark>同 Area Light ，分辨率必须设置为与 HDRI 图像的分辨率相匹配，但是在许多情况下，也可以设置为较低的分辨率而在反射中不会有明显的细节损失。参数越高，skydome_light 预先计算灯光的重要性表所需的时间就越长，这会增加场景启动时间。
 
 </li>
 </ul>
 <h2 id="Portal-Mode（入口模式）"><a href="#Portal-Mode（入口模式）" class="headerlink" title="Portal Mode（入口模式）"></a>Portal Mode（入口模式）</h2><ul>
-<li><strong><span class="label info">默认 interior_only</span> 。off ，关闭入口；interior_only ，阻挡入口外的灯光；interior_exterior ，允许入口外的灯光通过。</strong></li>
-<li><span class="label danger">如果场景中没有使用 Light Portal（灯光引导口），这个参数不起作用。</span></li>
+<li><strong><mark class="label info">默认 interior_only</mark> 。off ，关闭入口；interior_only ，阻挡入口外的灯光；interior_exterior ，允许入口外的灯光通过。</strong></li>
+<li><mark class="label danger">如果场景中没有使用 Light Portal（灯光引导口），这个参数不起作用。</mark></li>
 <li><strong>使用 Light Portal 时， Portal Mode 要设置为 Interior_exterior 才能得到全部的灯光效果。</strong>值得一提，设置为 interior_only 会加快渲染速度，尽管它会失去一些小缝隙处的光线引入，但画面表现效果有时会好于 Interior_exterior 模式。</li>
 </ul>
 <h2 id="Format（格式）"><a href="#Format（格式）" class="headerlink" title="Format（格式）"></a>Format（格式）</h2><ul>
-<li><span class="label info">默认 Lat-long 。</span>有四种方式：Lat-long（经度-纬度）、 Mirrored Ball（镜像球）、 Angular（角度）。 Lat-long 是最常用的，匹配多数 HDR 贴图的布局方式。
+<li><mark class="label info">默认 Lat-long 。</mark>有四种方式：Lat-long（经度-纬度）、 Mirrored Ball（镜像球）、 Angular（角度）。 Lat-long 是最常用的，匹配多数 HDR 贴图的布局方式。
 
 </li>
 </ul>
 <h1 id="Mesh-Light（几何体灯光）"><a href="#Mesh-Light（几何体灯光）" class="headerlink" title="Mesh Light（几何体灯光）"></a>Mesh Light（几何体灯光）</h1><p>在传统灯光形状无法满足要求的一些情况下，几何体灯光会更合适。几何体灯光可用于创建其他照明方式无法实现的有趣照明效果。例如，霓虹灯照明或车灯运动轨迹效果都可以通过几何体灯光轻松实现。</p>
-<span class="label danger">当前使用几何体灯光的限制包括：</span>
+<mark class="label danger">当前使用几何体灯光的限制包括：</mark>
 <ul>
-<li><span class="label danger">几何体灯光会忽略多边形对象上的平滑处理。</span></li>
-<li><span class="label danger">NURBS 曲面当前无法与几何体灯光结合使用。</span>
+<li><mark class="label danger">几何体灯光会忽略多边形对象上的平滑处理。</mark></li>
+<li><mark class="label danger">NURBS 曲面当前无法与几何体灯光结合使用。</mark>
 
 </li>
 </ul>
-<span class="label success">相比材质的自发光（ Emission ）属性，网格灯光的照明效果更明显，产生的画面噪点也更少，并且网格灯光可以产生间接照明效果，而材质自发光只能进行直接照明，缺少光线的环境反弹。</span>
+<mark class="label success">相比材质的自发光（ Emission ）属性，网格灯光的照明效果更明显，产生的画面噪点也更少，并且网格灯光可以产生间接照明效果，而材质自发光只能进行直接照明，缺少光线的环境反弹。</mark>
 <h2 id="In-Mesh（输入网格）"><a href="#In-Mesh（输入网格）" class="headerlink" title="In Mesh（输入网格）"></a>In Mesh（输入网格）</h2><ul>
 <li>显示用作几何体灯光的形状名称。</li>
 </ul>
@@ -1450,7 +1470,7 @@
 <li>使光源对摄影机可见。</li>
 </ul>
 <h1 id="Photometric-Light（光度学灯光）"><a href="#Photometric-Light（光度学灯光）" class="headerlink" title="Photometric Light（光度学灯光）"></a>Photometric Light（光度学灯光）</h1><p>光度学灯光使用的是从真实世界灯光测量得到的数据，通常直接来自灯泡和灯罩制造商。您可以导入来自 <a href="http://www.erco.com/products/download/others/downloaddaten-3992/en/dltut-1.php?aktion=nop&sprache=en&dir=40_planning_luminaire/25_ies/00005_complete" target="_blank" rel="noopener external nofollow noreferrer">Erco</a>、<a href="http://www.lamp.es/en/catalog" target="_blank" rel="noopener external nofollow noreferrer">Lamp</a>、<a href="http://www.osram.com/osram_com/tools-and-services/tools/dialux-and-relux/index.jsp" target="_blank" rel="noopener external nofollow noreferrer">Osram</a> 和 <a href="http://www.usa.lighting.philips.com/support/support/literature/photometric-data" target="_blank" rel="noopener external nofollow noreferrer">Philips</a> 等公司的 IES 数据图；这些 IES 文件提供给定灯光模型的精确强度和扩散数据。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/ies-lights.jpg" alt="IES 灯光剖面示例"></p>
-<h1 id="Light-Portal（灯光引导口）"><a href="#Light-Portal（灯光引导口）" class="headerlink" title="Light Portal（灯光引导口）"></a>Light Portal（灯光引导口）</h1><span class="label danger">需要场景中存在 Skydome Light 才能使用，作用是将室外光线引导到室内进行照明。</span>Skydome Light 针对开阔的室外场景进行了照明的优化，但对于光线穿透建筑物门窗进行的室内照明存在不足，会产生大量噪波。因此需要 Light Portal 对特定区域进行 Skydome Light 光线的引导。
+<h1 id="Light-Portal（灯光引导口）"><a href="#Light-Portal（灯光引导口）" class="headerlink" title="Light Portal（灯光引导口）"></a>Light Portal（灯光引导口）</h1><mark class="label danger">需要场景中存在 Skydome Light 才能使用，作用是将室外光线引导到室内进行照明。</mark>Skydome Light 针对开阔的室外场景进行了照明的优化，但对于光线穿透建筑物门窗进行的室内照明存在不足，会产生大量噪波。因此需要 Light Portal 对特定区域进行 Skydome Light 光线的引导。
 <p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/Light-Portal.png" alt="灯光引导口从窗户外部指向内部"></p>
 <h1 id="Physical-Sky（物理天空）"><a href="#Physical-Sky（物理天空）" class="headerlink" title="Physical Sky（物理天空）"></a>Physical Sky（物理天空）</h1><p>用于模拟真实的天空照明，可设定太阳的位置、尺寸和照明强度。事实上 Physical Sky 就是在 Color 通道连接上物理天空纹理节点（ aiPhysicalSky ）的 Skydome Light 。物理天空通常用于构建简单的大气照明环境，快速展示场景效果。</p>
 <details red><summary> <p>属性编辑器</p> </summary>
@@ -1501,7 +1521,7 @@
               </div>
             </details>
 <h2 id="Gobo"><a href="#Gobo" class="headerlink" title="Gobo"></a>Gobo</h2><ul>
-<li><span class="label danger">Gobo 过滤器只能与聚光灯结合使用。</span>在剧院舞台照明下，gobo（也称为“cookie”，即 Cucoloris 的行业叫法）是一个带孔的金属薄片，用来将光束分成更自然的不规则图案（例如树叶等）。在计算机图形领域，gobo 有时指代“滑动投影仪”（有时也称为“投影灯”，但请注意，在 Arnold 中，gobo 不是光源本身，而是应用于聚光灯光源的过滤器）。任何纹理贴图或程序着色器都可通过灯光投影。
+<li><mark class="label danger">Gobo 过滤器只能与聚光灯结合使用。</mark>在剧院舞台照明下，gobo（也称为“cookie”，即 Cucoloris 的行业叫法）是一个带孔的金属薄片，用来将光束分成更自然的不规则图案（例如树叶等）。在计算机图形领域，gobo 有时指代“滑动投影仪”（有时也称为“投影灯”，但请注意，在 Arnold 中，gobo 不是光源本身，而是应用于聚光灯光源的过滤器）。任何纹理贴图或程序着色器都可通过灯光投影。
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/Normal-spotlight.png" alt="未使用 gobo 过滤器的聚光灯"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/spotlight-with-gobo-filter.png" alt="使用 gobo 过滤器的聚光灯"></div></div></div>
 
 </li>
@@ -1550,7 +1570,7 @@
 </li>
 </ul>
 <h2 id="Barndoor（挡光板）"><a href="#Barndoor（挡光板）" class="headerlink" title="Barndoor（挡光板）"></a>Barndoor（挡光板）</h2><ul>
-<li><span class="label danger">此灯光过滤器只能与聚光灯结合使用。</span>此挡光板过滤器引入了四个挡光板翻板<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="挡光板是连接到灯光开口侧面的不透明可移动面板。它们通常在剧院和电影照明场景下使用，用于对光束形状进行进一步的控制。">[2]</span></a></sup>。<span class="label default">每个挡光板翻板都有三个参数。前两个参数控制翻板两端在灯光面的位置。第三个参数（“边”(Edge)）控制边的柔和度。相关位置指的是距相应边的距离。边柔和度是一种渐变宽度。</span>渐变从挡光板边上的 1（全开）开始，并根据边宽度在聚光灯周长方向逐渐减小为 0。</li>
+<li><mark class="label danger">此灯光过滤器只能与聚光灯结合使用。</mark>此挡光板过滤器引入了四个挡光板翻板<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="挡光板是连接到灯光开口侧面的不透明可移动面板。它们通常在剧院和电影照明场景下使用，用于对光束形状进行进一步的控制。">[2]</span></a></sup>。<mark class="label default">每个挡光板翻板都有三个参数。前两个参数控制翻板两端在灯光面的位置。第三个参数（“边”(Edge)）控制边的柔和度。相关位置指的是距相应边的距离。边柔和度是一种渐变宽度。</mark>渐变从挡光板边上的 1（全开）开始，并根据边宽度在聚光灯周长方向逐渐减小为 0。</li>
 <li>例如，坐标为“0.25, 0.25”且边为 0.125 的翻板将在 0.25 处恰好“打开”，并在 0.375 处恰好“关闭”。边效果从挡光板边缘开始，并一直朝外（而不是朝内）延伸。<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/without_barndoor.png" alt="未使用挡光板"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/with_barndoor.png" alt="使用挡光板"></div></div></div>
 
 </li>
@@ -1561,7 +1581,7 @@
               </div>
             </details>
 <h2 id="Light-Blocker（挡光对象）"><a href="#Light-Blocker（挡光对象）" class="headerlink" title="Light Blocker（挡光对象）"></a>Light Blocker（挡光对象）</h2><ul>
-<li><strong>挡光对象是一种灯光过滤器，用来指定“几何体类型”(Geometry Type)（长方体、球体、圆柱体或平面）中定义的基本体体积，在连接到灯光节点后将阻挡或修改穿过该体积的灯光<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="挡光对象可为照明 TD 提供很好的灵活性。 它们用来以人工方式遮罩场景中的灯光，而不会产生添加额外几何体所需的开销。如果使用得当，它们可提供一定的艺术自由度，便于以非物理方式定义灯光边界。">[3]</span></a></sup>。</strong><span class="label success">与其他过滤器一样，挡光对象只影响它连接到的灯光（即该几何体不会影响任何其他灯光，包括 GI，而且它是不可见的）。</span></li>
+<li><strong>挡光对象是一种灯光过滤器，用来指定“几何体类型”(Geometry Type)（长方体、球体、圆柱体或平面）中定义的基本体体积，在连接到灯光节点后将阻挡或修改穿过该体积的灯光<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="挡光对象可为照明 TD 提供很好的灵活性。 它们用来以人工方式遮罩场景中的灯光，而不会产生添加额外几何体所需的开销。如果使用得当，它们可提供一定的艺术自由度，便于以非物理方式定义灯光边界。">[3]</span></a></sup>。</strong><mark class="label success">与其他过滤器一样，挡光对象只影响它连接到的灯光（即该几何体不会影响任何其他灯光，包括 GI，而且它是不可见的）。</mark></li>
 <li>一个简单的用途是模拟复杂灯外壳的效果（可能需要与挡光板过滤器结合使用），而无需对灯几何体进行建模。</li>
 <li>另一个用途是在场景中创建看起来与平常不同的阴影。</li>
 </ul>
@@ -1585,7 +1605,7 @@
 <li>在此插入要用作遮罩效果的着色器的输出。</li>
 <li>例如，用于表示某些树叶的阴影的纹理贴图。不同于 gobo，您可以不受灯光变换的影响调整阴影位置。</li>
 <li>它适用于所有类型的灯光，而不是只适用于聚光灯（不同于 gobo，gobo 也会为场景贡献照明）。</li>
-<li><span class="label danger">它仅在“几何体类型”(Geometry Type)设置为“长方体”(Box)时起作用。</span>
+<li><mark class="label danger">它仅在“几何体类型”(Geometry Type)设置为“长方体”(Box)时起作用。</mark>
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/light-blocker-shader.gif" alt="树遮罩连接到着色器，灯光位置变化时，遮罩是静态的。"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/tree-mask.png" alt=""></div></div></div>
 </li>
 </ul>
@@ -1618,7 +1638,7 @@
 </li>
 </ul>
 <h2 id="Light-Decay（灯光衰退）"><a href="#Light-Decay（灯光衰退）" class="headerlink" title="Light Decay（灯光衰退）"></a>Light Decay（灯光衰退）</h2><ul>
-<li><span class="label success">该过滤器可以添加到所有 Arnold 灯光。</span>可以在该过滤器中指定衰减范围。默认情况下，Arnold 中的所有灯光都使用基于物理的衰减，但灯光衰退过滤器可出于美观目的调整衰减。
+<li><mark class="label success">该过滤器可以添加到所有 Arnold 灯光。</mark>可以在该过滤器中指定衰减范围。默认情况下，Arnold 中的所有灯光都使用基于物理的衰减，但灯光衰退过滤器可出于美观目的调整衰减。
 
 </li>
 </ul>
@@ -1694,7 +1714,7 @@
 </ul>
 <figure class="highlight html"><figcaption><span>位置：博客\source\404\index.html（没有则自建）</span></figcaption><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">permalink: /404</span><br><span class="line">layout: false</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>404 | ColdCard的小黑屋<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"apple-touch-icon"</span> <span class="attr">sizes</span>=<span class="string">"180x180"</span> <span class="attr">href</span>=<span class="string">"/images/apple-touch-icon-next.png"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"icon"</span> <span class="attr">type</span>=<span class="string">"image/png"</span> <span class="attr">sizes</span>=<span class="string">"32x32"</span> <span class="attr">href</span>=<span class="string">"/images/favicon-32x32-next.png"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"icon"</span> <span class="attr">type</span>=<span class="string">"image/png"</span> <span class="attr">sizes</span>=<span class="string">"16x16"</span> <span class="attr">href</span>=<span class="string">"/images/favicon-16x16-next.png"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">'stylesheet'</span> <span class="attr">href</span>=<span class="string">'https://fonts.loli.net/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,900&amp;family=Noto+Serif+SC:wght@200;300;400;500;600;700;900'</span>&gt;</span><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"/skip/404.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- partial:index.partial.html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"stream"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"line editline"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"time"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"name"</span>&gt;</span><span class="symbol">&amp;gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">contenteditable</span>=<span class="string">"true"</span> <span class="attr">autocomplete</span>=<span class="string">"off"</span> <span class="attr">autocorrect</span>=<span class="string">"off"</span> <span class="attr">autocapitalize</span>=<span class="string">"off"</span> <span class="attr">spellcheck</span>=<span class="string">"false"</span> <span class="attr">class</span>=<span class="string">"information edit"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- partial --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">'https://codepen.io/z-/pen/dcdf9b1e328493afd4bd982ed98266d3.js'</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span><span class="tag">&lt;<span class="name">script</span>  <span class="attr">src</span>=<span class="string">"/skip/404.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="keyword">var</span> titleTime,OriginTitile=<span class="built_in">document</span>.title;<span class="built_in">document</span>.addEventListener(<span class="string">"visibilitychange"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">document</span>.hidden?(<span class="built_in">document</span>.title=<span class="string">"警告 | "</span>+OriginTitile,clearTimeout(titleTime)):(<span class="built_in">document</span>.title=<span class="string">"欢迎回来 | "</span>+OriginTitile,titleTime=setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">document</span>.title=OriginTitile&#125;,<span class="number">2e3</span>))&#125;)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&#123;# 鼠标点击特效 #&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"/js/fireworks.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&#123;# 打字特效 #&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/js/activate-power-mode.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript">POWERMODE.colorful=!<span class="number">0</span>,POWERMODE.shake=!<span class="number">0</span>,<span class="built_in">document</span>.body.addEventListener(<span class="string">"input"</span>,POWERMODE)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="步骤二"><a href="#步骤二" class="headerlink" title="步骤二"></a>步骤二</h2><ul>
-<li><strong>新建 404.css 样式文件</strong><br>注意要<span class="label danger">让 css 样式文件跳过渲染</span>，所以最好启用<code>skip</code>文件夹功能。</li>
+<li><strong>新建 404.css 样式文件</strong><br>注意要<mark class="label danger">让 css 样式文件跳过渲染</mark>，所以最好启用<code>skip</code>文件夹功能。</li>
 </ul>
 <figure class="highlight diff"><figcaption><span>位置：博客\_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">  ···</span><br><span class="line"># Directory</span><br><span class="line">source_dir: source</span><br><span class="line">public_dir: public</span><br><span class="line">tag_dir: tags</span><br><span class="line">archive_dir: archives</span><br><span class="line">category_dir: categories</span><br><span class="line">code_dir: downloads/code</span><br><span class="line">i18n_dir: :lang</span><br><span class="line"><span class="deletion">- skip_render:</span></span><br><span class="line"><span class="addition">+ skip_render: "skip/**/*"</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight css"><figcaption><span>位置：博客\source\skip\404.css（没有则自建）</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#3A3A3A</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#EFEFAE</span>;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">'Source Code Pro'</span>,<span class="string">'Noto Serif SC'</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">overflow-x</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#7ad8cb</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#ff5b5b</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#464646</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> <span class="selector-class">.stream</span> &#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">8px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> <span class="selector-class">.line</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-direction</span>: row;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">4px</span>;</span><br><span class="line">  <span class="attribute">padding-top</span>: <span class="number">2px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="built_in">calc</span>(<span class="number">100%</span> - <span class="number">12px</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> <span class="selector-class">.line</span> <span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> <span class="selector-class">.line</span> <span class="selector-class">.name</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">min-width</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: right;</span><br><span class="line">  <span class="attribute">padding-right</span>: <span class="number">6px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> <span class="selector-class">.editline</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#262626</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">2px</span> <span class="number">4px</span> <span class="number">0px</span> <span class="number">4px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="built_in">calc</span>(<span class="number">100%</span>);</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">8px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> <span class="selector-class">.editline</span> <span class="selector-class">.edit</span> &#123;</span><br><span class="line">  <span class="attribute">min-width</span>: <span class="built_in">calc</span>(<span class="number">100%</span> - <span class="number">200px</span>);</span><br><span class="line">  <span class="attribute">outline</span>: none;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#ffb4b4</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> <span class="selector-class">.editline</span> <span class="selector-class">.time</span> &#123;</span><br><span class="line">  <span class="attribute">user-select</span>: none;</span><br><span class="line">  <span class="attribute">cursor</span>: default;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.information</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#a7a1d0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.whitet</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#FFFFAE</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.redt</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#d75f5f</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.important</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#E3A786</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.bluet</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#5f8787</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.greent</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#afaf00</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.selft</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#83A598</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-pseudo">::selection</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#5eff4f</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#cacaca</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-pseudo">::-webkit-scrollbar</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#3A3A3A</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-pseudo">::-webkit-scrollbar-thumb</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#bcbcbc</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-pseudo">::-webkit-scrollbar-corner</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#3A3A3A</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-pseudo">::-webkit-resizer</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#3A3A3A</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.phjspenheader</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#D44C2A</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1963,16 +1983,16 @@
 ">[9]</span></a></sup></p>
 <img data-src="/posts/Hexo_Updata(2020.04.17)/%E8%A7%A3%E6%9E%90.png" class="">
 <p>效果还是挺明显的<br><img data-src="%E5%88%86%E6%B5%81.png" alt=""></p>
-<h3 id="暗、亮"><a href="#暗、亮" class="headerlink" title="暗、亮"></a>暗、亮</h3><span class="label primary">本博客已支持 亮/暗 样式切换，可根据“系统亮暗主题”或“浏览器亮暗主题”自动切换（其实还想加个手动切换，但是至今没找到合适的方法）。</span>
+<h3 id="暗、亮"><a href="#暗、亮" class="headerlink" title="暗、亮"></a>暗、亮</h3><mark class="label primary">本博客已支持 亮/暗 样式切换，可根据“系统亮暗主题”或“浏览器亮暗主题”自动切换（其实还想加个手动切换，但是至今没找到合适的方法）。</mark>
 <figure class="highlight yml"><figcaption><span>位置：主题\_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># Dark Mode</span></span><br><span class="line"><span class="attr">darkmode:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <p>自定义样式可参考本博客的<a href="/other/styles"><code>styles.styl</code></a></p>
 <h3 id="Github-贡献图"><a href="#Github-贡献图" class="headerlink" title="Github 贡献图"></a>Github 贡献图</h3><img data-src="https://ghchart.rshah.org/Cold-Card" />
 
 <p>所用到的 <a href="https://ghchart.rshah.org/" target="_blank" rel="noopener external nofollow noreferrer">Github Chart API</a></p>
 <h3 id="徽章"><a href="#徽章" class="headerlink" title="徽章"></a>徽章</h3><p>徽章是一种小巧精美的小图标,一般配有相关文字进行辅助说明,富有表现力。<br>类似文章开头和脚页上的徽章图片。<br>本博客使用的徽章生成网站 <a href="https://shields.io/" target="_blank" rel="noopener external nofollow noreferrer">shields.io</a> ,这也是 Github 使用的徽章网站。</p>
-<h3 id="PJAX"><a href="#PJAX" class="headerlink" title="PJAX"></a>PJAX</h3><p>该项功能的作用是：<span class="label default">跳转到同网站另一个页面的时候，前后两个页面相同的元素不再重复加载，进而节省了加载的时间，加快访问速度。</span><br>开启 PJAX 后或多或少会出现出现浏览上的 BUG，特别是一些使用 JavaScript 的地方。我没有深入研究过该项功能的原理，所以也无法修复一些出现的 BUG。</p>
+<h3 id="PJAX"><a href="#PJAX" class="headerlink" title="PJAX"></a>PJAX</h3><p>该项功能的作用是：<mark class="label default">跳转到同网站另一个页面的时候，前后两个页面相同的元素不再重复加载，进而节省了加载的时间，加快访问速度。</mark><br>开启 PJAX 后或多或少会出现出现浏览上的 BUG，特别是一些使用 JavaScript 的地方。我没有深入研究过该项功能的原理，所以也无法修复一些出现的 BUG。</p>
 <figure class="highlight yml"><figcaption><span>位置：主题\_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># Easily enable fast Ajax navigation on your website.</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/theme-next/theme-next-pjax</span></span><br><span class="line"><span class="attr">pjax:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Internal shields: 0.2.8</span></span><br><span class="line"><span class="comment"># pjax: //cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js</span></span><br><span class="line"><span class="attr">pjax:</span> <span class="string">//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js</span></span><br></pre></td></tr></table></figure>
-<span class="label danger">本博客上的 BUG：折叠功能的反复开折（已修复）、新页面上的 AddThis 以及 Star rating（星级评价）不加载（上述 BUG 都可刷新页面解决）。</span>
+<mark class="label danger">本博客上的 BUG：折叠功能的反复开折（已修复）、新页面上的 AddThis 以及 Star rating（星级评价）不加载（上述 BUG 都可刷新页面解决）。</mark>
 <h3 id="博客备份"><a href="#博客备份" class="headerlink" title="博客备份"></a>博客备份</h3><p>需要备份的文件及文件夹：<code>scaffoldings</code><sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="“模板文件夹”：存放 post、page、draft 模板
 ">[2]</span></a></sup> <code>source</code><sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="“资源文件夹”：用于存放 pots、_data、page、js、robots.txt、CNAME、fonts 等文件
 ">[3]</span></a></sup> <code>themes</code><sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="“主题文件夹”：存放博客主题，备份时不包括主题件夹中的 .git 隐藏文件夹（备份时删去）
@@ -1991,7 +2011,7 @@
 <ul>
 <li><p>方法</p>
 <blockquote>
-<p>首先打开 <a href="https://console.developers.google.com/" target="_blank" rel="noopener external nofollow noreferrer">Google Developer Console</a> 的 API 和服务，<span class="label danger">需要科学上网</span>，登录自己的 Google 账号</p>
+<p>首先打开 <a href="https://console.developers.google.com/" target="_blank" rel="noopener external nofollow noreferrer">Google Developer Console</a> 的 API 和服务，<mark class="label danger">需要科学上网</mark>，登录自己的 Google 账号</p>
 </blockquote>
 <blockquote>
 <p>新建一个 Project（项目）</p>
@@ -2131,7 +2151,7 @@
 <a id="more"></a>
 
 <hr>
-<h1 id="教程"><a href="#教程" class="headerlink" title=" 教程 "></a><center> 教程 <center></h1><p><span id="div-border-left-yellow"><span id="inline-yellow">1</span> <strong>下载对应版本</strong><br><span id="inline-yellow">2</span> <strong>启动 <code>exe</code> 文件，安装阿诺德渲染器插件</strong> <span class="label danger">已有插件的请跳过</span><br><span id="inline-yellow">3</span> <strong>将 <code>ai.dll</code> 文件移至 <code>系统盘:\solidangle\mtoadeploy\Maya版本\bin</code> 替换</strong><br><span id="inline-yellow">4</span> <strong>重启Maya</strong></span></p>
+<h1 id="教程"><a href="#教程" class="headerlink" title=" 教程 "></a><center> 教程 <center></h1><p><span id="div-border-left-yellow"><span id="inline-yellow">1</span> <strong>下载对应版本</strong><br><span id="inline-yellow">2</span> <strong>启动 <code>exe</code> 文件，安装阿诺德渲染器插件</strong> <mark class="label danger">已有插件的请跳过</mark><br><span id="inline-yellow">3</span> <strong>将 <code>ai.dll</code> 文件移至 <code>系统盘:\solidangle\mtoadeploy\Maya版本\bin</code> 替换</strong><br><span id="inline-yellow">4</span> <strong>重启Maya</strong></span></p>
 <p><span id="div-border-left-red"><strong>如果 <code>mtoadeploy</code> 文件内没有对应的Maya版本</strong><em>（我的Maya2020就没有，可能我没有安装到系统盘）</em><strong>或者没有破解效果，可以去 <code>系统盘:\Program Files\Autodesk\Arnold</code> 中找Maya版本进行替换</strong></span></p>
 <hr>
 <h1 id="下载"><a href="#下载" class="headerlink" title=" 下载 "></a><center> 下载 <center></h1><p><span id="div-border-top-purple"><strong>Arnold 2018：</strong><a href="https://hostlocmjj-my.sharepoint.com/:u:/g/personal/1526555253_uoe_men/ESY9svWkJTJJpZCu0cmoQoYBz_GCGbipcH0EHo8fYaKRSw?e=6H39et" target="_blank" rel="noopener external nofollow noreferrer">Onedrive</a> —— <a href="https://drive.google.com/open?id=1FX4YsPcd2lp-APDUYKp6FYF92WkrghQM" target="_blank" rel="noopener external nofollow noreferrer">DoogleDrive</a> —— <a href="https://pan.baidu.com/s/1_-V0DqjuNAOlX8QOwg3Zfw" target="_blank" rel="noopener external nofollow noreferrer">百度网盘</a><em>（提取码：v7f9）</em><br><strong>Arnold 2019：</strong><a href="https://hostlocmjj-my.sharepoint.com/:u:/g/personal/1526555253_uoe_men/EQX4lsCmwVlOkGo3Tbh5QUQBOfiNi8ixQfJMR2Q_aBX9uA?e=3WvZVt" target="_blank" rel="noopener external nofollow noreferrer">Onedrive</a> —— <a href="https://drive.google.com/open?id=1zy4lm46saA37KXsSA4OlypEP-H9XMsHt" target="_blank" rel="noopener external nofollow noreferrer">DoogleDrive</a> —— <a href="https://pan.baidu.com/s/1stSMivcr33UCFd_m_Cz24g" target="_blank" rel="noopener external nofollow noreferrer">百度网盘</a><em>（提取码：phja）</em><br><strong>Arnold 2020：</strong><a href="https://hostlocmjj-my.sharepoint.com/:u:/g/personal/1526555253_uoe_men/ERGexL3UuKlMsc666a-7tJEB3eZwdK0Aj1wI3FEVAX86cg?e=lkZyyt" target="_blank" rel="noopener external nofollow noreferrer">Onedrive</a> —— <a href="https://drive.google.com/open?id=1pY0b_nu56qyKtmPBS_XUwv9lfajhcMXa" target="_blank" rel="noopener external nofollow noreferrer">DoogleDrive</a> —— <a href="https://pan.baidu.com/s/1UWM9HITj0-U5OAlFO_5zNw" target="_blank" rel="noopener external nofollow noreferrer">百度网盘</a><em>（提取码：m8an）</em><br><strong>替换文件：</strong><a href="https://hostlocmjj-my.sharepoint.com/:u:/g/personal/1526555253_uoe_men/EdQoFEaLE8xMgROrtLGiKVcBuEB6PMw7RKmjr0xI3CnjnQ?e=f8lGiV" target="_blank" rel="noopener external nofollow noreferrer">Onedrive</a> —— <a href="https://drive.google.com/open?id=10H0FnJoWFsoNytCXcG00uWJ_8bxiRbkW" target="_blank" rel="noopener external nofollow noreferrer">DoogleDrive</a> —— <a href="https://pan.baidu.com/s/1TMepAGKQLIlr2ejFczHWDQ" target="_blank" rel="noopener external nofollow noreferrer">百度网盘</a><em>（提取码：rfd9）</em></span></p>
@@ -2183,17 +2203,17 @@
 <span id="div-border-top-red">
 
 <h2 id="小红信"><a href="#小红信" class="headerlink" title=" 小红信 "></a><font color=#E45B5B><i class="fas fa-envelope"></i> 小红信 <i class="fas fa-envelope"></i></font></h2><p>初步了解跨区买游的有些人可能会想，能不能利用“科学上网”到低价区买一些中国区售价较高的游戏呢，这样会有什么样的风险？答案很简单，你大概率会获得G胖送出的“小红信”一张。</p>
-<p>那小红信的作用是什么，收到“小红信”之后，<span class="label default">如果你无法出示跨区所在国家的居住证明或来往这些地区的机票等证明</span>，<span class="label danger">账户会被永久封停</span>。<strong>目前在淘宝上有很多商户出售低于国区售价的游戏，并且说明需要提供账号密码进行代激活。他们的操作方式很可能是用你的账号跨区，然后用低价区货币进行结算，也可能是跨区来接受低价礼物。</strong>无论如何，这类购买行为都会招致G胖“小红信”的“青睐”。如果你爱惜自己的账号，请切记不要以身犯险。</p>
+<p>那小红信的作用是什么，收到“小红信”之后，<mark class="label default">如果你无法出示跨区所在国家的居住证明或来往这些地区的机票等证明</mark>，<mark class="label danger">账户会被永久封停</mark>。<strong>目前在淘宝上有很多商户出售低于国区售价的游戏，并且说明需要提供账号密码进行代激活。他们的操作方式很可能是用你的账号跨区，然后用低价区货币进行结算，也可能是跨区来接受低价礼物。</strong>无论如何，这类购买行为都会招致G胖“小红信”的“青睐”。如果你爱惜自己的账号，请切记不要以身犯险。</p>
 <a id="more"></a>
 
 <p>当然，如果你“科学上网”到高价区去购买高价游戏是完全没有问题的，毕竟看在钱的面子上，G胖也没办法拒绝。如果你本人真的在去低价区旅行期间购买了游戏，这也是没有问题的，只要你有机票等证明就行。</p>
-<p>此外，还有一个可能收到“小红信”，但是处罚比较轻微的情况，这就是<span class="label danger">收到黑礼物</span>。有些商户会盗刷信用卡，购买礼物赠送给你套现，价格低廉到非常诱人，但到了信用卡月结时，礼物会因拒付而被收回，你的账户也会收到一张“小红信”。<span class="label warning">这类处罚一般较轻，第一次只是回收游戏，第二次则是封禁9周，第三次才会永久封禁。</span>当然，也可能有多次警告仍未被封禁的情况，但保险起见建议不要和来路不明、售价低廉的商户频繁交易。如果选择私人或商户代购礼物，请选择信誉好、规模大的商家，详情可以参考贴吧和<strong><a href="https://steamrepcn.com/" target="_blank" rel="noopener external nofollow noreferrer">SteamRep（交易信誉评价平台）</a></strong>来查看交易对象的信誉。</p>
+<p>此外，还有一个可能收到“小红信”，但是处罚比较轻微的情况，这就是<mark class="label danger">收到黑礼物</mark>。有些商户会盗刷信用卡，购买礼物赠送给你套现，价格低廉到非常诱人，但到了信用卡月结时，礼物会因拒付而被收回，你的账户也会收到一张“小红信”。<mark class="label warning">这类处罚一般较轻，第一次只是回收游戏，第二次则是封禁9周，第三次才会永久封禁。</mark>当然，也可能有多次警告仍未被封禁的情况，但保险起见建议不要和来路不明、售价低廉的商户频繁交易。如果选择私人或商户代购礼物，请选择信誉好、规模大的商家，详情可以参考贴吧和<strong><a href="https://steamrepcn.com/" target="_blank" rel="noopener external nofollow noreferrer">SteamRep（交易信誉评价平台）</a></strong>来查看交易对象的信誉。</p>
 </span>
 
 <span id="div-border-top-yellow">
 
 <h2 id="小黄信"><a href="#小黄信" class="headerlink" title=" 小黄信 "></a><font color=#E1BC48><i class="fas fa-envelope"></i> 小黄信 <i class="fas fa-envelope"></i></font></h2><p>接下来就要说为什么Key比礼物安全了，虽然市场也存在盗刷信用卡获取黑Key的情形，月结时黑Key仍会被收回，但此时你收到的会是“小黄信”而非“小红信”，而这不会对你的账户造成任何影响。虽然也有传闻称，黑Key被收回5次以上也会对账号造成影响，但是目前并没有相关的实例可以佐证。所以相对而言，Key要比购买礼物和“科学上网”安全许多。</p>
-<span class="label info">因为CD Key是发行商向零售方出售的，属于第三方渠道，与V社（Steam）无关，也就是说Steam没有权利封禁因第三方渠道出现问题的账号。</span>
+<mark class="label info">因为CD Key是发行商向零售方出售的，属于第三方渠道，与V社（Steam）无关，也就是说Steam没有权利封禁因第三方渠道出现问题的账号。</mark>
 
 </span>
 
@@ -2215,7 +2235,7 @@
 <p><strong>2019年8月，Steam由于更改了相关政策，本文“前言”部分内容已不再准确，但并不影响SteamDB的使用方法</strong></p>
 </div>
 
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>先前，我专门写了一篇关于<strong><a href="https://coldcard.wang/Steam/Steam跨区买游/">Steam跨区买游</a></strong>的日志,在文中我较详细的介绍了Steam跨区买游的方法以及安全性，结论是<del><span class="label default">跨区买Key是较为安全的</span></del>，那跨区买Key则通常会出现锁区现象，本篇文章将会介绍一个功能强大，对Steam跨区买Key锁区信息查询有莫大帮助的一个网站——<strong><a href="https://steamdb.info/" target="_blank" rel="noopener external nofollow noreferrer">SteamDB</a></strong>。</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>先前，我专门写了一篇关于<strong><a href="https://coldcard.wang/Steam/Steam跨区买游/">Steam跨区买游</a></strong>的日志,在文中我较详细的介绍了Steam跨区买游的方法以及安全性，结论是<del><mark class="label default">跨区买Key是较为安全的</mark></del>，那跨区买Key则通常会出现锁区现象，本篇文章将会介绍一个功能强大，对Steam跨区买Key锁区信息查询有莫大帮助的一个网站——<strong><a href="https://steamdb.info/" target="_blank" rel="noopener external nofollow noreferrer">SteamDB</a></strong>。</p>
 <p>入Steam坑有段时间了，从不知道SteamDB这个网站，也忘了在那个地方了解了这个网站，摸爬滚打到现在也可以简单使用了，SteamDB其实还有很多功能可以发掘，本着授人以鱼不如授人以渔的想法写下这篇指南，希望能帮助到你们。（已经可以熟练使用的大佬可能会觉得这篇指南写的很啰嗦，纯萌新向嘛 _(:зゝ∠)_）。</p>
 <hr>
 <h1 id="SteamDB-简介"><a href="#SteamDB-简介" class="headerlink" title="SteamDB 简介"></a>SteamDB 简介</h1><p>SteamDB是一个关于Steam数据库的一个网站，这个网站的建立是为了让用户更深入了解Steam数据库。它可以追溯<strong>应用（Application）</strong>和<strong>包（Package）</strong>的更新情况并将他们保存在历史中。同时也提供一些像<strong><a href="https://steamdb.info/calculator/" target="_blank" rel="noopener external nofollow noreferrer">Calculator</a></strong>一样的工具给用户，让用户更了解自己的Steam账户。</p>
@@ -2264,7 +2284,7 @@
 
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>中国有句老话叫“货比三家”，对于游戏玩家这句话也非常实用。在PC游戏领域，很多人可能沉浸在G胖的绿Buff中无法自拔，只知道Steam上的游戏只能通过Steam商店购买这一种方式。但是，我们其实也可以在保证比较安全的前提下，买相对更便宜的一款游戏，乃至买到在国区Steam上买不到的游戏。 </p>
 <hr>
-<h1 id="Steam的低价区"><a href="#Steam的低价区" class="headerlink" title="Steam的低价区"></a>Steam的低价区</h1><p>Steam采用的是分区定价方式，不同地区有不同地区的售价，所以就产生了<span class="label danger">高价区</span>和<span class="label success">低价区</span>，常见的高价区主要是美国和欧洲地区，低价区则是巴西、印度、俄罗斯等。中国玩家所在的中国区也属于低价区，绝大多数游戏在我国的售价都低于高价区。当然也有一些例外，比如部分日厂的部分游戏，其定价策略就是中国区的售价反而比欧美要高一些。<span class="label info">因此，如果你想买到低价的游戏，或者锁区的游戏，那么合理的购买策略就是跨区购买。</span></p>
+<h1 id="Steam的低价区"><a href="#Steam的低价区" class="headerlink" title="Steam的低价区"></a>Steam的低价区</h1><p>Steam采用的是分区定价方式，不同地区有不同地区的售价，所以就产生了<mark class="label danger">高价区</mark>和<mark class="label success">低价区</mark>，常见的高价区主要是美国和欧洲地区，低价区则是巴西、印度、俄罗斯等。中国玩家所在的中国区也属于低价区，绝大多数游戏在我国的售价都低于高价区。当然也有一些例外，比如部分日厂的部分游戏，其定价策略就是中国区的售价反而比欧美要高一些。<mark class="label info">因此，如果你想买到低价的游戏，或者锁区的游戏，那么合理的购买策略就是跨区购买。</mark></p>
 <h2 id="Steam国区的打折策略和售价变化"><a href="#Steam国区的打折策略和售价变化" class="headerlink" title=" Steam国区的打折策略和售价变化 "></a><i class="fa fa-align-right"></i> Steam国区的打折策略和售价变化 <i class="fa fa-align-left"></i></h2><p>虽然中国区还是严格意义上的低价区，但其实际的打折力度，已比不上两年前国区刚刚推出的那段时间了。<br>很多游戏去年大半时间内都没有大幅度打折，就算有其折扣力度也基本没有跌破历史最低价（以下简称“史低”），各大促销时段（暑促、黑五、圣诞、春节）的促销游戏数量也有所下滑。</p>
 <a id="more"></a>
 
@@ -2272,7 +2292,7 @@
 <h2 id="Steam的低价区查询"><a href="#Steam的低价区查询" class="headerlink" title=" Steam的低价区查询 "></a><i class="fa fa-align-right"></i> Steam的低价区查询 <i class="fa fa-align-left"></i></h2><p><span id="div-border-right-left-purple"> 既然了解了Steam有低价区，那如何查询哪个地区或国家比中国区便宜呢？<br>那就需要一个查询网站<a href="https://steamdb.info/" target="_blank" rel="noopener external nofollow noreferrer"><strong>SteamDB</strong></a><br><span id="inline-gray"><a href="https://coldcard.wang/post/SteamDB/">☛ SteamDB对于跨区购买信息查询十分有用，具体查询教程 ☚</a></span> </span></p>
 <hr>
 <h1 id="礼物和Key"><a href="#礼物和Key" class="headerlink" title="礼物和Key"></a>礼物和Key</h1><p>买过游戏的一定了解游戏礼物和游戏Key的作用。但Steam的礼物与Key有一些限制与规则需要了解。</p>
-<h2 id="礼物"><a href="#礼物" class="headerlink" title=" 礼物 "></a><i class="fa fa-align-right"></i> 礼物 <i class="fa fa-align-left"></i></h2><span class="label default">2017年5月4日Steam礼物新政之后，游戏礼物无法再作为库存囤积，锁区的礼物也没办法送出。</span>从低价区向高价区赠送礼物，如果差价超过游戏价值的10%，会提示“无法赠送”，这意味着，如果一款游戏在外国区售价比中国区低10%以上，是无法从外国区赠送过来的。
+<h2 id="礼物"><a href="#礼物" class="headerlink" title=" 礼物 "></a><i class="fa fa-align-right"></i> 礼物 <i class="fa fa-align-left"></i></h2><mark class="label default">2017年5月4日Steam礼物新政之后，游戏礼物无法再作为库存囤积，锁区的礼物也没办法送出。</mark>从低价区向高价区赠送礼物，如果差价超过游戏价值的10%，会提示“无法赠送”，这意味着，如果一款游戏在外国区售价比中国区低10%以上，是无法从外国区赠送过来的。
 <p>当然，如果土豪想从高价区给低价区赠送礼物，这仍然是可行的。G胖说不定还鼓励你这么干呢</p>
 <p><strong>虽然高、低价区直接赠送礼物有了很多限制，可土豪们还有礼品卡和套现钱包余额的选择，但前者钱多后者水深，所以对不是土豪以及对其不了解的人建议不要尝试。</strong></p>
 </center>
@@ -2294,7 +2314,7 @@
 <h2 id="礼物和Key的区别"><a href="#礼物和Key的区别" class="headerlink" title=" 礼物和Key的区别 "></a><i class="fa fa-align-right"></i> 礼物和Key的区别 <i class="fa fa-align-left"></i></h2><p> 从本质上来说，商店、礼物、Key这3个购买来源没有太大区别，通过这3种渠道激活的游戏都会存在你的游戏库里，其他玩家也可以清楚地看到你拥有这些游戏。  <strong>不过，除去Steam商店购买这个最为保险的途径，Key其实比起礼物要安全许多。<span id="inline-yellow"><a href="https://coldcard.wang/post/Steam_Warning"><i class="fa fa-hand-o-right"></i> 原因详情 <i class="fa fa-hand-o-left"></i></a></span></strong><br> <span id="inline-purple"><del>所以跨区买Key才是正解</del></span> </p>
 <hr>
 <h1 id="锁区"><a href="#锁区" class="headerlink" title="锁区"></a>锁区</h1><p> 锁区的意思就是无法从账号所在区域购买某款特定的游戏。通常游戏发行商会采用这种策略维护自己的利益，或是为了达到某些额外的目的。  要想买到锁区的游戏，除了2017年5月4日之前囤积的礼物存货入库，最好的方法就是上面说的购买游戏Key。通常情况下，一个没有任何限制的Key直接输入Steam就可以下载游玩了。 </p>
-<p> <strong>但Steam跨区买Key常遇到有限制的锁区。</strong>  <strong>Steam锁区一般分为三种，锁激活、锁运行和锁语言。</strong>  <del>其解决难度为，<span class="label danger">锁激活＜锁运行＜锁语言</span></del>  <span id="inline-gray"><a href="https://coldcard.wang/Steam/SteamDB指南/">☛ SteamDB锁区信息查询教程 ☚</a></span></p>
+<p> <strong>但Steam跨区买Key常遇到有限制的锁区。</strong>  <strong>Steam锁区一般分为三种，锁激活、锁运行和锁语言。</strong>  <del>其解决难度为，<mark class="label danger">锁激活＜锁运行＜锁语言</mark></del>  <span id="inline-gray"><a href="https://coldcard.wang/Steam/SteamDB指南/">☛ SteamDB锁区信息查询教程 ☚</a></span></p>
 <h2 id="锁激活"><a href="#锁激活" class="headerlink" title=" 锁激活 "></a><i class="fa fa-align-right"></i> 锁激活 <i class="fa fa-align-left"></i></h2><p> 在输入Key时你会得到提醒，这一枚Key无法在你所在的地区激活。<del>这个问题可以解决，而且解决起来也简单，你只需要用Key所适用地区当地的IP来激活即可，而且毫无风险，不会导致Key失效或者账号被封。</del>  如果不会“科学上网”，也可以向提供云激活服务的网站寻求帮助。<span id="inline-yellow"><a href="https://stkey.win/" target="_blank" rel="noopener external nofollow noreferrer">☛ 云激活网站 ☚</a></span> </p>
 </center>
 <div class="note info">
@@ -2309,7 +2329,7 @@
 <center>
 
 <h2 id="锁运行"><a href="#锁运行" class="headerlink" title=" 锁运行 "></a><i class="fa fa-align-right"></i> 锁运行 <i class="fa fa-align-left"></i></h2><p> 在激活成功入库后，点击“安装”按钮，系统提示“未在你所在地区发行”或者“您目前不在该地区”，导致无法安装和进入游戏。  这时有两种解决方式，如果你想马上玩到这款游戏，那就采用Key所在地区IP上网的方式下载运行。</p>
- <span class="label success">如果你不着急，那就等3个月，锁运行的游戏会自动解锁，到时就不再有地区限制了。（没有相关官方说明，但根据Steam玩家测试，目前均无未解情况）</span>
+ <mark class="label success">如果你不着急，那就等3个月，锁运行的游戏会自动解锁，到时就不再有地区限制了。（没有相关官方说明，但根据Steam玩家测试，目前均无未解情况）</mark>
 
 <h2 id="锁语言"><a href="#锁语言" class="headerlink" title=" 锁语言 "></a><i class="fa fa-align-right"></i> 锁语言 <i class="fa fa-align-left"></i></h2><p> 这是相对比较难解决以及解决起来比较麻烦的情况，此情况多出现在俄区，具体表现在进入游戏只有俄语选择，不能更改语言。因此购买Key时请看清支持的语言。<br> <span id="inline-blue"><a href="https://steamdb.info/" target="_blank" rel="noopener external nofollow noreferrer">至于解决方法可以查看此贴，但并不适用所有游戏</a></span> </p>
 </center>
@@ -2362,7 +2382,7 @@
 <hr>
 <center>
 
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p> Steam游戏的购买分为3种：商店、礼物和Key。<span class="label danger">如果想要保住自己的账号：第一，不要把自己的账号、密码提供给他人，无论是什么原因；第二，不要跨到低价区商店买游戏，不要收低级区的礼物，这两种行为都会导致你的账号被封禁。</span><del><span class="label danger">低价区的Key则是相对安全的</span></del><br> 此外，购物时请注意购买的游戏是礼物还是Key，以及去什么平台激活。不要买成了Origin、Uplay乃至Xbox和PSN上的游戏，因为用户疏忽买错的商品是不会退货的。 </p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p> Steam游戏的购买分为3种：商店、礼物和Key。<mark class="label danger">如果想要保住自己的账号：第一，不要把自己的账号、密码提供给他人，无论是什么原因；第二，不要跨到低价区商店买游戏，不要收低级区的礼物，这两种行为都会导致你的账号被封禁。</mark><del><mark class="label danger">低价区的Key则是相对安全的</mark></del><br> 此外，购物时请注意购买的游戏是礼物还是Key，以及去什么平台激活。不要买成了Origin、Uplay乃至Xbox和PSN上的游戏，因为用户疏忽买错的商品是不会退货的。 </p>
 <div class="note danger no-icon"><font size="6px">
 
 <p><strong>新政策感想（2019.8）</strong><br></font></p>
@@ -2735,7 +2755,7 @@
 <h3 id="无上至尊"><a href="#无上至尊" class="headerlink" title="无上至尊"></a>无上至尊</h3></li>
 <li><p>NPC们称为“无上至尊”、“至高的41人”。 </p>
 <h4 id="最初的九人"><a href="#最初的九人" class="headerlink" title="最初的九人"></a>最初的九人</h4></li>
-<li><h5 id="アインズ・ウール・ゴウン（モモンガ）-Ainz-Ooal-Gown（Momonga）-声：日野聪"><a href="#アインズ・ウール・ゴウン（モモンガ）-Ainz-Ooal-Gown（Momonga）-声：日野聪" class="headerlink" title=" アインズ・ウール・ゴウン（モモンガ）| Ainz Ooal Gown（Momonga）| 声：日野聪"></a><span class="label primary">安兹·乌尔·恭（飞鼠）</span> <code>アインズ・ウール・ゴウン（モモンガ）| Ainz Ooal Gown（Momonga）| 声：日野聪</code></h5><div class="note default no-icon">
+<li><h5 id="アインズ・ウール・ゴウン（モモンガ）-Ainz-Ooal-Gown（Momonga）-声：日野聪"><a href="#アインズ・ウール・ゴウン（モモンガ）-Ainz-Ooal-Gown（Momonga）-声：日野聪" class="headerlink" title=" アインズ・ウール・ゴウン（モモンガ）| Ainz Ooal Gown（Momonga）| 声：日野聪"></a><mark class="label primary">安兹·乌尔·恭（飞鼠）</mark> <code>アインズ・ウール・ゴウン（モモンガ）| Ainz Ooal Gown（Momonga）| 声：日野聪</code></h5><div class="note default no-icon">
 
 <p><strong>种族等级：骷髅魔法师Lv15、死者大魔法师Lv10、死之统治者Lv5、其他</strong><br><strong>职业等级：死灵法师Lv10、巅峰不死者Lv10、日蚀Lv5、其他</strong><br><strong>综合等级：Lv100【种族(40)+职业(60)】</strong><br><strong>别称：“拥有骷髅外表的最强魔法咏唱者”</strong><br><strong>职位：至高无上的41位至尊之一、纳萨力克地下大坟墓的统治者、安兹·乌尔·恭魔导国国王</strong><br><strong>住处：地下第九层的房间</strong><br><strong>属性：极恶（正义值=负500）</strong><br><strong>本作主角，男，身高177cm</strong><br><strong>潘朵拉·亚克特的创造者</strong></p>
 </div>
@@ -2743,10 +2763,10 @@
 <ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
-              <blockquote><p><em>“安兹·乌尔·恭”公会的会长，本名</em> <strong>铃木悟</strong> <em>，现实中是一名忙碌的业务员，在小说第一册末尾以公会之名作为自己的新名字以展现继承同伴意志的决心及向其他可能的穿越玩家昭示存在，重度氪金玩家。web版高中学历非处男但小说文库改为小学学历处男。</em></p></blockquote><blockquote><p><em>双亲因过劳死早已不在，无亲无故地过著孤独的生活，在对现实没啥依恋的反而非常珍视与公会成员间的友情，即使成员逐一离开后依然维持著公会等待他们归来。</em></p></blockquote><blockquote><p><em>在来到异世界的同时，身体变为“YGGDRASIL”中死者大魔法师的骷髅样貌（Web版为附着着一层干枯皮肤的干尸），并保有游戏中的全部能力与魔法。但也带来高昂的情绪波动会被压抑，以及失去食欲、睡意、对人类的同情心等非人化的变化。</em></p></blockquote><blockquote><p><span class="label success">算是讲理且有器量的人，没有虐待他人为乐的恶癖，与一般人有所深交时也多少会显露温情，但涉及纳萨力克大坟墓利益时仍会下达残酷的决定。</span></p></blockquote><blockquote><p><span class="label success">基本上是个深思熟虑的人，但由于教养的缺乏（在教育费用昂贵的未来仅取得小学学历）而常有思虑不及或误解他人意思的情况，虽然本人也有自觉并努力精进，但在面对属下意外的提问与献策时仍常得靠装模作样来蒙混过关并因此深感不安。</span></p></blockquote><blockquote><p><em>但在另一方面，在交涉上却颇能善用业务员的经验，其毫不傲慢的简单正论反而常令与之交涉的人物们感到无从抵驳甚至产生好感。</em></p></blockquote><blockquote><p><strong>将纳萨力克内的的一切视为昔日同伴遗留的珍贵宝物，并把诸NPC视作公会成员的孩子地疼惜，也因此赢得诸守护者的敬爱。</strong><em>穿越后一直以保护纳萨力克为第一优先地慎重行事，一直以提防未知势力为前提秘密搜集情报，并时常为情报与资金的不足感到苦恼。但逐渐掌握周边局势后，也慢慢展开张扬的台面上活动（虽然这是守护者误解其意所致）。在楼层守护者们的谋策与拥戴下于文库版第九集正式建立国家，并采纳科塞特斯的建议自封为“魔导王”。</em></p></blockquote><blockquote><p><em>在“安兹·乌尔·恭魔导国”建国后几经思考，决定将魔导国打造成各种族都能和平共存的国家。在将国政交给雅尔贝德等智者的同时，(半逃避责任的)亲自展开劝诱帝国冒险者及洽谈矮人王国建交的工作，并接连创下三天将帝国不流血属国化、夺回矮人国国都、降伏霜龙群、击杀魔皇亚达巴沃以及解救圣王国等大伟业。</em></p></blockquote><blockquote><p><span class="label success">取名字的品味很糟，名作有‘仓助’、‘布纽佩扭子’等，游戏时代提议要帮公会命名（异形种动物园）时甚至引起了公会成员们的惊慌。</span></p></blockquote>
+              <blockquote><p><em>“安兹·乌尔·恭”公会的会长，本名</em> <strong>铃木悟</strong> <em>，现实中是一名忙碌的业务员，在小说第一册末尾以公会之名作为自己的新名字以展现继承同伴意志的决心及向其他可能的穿越玩家昭示存在，重度氪金玩家。web版高中学历非处男但小说文库改为小学学历处男。</em></p></blockquote><blockquote><p><em>双亲因过劳死早已不在，无亲无故地过著孤独的生活，在对现实没啥依恋的反而非常珍视与公会成员间的友情，即使成员逐一离开后依然维持著公会等待他们归来。</em></p></blockquote><blockquote><p><em>在来到异世界的同时，身体变为“YGGDRASIL”中死者大魔法师的骷髅样貌（Web版为附着着一层干枯皮肤的干尸），并保有游戏中的全部能力与魔法。但也带来高昂的情绪波动会被压抑，以及失去食欲、睡意、对人类的同情心等非人化的变化。</em></p></blockquote><blockquote><p><mark class="label success">算是讲理且有器量的人，没有虐待他人为乐的恶癖，与一般人有所深交时也多少会显露温情，但涉及纳萨力克大坟墓利益时仍会下达残酷的决定。</mark></p></blockquote><blockquote><p><mark class="label success">基本上是个深思熟虑的人，但由于教养的缺乏（在教育费用昂贵的未来仅取得小学学历）而常有思虑不及或误解他人意思的情况，虽然本人也有自觉并努力精进，但在面对属下意外的提问与献策时仍常得靠装模作样来蒙混过关并因此深感不安。</mark></p></blockquote><blockquote><p><em>但在另一方面，在交涉上却颇能善用业务员的经验，其毫不傲慢的简单正论反而常令与之交涉的人物们感到无从抵驳甚至产生好感。</em></p></blockquote><blockquote><p><strong>将纳萨力克内的的一切视为昔日同伴遗留的珍贵宝物，并把诸NPC视作公会成员的孩子地疼惜，也因此赢得诸守护者的敬爱。</strong><em>穿越后一直以保护纳萨力克为第一优先地慎重行事，一直以提防未知势力为前提秘密搜集情报，并时常为情报与资金的不足感到苦恼。但逐渐掌握周边局势后，也慢慢展开张扬的台面上活动（虽然这是守护者误解其意所致）。在楼层守护者们的谋策与拥戴下于文库版第九集正式建立国家，并采纳科塞特斯的建议自封为“魔导王”。</em></p></blockquote><blockquote><p><em>在“安兹·乌尔·恭魔导国”建国后几经思考，决定将魔导国打造成各种族都能和平共存的国家。在将国政交给雅尔贝德等智者的同时，(半逃避责任的)亲自展开劝诱帝国冒险者及洽谈矮人王国建交的工作，并接连创下三天将帝国不流血属国化、夺回矮人国国都、降伏霜龙群、击杀魔皇亚达巴沃以及解救圣王国等大伟业。</em></p></blockquote><blockquote><p><mark class="label success">取名字的品味很糟，名作有‘仓助’、‘布纽佩扭子’等，游戏时代提议要帮公会命名（异形种动物园）时甚至引起了公会成员们的惊慌。</mark></p></blockquote>
               </div>
             </details></li>
-<li><h6 id="モモン-Momon"><a href="#モモン-Momon" class="headerlink" title="モモン | Momon"></a><span class="label info">飞飞</span><code>モモン | Momon</code></h6><ul>
+<li><h6 id="モモン-Momon"><a href="#モモン-Momon" class="headerlink" title="モモン | Momon"></a><mark class="label info">飞飞</mark><code>モモン | Momon</code></h6><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
               <blockquote><p><strong>穿著黑色全身铠的冒险者，是安兹用来在异世界搜集情报、赚取外汇与消除压力所制造的假身份。</strong></p></blockquote><blockquote><p><em>穿著的铠甲与巨剑都是安兹用魔力制造的魔法装备，在偶尔需要以真面目示人时会用幻象制造出脸孔，虽然并非战士，但因为等级封顶所累积的基本体能相当惊人，单就臂力而言已达到英雄的等级，然而在面对有经验的战士时就会曝露出缺乏经验的弱点，但之后身手已大有长进。</em></p></blockquote><blockquote><p><em>与同伴娜贝达成了收服森林贤王、讨伐招唤巨大不死者集团之首脑、击败强大吸血鬼、击退袭击王都的大恶魔等难以想像的功绩，而在极短的时间内从最底层的铜牌成为王国境内仅有三组的精钢级冒险者之一，被人们称作“漆黑的飞飞”及“漆黑英雄”。</em></p></blockquote><blockquote><p><em>由于有著“先累积良好的名声，最后再一口气将飞飞的功绩归功于“纳萨力克地下大坟墓”的打算，因此在外扮演著大器且亲切的强者，在其主要活动的城市耶·兰提尔以及冒险者之间拥有相当好的风评。</em></p></blockquote><blockquote><p><em>而后，在耶·兰堤尔遭到纳萨力克占领时，借由演了出挺身为庇护平民而向安兹臣服的戏，成为了魔导国安定居民不安情绪的柱石。</em></p></blockquote><blockquote><p><em>Web版中是长相普通的男村民，冒险者新手，由还算能圆滑处事的娜贝拉尔伪装而成，也没有一身漆黑的全身铠，而是在村衫内穿了一件链甲衫，全身上下只有金属手套是魔法道具。</em></p></blockquote><blockquote><p><em>第十卷时由于安兹必须处理耶‧兰提尔的事，改由潘朵拉负责饰演。</em></p></blockquote><blockquote><p><em>在此前也有数次由潘朵拉负责饰演飞飞。</em></p></blockquote>
@@ -2757,43 +2777,43 @@
 </li>
 </ul>
 </li>
-<li><h5 id="たっち・みー-Touch-Me-声：置鲇龙太郎"><a href="#たっち・みー-Touch-Me-声：置鲇龙太郎" class="headerlink" title=" たっち・みー | Touch Me | 声：置鲇龙太郎"></a><span class="label primary">塔其·米</span> <code>たっち・みー | Touch Me | 声：置鲇龙太郎</code></h5><ul>
+<li><h5 id="たっち・みー-Touch-Me-声：置鲇龙太郎"><a href="#たっち・みー-Touch-Me-声：置鲇龙太郎" class="headerlink" title=" たっち・みー | Touch Me | 声：置鲇龙太郎"></a><mark class="label primary">塔其·米</mark> <code>たっち・みー | Touch Me | 声：置鲇龙太郎</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
-              <blockquote><p><strong>别称：“纯银圣骑士”</strong></p></blockquote><blockquote><p><span class="label warning"><em>公会中最强的男人。战士系最强职业，全游戏仅有9人的“世界冠军”之一，排位第二名（依赢得大赛顺序排名），但与第三名比试时输给第三名。赢得世界冠军时选择纯白铠甲作为奖赏。web版直言是全游戏前三强，亚尔夫海姆的世界冠军。</em></span></p></blockquote><blockquote><p><strong><span class="label danger">种族是昆虫系(推测为蝗虫)，塞巴斯·强的创造者。</span></strong></p></blockquote><blockquote><p><span class="label success"><em>救了因身为异形类种族而被不断PK的飞鼠，成为后来飞鼠加入公会的契机。有著遇见困难的人必须伸出援手帮助人，纠结于“正义”二字的个性。</em></span></p></blockquote><blockquote><p><em>在现实世界中有著青梅竹马的美女妻子和女儿，本人长得很帅，而且家很有钱，职业是警官，完全的人生赢家，但曾经因为游戏的问题和妻子吵过架。</em></p></blockquote><blockquote><p><span class="label success">本来是成员中类似老大哥般的存在，但后来由于发生“某事件”后地位下滑，而后在公会成立时推荐飞鼠担任公会会长。特典中对“某事件”透露的消息是，他、乌尔贝特、不知名的最初九人之一，3人之间发生了某事后导致那位不知名的人永远退出游戏。</span></p></blockquote><blockquote><p><em>与web版相比，文库版的塔其·米强度有所减弱，web版世界冠军可以和一般最高阶玩家最多5人对峙（排行靠前的3人、靠中为4人、靠后为5人），文库版因为作者自己也觉得网游能一挑四太离谱，最后改成说如果是一挑四名低阶玩家中的下位说不定能赢？</em></p></blockquote><blockquote><p><em>配合姿势，身后会出现“正义降临”的文字特效(一个字50円)和爆炸特效。喜欢150年前节目的假面英雄(暗示假面骑士)。</em></p></blockquote>
+              <blockquote><p><strong>别称：“纯银圣骑士”</strong></p></blockquote><blockquote><p><mark class="label warning"><em>公会中最强的男人。战士系最强职业，全游戏仅有9人的“世界冠军”之一，排位第二名（依赢得大赛顺序排名），但与第三名比试时输给第三名。赢得世界冠军时选择纯白铠甲作为奖赏。web版直言是全游戏前三强，亚尔夫海姆的世界冠军。</em></mark></p></blockquote><blockquote><p><strong><mark class="label danger">种族是昆虫系(推测为蝗虫)，塞巴斯·强的创造者。</mark></strong></p></blockquote><blockquote><p><mark class="label success"><em>救了因身为异形类种族而被不断PK的飞鼠，成为后来飞鼠加入公会的契机。有著遇见困难的人必须伸出援手帮助人，纠结于“正义”二字的个性。</em></mark></p></blockquote><blockquote><p><em>在现实世界中有著青梅竹马的美女妻子和女儿，本人长得很帅，而且家很有钱，职业是警官，完全的人生赢家，但曾经因为游戏的问题和妻子吵过架。</em></p></blockquote><blockquote><p><mark class="label success">本来是成员中类似老大哥般的存在，但后来由于发生“某事件”后地位下滑，而后在公会成立时推荐飞鼠担任公会会长。特典中对“某事件”透露的消息是，他、乌尔贝特、不知名的最初九人之一，3人之间发生了某事后导致那位不知名的人永远退出游戏。</mark></p></blockquote><blockquote><p><em>与web版相比，文库版的塔其·米强度有所减弱，web版世界冠军可以和一般最高阶玩家最多5人对峙（排行靠前的3人、靠中为4人、靠后为5人），文库版因为作者自己也觉得网游能一挑四太离谱，最后改成说如果是一挑四名低阶玩家中的下位说不定能赢？</em></p></blockquote><blockquote><p><em>配合姿势，身后会出现“正义降临”的文字特效(一个字50円)和爆炸特效。喜欢150年前节目的假面英雄(暗示假面骑士)。</em></p></blockquote>
               </div>
             </details>
 </li>
 </ul>
 </li>
-<li><h5 id="ぶじんたけみかずち"><a href="#ぶじんたけみかずち" class="headerlink" title=" ぶじんたけみかずち"></a><span class="label primary">武人建御雷</span> <code>ぶじんたけみかずち</code></h5><ul>
+<li><h5 id="ぶじんたけみかずち"><a href="#ぶじんたけみかずち" class="headerlink" title=" ぶじんたけみかずち"></a><mark class="label primary">武人建御雷</mark> <code>ぶじんたけみかずち</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
-              <blockquote><p><strong>别称：“The 武士”</strong></p></blockquote><blockquote><p><span class="label danger">外表是武士造型，种族是半魔巨人(ネフィリム)，跟贰式炎雷的交情很好。科塞特斯的创造者。</span></p></blockquote><blockquote><p><span class="label warning"><em>自身持有许多武器，如&lt;斩神刀皇&gt;、&lt;建御雷八式&gt;等，并把武器知识全数教给科塞特斯。</em></span></p></blockquote><blockquote><p><em>一开始是被塔其·米的强大所吸引而加入，后来目标改为希望能做出足以击败塔其·米的武器，但在达成目标前，塔其·米已离开游戏。</em></p></blockquote><blockquote><p><span class="label success"><em>拥有剑圣这个职业，跟贰式炎雷一样，拥有顶级的攻击力但是防御力低下。</em></span></p></blockquote><blockquote><p><em>攻略纳萨力克时与飞鼠同一队。</em></p></blockquote><blockquote><p><span class="label success"><em>被贰式炎雷、古一昵称为阿建(建やん)。</em></span></p></blockquote>
+              <blockquote><p><strong>别称：“The 武士”</strong></p></blockquote><blockquote><p><mark class="label danger">外表是武士造型，种族是半魔巨人(ネフィリム)，跟贰式炎雷的交情很好。科塞特斯的创造者。</mark></p></blockquote><blockquote><p><mark class="label warning"><em>自身持有许多武器，如&lt;斩神刀皇&gt;、&lt;建御雷八式&gt;等，并把武器知识全数教给科塞特斯。</em></mark></p></blockquote><blockquote><p><em>一开始是被塔其·米的强大所吸引而加入，后来目标改为希望能做出足以击败塔其·米的武器，但在达成目标前，塔其·米已离开游戏。</em></p></blockquote><blockquote><p><mark class="label success"><em>拥有剑圣这个职业，跟贰式炎雷一样，拥有顶级的攻击力但是防御力低下。</em></mark></p></blockquote><blockquote><p><em>攻略纳萨力克时与飞鼠同一队。</em></p></blockquote><blockquote><p><mark class="label success"><em>被贰式炎雷、古一昵称为阿建(建やん)。</em></mark></p></blockquote>
               </div>
             </details>
 </li>
 </ul>
 </li>
-<li><h5 id="弐式炎雷"><a href="#弐式炎雷" class="headerlink" title=" 弐式炎雷"></a><span class="label primary">贰式炎雷</span> <code>弐式炎雷</code></h5><ul>
+<li><h5 id="弐式炎雷"><a href="#弐式炎雷" class="headerlink" title=" 弐式炎雷"></a><mark class="label primary">贰式炎雷</mark> <code>弐式炎雷</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
-              <blockquote><p><strong>别称：“The 忍者”</strong></p></blockquote><blockquote><p><strong><span class="label danger">外表是典型的忍者，种族是半哥雷姆(ハーフ・ゴーレム)，跟武人建御雷的交情很好。娜贝拉尔·伽玛的创造者。</span></strong></p></blockquote><blockquote><p><em><strong><span class="label warning">公会中攻击力最强的成员，持有&lt;天照&gt;、&lt;月读&gt;两把小太刀以及点满攻击力的超巨大忍刀&lt;素戋呜&gt;。</span></strong></em></p></blockquote><blockquote><p><em>在游戏中以隐藏身影再一击必杀让怪物没法呼叫同伴的方式成为最早发现纳萨力克地下大坟墓的人。</em></p></blockquote><blockquote><p><span class="label success"><em>极端重视速度和攻击力，防御力非常低，被布妞萌称为脑子有问题。</em></span></p></blockquote><blockquote><p><em>攻略纳萨力克时与飞鼠同一队。</em></p></blockquote>
+              <blockquote><p><strong>别称：“The 忍者”</strong></p></blockquote><blockquote><p><strong><mark class="label danger">外表是典型的忍者，种族是半哥雷姆(ハーフ・ゴーレム)，跟武人建御雷的交情很好。娜贝拉尔·伽玛的创造者。</mark></strong></p></blockquote><blockquote><p><em><strong><mark class="label warning">公会中攻击力最强的成员，持有&lt;天照&gt;、&lt;月读&gt;两把小太刀以及点满攻击力的超巨大忍刀&lt;素戋呜&gt;。</mark></strong></em></p></blockquote><blockquote><p><em>在游戏中以隐藏身影再一击必杀让怪物没法呼叫同伴的方式成为最早发现纳萨力克地下大坟墓的人。</em></p></blockquote><blockquote><p><mark class="label success"><em>极端重视速度和攻击力，防御力非常低，被布妞萌称为脑子有问题。</em></mark></p></blockquote><blockquote><p><em>攻略纳萨力克时与飞鼠同一队。</em></p></blockquote>
               </div>
             </details>
 </li>
 </ul>
 </li>
-<li><h5 id="あまのひとつ"><a href="#あまのひとつ" class="headerlink" title=" あまのひとつ"></a><span class="label primary">天目一个</span> <code>あまのひとつ</code></h5><ul>
+<li><h5 id="あまのひとつ"><a href="#あまのひとつ" class="headerlink" title=" あまのひとつ"></a><mark class="label primary">天目一个</mark> <code>あまのひとつ</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
-              <blockquote><p><strong>别称：“美食家锻造师”</strong></p></blockquote><blockquote><p><strong><span class="label danger">外表是头戴蟹壳的锻造师，种族是半蟹人，跟塔其·米一样喜欢假面变身英雄捏他而加入。</span></strong></p></blockquote><blockquote><p><em><strong><span class="label warning">锻造系职业，集团时代并非整天待在工房里，而是可以胜任某种程度上的战斗，</span> <span class="label warning">攻占纳萨力克后才将职业转为完全锻造系特化。</span></strong></em></p></blockquote><blockquote><p><em>热爱美食好菜，常见到他在锻造实验前吃增益食品的样子，设定上是纳萨力克锻造系NPC的大师傅。</em></p></blockquote><blockquote><p><span class="label success"><em>弃坑时将BOSS掉落的超稀有工艺品-短杖大师戒指给了飞鼠。</em></span></p></blockquote>
+              <blockquote><p><strong>别称：“美食家锻造师”</strong></p></blockquote><blockquote><p><strong><mark class="label danger">外表是头戴蟹壳的锻造师，种族是半蟹人，跟塔其·米一样喜欢假面变身英雄捏他而加入。</mark></strong></p></blockquote><blockquote><p><em><strong><mark class="label warning">锻造系职业，集团时代并非整天待在工房里，而是可以胜任某种程度上的战斗，</mark> <mark class="label warning">攻占纳萨力克后才将职业转为完全锻造系特化。</mark></strong></em></p></blockquote><blockquote><p><em>热爱美食好菜，常见到他在锻造实验前吃增益食品的样子，设定上是纳萨力克锻造系NPC的大师傅。</em></p></blockquote><blockquote><p><mark class="label success"><em>弃坑时将BOSS掉落的超稀有工艺品-短杖大师戒指给了飞鼠。</em></mark></p></blockquote>
               </div>
             </details>
 </li>
 </ul>
 </li>
-<li><h5 id="エンシエント・ワン-Ancient-One"><a href="#エンシエント・ワン-Ancient-One" class="headerlink" title=" エンシエント・ワン | Ancient One"></a><span class="label primary">古一</span> <code>エンシエント・ワン | Ancient One</code></h5><ul>
+<li><h5 id="エンシエント・ワン-Ancient-One"><a href="#エンシエント・ワン-Ancient-One" class="headerlink" title=" エンシエント・ワン | Ancient One"></a><mark class="label primary">古一</mark> <code>エンシエント・ワン | Ancient One</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
               <blockquote><p><em>以YGGDRASIL“最正确的游戏方式就是投身到危险之中啊”支持公会最初的活动就去攻略初见迷宫。</em></p></blockquote>
@@ -2802,16 +2822,16 @@
 </li>
 </ul>
 </li>
-<li><h5 id=""><a href="#" class="headerlink" title=""></a><span class="label primary">名称不明。</span></h5><ul>
+<li><h5 id=""><a href="#" class="headerlink" title=""></a><mark class="label primary">名称不明。</mark></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
-              <blockquote><p><em>与乌尔贝特交情不错。</em></p></blockquote><blockquote><p><strong><span class="label danger">似乎和塔其‧米对立并被赶出去，从此不再玩YGGDRASIL。</span></strong></p></blockquote>
+              <blockquote><p><em>与乌尔贝特交情不错。</em></p></blockquote><blockquote><p><strong><mark class="label danger">似乎和塔其‧米对立并被赶出去，从此不再玩YGGDRASIL。</mark></strong></p></blockquote>
               </div>
             </details>
 </li>
 </ul>
 </li>
-<li><h5 id="ウィッシュⅢ"><a href="#ウィッシュⅢ" class="headerlink" title=" ウィッシュⅢ"></a><span class="label primary">Wish Ⅲ</span> <code>ウィッシュⅢ</code></h5><ul>
+<li><h5 id="ウィッシュⅢ"><a href="#ウィッシュⅢ" class="headerlink" title=" ウィッシュⅢ"></a><mark class="label primary">Wish Ⅲ</mark> <code>ウィッシュⅢ</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
               <blockquote><p><em>详细不明。</em></p></blockquote>
@@ -2820,10 +2840,10 @@
 </li>
 </ul>
 </li>
-<li><h5 id="フラットフット"><a href="#フラットフット" class="headerlink" title=" フラットフット"></a><span class="label primary">扁平足</span> <code>フラットフット</code></h5><ul>
+<li><h5 id="フラットフット"><a href="#フラットフット" class="headerlink" title=" フラットフット"></a><mark class="label primary">扁平足</mark> <code>フラットフット</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
-              <blockquote><p><strong><span class="label danger">职业是暗杀者。</span></strong></p></blockquote><blockquote><p><em>喜欢平胸的女性但并非是萝莉控。</em></p></blockquote>
+              <blockquote><p><strong><mark class="label danger">职业是暗杀者。</mark></strong></p></blockquote><blockquote><p><em>喜欢平胸的女性但并非是萝莉控。</em></p></blockquote>
               </div>
             </details>
 
@@ -2832,124 +2852,124 @@
 </li>
 </ul>
 <h4 id="之后加入的成员"><a href="#之后加入的成员" class="headerlink" title="之后加入的成员"></a>之后加入的成员</h4><ul>
-<li><h5 id="タブラ・スマラグディナ-Tabula-Smaragdina"><a href="#タブラ・スマラグディナ-Tabula-Smaragdina" class="headerlink" title=" タブラ・スマラグディナ | Tabula Smaragdina"></a><span class="label info">翠玉录</span> <code>タブラ・スマラグディナ | Tabula Smaragdina</code></h5><ul>
+<li><h5 id="タブラ・スマラグディナ-Tabula-Smaragdina"><a href="#タブラ・スマラグディナ-Tabula-Smaragdina" class="headerlink" title=" タブラ・スマラグディナ | Tabula Smaragdina"></a><mark class="label info">翠玉录</mark> <code>タブラ・スマラグディナ | Tabula Smaragdina</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
-              <blockquote><p><strong>别称：“大炼金术师”</strong></p></blockquote><blockquote><p><strong><span class="label danger">种族是食脑者。</span></strong></p></blockquote><blockquote><p>_<span class="label success">公会中属于头脑派，喜爱设定的狂人，制作了公会中两成的机关，但却吃掉了大量的数据量，因此必须自掏腰包来扩充。</span>_</p></blockquote><blockquote><p><em>喜欢反差萌，有著丰富的传奇神话大小知识的完美主义者，平常给人颇有条理的印象，但如果与其深入交谈后，可以发现他其实是属于个性强烈的人。</em></p></blockquote><blockquote><p><strong><span class="label danger">雅儿贝德三姐妹的创造者，命名似乎跟炼金术术语有关。Web版中希丝的创作者。</span></strong></p></blockquote><blockquote><p><em>以付费道具私信公会长非飞鼠不可的三人之一。</em></p></blockquote><blockquote><p><span class="label success"><em>以魔法攻击力上来说超过飞鼠。</em></span></p></blockquote>
+              <blockquote><p><strong>别称：“大炼金术师”</strong></p></blockquote><blockquote><p><strong><mark class="label danger">种族是食脑者。</mark></strong></p></blockquote><blockquote><p>_<mark class="label success">公会中属于头脑派，喜爱设定的狂人，制作了公会中两成的机关，但却吃掉了大量的数据量，因此必须自掏腰包来扩充。</mark>_</p></blockquote><blockquote><p><em>喜欢反差萌，有著丰富的传奇神话大小知识的完美主义者，平常给人颇有条理的印象，但如果与其深入交谈后，可以发现他其实是属于个性强烈的人。</em></p></blockquote><blockquote><p><strong><mark class="label danger">雅儿贝德三姐妹的创造者，命名似乎跟炼金术术语有关。Web版中希丝的创作者。</mark></strong></p></blockquote><blockquote><p><em>以付费道具私信公会长非飞鼠不可的三人之一。</em></p></blockquote><blockquote><p><mark class="label success"><em>以魔法攻击力上来说超过飞鼠。</em></mark></p></blockquote>
               </div>
             </details>
 </li>
 </ul>
 </li>
-<li><h5 id="ペロロンチーノ-Peroroncino-声：立花慎之介"><a href="#ペロロンチーノ-Peroroncino-声：立花慎之介" class="headerlink" title=" ペロロンチーノ | Peroroncino | 声：立花慎之介"></a><span class="label info">佩罗罗奇诺</span> <code>ペロロンチーノ | Peroroncino | 声：立花慎之介</code></h5><ul>
+<li><h5 id="ペロロンチーノ-Peroroncino-声：立花慎之介"><a href="#ペロロンチーノ-Peroroncino-声：立花慎之介" class="headerlink" title=" ペロロンチーノ | Peroroncino | 声：立花慎之介"></a><mark class="label info">佩罗罗奇诺</mark> <code>ペロロンチーノ | Peroroncino | 声：立花慎之介</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
-              <blockquote><p><strong>别称：“爆击之翼王”</strong></p></blockquote><blockquote><p><strong><span class="label danger">种族是鸟人(バードマン)。</span></strong></p></blockquote><blockquote><p> <strong><span class="label danger">萝莉控，夏提雅·布拉德弗伦的创造者。公会中与飞鼠交情最好的玩家。</span></strong></p></blockquote><blockquote><p><span class="label success"><em>泡泡茶壶现实世界中的亲弟弟，属于在姐姐面前抬不起头的类型。</em></span></p></blockquote><blockquote><p><em>曾嘲笑姊姊平胸没男人喜欢而被泡泡茶壶威胁要爆料他12岁时干过的糗事，吓到赶紧道歉。</em></p></blockquote><blockquote><p><em><strong><span class="label warning">身为弓兵特化的角色，持有名为&lt;后羿弓&gt;的武器，虽然很擅长从超远距离使用特殊技能的爆击，</span> <span class="label warning">但反之，在并不怎么开阔的地方战斗能力会有所下降。</span></strong></em></p></blockquote><blockquote><p><em>是名曾做过“技术的发展会最先被用在军事领域上，然后就是色情和医疗。这足以证明色情无可争辩的伟大”宣言的色情爱好者，似乎常买H-Game来玩。但是发现想买的H-Game中有时会有姊姊的配音，会让性欲大幅下降。</em></p></blockquote><blockquote><p><em>是所谓的完美角色培养型玩家，喜好追求更上一层的强度，曾是最早提出不氪金的人之一，不过之后为了不因角色特效而牺牲装备数据量也氪金了。</em></p></blockquote>
+              <blockquote><p><strong>别称：“爆击之翼王”</strong></p></blockquote><blockquote><p><strong><mark class="label danger">种族是鸟人(バードマン)。</mark></strong></p></blockquote><blockquote><p> <strong><mark class="label danger">萝莉控，夏提雅·布拉德弗伦的创造者。公会中与飞鼠交情最好的玩家。</mark></strong></p></blockquote><blockquote><p><mark class="label success"><em>泡泡茶壶现实世界中的亲弟弟，属于在姐姐面前抬不起头的类型。</em></mark></p></blockquote><blockquote><p><em>曾嘲笑姊姊平胸没男人喜欢而被泡泡茶壶威胁要爆料他12岁时干过的糗事，吓到赶紧道歉。</em></p></blockquote><blockquote><p><em><strong><mark class="label warning">身为弓兵特化的角色，持有名为&lt;后羿弓&gt;的武器，虽然很擅长从超远距离使用特殊技能的爆击，</mark> <mark class="label warning">但反之，在并不怎么开阔的地方战斗能力会有所下降。</mark></strong></em></p></blockquote><blockquote><p><em>是名曾做过“技术的发展会最先被用在军事领域上，然后就是色情和医疗。这足以证明色情无可争辩的伟大”宣言的色情爱好者，似乎常买H-Game来玩。但是发现想买的H-Game中有时会有姊姊的配音，会让性欲大幅下降。</em></p></blockquote><blockquote><p><em>是所谓的完美角色培养型玩家，喜好追求更上一层的强度，曾是最早提出不氪金的人之一，不过之后为了不因角色特效而牺牲装备数据量也氪金了。</em></p></blockquote>
               </div>
             </details>
 </li>
 </ul>
 </li>
-<li><h5 id="ぷにっと萌え"><a href="#ぷにっと萌え" class="headerlink" title=" ぷにっと萌え"></a><span class="label info">布妞萌</span> <code>ぷにっと萌え</code></h5><ul>
+<li><h5 id="ぷにっと萌え"><a href="#ぷにっと萌え" class="headerlink" title=" ぷにっと萌え"></a><mark class="label info">布妞萌</mark> <code>ぷにっと萌え</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
-              <blockquote><p><strong>别称：“PK&amp;PKK担当军师”</strong></p></blockquote><blockquote><p><strong><span class="label danger">种族是植物系魔物(ヴァイン・デス)。</span></strong></p></blockquote><blockquote><p><em>安兹·乌尔·恭里被称为诸葛孔明的男人。</em></p></blockquote><blockquote><p><em><strong><span class="label warning">公会中属于头脑派，擅长制订各种战术，拥有担当指挥官的能力，</span> <span class="label warning">曾制订公会里PVP战的基本准则，私底下曾经传授飞鼠PVP战的技巧。</span></strong></em></p></blockquote><blockquote><p><em>重度玩家的他玩过各式各样游戏得到各种知识，战术开发方面是安兹·乌尔·恭首屈一指的人物。</em></p></blockquote><blockquote><p><em>从事时间长，但闲暇之馀很多的工作，会利用时间去搜集各种游戏情报，认为“胜负在战斗开始前就已经决定了”，所以情报收集是基本中的基本。</em></p></blockquote><blockquote><p><em>以付费道具私信公会长非飞鼠不可的三人之一。</em></p></blockquote>
+              <blockquote><p><strong>别称：“PK&amp;PKK担当军师”</strong></p></blockquote><blockquote><p><strong><mark class="label danger">种族是植物系魔物(ヴァイン・デス)。</mark></strong></p></blockquote><blockquote><p><em>安兹·乌尔·恭里被称为诸葛孔明的男人。</em></p></blockquote><blockquote><p><em><strong><mark class="label warning">公会中属于头脑派，擅长制订各种战术，拥有担当指挥官的能力，</mark> <mark class="label warning">曾制订公会里PVP战的基本准则，私底下曾经传授飞鼠PVP战的技巧。</mark></strong></em></p></blockquote><blockquote><p><em>重度玩家的他玩过各式各样游戏得到各种知识，战术开发方面是安兹·乌尔·恭首屈一指的人物。</em></p></blockquote><blockquote><p><em>从事时间长，但闲暇之馀很多的工作，会利用时间去搜集各种游戏情报，认为“胜负在战斗开始前就已经决定了”，所以情报收集是基本中的基本。</em></p></blockquote><blockquote><p><em>以付费道具私信公会长非飞鼠不可的三人之一。</em></p></blockquote>
               </div>
             </details>
 </li>
 </ul>
 </li>
-<li><h5 id="ぶくぶく茶釜-Bukubukuchagama-声：后藤邑子"><a href="#ぶくぶく茶釜-Bukubukuchagama-声：后藤邑子" class="headerlink" title=" ぶくぶく茶釜 | Bukubukuchagama | 声：后藤邑子"></a><span class="label info">泡泡茶壶</span> <code>ぶくぶく茶釜 | Bukubukuchagama | 声：后藤邑子</code></h5><ul>
+<li><h5 id="ぶくぶく茶釜-Bukubukuchagama-声：后藤邑子"><a href="#ぶくぶく茶釜-Bukubukuchagama-声：后藤邑子" class="headerlink" title=" ぶくぶく茶釜 | Bukubukuchagama | 声：后藤邑子"></a><mark class="label info">泡泡茶壶</mark> <code>ぶくぶく茶釜 | Bukubukuchagama | 声：后藤邑子</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
-              <blockquote><p><strong>别称：“黏液盾”</strong></p></blockquote><blockquote><p><strong><span class="label danger">亚乌菈·贝拉·菲欧拉和马雷·贝罗·菲欧雷双胞胎的创造者。</span></strong></p></blockquote><blockquote><p><span class="label success"><em>公会仅有的三名女性成员之一，三人经常在第六层的大树树屋里聊天。</em></span></p></blockquote><blockquote><p><em>现实世界中的真实身份是名实力派声优－艺名：风海久美(不过加入公会时尚未成名)，也有接H-Game的配音工作。在成名前似乎很胖，所以很忌讳人家称呼她泡泡酱(ぶくぶく日文中另有胖的意思)，但减肥成功之后变得很漂亮。</em></p></blockquote><blockquote><p><em>在游戏中会故意用声优工作时音调较高的声音讲话，但在生气时会不经意露出较低的音调。</em></p></blockquote><blockquote><p><em><strong><span class="label warning">曾因选择的异形种史莱姆造型不讨喜而找不到玩家组队(曾被自己的弟弟佩罗罗奇诺调侃作“粉红色肉棒”)，</span> <span class="label warning">但在塔其·米的主动邀请下成为了公会的一员，使用的角色在大半的能力都极差的反面却有著超群的防御力，</span> <span class="label warning">并搭配上其高超的操控技巧而更加强力，同时拥有优秀的指挥能力，攻略纳萨力克时为飞鼠队指挥官。</span></strong></em></p></blockquote><blockquote><p><span class="label success"><em>与佩罗罗奇诺是姐弟，且因为弟弟的关系和飞鼠交情也很好。</em></span></p></blockquote><blockquote><p><em>飞鼠手上持有由她半恶作剧配音的报时手表，后来赐给了亚乌菈。</em></p></blockquote><blockquote><p><em>由于缺乏正确的知识，夏提雅等守护者似乎将她的声优工作误解为以语言赐予生命的言灵使一类的职业。</em></p></blockquote>
+              <blockquote><p><strong>别称：“黏液盾”</strong></p></blockquote><blockquote><p><strong><mark class="label danger">亚乌菈·贝拉·菲欧拉和马雷·贝罗·菲欧雷双胞胎的创造者。</mark></strong></p></blockquote><blockquote><p><mark class="label success"><em>公会仅有的三名女性成员之一，三人经常在第六层的大树树屋里聊天。</em></mark></p></blockquote><blockquote><p><em>现实世界中的真实身份是名实力派声优－艺名：风海久美(不过加入公会时尚未成名)，也有接H-Game的配音工作。在成名前似乎很胖，所以很忌讳人家称呼她泡泡酱(ぶくぶく日文中另有胖的意思)，但减肥成功之后变得很漂亮。</em></p></blockquote><blockquote><p><em>在游戏中会故意用声优工作时音调较高的声音讲话，但在生气时会不经意露出较低的音调。</em></p></blockquote><blockquote><p><em><strong><mark class="label warning">曾因选择的异形种史莱姆造型不讨喜而找不到玩家组队(曾被自己的弟弟佩罗罗奇诺调侃作“粉红色肉棒”)，</mark> <mark class="label warning">但在塔其·米的主动邀请下成为了公会的一员，使用的角色在大半的能力都极差的反面却有著超群的防御力，</mark> <mark class="label warning">并搭配上其高超的操控技巧而更加强力，同时拥有优秀的指挥能力，攻略纳萨力克时为飞鼠队指挥官。</mark></strong></em></p></blockquote><blockquote><p><mark class="label success"><em>与佩罗罗奇诺是姐弟，且因为弟弟的关系和飞鼠交情也很好。</em></mark></p></blockquote><blockquote><p><em>飞鼠手上持有由她半恶作剧配音的报时手表，后来赐给了亚乌菈。</em></p></blockquote><blockquote><p><em>由于缺乏正确的知识，夏提雅等守护者似乎将她的声优工作误解为以语言赐予生命的言灵使一类的职业。</em></p></blockquote>
               </div>
             </details>
 </li>
 </ul>
 </li>
-<li><h5 id="ベルリバー-Bellriver"><a href="#ベルリバー-Bellriver" class="headerlink" title=" ベルリバー | Bellriver"></a><span class="label info">贝鲁利巴</span> <code>ベルリバー | Bellriver</code></h5><ul>
+<li><h5 id="ベルリバー-Bellriver"><a href="#ベルリバー-Bellriver" class="headerlink" title=" ベルリバー | Bellriver"></a><mark class="label info">贝鲁利巴</mark> <code>ベルリバー | Bellriver</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
-              <blockquote><p><strong>别称：“大喰者”</strong></p></blockquote><blockquote><p><strong><span class="label danger">种族是(体中に口がある肉の块)，职业是魔法剑士。</span></strong></p></blockquote><blockquote><p><em><strong><span class="label warning">公会中属于头脑派，第九层大浴场的制作者，Web版里的策士。</span></strong></em></p></blockquote><blockquote><p><em>开玩笑说“来征服YGGDRASIL的中一个世界吧”的其中一人。</em></p></blockquote><blockquote><p><em>以付费道具私信公会长非飞鼠不可的三人之一，对初见纳萨力克就攻略这主张小有不满，但率先低头后，反对派也纷纷同意参与。</em></p></blockquote><blockquote><p><strong><span class="label danger">现实世界中，因为得到掌握世界牛耳的巨大复合企业的不利情报而封口被杀。其死亡被事故处理，情报本身则传到某人手里。</span></strong></p></blockquote>
+              <blockquote><p><strong>别称：“大喰者”</strong></p></blockquote><blockquote><p><strong><mark class="label danger">种族是(体中に口がある肉の块)，职业是魔法剑士。</mark></strong></p></blockquote><blockquote><p><em><strong><mark class="label warning">公会中属于头脑派，第九层大浴场的制作者，Web版里的策士。</mark></strong></em></p></blockquote><blockquote><p><em>开玩笑说“来征服YGGDRASIL的中一个世界吧”的其中一人。</em></p></blockquote><blockquote><p><em>以付费道具私信公会长非飞鼠不可的三人之一，对初见纳萨力克就攻略这主张小有不满，但率先低头后，反对派也纷纷同意参与。</em></p></blockquote><blockquote><p><strong><mark class="label danger">现实世界中，因为得到掌握世界牛耳的巨大复合企业的不利情报而封口被杀。其死亡被事故处理，情报本身则传到某人手里。</mark></strong></p></blockquote>
               </div>
             </details>
 </li>
 </ul>
 </li>
-<li><h5 id="ウルベルト・アレイン・オードル-Ulbert·Alain·Odle-声：吉野裕行"><a href="#ウルベルト・アレイン・オードル-Ulbert·Alain·Odle-声：吉野裕行" class="headerlink" title=" ウルベルト・アレイン・オードル | Ulbert·Alain·Odle | 声：吉野裕行"></a><span class="label info">乌尔贝特·亚连·欧德尔</span> <code>ウルベルト・アレイン・オードル | Ulbert·Alain·Odle | 声：吉野裕行</code></h5><ul>
+<li><h5 id="ウルベルト・アレイン・オードル-Ulbert·Alain·Odle-声：吉野裕行"><a href="#ウルベルト・アレイン・オードル-Ulbert·Alain·Odle-声：吉野裕行" class="headerlink" title=" ウルベルト・アレイン・オードル | Ulbert·Alain·Odle | 声：吉野裕行"></a><mark class="label info">乌尔贝特·亚连·欧德尔</mark> <code>ウルベルト・アレイン・オードル | Ulbert·Alain·Odle | 声：吉野裕行</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
-              <blockquote><p><strong>别称：“大灾厄恶魔”</strong></p></blockquote><blockquote><p><strong><span class="label danger">公会成员当中对“恶”字最执著的人。迪米乌哥斯的创造者。</span></strong></p></blockquote><blockquote><p><strong><span class="label danger">公会中法师系最强，种族是有著山羊头的恶魔系怪物。</span></strong></p></blockquote><blockquote><p><span class="label success"><em>和塔其·米感情不好，两人的对立和现实世界中乌尔贝特的嫉妒有关，虽然自嘲是无聊的嫉妒(由于现实中属于弱势，双亲跟飞鼠一样因工作关系发生意外，死无全尸，故敌视天生就是赢家的塔其·米)。在塔其·米和最初九人中的一人间产生对立事件之后疑似更加严重。</em></span></p></blockquote><blockquote><p><em>开玩笑说“来征服YGGDRASIL中的一个世界吧”的其中一人。</em></p></blockquote><blockquote><p><em>曾是提出不氪金联盟的人之一。</em></p></blockquote><blockquote><p><em><strong><span class="label warning">具有称为”世界灾祸”职业。</span> <span class="label warning">YGGDRASIL中也只有特定的人数才能成为的歼灭系攻击魔法职业(想要成为这个职业必须杀死就任这个职业的人来夺走资格)。</span></strong></em></p></blockquote><blockquote><p><em>攻略纳萨力克时与飞鼠同一队。</em></p></blockquote>
+              <blockquote><p><strong>别称：“大灾厄恶魔”</strong></p></blockquote><blockquote><p><strong><mark class="label danger">公会成员当中对“恶”字最执著的人。迪米乌哥斯的创造者。</mark></strong></p></blockquote><blockquote><p><strong><mark class="label danger">公会中法师系最强，种族是有著山羊头的恶魔系怪物。</mark></strong></p></blockquote><blockquote><p><mark class="label success"><em>和塔其·米感情不好，两人的对立和现实世界中乌尔贝特的嫉妒有关，虽然自嘲是无聊的嫉妒(由于现实中属于弱势，双亲跟飞鼠一样因工作关系发生意外，死无全尸，故敌视天生就是赢家的塔其·米)。在塔其·米和最初九人中的一人间产生对立事件之后疑似更加严重。</em></mark></p></blockquote><blockquote><p><em>开玩笑说“来征服YGGDRASIL中的一个世界吧”的其中一人。</em></p></blockquote><blockquote><p><em>曾是提出不氪金联盟的人之一。</em></p></blockquote><blockquote><p><em><strong><mark class="label warning">具有称为”世界灾祸”职业。</mark> <mark class="label warning">YGGDRASIL中也只有特定的人数才能成为的歼灭系攻击魔法职业(想要成为这个职业必须杀死就任这个职业的人来夺走资格)。</mark></strong></em></p></blockquote><blockquote><p><em>攻略纳萨力克时与飞鼠同一队。</em></p></blockquote>
               </div>
             </details>
 </li>
 </ul>
 </li>
-<li><h5 id="るし★ふぁー-声：伊藤健太郎"><a href="#るし★ふぁー-声：伊藤健太郎" class="headerlink" title=" るし★ふぁー | 声：伊藤健太郎"></a><span class="label info">路西★法</span> <code>るし★ふぁー | 声：伊藤健太郎</code></h5><ul>
+<li><h5 id="るし★ふぁー-声：伊藤健太郎"><a href="#るし★ふぁー-声：伊藤健太郎" class="headerlink" title=" るし★ふぁー | 声：伊藤健太郎"></a><mark class="label info">路西★法</mark> <code>るし★ふぁー | 声：伊藤健太郎</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
-              <blockquote><p><em><strong><span class="label warning">持有过剩超稀有金属的人，并拿来制作72柱恶魔，但只做了67个就半途而废。</span></strong></em></p></blockquote><blockquote><p><em>Web版里偷拿了短缺的稀有金属帮恐怖公做了座骑，安兹得知后有点不悦。</em></p></blockquote><blockquote><p><em><strong><span class="label warning">拥有制作的才能，喜欢做一些捉弄人的小陷阱，</span> <span class="label warning">曾设计出很强的哥雷姆，但是AI有缺陷而暴走甚至攻击公会成员，飞鼠至今仍认为是故意的。</span></strong></em></p></blockquote><blockquote><p><span class="label success"><em>“公会里最大的问题儿童”、“不知哪里来的笨蛋”、“难以应对的男人”、“让人不太喜欢的男人”……以上是安兹想到他时的评语，但如今对安兹来说也是很有趣的回忆。</em></span></p></blockquote><blockquote><p><em>开玩笑说“来征服YGGDRASIL中的一个世界吧”的其中一人。</em></p></blockquote>
+              <blockquote><p><em><strong><mark class="label warning">持有过剩超稀有金属的人，并拿来制作72柱恶魔，但只做了67个就半途而废。</mark></strong></em></p></blockquote><blockquote><p><em>Web版里偷拿了短缺的稀有金属帮恐怖公做了座骑，安兹得知后有点不悦。</em></p></blockquote><blockquote><p><em><strong><mark class="label warning">拥有制作的才能，喜欢做一些捉弄人的小陷阱，</mark> <mark class="label warning">曾设计出很强的哥雷姆，但是AI有缺陷而暴走甚至攻击公会成员，飞鼠至今仍认为是故意的。</mark></strong></em></p></blockquote><blockquote><p><mark class="label success"><em>“公会里最大的问题儿童”、“不知哪里来的笨蛋”、“难以应对的男人”、“让人不太喜欢的男人”……以上是安兹想到他时的评语，但如今对安兹来说也是很有趣的回忆。</em></mark></p></blockquote><blockquote><p><em>开玩笑说“来征服YGGDRASIL中的一个世界吧”的其中一人。</em></p></blockquote>
               </div>
             </details>
 </li>
 </ul>
 </li>
-<li><h5 id="ばりあぶる・たりすまん"><a href="#ばりあぶる・たりすまん" class="headerlink" title=" ばりあぶる・たりすまん"></a><span class="label info">可变护身符</span> <code>ばりあぶる・たりすまん</code></h5><ul>
+<li><h5 id="ばりあぶる・たりすまん"><a href="#ばりあぶる・たりすまん" class="headerlink" title=" ばりあぶる・たりすまん"></a><mark class="label info">可变护身符</mark> <code>ばりあぶる・たりすまん</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
-              <blockquote><p><em>开玩笑说“来征服YGGDRASIL中的一个世界吧”的其中一人。</em></p></blockquote><blockquote><p> <em><strong><span class="label warning">13卷提到有泡泡茶壶或他在，就不会让后卫挨揍了，推测为防御职业。</span></strong></em></p></blockquote>
+              <blockquote><p><em>开玩笑说“来征服YGGDRASIL中的一个世界吧”的其中一人。</em></p></blockquote><blockquote><p> <em><strong><mark class="label warning">13卷提到有泡泡茶壶或他在，就不会让后卫挨揍了，推测为防御职业。</mark></strong></em></p></blockquote>
               </div>
             </details>
 </li>
 </ul>
 </li>
-<li><h5 id="やまいこ-Yamaiko"><a href="#やまいこ-Yamaiko" class="headerlink" title=" やまいこ | Yamaiko"></a><span class="label info">夜舞子</span> <code>やまいこ | Yamaiko</code></h5><ul>
+<li><h5 id="やまいこ-Yamaiko"><a href="#やまいこ-Yamaiko" class="headerlink" title=" やまいこ | Yamaiko"></a><mark class="label info">夜舞子</mark> <code>やまいこ | Yamaiko</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
-              <blockquote><p><strong>别称：“头不好壮壮老师”</strong></p></blockquote><blockquote><p><strong><span class="label danger">种族是半魔巨人(拿非利人)。由莉·阿尔法的创造者。</span></strong></p></blockquote><blockquote><p><span class="label success"><em>公会仅有的三名女性成员之一，三人经常在第六层的大树树屋里聊天。</em></span></p></blockquote><blockquote><p><em><strong><span class="label warning">在现实世界里是名教师。持有附有击飞效果的铁拳武器&lt;女教师的愤怒之拳&gt;，精神系魔法吟唱者，另外也会治愈魔法。</span></strong></em></p></blockquote><blockquote><p><em>其妹妹小明美（游戏名称）由于不是异形种(人类种族的森林精灵)而无法加入姊姊的所属公会，但时常会来大坟墓做客。</em></p></blockquote><blockquote><p><span class="label success"><em>只花了一顿午餐的钱就抽到了飞鼠花了全部奖金才抽中的超稀有道具，在飞鼠心中留下了很大的阴影。</em></span></p></blockquote><blockquote><p><em>妹妹是头脑很好的精英，但由于本身个性相当大而化之并没感到压力，反而跟妹妹很好。曾经被同是女性的后辈告白过。</em></p></blockquote><blockquote><p><em><strong><span class="label warning">面对敌人有著先打一拳再说，而万一不是对手再逃跑就好了的个性。被称为“脑子里也都是肌肉”的女性。</span></strong></em></p></blockquote><blockquote><p><em>攻略纳萨力克时与飞鼠同一队。</em></p></blockquote><blockquote><p><em>人物原形是作者以前投稿歌月十夜中黎明篇的山濑姊妹。</em></p></blockquote>
+              <blockquote><p><strong>别称：“头不好壮壮老师”</strong></p></blockquote><blockquote><p><strong><mark class="label danger">种族是半魔巨人(拿非利人)。由莉·阿尔法的创造者。</mark></strong></p></blockquote><blockquote><p><mark class="label success"><em>公会仅有的三名女性成员之一，三人经常在第六层的大树树屋里聊天。</em></mark></p></blockquote><blockquote><p><em><strong><mark class="label warning">在现实世界里是名教师。持有附有击飞效果的铁拳武器&lt;女教师的愤怒之拳&gt;，精神系魔法吟唱者，另外也会治愈魔法。</mark></strong></em></p></blockquote><blockquote><p><em>其妹妹小明美（游戏名称）由于不是异形种(人类种族的森林精灵)而无法加入姊姊的所属公会，但时常会来大坟墓做客。</em></p></blockquote><blockquote><p><mark class="label success"><em>只花了一顿午餐的钱就抽到了飞鼠花了全部奖金才抽中的超稀有道具，在飞鼠心中留下了很大的阴影。</em></mark></p></blockquote><blockquote><p><em>妹妹是头脑很好的精英，但由于本身个性相当大而化之并没感到压力，反而跟妹妹很好。曾经被同是女性的后辈告白过。</em></p></blockquote><blockquote><p><em><strong><mark class="label warning">面对敌人有著先打一拳再说，而万一不是对手再逃跑就好了的个性。被称为“脑子里也都是肌肉”的女性。</mark></strong></em></p></blockquote><blockquote><p><em>攻略纳萨力克时与飞鼠同一队。</em></p></blockquote><blockquote><p><em>人物原形是作者以前投稿歌月十夜中黎明篇的山濑姊妹。</em></p></blockquote>
               </div>
             </details>
 </li>
 </ul>
 </li>
-<li><h5 id="ヘロヘロ-Herohero-声：间岛淳司"><a href="#ヘロヘロ-Herohero-声：间岛淳司" class="headerlink" title=" ヘロヘロ | Herohero | 声：间岛淳司"></a><span class="label info">黑洛黑洛</span> <code>ヘロヘロ | Herohero | 声：间岛淳司</code></h5><ul>
+<li><h5 id="ヘロヘロ-Herohero-声：间岛淳司"><a href="#ヘロヘロ-Herohero-声：间岛淳司" class="headerlink" title=" ヘロヘロ | Herohero | 声：间岛淳司"></a><mark class="label info">黑洛黑洛</mark> <code>ヘロヘロ | Herohero | 声：间岛淳司</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
-              <blockquote><p><strong><span class="label danger">种族是史莱姆种中最强最古老的“古代漆黑黏体”。</span></strong></p></blockquote><blockquote><p><strong><span class="label danger">索琉香·爱普史龙的创造者，也是设计纳萨力克41名女仆的三名原画师之一，负责AI设计和三分之一的人造人女仆制作。</span></strong></p></blockquote><blockquote><p><em><strong><span class="label warning">具有修行僧的职业，但因为史莱姆的特性导致臂力低下，攻击力相当微妙；</span> <span class="label warning">相对的原本酸蚀能力变得更加强力，连具有抗性的武装都能融蚀。</span></strong></em></p></blockquote><blockquote><p><span class="label success"><em>由于工作之故已有2年未登入游戏，游戏最后一天回应飞鼠号召出现的最后一名公会成员。</em></span></p></blockquote><blockquote><p><em>在现实中因为工作的黑心企业的压榨而身心俱疲，游戏时也常想到工作，甚至用计算机用语替NPC取名。</em></p></blockquote>
+              <blockquote><p><strong><mark class="label danger">种族是史莱姆种中最强最古老的“古代漆黑黏体”。</mark></strong></p></blockquote><blockquote><p><strong><mark class="label danger">索琉香·爱普史龙的创造者，也是设计纳萨力克41名女仆的三名原画师之一，负责AI设计和三分之一的人造人女仆制作。</mark></strong></p></blockquote><blockquote><p><em><strong><mark class="label warning">具有修行僧的职业，但因为史莱姆的特性导致臂力低下，攻击力相当微妙；</mark> <mark class="label warning">相对的原本酸蚀能力变得更加强力，连具有抗性的武装都能融蚀。</mark></strong></em></p></blockquote><blockquote><p><mark class="label success"><em>由于工作之故已有2年未登入游戏，游戏最后一天回应飞鼠号召出现的最后一名公会成员。</em></mark></p></blockquote><blockquote><p><em>在现实中因为工作的黑心企业的压榨而身心俱疲，游戏时也常想到工作，甚至用计算机用语替NPC取名。</em></p></blockquote>
               </div>
             </details>
 </li>
 </ul>
 </li>
-<li><h5 id="ホワイトブリム"><a href="#ホワイトブリム" class="headerlink" title=" ホワイトブリム"></a><span class="label info">白色发饰</span> <code>ホワイトブリム</code></h5><ul>
+<li><h5 id="ホワイトブリム"><a href="#ホワイトブリム" class="headerlink" title=" ホワイトブリム"></a><mark class="label info">白色发饰</mark> <code>ホワイトブリム</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
-              <blockquote><p><em><strong><span class="label warning">设计纳萨力克41名女仆的三名原画师之一，曾以插画维生，在月刊杂志连载漫画的公会成员，</span> <span class="label warning">发表过“女仆服是决战兵器”的宣言。</span></strong></em></p></blockquote><blockquote><p><em>用英文序数替女仆取名。</em></p></blockquote>
+              <blockquote><p><em><strong><mark class="label warning">设计纳萨力克41名女仆的三名原画师之一，曾以插画维生，在月刊杂志连载漫画的公会成员，</mark> <mark class="label warning">发表过“女仆服是决战兵器”的宣言。</mark></strong></em></p></blockquote><blockquote><p><em>用英文序数替女仆取名。</em></p></blockquote>
               </div>
             </details>
 </li>
 </ul>
 </li>
-<li><h5 id="ク・ドゥ・グラース"><a href="#ク・ドゥ・グラース" class="headerlink" title=" ク・ドゥ・グラース"></a><span class="label info">克·杜·格拉斯</span> <code>ク・ドゥ・グラース</code></h5><ul>
+<li><h5 id="ク・ドゥ・グラース"><a href="#ク・ドゥ・グラース" class="headerlink" title=" ク・ドゥ・グラース"></a><mark class="label info">克·杜·格拉斯</mark> <code>ク・ドゥ・グラース</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
-              <blockquote><p><em><strong><span class="label warning">名字是法文慈悲一击（coup de grâce）的意思，设计纳萨力克41名女仆的三名原画师之一。</span></strong></em></p></blockquote><blockquote><p><em>用法文替女仆取名。</em></p></blockquote>
+              <blockquote><p><em><strong><mark class="label warning">名字是法文慈悲一击（coup de grâce）的意思，设计纳萨力克41名女仆的三名原画师之一。</mark></strong></em></p></blockquote><blockquote><p><em>用法文替女仆取名。</em></p></blockquote>
               </div>
             </details>
 </li>
 </ul>
 </li>
-<li><h5 id="ブルー・プラネット"><a href="#ブルー・プラネット" class="headerlink" title=" ブルー・プラネット"></a><span class="label info">蓝色星球</span> <code>ブルー・プラネット</code></h5><ul>
+<li><h5 id="ブルー・プラネット"><a href="#ブルー・プラネット" class="headerlink" title=" ブルー・プラネット"></a><mark class="label info">蓝色星球</mark> <code>ブルー・プラネット</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
-              <blockquote><p><span class="label success"><em>比谁都更热爱大自然的男子，为了欣赏在现实世界不复存在的景色，才玩YGGDRASIL。参加过网聚，铃木悟形容他本人有如岩石的脸。</em></span></p></blockquote><blockquote><p><em>第六楼层主题的设计者，也有协助第九层大浴场的制作。</em></p></blockquote><blockquote><p><em><strong><span class="label warning">职业是森林祭司，能使用信仰系第十阶位魔法〈自然の避难所〉，攻略纳萨力克时武器是铲子。</span></strong></em></p></blockquote><blockquote><p><em>Web版是科塞特斯的创造者。</em></p></blockquote>
+              <blockquote><p><mark class="label success"><em>比谁都更热爱大自然的男子，为了欣赏在现实世界不复存在的景色，才玩YGGDRASIL。参加过网聚，铃木悟形容他本人有如岩石的脸。</em></mark></p></blockquote><blockquote><p><em>第六楼层主题的设计者，也有协助第九层大浴场的制作。</em></p></blockquote><blockquote><p><em><strong><mark class="label warning">职业是森林祭司，能使用信仰系第十阶位魔法〈自然の避难所〉，攻略纳萨力克时武器是铲子。</mark></strong></em></p></blockquote><blockquote><p><em>Web版是科塞特斯的创造者。</em></p></blockquote>
               </div>
             </details>
 </li>
 </ul>
 </li>
-<li><h5 id="チグリス・ユーフラテス"><a href="#チグリス・ユーフラテス" class="headerlink" title=" チグリス・ユーフラテス"></a><span class="label info">底格里斯·幼发拉底</span> <code>チグリス・ユーフラテス</code></h5><ul>
+<li><h5 id="チグリス・ユーフラテス"><a href="#チグリス・ユーフラテス" class="headerlink" title=" チグリス・ユーフラテス"></a><mark class="label info">底格里斯·幼发拉底</mark> <code>チグリス・ユーフラテス</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
               <blockquote><p><em>迷宫探险时打前锋的人，擅长盗贼系的技能。</em></p></blockquote>
@@ -2958,16 +2978,16 @@
 </li>
 </ul>
 </li>
-<li><h5 id="源次郎"><a href="#源次郎" class="headerlink" title=" 源次郎"></a><span class="label info">源次郎</span> <code>源次郎</code></h5><ul>
+<li><h5 id="源次郎"><a href="#源次郎" class="headerlink" title=" 源次郎"></a><mark class="label info">源次郎</mark> <code>源次郎</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
-              <blockquote><p><em>整理宝物库的人，在现实却有著乱糟糟的房间。</em></p></blockquote><blockquote><p><strong><span class="label danger">安特玛·巴西丽莎·泽塔的创造者。</span></strong></p></blockquote>
+              <blockquote><p><em>整理宝物库的人，在现实却有著乱糟糟的房间。</em></p></blockquote><blockquote><p><strong><mark class="label danger">安特玛·巴西丽莎·泽塔的创造者。</mark></strong></p></blockquote>
               </div>
             </details>
 </li>
 </ul>
 </li>
-<li><h5 id="死獣天朱雀-しじゅうてんすざく"><a href="#死獣天朱雀-しじゅうてんすざく" class="headerlink" title=" 死獣天朱雀 | しじゅうてんすざく"></a><span class="label info">死兽天朱雀</span> <code>死獣天朱雀 | しじゅうてんすざく</code></h5><ul>
+<li><h5 id="死獣天朱雀-しじゅうてんすざく"><a href="#死獣天朱雀-しじゅうてんすざく" class="headerlink" title=" 死獣天朱雀 | しじゅうてんすざく"></a><mark class="label info">死兽天朱雀</mark> <code>死獣天朱雀 | しじゅうてんすざく</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
               <blockquote><p><em>无上至尊中最年长的人，在现实世界担任大学教授。</em></p></blockquote>
@@ -2976,7 +2996,7 @@
 </li>
 </ul>
 </li>
-<li><h5 id="ねあらた"><a href="#ねあらた" class="headerlink" title=" ねあらた"></a><span class="label info">音改</span> <code>ねあらた</code></h5><ul>
+<li><h5 id="ねあらた"><a href="#ねあらた" class="headerlink" title=" ねあらた"></a><mark class="label info">音改</mark> <code>ねあらた</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
               <blockquote><p><em>拥有商人技能。</em></p></blockquote>
@@ -2985,7 +3005,7 @@
 </li>
 </ul>
 </li>
-<li><h5 id="スーラータン"><a href="#スーラータン" class="headerlink" title=" スーラータン"></a><span class="label info">酸辣汤</span> <code>スーラータン</code></h5><ul>
+<li><h5 id="スーラータン"><a href="#スーラータン" class="headerlink" title=" スーラータン"></a><mark class="label info">酸辣汤</mark> <code>スーラータン</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
               <blockquote><p><em>制作了纳萨力克学园的成员。</em></p></blockquote>
@@ -2994,7 +3014,7 @@
 </li>
 </ul>
 </li>
-<li><h5 id="ぬーぼー"><a href="#ぬーぼー" class="headerlink" title=" ぬーぼー"></a><span class="label info">NOOBOW</span> <code>ぬーぼー</code></h5><ul>
+<li><h5 id="ぬーぼー"><a href="#ぬーぼー" class="headerlink" title=" ぬーぼー"></a><mark class="label info">NOOBOW</mark> <code>ぬーぼー</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
               <blockquote><p><em>提案用热质石做出最强哥雷姆。</em></p></blockquote><blockquote><p><em>因为属于探知系特化的人物，集团时代被称为“九人的自杀分之眼”。</em></p></blockquote>
@@ -3003,7 +3023,7 @@
 </li>
 </ul>
 </li>
-<li><h5 id="獣王メコン川"><a href="#獣王メコン川" class="headerlink" title=" 獣王メコン川"></a><span class="label info">兽王湄公河</span> <code>獣王メコン川</code></h5><ul>
+<li><h5 id="獣王メコン川"><a href="#獣王メコン川" class="headerlink" title=" 獣王メコン川"></a><mark class="label info">兽王湄公河</mark> <code>獣王メコン川</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
               <blockquote><p><em>详细不明。</em></p></blockquote>
@@ -3012,28 +3032,28 @@
 </li>
 </ul>
 </li>
-<li><h5 id="テンパランス"><a href="#テンパランス" class="headerlink" title=" テンパランス"></a><span class="label info">唐普兰斯</span> <code>テンパランス</code></h5><ul>
+<li><h5 id="テンパランス"><a href="#テンパランス" class="headerlink" title=" テンパランス"></a><mark class="label info">唐普兰斯</mark> <code>テンパランス</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
-              <blockquote><p><strong><span class="label danger">五大最恶之一“性格最恶”乐师查克·莫尔的创作者，私下对NPC自称“黑暗旋律”。</span></strong></p></blockquote>
+              <blockquote><p><strong><mark class="label danger">五大最恶之一“性格最恶”乐师查克·莫尔的创作者，私下对NPC自称“黑暗旋律”。</mark></strong></p></blockquote>
               </div>
             </details>
 </li>
 </ul>
 </li>
-<li><h5 id="ガーネット"><a href="#ガーネット" class="headerlink" title=" ガーネット"></a><span class="label info">石榴石</span> <code>ガーネット</code></h5><ul>
+<li><h5 id="ガーネット"><a href="#ガーネット" class="headerlink" title=" ガーネット"></a><mark class="label info">石榴石</mark> <code>ガーネット</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
-              <blockquote><p><em>详细不明。</em></p></blockquote><blockquote><p><strong><span class="label danger">十三卷安兹在思考希丝装备提到他，可能是希丝的创作者，希丝口中的博士。</span></strong></p></blockquote><blockquote><p><em><strong><span class="label warning">漫画版第六集结尾，由莉等人在讨论如何增加安兹的异世界资金时，希丝曾提议卖掉他收集的珠宝，</span> <span class="label warning">因此推测他可能有收集珠宝的习惯。</span></strong></em></p></blockquote>
+              <blockquote><p><em>详细不明。</em></p></blockquote><blockquote><p><strong><mark class="label danger">十三卷安兹在思考希丝装备提到他，可能是希丝的创作者，希丝口中的博士。</mark></strong></p></blockquote><blockquote><p><em><strong><mark class="label warning">漫画版第六集结尾，由莉等人在讨论如何增加安兹的异世界资金时，希丝曾提议卖掉他收集的珠宝，</mark> <mark class="label warning">因此推测他可能有收集珠宝的习惯。</mark></strong></em></p></blockquote>
               </div>
             </details>
 </li>
 </ul>
 </li>
-<li><h5 id="餡ころもっちもち"><a href="#餡ころもっちもち" class="headerlink" title=" 餡ころもっちもち"></a><span class="label info">红豆包麻糬</span> <code>餡ころもっちもち</code></h5><ul>
+<li><h5 id="餡ころもっちもち"><a href="#餡ころもっちもち" class="headerlink" title=" 餡ころもっちもち"></a><mark class="label info">红豆包麻糬</mark> <code>餡ころもっちもち</code></h5><ul>
 <li><details ><summary> <p>展开</p> </summary>
               <div class='content'>
-              <blockquote><p><strong><span class="label danger">艾克雷亚·艾克雷尔·艾伊克雷亚的创作者。</span></strong></p></blockquote><blockquote><p><span class="label success"><em>公会仅有的三名女性成员之一，三人经常在第六层的大树树屋里聊天。</em></span></p></blockquote>
+              <blockquote><p><strong><mark class="label danger">艾克雷亚·艾克雷尔·艾伊克雷亚的创作者。</mark></strong></p></blockquote><blockquote><p><mark class="label success"><em>公会仅有的三名女性成员之一，三人经常在第六层的大树树屋里聊天。</em></mark></p></blockquote>
               </div>
             </details>
 </li>
@@ -3059,11 +3079,11 @@
 
 <h1 id="2018-08-31-金"><a href="#2018-08-31-金" class="headerlink" title=" 2018/08/31-金 "></a><center> 2018/08/31-金 <center></h1><h2 id="任务情况"><a href="#任务情况" class="headerlink" title=" 任务情况 "></a><blockquote class="question"> 任务情况 </blockquote></h2><h3 id="每日任务"><a href="#每日任务" class="headerlink" title="每日任务"></a>每日任务</h3><ul>
 <li><strong>【✓】 日常首胜</strong><ul>
-<li><span class="label success">赢得一场BedWars</span></li>
+<li><mark class="label success">赢得一场BedWars</mark></li>
 </ul>
 </li>
 <li><strong>【2/2】 再来一局</strong> <ul>
-<li><span class="label success">玩两局BedWars</span>
+<li><mark class="label success">玩两局BedWars</mark>
 
 </li>
 </ul>
@@ -3071,11 +3091,11 @@
 </ul>
 <h3 id="每周任务"><a href="#每周任务" class="headerlink" title="每周任务"></a>每周任务</h3><ul>
 <li><strong>【9/25】 拆床公司</strong><ul>
-<li><span class="label success">在BedWars中摧毁25张床</span></li>
+<li><mark class="label success">在BedWars中摧毁25张床</mark></li>
 </ul>
 </li>
 <li><strong>【6/10】 睡个好觉</strong><ul>
-<li><span class="label success">在BedWars梦幻模式中赢得10场</span>
+<li><mark class="label success">在BedWars梦幻模式中赢得10场</mark>
 
 </li>
 </ul>
@@ -3083,15 +3103,15 @@
 </ul>
 <h3 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h3><ul>
 <li><strong>【2/10】 防御能手</strong><ul>
-<li><span class="label success">在一局游戏中，保卫床的同时抵挡5位攻击者</span></li>
+<li><mark class="label success">在一局游戏中，保卫床的同时抵挡5位攻击者</mark></li>
 </ul>
 </li>
 <li><strong>【2/10】 辅助</strong><ul>
-<li><span class="label success">在一局游戏中，从钻石生成点收集10颗钻石</span></li>
+<li><mark class="label success">在一局游戏中，从钻石生成点收集10颗钻石</mark></li>
 </ul>
 </li>
 <li><strong>【2/10】 进攻能手</strong><ul>
-<li><span class="label success">在一局游戏中，破坏两张床</span>
+<li><mark class="label success">在一局游戏中，破坏两张床</mark>
 
 </li>
 </ul>
@@ -3114,11 +3134,11 @@
 <hr>
 <h1 id="2018-08-30-木"><a href="#2018-08-30-木" class="headerlink" title=" 2018/08/30-木 "></a><center> 2018/08/30-木 <center></h1><h2 id="任务情况-1"><a href="#任务情况-1" class="headerlink" title=" 任务情况 "></a><blockquote class="question"> 任务情况 </blockquote></h2><h3 id="每日任务-1"><a href="#每日任务-1" class="headerlink" title="每日任务"></a>每日任务</h3><ul>
 <li><strong>【✓】 日常首胜</strong><ul>
-<li><span class="label success">赢得一场BedWars</span></li>
+<li><mark class="label success">赢得一场BedWars</mark></li>
 </ul>
 </li>
 <li><strong>【2/2】 再来一局</strong> <ul>
-<li><span class="label success">玩两局BedWars</span>
+<li><mark class="label success">玩两局BedWars</mark>
 
 </li>
 </ul>
@@ -3126,11 +3146,11 @@
 </ul>
 <h3 id="每周任务-1"><a href="#每周任务-1" class="headerlink" title="每周任务"></a>每周任务</h3><ul>
 <li><strong>【25/25】 拆床公司</strong> <code>周四晚重置</code><ul>
-<li><span class="label success">在BedWars中摧毁25张床</span></li>
+<li><mark class="label success">在BedWars中摧毁25张床</mark></li>
 </ul>
 </li>
 <li><strong>【6/10】 睡个好觉</strong><ul>
-<li><span class="label success">在BedWars梦幻模式中赢得10场</span>
+<li><mark class="label success">在BedWars梦幻模式中赢得10场</mark>
 
 </li>
 </ul>
@@ -3138,15 +3158,15 @@
 </ul>
 <h3 id="挑战-1"><a href="#挑战-1" class="headerlink" title="挑战"></a>挑战</h3><ul>
 <li><strong>【3/10】 防御能手</strong><ul>
-<li><span class="label success">在一局游戏中，保卫床的同时抵挡5位攻击者</span></li>
+<li><mark class="label success">在一局游戏中，保卫床的同时抵挡5位攻击者</mark></li>
 </ul>
 </li>
 <li><strong>【3/10】 辅助</strong><ul>
-<li><span class="label success">在一局游戏中，从钻石生成点收集10颗钻石</span></li>
+<li><mark class="label success">在一局游戏中，从钻石生成点收集10颗钻石</mark></li>
 </ul>
 </li>
 <li><strong>【3/10】 进攻能手</strong><ul>
-<li><span class="label success">在一局游戏中，破坏两张床</span>
+<li><mark class="label success">在一局游戏中，破坏两张床</mark>
 
 </li>
 </ul>
@@ -3169,11 +3189,11 @@
 <hr>
 <h1 id="2018-08-29-水"><a href="#2018-08-29-水" class="headerlink" title=" 2018/08/29-水 "></a><center> 2018/08/29-水 <center></h1><h2 id="任务情况-2"><a href="#任务情况-2" class="headerlink" title=" 任务情况 "></a><blockquote class="question"> 任务情况 </blockquote></h2><h3 id="每日任务-2"><a href="#每日任务-2" class="headerlink" title="每日任务"></a>每日任务</h3><ul>
 <li><strong>【✓】 日常首胜</strong><ul>
-<li><span class="label success">赢得一场BedWars</span></li>
+<li><mark class="label success">赢得一场BedWars</mark></li>
 </ul>
 </li>
 <li><strong>【1/2】 再来一局</strong> <ul>
-<li><span class="label success">玩两局BedWars</span>
+<li><mark class="label success">玩两局BedWars</mark>
 
 </li>
 </ul>
@@ -3181,11 +3201,11 @@
 </ul>
 <h3 id="每周任务-2"><a href="#每周任务-2" class="headerlink" title="每周任务"></a>每周任务</h3><ul>
 <li><strong>【25/25】 拆床公司</strong> <code>周四晚重置</code><ul>
-<li><span class="label success">在BedWars中摧毁25张床</span></li>
+<li><mark class="label success">在BedWars中摧毁25张床</mark></li>
 </ul>
 </li>
 <li><strong>【6/10】 睡个好觉</strong><ul>
-<li><span class="label success">在BedWars梦幻模式中赢得10场</span>
+<li><mark class="label success">在BedWars梦幻模式中赢得10场</mark>
 
 </li>
 </ul>
@@ -3193,15 +3213,15 @@
 </ul>
 <h3 id="挑战-2"><a href="#挑战-2" class="headerlink" title="挑战"></a>挑战</h3><ul>
 <li><strong>【1/10】 防御能手</strong><ul>
-<li><span class="label success">在一局游戏中，保卫床的同时抵挡5位攻击者</span></li>
+<li><mark class="label success">在一局游戏中，保卫床的同时抵挡5位攻击者</mark></li>
 </ul>
 </li>
 <li><strong>【1/10】 辅助</strong><ul>
-<li><span class="label success">在一局游戏中，从钻石生成点收集10颗钻石</span></li>
+<li><mark class="label success">在一局游戏中，从钻石生成点收集10颗钻石</mark></li>
 </ul>
 </li>
 <li><strong>【1/10】 进攻能手</strong><ul>
-<li><span class="label success">在一局游戏中，破坏两张床</span>
+<li><mark class="label success">在一局游戏中，破坏两张床</mark>
 
 </li>
 </ul>
@@ -3224,11 +3244,11 @@
 <hr>
 <h1 id="2018-08-28-火"><a href="#2018-08-28-火" class="headerlink" title=" 2018/08/28-火 "></a><center> 2018/08/28-火 <center></h1><h2 id="任务情况-3"><a href="#任务情况-3" class="headerlink" title=" 任务情况 "></a><blockquote class="question"> 任务情况 </blockquote></h2><h3 id="每日任务-3"><a href="#每日任务-3" class="headerlink" title="每日任务"></a>每日任务</h3><ul>
 <li><strong>【✓】 日常首胜</strong><ul>
-<li><span class="label success">赢得一场BedWars</span></li>
+<li><mark class="label success">赢得一场BedWars</mark></li>
 </ul>
 </li>
 <li><strong>【2/2】 再来一局</strong> <ul>
-<li><span class="label success">玩两局BedWars</span>
+<li><mark class="label success">玩两局BedWars</mark>
 
 </li>
 </ul>
@@ -3236,11 +3256,11 @@
 </ul>
 <h3 id="每周任务-3"><a href="#每周任务-3" class="headerlink" title="每周任务"></a>每周任务</h3><ul>
 <li><strong>【25/25】 拆床公司</strong> <code>周四晚重置</code><ul>
-<li><span class="label success">在BedWars中摧毁25张床</span></li>
+<li><mark class="label success">在BedWars中摧毁25张床</mark></li>
 </ul>
 </li>
 <li><strong>【3/10】 睡个好觉</strong><ul>
-<li><span class="label success">在BedWars梦幻模式中赢得10场</span>
+<li><mark class="label success">在BedWars梦幻模式中赢得10场</mark>
 
 </li>
 </ul>
@@ -3248,15 +3268,15 @@
 </ul>
 <h3 id="挑战-3"><a href="#挑战-3" class="headerlink" title="挑战"></a>挑战</h3><ul>
 <li><strong>【0/10】 防御能手</strong><ul>
-<li><span class="label success">在一局游戏中，保卫床的同时抵挡5位攻击者</span></li>
+<li><mark class="label success">在一局游戏中，保卫床的同时抵挡5位攻击者</mark></li>
 </ul>
 </li>
 <li><strong>【0/10】 辅助</strong><ul>
-<li><span class="label success">在一局游戏中，从钻石生成点收集10颗钻石</span></li>
+<li><mark class="label success">在一局游戏中，从钻石生成点收集10颗钻石</mark></li>
 </ul>
 </li>
 <li><strong>【0/10】 进攻能手</strong><ul>
-<li><span class="label success">在一局游戏中，破坏两张床</span>
+<li><mark class="label success">在一局游戏中，破坏两张床</mark>
 
 </li>
 </ul>
@@ -3279,11 +3299,11 @@
 <hr>
 <h1 id="2018-08-27-月"><a href="#2018-08-27-月" class="headerlink" title=" 2018/08/27-月 "></a><center> 2018/08/27-月 <center></h1><h2 id="任务情况-4"><a href="#任务情况-4" class="headerlink" title=" 任务情况 "></a><blockquote class="question"> 任务情况 </blockquote></h2><h3 id="每日任务-4"><a href="#每日任务-4" class="headerlink" title="每日任务"></a>每日任务</h3><ul>
 <li><strong>【✓】 日常首胜</strong><ul>
-<li><span class="label success">赢得一场BedWars</span></li>
+<li><mark class="label success">赢得一场BedWars</mark></li>
 </ul>
 </li>
 <li><strong>【2/2】 再来一局</strong> <ul>
-<li><span class="label success">玩两局BedWars</span>
+<li><mark class="label success">玩两局BedWars</mark>
 
 </li>
 </ul>
@@ -3291,11 +3311,11 @@
 </ul>
 <h3 id="每周任务-4"><a href="#每周任务-4" class="headerlink" title="每周任务"></a>每周任务</h3><ul>
 <li><strong>【22/25】 拆床公司</strong><ul>
-<li><span class="label success">在BedWars中摧毁25张床</span></li>
+<li><mark class="label success">在BedWars中摧毁25张床</mark></li>
 </ul>
 </li>
 <li><strong>【1/10】 睡个好觉</strong><ul>
-<li><span class="label success">在BedWars梦幻模式中赢得10场</span>
+<li><mark class="label success">在BedWars梦幻模式中赢得10场</mark>
 
 </li>
 </ul>
@@ -3303,15 +3323,15 @@
 </ul>
 <h3 id="挑战-4"><a href="#挑战-4" class="headerlink" title="挑战"></a>挑战</h3><ul>
 <li><strong>【0/10】 防御能手</strong><ul>
-<li><span class="label success">在一局游戏中，保卫床的同时抵挡5位攻击者</span></li>
+<li><mark class="label success">在一局游戏中，保卫床的同时抵挡5位攻击者</mark></li>
 </ul>
 </li>
 <li><strong>【0/10】 辅助</strong><ul>
-<li><span class="label success">在一局游戏中，从钻石生成点收集10颗钻石</span></li>
+<li><mark class="label success">在一局游戏中，从钻石生成点收集10颗钻石</mark></li>
 </ul>
 </li>
 <li><strong>【0/10】 进攻能手</strong><ul>
-<li><span class="label success">在一局游戏中，破坏两张床</span>
+<li><mark class="label success">在一局游戏中，破坏两张床</mark>
 
 </li>
 </ul>
@@ -3335,11 +3355,11 @@
 <hr>
 <h1 id="2018-08-26-日"><a href="#2018-08-26-日" class="headerlink" title=" 2018/08/26-日 "></a><center> 2018/08/26-日 <center></h1><h2 id="任务情况-5"><a href="#任务情况-5" class="headerlink" title=" 任务情况 "></a><blockquote class="question"> 任务情况 </blockquote></h2><h3 id="每日任务-5"><a href="#每日任务-5" class="headerlink" title="每日任务"></a>每日任务</h3><ul>
 <li><strong>【✓】 日常首胜</strong><ul>
-<li><span class="label success">赢得一场BedWars</span></li>
+<li><mark class="label success">赢得一场BedWars</mark></li>
 </ul>
 </li>
 <li><strong>【2/2】 再来一局</strong> <ul>
-<li><span class="label success">玩两局BedWars</span>
+<li><mark class="label success">玩两局BedWars</mark>
 
 </li>
 </ul>
@@ -3347,11 +3367,11 @@
 </ul>
 <h3 id="每周任务-5"><a href="#每周任务-5" class="headerlink" title="每周任务"></a>每周任务</h3><ul>
 <li><strong>【14/25】 拆床公司</strong><ul>
-<li><span class="label success">在BedWars中摧毁25张床</span></li>
+<li><mark class="label success">在BedWars中摧毁25张床</mark></li>
 </ul>
 </li>
 <li><strong>【0/10】 睡个好觉</strong><ul>
-<li><span class="label success">在BedWars梦幻模式中赢得10场</span>
+<li><mark class="label success">在BedWars梦幻模式中赢得10场</mark>
 
 </li>
 </ul>
@@ -3359,15 +3379,15 @@
 </ul>
 <h3 id="挑战-5"><a href="#挑战-5" class="headerlink" title="挑战"></a>挑战</h3><ul>
 <li><strong>【2/10】 防御能手</strong><ul>
-<li><span class="label success">在一局游戏中，保卫床的同时抵挡5位攻击者</span></li>
+<li><mark class="label success">在一局游戏中，保卫床的同时抵挡5位攻击者</mark></li>
 </ul>
 </li>
 <li><strong>【2/10】 辅助</strong><ul>
-<li><span class="label success">在一局游戏中，从钻石生成点收集10颗钻石</span></li>
+<li><mark class="label success">在一局游戏中，从钻石生成点收集10颗钻石</mark></li>
 </ul>
 </li>
 <li><strong>【2/10】 进攻能手</strong><ul>
-<li><span class="label success">在一局游戏中，破坏两张床</span>
+<li><mark class="label success">在一局游戏中，破坏两张床</mark>
 
 </li>
 </ul>
@@ -3413,8 +3433,8 @@
 <p>时间为2138年。曾卷起一大风潮的虚拟现实体感型网络游戏《YGGDRASIL》即将迎来停服。玩家飞鼠在曾经以同伴和荣华自傲的根据地纳萨力克地下大坟墓，独自一人安静等待着那一刻。但是，不料发生了“过了结束时间却还没有登出”的异常事态。NPC们开始以自己的意志行动，不止如此，纳萨力克之外展开了从未见过的异世界。飞鼠为了寻找过去的同伴，以公会名安兹·乌尔·恭自称，决定在异世界扬名立万。他与宣誓绝对忠诚的部下一同，向新的地域进军。</p>
 </blockquote>
 <h3 id="个人推荐-个人观点"><a href="#个人推荐-个人观点" class="headerlink" title="个人推荐 个人观点"></a><strong>个人推荐</strong> <code>个人观点</code></h3><blockquote>
-<p>如果你喜欢<span class="label danger">装逼</span>，如果你喜欢看别人<span class="label danger">装逼</span>，此番<span class="label danger">绝对</span>符合你的胃口。</p>
-<p>如果你更加<strong>注重剧情</strong>，此番男主<span class="label primary">与空气斗智斗勇，健全的世界观，丰富的伏笔</span>，会让你<strong>大呼过瘾</strong>。</p>
+<p>如果你喜欢<mark class="label danger">装逼</mark>，如果你喜欢看别人<mark class="label danger">装逼</mark>，此番<mark class="label danger">绝对</mark>符合你的胃口。</p>
+<p>如果你更加<strong>注重剧情</strong>，此番男主<mark class="label primary">与空气斗智斗勇，健全的世界观，丰富的伏笔</mark>，会让你<strong>大呼过瘾</strong>。</p>
 </blockquote>
 </blockquote>
 <div class="note no-icon">
@@ -3430,7 +3450,7 @@
 </blockquote>
 <h3 id="个人推荐-个人观点-1"><a href="#个人推荐-个人观点-1" class="headerlink" title="个人推荐 个人观点"></a><strong>个人推荐</strong> <code>个人观点</code></h3><blockquote>
 <p>画风好看，烧脑搞笑，附带装逼。</p>
-<span class="label info">以游戏决定一切的设定，既有新意，又有代入感。</span>
+<mark class="label info">以游戏决定一切的设定，既有新意，又有代入感。</mark>
 
 <p>此番在游戏的设定上十分具有<strong>特点</strong>，每次主角获得胜利，策略与答案的揭晓，让人<strong>过瘾</strong>。</p>
 <p><strong><code>剧场版 NO GAME NO LIFE ZERO 超级好看</code></strong></p>
@@ -3450,7 +3470,7 @@
 <h3 id="个人推荐-个人观点-2"><a href="#个人推荐-个人观点-2" class="headerlink" title="个人推荐 个人观点"></a><strong>个人推荐</strong> <code>个人观点</code></h3><blockquote>
 <p>此番对于国内动漫认知有重大贡献。</p>
 <p>剧情，设定，主人公的悲惨，讨论了人性。</p>
-<span class="label danger">当你接触主人公的悲惨，你会心痛；当你伴随主人公的成长，你会心酸；当你了解主人公的结局，你会欣慰。</span>
+<mark class="label danger">当你接触主人公的悲惨，你会心痛；当你伴随主人公的成长，你会心酸；当你了解主人公的结局，你会欣慰。</mark>
 
 <p><strong><code>心疼金木小天使</code></strong></p>
 </blockquote>
@@ -3469,7 +3489,7 @@
 <h3 id="个人推荐-个人观点-3"><a href="#个人推荐-个人观点-3" class="headerlink" title="个人推荐 个人观点"></a><strong>个人推荐</strong> <code>个人观点</code></h3><blockquote>
 <p>对于一个游戏宅，此番满满的代入感。</p>
 <p>又装逼</p>
-<span class="label warning">不止一次幻想自己进入那个世界会怎样</span>
+<mark class="label warning">不止一次幻想自己进入那个世界会怎样</mark>
 </blockquote>
 </blockquote>
 </br>
@@ -3485,10 +3505,10 @@
 <p>号称史上最凶恶的超生物“杀老师”将月球炸掉了七成，并扬言明年要炸掉地球，却因不明目的而担任椚丘中学3年E班的教师。各国首脑将暗杀重任交给椚丘中学3年E班，为他们配送特制武器，希望学生们能在一年之内消灭杀老师，报酬是一百亿日元。从第二学期开始，国家决定让暗杀成功者独得一百亿日元报酬，协力团体共享三百亿日元报酬。全班同学想尽办法杀死老师，故事就围绕著这样非日常的校园生活而展开。</p>
 </blockquote>
 <h3 id="个人推荐-个人观点-4"><a href="#个人推荐-个人观点-4" class="headerlink" title="个人推荐 个人观点"></a><strong>个人推荐</strong> <code>个人观点</code></h3><blockquote>
-<span class="label primary">此番对于有过学生时代的人有满满的代入感，就如它的名字，温馨的教室，于此不搭调的暗杀，即充满了回忆，又充满了好奇。</span>
+<mark class="label primary">此番对于有过学生时代的人有满满的代入感，就如它的名字，温馨的教室，于此不搭调的暗杀，即充满了回忆，又充满了好奇。</mark>
 
 <p>要战斗有战斗，要热血有热血，要搞笑有搞笑。</p>
-<span class="label danger">本番最大的看点在于每个人物，每个学生在被他们称为“杀老师”的大BOSS带领和教育下，不断成长，不断超越，以及普通师生间的亲情。</span>
+<mark class="label danger">本番最大的看点在于每个人物，每个学生在被他们称为“杀老师”的大BOSS带领和教育下，不断成长，不断超越，以及普通师生间的亲情。</mark>
 </blockquote>
 </blockquote>
 <hr>

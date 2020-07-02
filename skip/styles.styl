@@ -1,4 +1,4 @@
-// 2020.06.30
+// 2020.07.02
 
 
 del {
@@ -571,7 +571,7 @@ text-rendering: auto;
     background: #ffffff;
 }
 .back-to-top:hover {
-    color: #ffffff;
+    color: #9a7bc5;
 }
 .sidebar-toggle {
     bottom: 60px;
@@ -644,7 +644,7 @@ text-rendering: auto;
 }
 
 //侧栏顶部文字-活动
-.sidebar-nav .sidebar-nav-active {
+.sidebar-toc-active .sidebar-nav-toc, .sidebar-overview-active .sidebar-nav-overview {
     color: #ABA7D5;
     font-weight: bold;
     border-bottom: 2px solid;
@@ -728,7 +728,6 @@ text-rendering: auto;
 }
 // note
 .post-body .note {
-    color: #000000;
     box-shadow: 0 0 13px 3px rgba(0,0,0,0.5)
 }
 // note里面的超链接
@@ -741,8 +740,8 @@ text-rendering: auto;
     border: 2px dashed #0000;
     border-bottom: 2px dashed #8a8a8a;
     &:hover {
-        color: #000000;
-        border: 2px dashed #000000;
+        color: var(--link-hover-color);
+        border: 2px dashed var(--link-hover-color);
         font-weight: bold;
         padding: 0px 1px;
     }
@@ -1014,7 +1013,7 @@ blockquote.question {
 
     //小代码块
     code {
-        background-color: #ccc
+        border: 1px solid #9a9a9a;
     }
 
 
@@ -1046,7 +1045,7 @@ blockquote.question {
     }
     //页码
     .pagination .page-number.current {
-        background: #464646;
+        background: #ccc;
         border-top-color: #fff;
     }
     .pagination .prev, .pagination .next, .pagination .page-number {
@@ -1057,7 +1056,7 @@ blockquote.question {
     @media (max-width: 767px)
         //页码
         .pagination .page-number.current {
-            background: #464646;
+            background: #ccc;
             border-bottom-color: #fff;
         }
         .pagination .prev, .pagination .next, .pagination .page-number {
@@ -1067,10 +1066,7 @@ blockquote.question {
         }
     // 全文按钮样式
     .post-button .btn {
-        color: #777777 !important;
-        background-color: #252525;
         &:hover {
-            color: #c5c5c5 !important;
             background-color: rgba(78, 78, 78, 0.3);
         }
     }
@@ -1385,10 +1381,7 @@ blockquote.question {
     }
     // 全文按钮样式
     .post-button .btn {
-        color: #e0e0e0 !important;
-        background-color: #3d3d3d;
         &:hover {
-            color: #000000 !important;
             background-color: rgba(255, 255, 255, 0.3);
         }
     }
@@ -1471,7 +1464,6 @@ blockquote.question {
     //小代码块
     code {
         border: 1px solid #9a9a9a;
-        background-color: #e4e4e4
     }
     //页码
     .pagination .page-number.current {
@@ -1900,6 +1892,8 @@ a {
     }
 //小代码块
 code {
+    transition: color 1s,background 1s;
+    transition-timing-function: ease-out;
     padding 1px 2px;
     margin 0px 2px;
     font-size: 0.7em
