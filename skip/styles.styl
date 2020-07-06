@@ -1,8 +1,8 @@
-// 2020.07.02
+// 2020.07.06
 
 
 del {
-    text-decoration-color: #6db8ff;
+    text-decoration-color: #ff0000;
     text-decoration-style: double;
 }
 // 颜色块-黄 
@@ -1041,7 +1041,10 @@ blockquote.question {
 
     // 站点名背景
     .brand{
-        background-color: rgba(27, 27, 27, 0.5);
+        background-color: #343434;
+        &:hover {
+            background-color: #000000;
+        }
     }
     //页码
     .pagination .page-number.current {
@@ -1074,17 +1077,20 @@ blockquote.question {
     .menu .menu-item a {
         border: none !important;
         box-shadow: 0px 0 13px 3px rgba(0,0,0,0.5)
-        background-color: rgba(27, 27, 27, 0.5);
+        background-color: rgb(52,52,52);
         &:hover {
             box-shadow: inset 0px 0 13px 3px rgba(0,0,0,0.5)
             border: none !important;
+            background: #000000;
         }
     }
-    .menu-item-active a {
+    .menu .menu-item a.menu-item-active {
         box-shadow: inset 0px 0 13px 3px rgba(0,0,0,0.5) !important;
+        background: #000000;
     }
     // 更好的侧边滚动条
     ::-webkit-scrollbar-thumb {
+        background-color: #363636;    
         &:hover {
             background-color: rgba(0,0,0,1);
         }
@@ -1092,7 +1098,9 @@ blockquote.question {
             background-color: #ccc;
         }
     }
-
+    ::-webkit-scrollbar-track {
+        background-color: #1f1f1f;
+    }
     //搜索关键字高亮
     .search-popup .search-keyword {
         &:hover {
@@ -1351,12 +1359,16 @@ blockquote.question {
     }
     // 更好的侧边滚动条
     ::-webkit-scrollbar-thumb {
+        background-color: #363636;
         &:hover {
             background-color: rgba(120, 120, 120,1);
         }
         &:active {
-            background-color: #343434;
+            background-color: #ff5c5c;
         }
+    }
+    ::-webkit-scrollbar-track {
+        background-color: #dddddd;
     }
     // 主页文章添加阴影效果
     .post-block {
@@ -1427,10 +1439,14 @@ blockquote.question {
         &:hover {
             box-shadow: inset 0px 0 13px 3px rgba(0,0,0,0.3)
             border: none !important;
+            color: #ffffff
+            background: #000000;
         }
     }
-    .menu-item-active a {
+    .menu .menu-item a.menu-item-active {
         box-shadow: inset 0px 0 13px 3px rgba(0,0,0,0.3) !important;
+        color: #ffffff
+        background: #000000;
     }
     // 站点子标题
     .site-subtitle {
@@ -1442,7 +1458,7 @@ blockquote.question {
         color: #000;
         background-color: rgba(255, 255, 255, 0.6);
         &:hover {
-            color: #000;
+            background-color: #000000;
         }
     }
     //版权声明
@@ -1631,13 +1647,7 @@ blockquote.question {
     width: 10px;
     height: 10px;
 }
-::-webkit-scrollbar-track {
-    &:hover {
-        background-color: rgba(0,0,0,.15);
-    }
-}
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(0,0,0,.3);
     &:hover {
         border-radius: 8px;
     }
@@ -1790,10 +1800,12 @@ a {
     }
 }
 // 站点子标题
-.site-subtitle {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
+@media (min-width: 767px)
+    .site-subtitle {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 1.3em
+    }
 // 站点名背景
 .brand{
     transition: transform 0.3s,color 1s,background 1s;
