@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://coldcard.wang/posts/Arnold_Lights/</loc>
+        <lastmod>2020-07-09T02:02:17.696Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://coldcard.wang/posts/Code/</loc>
         <lastmod>2020-07-02T05:32:33.580Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -74,14 +82,6 @@
     <url>
         <loc>https://coldcard.wang/posts/Kettle/</loc>
         <lastmod>2020-06-06T09:11:58.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/posts/Arnold_Lights/</loc>
-        <lastmod>2020-06-06T06:43:18.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

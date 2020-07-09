@@ -1492,7 +1492,7 @@
 </li>
 </ul>
 <h2 id="Elevation（高程）"><a href="#Elevation（高程）" class="headerlink" title="Elevation（高程）"></a>Elevation（高程）</h2><ul>
-<li>太阳东升西落效果，太阳与可观测到的地平线之间的角度。范围介于 0 到 180 度（90 到 180 度是 0 到 90 度的镜像反射）之间。<br><img data-src="sun.png" alt="太阳仰角：0 到 48 度（方位角 0 到 360 度）"></li>
+<li>太阳东升西落效果，太阳与可观测到的地平线之间的角度。范围介于 0 到 180 度（90 到 180 度是 0 到 90 度的镜像反射）之间。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/sun.png" alt="太阳仰角：0 到 48 度（方位角 0 到 360 度）"></li>
 </ul>
 <h2 id="Azimuth（方位角）"><a href="#Azimuth（方位角）" class="headerlink" title="Azimuth（方位角）"></a>Azimuth（方位角）</h2><ul>
 <li>太阳绕地平线的角度。从北方开始度量，并朝东方逐渐增加（0 到 360 度）。</li>
@@ -1533,7 +1533,7 @@
             </details>
 <ul>
 <li><h3 id="Filter-Mode（过滤器模式）"><a href="#Filter-Mode（过滤器模式）" class="headerlink" title="Filter Mode（过滤器模式）"></a>Filter Mode（过滤器模式）</h3><ul>
-<li>用于将 gobo 滑动贴图与灯光输出结合起来的混合方程式。<strong>“混合”(Blend)会创建默认 gobo 效果。“替换”(Replace)会在聚光灯基础上倍增滑动贴图。“相加”(Add)会在 gobo 基础上倍增聚光灯。“相减”(Sub)会反转滑动贴图的 RGB 值。“融合”(Mix)会在聚光灯和滑动贴图之间对结果进行均匀地平均处理。</strong><div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="filter_mode_E_add.png" alt="相加（Add）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/filter_mode_A_blend.png" alt="混合（Blend）（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/filter_mode_D_replace.png" alt="替换（Replace）"></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/filter_mode_C_sub.png" alt="相减（Sub）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/filter_mode_B_mix.png" alt="融合（Mix）"></div></div></div>
+<li>用于将 gobo 滑动贴图与灯光输出结合起来的混合方程式。<strong>“混合”(Blend)会创建默认 gobo 效果。“替换”(Replace)会在聚光灯基础上倍增滑动贴图。“相加”(Add)会在 gobo 基础上倍增聚光灯。“相减”(Sub)会反转滑动贴图的 RGB 值。“融合”(Mix)会在聚光灯和滑动贴图之间对结果进行均匀地平均处理。</strong><div class="group-picture"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/filter_mode_E_add.png" alt="相加（Add）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/filter_mode_A_blend.png" alt="混合（Blend）（默认值）"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/filter_mode_D_replace.png" alt="替换（Replace）"></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/filter_mode_C_sub.png" alt="相减（Sub）"></div><div class="group-picture-column" style="width: 50%;"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/filter_mode_B_mix.png" alt="融合（Mix）"></div></div></div>
 </li>
 </ul>
 </li>
@@ -2398,8 +2398,8 @@
         <category>Steam</category>
       </categories>
       <tags>
-        <tag>游戏</tag>
         <tag>Steam</tag>
+        <tag>游戏</tag>
       </tags>
   </entry>
   <entry>

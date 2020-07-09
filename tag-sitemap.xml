@@ -3,6 +3,27 @@
 
 
     <url>
+        <loc>https://coldcard.wang/tags/App/</loc>
+        <lastmod>2020-07-09T02:02:17.696Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/tags/Arnold/</loc>
+        <lastmod>2020-07-09T02:02:17.696Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://coldcard.wang/tags/Maya/</loc>
+        <lastmod>2020-07-09T02:02:17.696Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://coldcard.wang/tags/Hexo/</loc>
         <lastmod>2020-07-02T05:32:33.580Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -11,27 +32,6 @@
 
     <url>
         <loc>https://coldcard.wang/tags/Shaders/</loc>
-        <lastmod>2020-06-13T04:57:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/tags/App/</loc>
-        <lastmod>2020-06-13T04:57:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/tags/Arnold/</loc>
-        <lastmod>2020-06-13T04:57:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://coldcard.wang/tags/Maya/</loc>
         <lastmod>2020-06-13T04:57:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

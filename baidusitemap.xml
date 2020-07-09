@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://coldcard.wang/posts/Arnold_Lights/</loc>
+    <lastmod>2020-07-09</lastmod>
+  </url>  <url>
     <loc>https://coldcard.wang/posts/Code/</loc>
     <lastmod>2020-07-02</lastmod>
   </url>  <url>
@@ -26,9 +29,6 @@
     <lastmod>2020-06-06</lastmod>
   </url>  <url>
     <loc>https://coldcard.wang/posts/Kettle/</loc>
-    <lastmod>2020-06-06</lastmod>
-  </url>  <url>
-    <loc>https://coldcard.wang/posts/Arnold_Lights/</loc>
     <lastmod>2020-06-06</lastmod>
   </url>  <url>
     <loc>https://coldcard.wang/posts/Hexo_Updata(2020.04.17)/</loc>
