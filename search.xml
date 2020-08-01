@@ -535,7 +535,7 @@
 </ul>
 <mark class="label danger">请注意，“基础色调映射”(Base Tonemap)（使用渐变）的外观在天穹照明（软渐变）和带方向性的灯光（硬渐变）条件下差别很大。</mark>
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/diagram-1.jpg" alt="天穹照明"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiToon/diagram-2.jpg" alt="带方向性的灯光的效果"></div></div></div>
-<!---more--->
+<a id="more"></a>
 <div class="note danger"><p>以下内容为此着色器部分设置参数，其他与<a href="/posts/aiStandardSurface/">标准曲面着色器</a>类似或相同的设置参数以及容易理解的参数不做说明</p>
 </div>
 <ul>
@@ -643,7 +643,7 @@
 </ul>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/aiCarPaint.png"></p>
 <div class="note success">当小亮片小于一个像素时，在动画渲染过程中可能会带来渲染瑕疵。增加“摄影机(AA)”(Camera (AA))采样数有助于减少小亮片在长距离时出现闪烁。</div>
-<!---more--->
+<a id="more"></a>
 <div class="note default">
   汽车涂料着色器的属性编辑器中提供了一些汽车涂料预设。
   <table>
@@ -725,7 +725,7 @@
 </ul>
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img style="width:40%" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Skin/sss_skin.jpg" alt="最后效果"></div><div class="group-picture-column"><img style="width:40%" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Skin/CA_body_1001.jpg" alt="皮肤贴图（脸部）"></div></div></div>
 
-<!---more--->
+<a id="more"></a>
 <hr>
 <h1 id="修改粗糙度"><a href="#修改粗糙度" class="headerlink" title="修改粗糙度"></a>修改粗糙度</h1><p><strong>由于没有粗糙度贴图，导致材质上的高光非常平均。所以要利用皮肤贴图自己制作一张粗糙度贴图：</strong></p>
 <blockquote>
@@ -737,10 +737,12 @@
 <p><strong><div class="note warning">为何要将亮度值调至 50% 左右：<br>  这里的亮度值对应了阿诺德 aiStandardSurface（标准曲面着色器）的 specular（高光）中的 0.5 粗糙度值，将它调至 50% 是为了设置平均粗糙度<br>  </div></strong></p>
 </blockquote>
 <blockquote>
-<p>用“加深工具”画出要降低粗糙度（平滑）的地方<br><img style="width:30%" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Skin/CA_body_roughness.png" alt="更改后的粗糙度贴图"><br>**<div class="note warning">为何要用“加深工具”：<br>  在 specular（高光）的粗糙度贴图中，颜色越深，亮度越低，从而粗糙度越小，反之越大<br>  </div>**</p>
+<p>用“加深工具”画出要降低粗糙度（平滑）的地方<br><img style="width:30%" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Skin/CA_body_roughness.png" alt="更改后的粗糙度贴图"></p>
+<p><strong><div class="note warning">为何要用“加深工具”：<br>  在 specular（高光）的粗糙度贴图中，颜色越深，亮度越低，从而粗糙度越小，反之越大<br>  </div></strong></p>
 </blockquote>
 <blockquote>
-<p>最后导出<code>.tif</code>格式图片，然后连接到 specular（高光）中的 roughness（粗糙度）节点上<br>**<div class="note danger">注意以下几点：<br>  <span id="inline-blue">1.</span> 由于这是一张用黑白亮度信息作为粗糙度的贴图，所以连接后注意勾选<code>Alpha Is Luminance（Alpha 为亮度）</code><br>  <span id="inline-blue">2.</span> 连接后要将<code>Color Space（色彩空间）</code>改为<code>Raw</code><br>  </div>**</p>
+<p>最后导出<code>.tif</code>格式图片，然后连接到 specular（高光）中的 roughness（粗糙度）节点上</p>
+<p><strong><div class="note danger">注意以下几点：<br>  <span id="inline-blue">1.</span> 由于这是一张用黑白亮度信息作为粗糙度的贴图，所以连接后注意勾选<code>Alpha Is Luminance（Alpha 为亮度）</code><br>  <span id="inline-blue">2.</span> 连接后要将<code>Color Space（色彩空间）</code>改为<code>Raw</code><br>  </div></strong></p>
 </blockquote>
 <hr>
 <h1 id="修改-SSS（次表面）中的-Radius（半径）"><a href="#修改-SSS（次表面）中的-Radius（半径）" class="headerlink" title="修改 SSS（次表面）中的 Radius（半径）"></a>修改 SSS（次表面）中的 Radius（半径）</h1><p><strong><div class="note warning">为何要修改 Radius（半径）：<br>  主要是为了增加些面部的血色。由于除了 Radius（半径）还有 Scale（比例）能控制透射度，所以更改 Radius（半径）后可以通过 Scale（比例）回调<br>  </div></strong></p>
@@ -751,7 +753,8 @@
 <p>通过 Photoshop 将皮肤贴图稍微提亮，因为要在其上面画出血色，贴图过暗会影响透射效果</p>
 </blockquote>
 <blockquote>
-<p>用画笔在需要添加血色的地方画上红色<br>**<div class="note success">因为是透射，颜色纯度要高一点</div>**<br><img style="width:30%" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Skin/CA_body_Radius.png" alt="更改后的 Radius 贴图"></p>
+<p>用画笔在需要添加血色的地方画上红色</p>
+<p><strong><div class="note success">因为是透射，颜色纯度要高一点</div></strong><br><img style="width:30%" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Skin/CA_body_Radius.png" alt="更改后的 Radius 贴图"></p>
 </blockquote>
 <blockquote>
 <p>最后导出<code>.tif</code>格式图片，然后连接到 Subsurface（次表面）中的 Radius（半径）节点上</p>
@@ -786,7 +789,7 @@
 <li>以下部分资料参考了 <a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557238">Arnold 的官方技术文档和图片范例</a>。</li>
 </ul>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/Ai-aiNoise.png"></p>
-<!---more--->
+<a id="more"></a>
 <h1 id="Octaves（倍频程）"><a href="#Octaves（倍频程）" class="headerlink" title="Octaves（倍频程）"></a>Octaves（倍频程）</h1><p>针对其计算噪波函数的倍频程的数量（分形噪波函数在多个频率（称为倍频程）重复；通常情况下，每个倍频程的频率是前一个的两倍，即大小是前一个的一半，但您可使用间隙度控件对此进行修改）。</p>
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/noise_octave_1.png" alt="1（默认值）"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/noise_octave_2.png" alt="2"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/noise_octave_3.png" alt="3"></div></div></div>
 <h1 id="Distortion（扭曲）"><a href="#Distortion（扭曲）" class="headerlink" title="Distortion（扭曲）"></a>Distortion（扭曲）</h1><p>定义在噪波计算过程中应用于每个点的随机置换度，以便给人以不同的美感。</p>
@@ -825,7 +828,7 @@
 <h1 id="Threshold（阈值）"><a href="#Threshold（阈值）" class="headerlink" title="Threshold（阈值）"></a>Threshold（阈值）</h1><p>应用于纹理中所有值的偏移因子。有效范围是 0 到无限。滑块范围是 0 到 1。默认值为 0。</p>
 <h1 id="Amplitude（振幅）⇠"><a href="#Amplitude（振幅）⇠" class="headerlink" title="Amplitude（振幅）⇠"></a>Amplitude（振幅）⇠</h1><p><strong>应用于纹理中所有值的比例因子。有效范围是 0 到无限。滑块范围是 0（无噪波）到 1（强噪波）。默认值为 1。</strong></p>
 <h1 id="Ratio（比率）⇠"><a href="#Ratio（比率）⇠" class="headerlink" title="Ratio（比率）⇠"></a>Ratio（比率）⇠</h1><p><strong>控制分形噪波的频率。取值范围是 0（低频率）到 1（高频率）。默认值为 0.707。</strong></p>
-<!---more--->
+<a id="more"></a>
 <h1 id="Frequency-Ratio（频率比）"><a href="#Frequency-Ratio（频率比）" class="headerlink" title="Frequency Ratio（频率比）"></a>Frequency Ratio（频率比）</h1><p>确定噪波频率的相对特殊比例。如果不是整数，那么分形就不会在 UV 边界处重复。例如，具有默认放置的圆柱体会显示一条接缝。</p>
 <h1 id="Ripples（涟漪）"><a href="#Ripples（涟漪）" class="headerlink" title="Ripples（涟漪）"></a>Ripples（涟漪）</h1><p>确定纹理在 X、Y 和 Z 方向上的波纹。该值表示用于生成纹理的分形频率比例。取值范围是 0 到无限。默认值为 1。</p>
 <h1 id="Depth（深度）"><a href="#Depth（深度）" class="headerlink" title="Depth（深度）"></a>Depth（深度）</h1><p>用于计算纹理图案的最小和最大迭代数。该参数控制纹理颗粒的精细程度。取值范围是 0 到 20。</p>
@@ -866,7 +869,7 @@
 </ul>
 <img style="width:30%" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/kettle.jpg" alt="最后效果">
 
-<!---more--->
+<a id="more"></a>
 <h1 id="金属部分"><a href="#金属部分" class="headerlink" title="金属部分"></a>金属部分</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/Metal.png" alt="金属部分 Hypershade"></p>
 <blockquote>
 <p>通过 aiNoise（噪波）节点来模拟水壶金属颜色部分的不均匀以及斑点</p>
@@ -920,7 +923,7 @@
 <div class="note warning">不能混合曲面着色器（“闭包”）和诸如平面(Flat)的 RGBA 着色器，否则曲面着色器的效果将丢失。需要使用两个类型相同的着色器，例如标准曲面着色器。</div>
 
 <p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/aiMixShader.png"></p>
-<!---more--->
+<a id="more"></a>
 <h2 id="Mix-Mode（模式）"><a href="#Mix-Mode（模式）" class="headerlink" title="Mix Mode（模式）"></a>Mix Mode（模式）</h2><p>着色器的分层模式。在“混合”(Blend)和“叠加”(Add)之间选择。<br>如果使用不当，“添加”(Add)模式可能会破坏能量守恒。它用于添加两个体积着色器或两个仅发射灯光的着色器，而添加两个曲面着色器（如标准曲面着色器）在物理上不正确。</p>
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-mode_blend.png" alt="混合(Blend)（默认值）"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-mode_add.png" alt="相加(Add)"></div></div></div>
 <h2 id="Mix-Weight（混合权重）"><a href="#Mix-Weight（混合权重）" class="headerlink" title="Mix Weight（混合权重）"></a>Mix Weight（混合权重）</h2><p>控制着色器之间的混合量。</p>
@@ -962,7 +965,7 @@
 <li>以下部分资料参考了 <a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557238">Arnold 的官方技术文档和图片范例</a>。</li>
 </ul>
 <p>此着色器对包含十个组件的材质进行建模，这些组件会进行分层并按层次结构进行混合，如下图所示。各个组件的特性在曲面上会发生变化。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiStandardSurface/standard_surface.png" alt="standard_surface 模拟的理想化材质模型的示意图。组件的水平堆叠表示统计混合，垂直堆叠表示分层。标有星号的组件是可选组件。"></p>
-<!---more--->
+<a id="more"></a>
 <h2 id="材质类型"><a href="#材质类型" class="headerlink" title="材质类型"></a>材质类型</h2><p>默认情况下，这些参数适用于塑料、木材、石头等材质。通过将几个关键参数设置为 1，可以快速创建不同类型的材质：</p>
 <ul>
 <li><strong>Metalness</strong>（金属度）：金、银、铁、汽车涂料。</li>
@@ -1344,7 +1347,7 @@
             </details>
 <h2 id="Use-Color-Temperature（使用色温）"><a href="#Use-Color-Temperature（使用色温）" class="headerlink" title="Use Color Temperature（使用色温）"></a>Use Color Temperature（使用色温）</h2><ul>
 <li><mark class="label info">默认关闭。</mark>在灯光的 Arnold 卷展栏下，勾选 Use Color Temperature ，将启用标准的灯光照明计算，通过色温（单位：开尔文，符号 K ）来定义灯光的冷暖程度<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="理想的黑体辐射器的温度，以开尔文为单位，用于确定光源的颜色。默认颜色设置为 6500 K，国际照明委员会 (CIE) 将此视为白点。颜色范围从红色到白色再到蓝色。值大于 6500 K 时颜色为冷色，而小于 6500 K 的颜色为暖色。">[1]</span></a></sup>。开启后将忽略用户自定义的灯光颜色，包括连接到 Color 通道的纹理贴图。
-<img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/color-temp-chart-kelvin.jpg" alt="上面的图像显示了以开尔文为单位的色温对场景的影响"><!---more--->
+<img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Arnold_Lights/color-temp-chart-kelvin.jpg" alt="上面的图像显示了以开尔文为单位的色温对场景的影响"><a id="more"></a>
 
 </li>
 </ul>
@@ -1708,7 +1711,7 @@
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在 <a href="https://codepen.io/">CodePen</a> 网站闲逛时，发现了一个命令行式的 404 页面，觉得挺 cool 的，于是我下载下来做了一些内容和样式的修改，作为新的 404 页面。</p>
 <h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><p>接下来一我自己的为例。</p>
 <h2 id="步骤一"><a href="#步骤一" class="headerlink" title="步骤一"></a>步骤一</h2><ul>
-<li><strong>新建 404 页面</strong><!---more--->
+<li><strong>新建 404 页面</strong><a id="more"></a>
 
 </li>
 </ul>
@@ -1736,7 +1739,7 @@
 <h1 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h1><h2 id="更换-CDN"><a href="#更换-CDN" class="headerlink" title="更换 CDN"></a>更换 CDN</h2><p>为继续美化，我使用了 <a href="https://blog.hclonely.com/">HCLonely</a> 大佬的 Valine CDN。</p>
 <pre><code>https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js</code></pre>
 <figure class="highlight yml"><figcaption><span>位置：主题\_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">vendors:</span></span><br><span class="line">  <span class="comment"># Internal path prefix.</span></span><br><span class="line">  <span class="attr">_internal:</span> <span class="string">lib</span></span><br><span class="line">  <span class="string">···</span></span><br><span class="line">  <span class="comment"># Valine</span></span><br><span class="line">  <span class="comment"># valine: //cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js</span></span><br><span class="line">  <span class="comment"># valine: //cdnjs.cloudflare.com/ajax/libs/valine/1.3.10/Valine.min.js</span></span><br><span class="line">  <span class="attr">valine:</span> <span class="string">//cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js</span></span><br></pre></td></tr></table></figure>
-<!---more--->
+<a id="more"></a>
 <ul>
 <li><strong>与原版相比</strong><ul>
 <li>添加了“博主”，“友人”，“访客”标签</li>
@@ -1854,7 +1857,7 @@
 <li><strong>更新前版本：<code>Hexo-4.2.0</code> <code>NexT-8.0.0-rc.2</code></strong></li>
 </ul>
 <p>NexT 主题自 8.0.0 版本开始，将自带的 Font Awesome 5 图标由 4.7.0 版本升级为了 5.13.0 版本。此次升级并不向下兼容。v8.0.0 版本计划在 Hexo 5.0 版本后发布。<br>本次更新主要修复了一些 BUG 以及更新了主题明暗模式的不同<code>highlight style</code>，这也是本次更新的目的。<br>由于更换了仓库地址，本次更新需要重新<code>git clone</code>，好在我上次的大更新使用了数据文件（ Data File )，所以很多的自定义设置几乎没有受到影响，只是一两个样式需要重新修改以适配新主题。</p>
-<!---more--->
+<a id="more"></a>
 <h1 id="主要更新内容"><a href="#主要更新内容" class="headerlink" title="主要更新内容"></a>主要更新内容</h1><h2 id="highlight-style"><a href="#highlight-style" class="headerlink" title="highlight style"></a>highlight style</h2><p>增加了<code>highlight.js</code>文件以支持主题明暗模式的不同<code>highlight style</code></p>
 <figure class="highlight js"><figcaption><span>位置：主题\scripts\events\lib\highlight.js</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parse</span>(<span class="params">file</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> css = fs.readFileSync(file).toString();</span><br><span class="line">  <span class="keyword">let</span> rule = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="keyword">let</span> background = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="keyword">let</span> foreground = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  css.replace(<span class="regexp">/\.hljs([^\S]+|,[^\&#123;]+)\&#123;(.*?)\&#125;/</span>sg, <span class="function">(<span class="params">match, $<span class="number">1</span>, content</span>) =&gt;</span> &#123;</span><br><span class="line">    rule += content;</span><br><span class="line">    <span class="keyword">return</span> match;</span><br><span class="line">  &#125;);</span><br><span class="line">  rule.split(<span class="string">&#x27;\n&#x27;</span>).forEach(<span class="function"><span class="params">line</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (line.includes(<span class="string">&#x27;background:&#x27;</span>)) background = line.split(<span class="string">&#x27;background:&#x27;</span>)[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (line.includes(<span class="string">&#x27;background-color:&#x27;</span>)) background = line.split(<span class="string">&#x27;background-color:&#x27;</span>)[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (line.includes(<span class="string">&#x27;color:&#x27;</span>)) foreground = line.split(<span class="string">&#x27;color:&#x27;</span>)[<span class="number">1</span>];</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    file,</span><br><span class="line">    background,</span><br><span class="line">    foreground</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="params">hexo</span> =&gt;</span> &#123;</span><br><span class="line">  hexo.config.highlight.hljs = <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">let</span> file = <span class="string">`<span class="subst">$&#123;hexo.plugin_dir&#125;</span>highlight.js/styles/<span class="subst">$&#123;hexo.theme.config.codeblock.highlight_theme&#125;</span>.css`</span>;</span><br><span class="line">  hexo.theme.config.highlight = parse(file);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <figure class="highlight diff"><figcaption><span>位置：主题\_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">codeblock:</span><br><span class="line">  ...</span><br><span class="line"><span class="deletion">-  # Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic</span></span><br><span class="line"><span class="deletion">-  # See: https://github.com/chriskempson/tomorrow-theme</span></span><br><span class="line"><span class="deletion">-  highlight_theme: normal</span></span><br><span class="line"><span class="addition">+  # See: https://github.com/highlightjs/highlight.js/tree/master/src/styles</span></span><br><span class="line"><span class="addition">+  theme:</span></span><br><span class="line"><span class="addition">+    light: default</span></span><br><span class="line"><span class="addition">+    dark: dark</span></span><br></pre></td></tr></table></figure>
@@ -1896,7 +1899,7 @@
 </ul>
 <p>经过两年的更新，NexT主题相比原来集成了很多插件，比起当时，此版本在美化和优化设置上要简单得多。但相对的，更新起来更加的麻烦（主要是原来的设置/拓展过多），用<code>git pull</code>平滑更新会报错，只能手动更新，但也是个大工程。<br>所以，考虑到我的日志并不多，主要的美化还是在<code>custom.swig</code>文件中，以及我想用一下数据文件（ Data File )，最后我决定直接放弃原来的版本，重新建设新版本，原来的日志手动升级过来。</p>
 <h2 id="数据文件"><a href="#数据文件" class="headerlink" title="数据文件"></a>数据文件</h2><p>自从 NexT-7.3.0 开始，官方推荐采用数据文件将配置与主题分离，这样可以在不修改主题源码的同时完成选项配置自定义布局自定义样式，便于后续 NexT 版本更新。</p>
-<!---more--->
+<a id="more"></a>
 <h1 id="更新内容"><a href="#更新内容" class="headerlink" title="更新内容"></a>更新内容</h1><p><a href="#%E5%A4%9A%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F"><code>多评论系统：Valine/Gitalk</code></a> <a href="#%E9%83%A8%E7%BD%B2%E5%88%B0-Coding-%E5%9B%BD%E5%86%85%E5%A4%96%E5%88%86%E6%B5%81"><code>部署到 Coding 国内外分流</code></a> <a href="#%E8%84%9A%E6%B3%A8-hexo-reference"><code>脚注 hexo-reference</code></a> <a href="#Github-%E8%B4%A1%E7%8C%AE%E5%9B%BE"><code>Github 贡献图</code></a> <a href="#404%E9%A1%B5%E9%9D%A2"><code>404页面</code></a> <a href="#Followme"><code>Followme</code></a> <a href="#%E5%88%86%E4%BA%AB"><code>分享</code></a> <a href="#%E6%8A%98%E5%8F%A0"><code>折叠</code></a> <a href="#%E6%9A%97%E3%80%81%E4%BA%AE"><code>暗/亮</code></a> <a href="#%E8%B0%B7%E6%AD%8C%E6%97%A5%E5%8E%86"><code>谷歌日历</code></a> <a href="#%E5%BE%BD%E7%AB%A0"><code>徽章</code></a> <a href="#%E5%AD%97%E4%BD%93"><code>字体</code></a> <a href="#%E4%B8%BB%E9%A2%98%E6%A0%B7%E5%BC%8F"><code>主题样式</code></a> <a href="#%E7%AE%80%E7%B9%81%E5%88%87%E6%8D%A2"><code>简繁切换</code></a> <a href="#%E5%A4%9A%E7%BA%A7%E8%8F%9C%E5%8D%95"><code>多级菜单</code></a> <a href="#%E7%BD%AE%E9%A1%B6"><code>置顶</code></a> <a href="#%E8%BF%91%E6%9C%9F%E6%96%87%E7%AB%A0"><code>近期文章</code></a> <a href="#%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD"><code>博客备份</code></a> <a href="#%E6%89%93%E5%AD%97%E6%95%88%E6%9E%9C"><code>打字效果</code></a> <a href="#%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C"><code>点击效果</code></a> <a href="#%E5%BB%BA%E7%AB%99%E6%97%B6%E9%97%B4"><code>建站时间</code></a> <a href="#%E9%A1%B5%E9%9D%A2%E5%AE%BD%E5%BA%A6%E4%BF%AE%E6%94%B9"><code>页面宽度修改</code></a> <a href="#BiliBili-%E8%BF%BD%E7%95%AA%E5%88%97%E8%A1%A8"><code>BiliBili 追番列表</code></a> <a href="#%E6%B7%BB%E5%8A%A0%E9%98%BF%E9%87%8C%E5%9B%BE%E6%A0%87"><code>添加阿里图标</code></a> <a href="#Steam-%E6%B8%B8%E6%88%8F%E6%A0%87%E7%AD%BE"><code>Steam 游戏标签</code></a></p>
 <h2 id="新增加内容（较前版本）"><a href="#新增加内容（较前版本）" class="headerlink" title="新增加内容（较前版本）"></a>新增加内容（较前版本）</h2><h3 id="多评论系统"><a href="#多评论系统" class="headerlink" title="多评论系统"></a>多评论系统</h3><p>Next 现已支持多评论系统，原来我用的 Valine 评论系统，这次更新我尝试了 Gitalk 与 Disqus 评论，由于 Disqus 评论系统对于国内IP不是很友好（虽有 Disqus js 代理评论系统，但也没有太大实际用途），所以我放弃了 Disqus ，从而使用 Gitalk 与 Valine 双评论系统。</p>
 <figure class="highlight yml"><figcaption><span>位置：主题\_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># Multiple Comment System Support</span></span><br><span class="line"><span class="attr">comments:</span></span><br><span class="line">  <span class="comment"># Available values: tabs | buttons</span></span><br><span class="line">  <span class="attr">style:</span> <span class="string">buttons</span> <span class="comment"># 切换按钮风格</span></span><br><span class="line">  <span class="comment"># Choose a comment system to be displayed by default.</span></span><br><span class="line">  <span class="comment"># Available values: changyan | disqus | disqusjs | gitalk | livere | valine</span></span><br><span class="line">  <span class="attr">active:</span> <span class="string">valine</span> <span class="comment"># 默认评论系统</span></span><br><span class="line">  <span class="comment"># 设置为true表示记住访问者选择的评论系统。 </span></span><br><span class="line">  <span class="attr">storage:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Lazyload all comment systems.</span></span><br><span class="line">  <span class="attr">lazyload:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Modify texts or order for any navs, here are some examples.</span></span><br><span class="line">  <span class="attr">nav:</span></span><br><span class="line">    <span class="attr">disqusjs:</span></span><br><span class="line">      <span class="attr">text:</span> </span><br><span class="line">      <span class="attr">order:</span> <span class="number">-3</span></span><br><span class="line">    <span class="attr">valine:</span></span><br><span class="line">      <span class="attr">text:</span> <span class="string">Valine评论</span></span><br><span class="line">      <span class="attr">order:</span> <span class="number">-2</span></span><br><span class="line">    <span class="attr">gitalk:</span></span><br><span class="line">      <span class="attr">text:</span> <span class="string">Gitalk评论</span></span><br><span class="line">      <span class="attr">order:</span> <span class="number">-1</span></span><br></pre></td></tr></table></figure>
@@ -2150,7 +2153,7 @@
 <p>  <strong>小贴士：不使用批渲染，而使用<a href="https://knowledge.autodesk.com/zh-hans/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2017/CHS/Maya/files/GUID-79387725-EE83-4383-90E2-4BAE28B4EA4C-htm.html">渲染序列</a>不会出现水印</strong></p>
 </div>
 
-<!---more--->
+<a id="more"></a>
 
 <hr>
 <h1 id="教程"><a href="#教程" class="headerlink" title=" 教程 "></a><center> 教程 <center></h1><p><span id="div-border-left-yellow"><span id="inline-yellow">1</span> <strong>下载对应版本</strong><br><span id="inline-yellow">2</span> <strong>启动 <code>exe</code> 文件，安装阿诺德渲染器插件</strong> <mark class="label danger">已有插件的请跳过</mark><br><span id="inline-yellow">3</span> <strong>将 <code>ai.dll</code> 文件移至 <code>系统盘:\solidangle\mtoadeploy\Maya版本\bin</code> 替换</strong><br><span id="inline-yellow">4</span> <strong>重启Maya</strong></span></p>
@@ -2178,7 +2181,7 @@
 <p><img data-src="https://media.contentapi.ea.com/content/dam/bf/common/bfv-horizontal-logo-spacing-bottom.png"></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>战地Ⅴ这次的战争之潮没啥可说的，只能说 DICE 换了运行分部后，整体质量趋势还是进步的，相比一开始确实好了，还有新地图很漂亮（啊，这光，啊，这水）。<br>这次最大的更新就是“大逃杀模式”的加入（火线风暴），但是，对于我来说没有兴趣（本人对于大逃杀类游戏一概没有兴趣），听别人以及网上所说，新的模式并不好玩，还有很大的进步空间。</p>
 <p><img data-src="https://media.contentapi.ea.com/content/dam/bf/images/2018/10/bf-inline-image-tow-chapter-3.jpg.adapt.crop16x9.817w.jpg"></p>
-<!---more--->
+<a id="more"></a>
 
 <h1 id="战火试炼"><a href="#战火试炼" class="headerlink" title="战火试炼"></a>战火试炼</h1><p>这次的战争之潮由于新模式的加入，导致很多的任务与新模式有关，但是本人对于大逃杀模式的极度不感冒，加上最近的学业紧张（二维动画与三维基础的加入，导致原本较为悠闲的学习生活变得极其忙碌）所以，很多任务没有完成（好在都不是决定性的任务，最后的任务奖励还是拿到了）。</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/01.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/02.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/03.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/04.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/05.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/06.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/07.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/08.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/09.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/10.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/11.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/12.png"></p>
@@ -2206,7 +2209,7 @@
 
 <h2 id="小红信"><a href="#小红信" class="headerlink" title=" 小红信 "></a><font color=#E45B5B><i class="fas fa-envelope"></i> 小红信 <i class="fas fa-envelope"></i></font></h2><p>初步了解跨区买游的有些人可能会想，能不能利用“科学上网”到低价区买一些中国区售价较高的游戏呢，这样会有什么样的风险？答案很简单，你大概率会获得G胖送出的“小红信”一张。</p>
 <p>那小红信的作用是什么，收到“小红信”之后，<mark class="label default">如果你无法出示跨区所在国家的居住证明或来往这些地区的机票等证明</mark>，<mark class="label danger">账户会被永久封停</mark>。<strong>目前在淘宝上有很多商户出售低于国区售价的游戏，并且说明需要提供账号密码进行代激活。他们的操作方式很可能是用你的账号跨区，然后用低价区货币进行结算，也可能是跨区来接受低价礼物。</strong>无论如何，这类购买行为都会招致G胖“小红信”的“青睐”。如果你爱惜自己的账号，请切记不要以身犯险。</p>
-<!---more--->
+<a id="more"></a>
 
 <p>当然，如果你“科学上网”到高价区去购买高价游戏是完全没有问题的，毕竟看在钱的面子上，G胖也没办法拒绝。如果你本人真的在去低价区旅行期间购买了游戏，这也是没有问题的，只要你有机票等证明就行。</p>
 <p>此外，还有一个可能收到“小红信”，但是处罚比较轻微的情况，这就是<mark class="label danger">收到黑礼物</mark>。有些商户会盗刷信用卡，购买礼物赠送给你套现，价格低廉到非常诱人，但到了信用卡月结时，礼物会因拒付而被收回，你的账户也会收到一张“小红信”。<mark class="label warning">这类处罚一般较轻，第一次只是回收游戏，第二次则是封禁9周，第三次才会永久封禁。</mark>当然，也可能有多次警告仍未被封禁的情况，但保险起见建议不要和来路不明、售价低廉的商户频繁交易。如果选择私人或商户代购礼物，请选择信誉好、规模大的商家，详情可以参考贴吧和**<a href="https://steamrepcn.com/">SteamRep（交易信誉评价平台）</a>**来查看交易对象的信誉。</p>
@@ -2241,7 +2244,7 @@
 <p>入Steam坑有段时间了，从不知道SteamDB这个网站，也忘了在那个地方了解了这个网站，摸爬滚打到现在也可以简单使用了，SteamDB其实还有很多功能可以发掘，本着授人以鱼不如授人以渔的想法写下这篇指南，希望能帮助到你们。（已经可以熟练使用的大佬可能会觉得这篇指南写的很啰嗦，纯萌新向嘛 _(:зゝ∠)_）。</p>
 <hr>
 <h1 id="SteamDB-简介"><a href="#SteamDB-简介" class="headerlink" title="SteamDB 简介"></a>SteamDB 简介</h1><p>SteamDB是一个关于Steam数据库的一个网站，这个网站的建立是为了让用户更深入了解Steam数据库。它可以追溯<strong>应用（Application）</strong>和<strong>包（Package）</strong>的更新情况并将他们保存在历史中。同时也提供一些像**<a href="https://steamdb.info/calculator/">Calculator</a>**一样的工具给用户，让用户更了解自己的Steam账户。</p>
-<!---more--->
+<a id="more"></a>
 
 <p>这个网站可以提供Steam中游戏的各种数据，如<strong>当前打折游戏、游戏价格历史变动、游戏限制（锁区情况、锁运行状况、锁语言情况）、游戏DLC查询、游戏内容变动历史查询、简单的成就查询等</strong>。</p>
 <hr>
@@ -2288,7 +2291,7 @@
 <hr>
 <h1 id="Steam的低价区"><a href="#Steam的低价区" class="headerlink" title="Steam的低价区"></a>Steam的低价区</h1><p>Steam采用的是分区定价方式，不同地区有不同地区的售价，所以就产生了<mark class="label danger">高价区</mark>和<mark class="label success">低价区</mark>，常见的高价区主要是美国和欧洲地区，低价区则是巴西、印度、俄罗斯等。中国玩家所在的中国区也属于低价区，绝大多数游戏在我国的售价都低于高价区。当然也有一些例外，比如部分日厂的部分游戏，其定价策略就是中国区的售价反而比欧美要高一些。<mark class="label info">因此，如果你想买到低价的游戏，或者锁区的游戏，那么合理的购买策略就是跨区购买。</mark></p>
 <h2 id="Steam国区的打折策略和售价变化"><a href="#Steam国区的打折策略和售价变化" class="headerlink" title=" Steam国区的打折策略和售价变化 "></a><i class="fa fa-align-right"></i> Steam国区的打折策略和售价变化 <i class="fa fa-align-left"></i></h2><p>虽然中国区还是严格意义上的低价区，但其实际的打折力度，已比不上两年前国区刚刚推出的那段时间了。<br>很多游戏去年大半时间内都没有大幅度打折，就算有其折扣力度也基本没有跌破历史最低价（以下简称“史低”），各大促销时段（暑促、黑五、圣诞、春节）的促销游戏数量也有所下滑。</p>
-<!---more--->
+<a id="more"></a>
 
 <p>除此之外，中国区的3A大作售价也有轻微上涨。 具体来说，就是2015年100多块就能买到一款首发3A大作，而到现在一般都得至少支付两三百才行。虽然说随着用户增长购买力提升是一个必然，但是我们现在依然可以转而用其它方式“薅羊毛”。 </p>
 <h2 id="Steam的低价区查询"><a href="#Steam的低价区查询" class="headerlink" title=" Steam的低价区查询 "></a><i class="fa fa-align-right"></i> Steam的低价区查询 <i class="fa fa-align-left"></i></h2><p><span id="div-border-right-left-purple"> 既然了解了Steam有低价区，那如何查询哪个地区或国家比中国区便宜呢？<br>那就需要一个查询网站<a href="https://steamdb.info/"><strong>SteamDB</strong></a><br><span id="inline-gray"><a href="https://coldcard.wang/post/SteamDB/">☛ SteamDB对于跨区购买信息查询十分有用，具体查询教程 ☚</a></span> </span></p>
@@ -2411,7 +2414,7 @@
 
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="有一款游戏，Ta看似简陋，但其乐无穷，最后你会发现，Ta将成为你的全部"><a href="#有一款游戏，Ta看似简陋，但其乐无穷，最后你会发现，Ta将成为你的全部" class="headerlink" title="有一款游戏，Ta看似简陋，但其乐无穷，最后你会发现，Ta将成为你的全部"></a>有一款游戏，Ta看似简陋，但其乐无穷，最后你会发现，Ta将成为你的全部</h2><p>Minecraft，一个陪伴多数玩家包括我在内初高中生活的一款“沙盒生存”<code>之所以打引号是因为Ta不仅仅只局限于沙盒生存</code> 游戏。现在的我上了大学，但Minecraft依旧没有淡出我的生活，Ta不仅仅是一款陪伴我童年的游戏，Ta的意义，回想起让我欣慰，让我感动，让我坚定。。。。。。<br>Ta，让我的课余生活充满期待；Ta，让我知道了单机网络游戏；Ta，让我了解了游戏种类的丰富；Ta，让我与同学间的友谊加固；Ta，让我交到了同学外的其他朋友；Ta，让我对电脑技术方面产生了兴趣。。。。。。 </p>
 <h2 id="你还记得有一款游戏叫Minecraft吗？"><a href="#你还记得有一款游戏叫Minecraft吗？" class="headerlink" title="你还记得有一款游戏叫Minecraft吗？"></a>你还记得有一款游戏叫Minecraft吗？</h2><p>Minecraft，随着时间的推移，相较15-17年Ta已经不再辉煌，有人说，不是MC不火了，而是我们长大了。在我看来，市场上的游戏越来越多的，但在沙盒游戏中，Minecraft依旧是第一。在这里我不讨论MC为何不在辉煌，如需了解详情可以去看<strong>籽岷</strong>做过的几期视频 <a href="https://www.bilibili.com/video/av41871636/"><code>视频一</code></a><a href="https://www.bilibili.com/video/av42062680/"><code>视频二</code></a><a href="https://www.bilibili.com/video/av42155940/"><code>视频三</code></a><a href="https://www.bilibili.com/video/av45601121/"><code>视频四</code></a><a href="https://www.bilibili.com/video/av45654190/"><code>视频五</code></a><a href="https://www.bilibili.com/video/av46301192/"><code>视频六</code></a> 在这里，我想说，MC不倒，陪你到老！！！</p>
-<!---more--->
+<a id="more"></a>
 
 <hr>
 <h1 id="Imbox-服务器"><a href="#Imbox-服务器" class="headerlink" title="Imbox 服务器"></a>Imbox 服务器</h1><h2 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h2><p>Imbox服务器的前身是领域服，在一周目时，我正式加入，服务器主打纯净生存，服主是现居在加拿大温尼伯的一名华人学生，由于是在加拿大，国内延迟较高，在经过几周目的领域生存以及玩家们的建议，“高层”决定开设服务器，并将其放在国内，在2019年3月中旬服务器开始内测。 </p>
@@ -2473,7 +2476,7 @@
 <p><img data-src="https://media.contentapi.ea.com/content/dam/bf/common/bfv-horizontal-logo-spacing-bottom.png"></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>战地Ⅴ是我正式接触的第一部战地系列作品，回想初中时，我在同学家第一次知道了战地系列，说实话，当时的我对于 FPS 游戏并不感冒，直到上了大学后，渐渐的对 FPS 游戏起了兴趣，尤其是大型多人 FPS 游戏，所以我在2018年12月中下旬时购买了战地Ⅴ（买完了就打5折😡<code>EA游戏，早买早享受，晚买享折扣，不买免费送（滑稽）</code> ），入手较晚，所以第一个战争之潮-停火协议的任务并没有全部完成，但停火协议的等级我肝到了满级🙃。<br>这次的战争之潮-闪电突袭，我成功的将所有的任务完成了，并且等级也满级了😎。</p>
 <p><img data-src="https://media.contentapi.ea.com/content/dam/bf/images/2018/10/bf-inline-image-tow-chapter-2.jpg.adapt.crop16x9.817w.jpg"></p>
-<!---more--->
+<a id="more"></a>
 
 <h1 id="闪电突袭"><a href="#闪电突袭" class="headerlink" title="闪电突袭"></a>闪电突袭</h1><p>战地Ⅴ的战争之潮-闪电突袭快要结束了，这个赛季为期九周，其中奖励有四把武器，两辆坦克，两架飞机，一件皮肤。</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/01.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/02.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/03.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/04.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/05.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/06.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/07.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/08.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/09.png"></p>
@@ -2493,7 +2496,7 @@
     <title>オーバーロード（OVERLORD）（人物介绍）（守护者）</title>
     <url>/posts/OVERLORD_2/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>OVERLORD（日语：オーバーロード）是日本小说家丸山くがね创作的轻小说系列，最初是发表于小说投稿网站——Arcadia，之后改在成为小说家吧上发表的网路连载小说，2012年正式发行书籍版（故事情节有若干变动，网路上的称为web版），动画版2015年7月于日本开始播放第一季。第二季于2018年1月开始播放。第三季于同年7月播放。</p>
-<!---more--->
+<a id="more"></a>
 <hr>
 <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>一款席卷游戏界的网路游戏“YGGDRASIL（世界树）”，在营运十二年后停止一切服务，一名喜欢该游戏的普通上班族“飞鼠”，在营运的最后一刻来到游戏中曾名噪一时、由其担任会长的强大公会—“安兹·乌尔·恭”的根据地纳萨力克大坟墓进行最后巡礼，等待营运的结束。原本应该是如此。虽然营运时间结束，玩家角色却无法登出游戏。而公会内的NPC也开始拥有自己的思想、如活人般地活动起来。在原本的游戏中拥有骷髅魔法师外表的飞鼠，就这样与他率领的公会展开前所未有的奇幻传奇冒险。</p>
 <hr>
@@ -2709,7 +2712,7 @@
 <p><strong>· 施 · 工 · 中 ·</strong></p>
 </div>
 </center>
-<!---more--->
+<a id="more"></a>
 
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>OVERLORD（日语：オーバーロード）是日本小说家丸山くがね创作的轻小说系列，最初是发表于小说投稿网站——Arcadia，之后改在成为小说家吧上发表的网路连载小说，2012年正式发行书籍版（故事情节有若干变动，网路上的称为web版），动画版2015年7月于日本开始播放第一季。第二季于2018年1月开始播放。第三季于同年7月播放。</p>
 <hr>
@@ -2750,7 +2753,7 @@
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p> OVERLORD（日语：オーバーロード）是日本小说家丸山くがね创作的轻小说系列，最初是发表于小说投稿网站——Arcadia，之后改在成为小说家吧上发表的网路连载小说，2012年正式发行书籍版（故事情节有若干变动，网路上的称为web版），动画版2015年7月于日本开始播放第一季。第二季于2018年1月开始播放。第三季于同年7月播放。 </p>
 <hr>
 <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p> 一款席卷游戏界的网路游戏“YGGDRASIL（世界树）”，在营运十二年后停止一切服务，一名喜欢该游戏的普通上班族“飞鼠”，在营运的最后一刻来到游戏中曾名噪一时、由其担任会长的强大公会—“安兹·乌尔·恭”的根据地纳萨力克大坟墓进行最后巡礼，等待营运的结束。原本应该是如此。虽然营运时间结束，玩家角色却无法登出游戏。而公会内的NPC也开始拥有自己的思想、如活人般地活动起来。在原本的游戏中拥有骷髅魔法师外表的飞鼠，就这样与他率领的公会展开前所未有的奇幻传奇冒险。 </p>
-<!---more--->
+<a id="more"></a>
 <hr>
 <h1 id="人物介绍"><a href="#人物介绍" class="headerlink" title="人物介绍"></a>人物介绍</h1><h2 id="安兹·乌尔·恭"><a href="#安兹·乌尔·恭" class="headerlink" title="安兹·乌尔·恭"></a>安兹·乌尔·恭</h2><ul>
 <li><p>是网络游戏“YGGDRASIL”中的公会之一。成员41人，擅长PK的公会。</p>
