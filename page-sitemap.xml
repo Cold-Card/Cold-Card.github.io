@@ -8,78 +8,78 @@
     </url>
     
     <url>
-        <loc>https://coldcard.wang/other/about/</loc>
-        <lastmod>2020-08-01T14:03:46.230Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://coldcard.wang/other/styles/</loc>
-        <lastmod>2020-08-01T13:07:16.671Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
         <loc>https://coldcard.wang/other/link/</loc>
-        <lastmod>2020-06-29T11:41:06.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://coldcard.wang/other/pictures/</loc>
-        <lastmod>2020-05-25T11:17:54.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://coldcard.wang/guestbook/</loc>
-        <lastmod>2020-05-19T10:10:10.000Z</lastmod>
+        <lastmod>2020-06-29T01:52:02.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>https://coldcard.wang/other/anime/</loc>
-        <lastmod>2020-05-16T15:06:14.000Z</lastmod>
+        <lastmod>2020-05-16T12:35:56.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://coldcard.wang/other/styles/</loc>
+        <lastmod>2020-05-12T11:02:22.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://coldcard.wang/other/pictures/</loc>
+        <lastmod>2020-04-25T10:12:02.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>https://coldcard.wang/other/schedule/</loc>
-        <lastmod>2020-05-09T12:43:06.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://coldcard.wang/other/</loc>
-        <lastmod>2020-05-04T06:29:52.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://coldcard.wang/tags/</loc>
-        <lastmod>2020-04-25T10:16:48.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://coldcard.wang/categories/</loc>
-        <lastmod>2020-04-25T09:23:50.000Z</lastmod>
+        <lastmod>2020-04-17T07:45:41.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>https://coldcard.wang/archives/</loc>
-        <lastmod>2020-04-25T09:08:52.000Z</lastmod>
+        <lastmod>2020-04-17T07:31:47.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://coldcard.wang/other/</loc>
+        <lastmod>2020-04-17T07:31:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://coldcard.wang/guestbook/</loc>
+        <lastmod>2018-08-08T05:23:38.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://coldcard.wang/categories/</loc>
+        <lastmod>2018-08-06T14:41:36.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://coldcard.wang/other/about/</loc>
+        <lastmod>2018-08-06T14:41:36.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://coldcard.wang/tags/</loc>
+        <lastmod>2018-08-05T09:25:17.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
