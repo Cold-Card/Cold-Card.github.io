@@ -1,4 +1,4 @@
-// 2020.08.01
+// 2020.09.01
 
 
 del {
@@ -597,6 +597,7 @@ text-rendering: auto;
 //侧栏
 .sidebar {
     box-shadow: 0 2px 6px #000;
+    right: -330px;
 }
 
 // 侧栏站点作者名
@@ -843,17 +844,17 @@ blockquote.question {
 // 暗主题
 @media (prefers-color-scheme: dark)
     // 文章```代码块顶部样式
-    .highlight figcaption {
+    figure.highlight figcaption, pre .caption, pre figcaption {
         border-bottom: 2px solid #747474;
         color: #bcbcbc;
         background-color: #121212
     }
     // 文章```代码块左侧样式
-    .highlight .gutter pre {
+    figure.highlight .gutter pre {
         background-color: #121212
         color: #bcbcbc;
     }
-    .highlight, .highlight .code pre {
+    figure.highlight, .highlight .code pre {
         background-color: #252525
     }
     //```代码块
@@ -1022,7 +1023,7 @@ blockquote.question {
 
 
     //tabs
-    .post-body .tabs .tab-content .tab-pane.active, .tabs-comment .tab-content .tab-pane.active {
+    .post-body .tabs .tab-content, .tabs-comment .tab-content {
         background-color: rgba(68, 68, 68, 0.3);
     }
     .post-body .tabs ul.nav-tabs li.tab, .tabs-comment ul.nav-tabs li.tab {
@@ -1032,7 +1033,7 @@ blockquote.question {
     }
 
     //版权声明
-    .post-copyright {
+    .post-copyright ul {
         box-shadow: 0 0 13px 3px black;
         border: 3px dashed #ababab;
         background: rgba(66, 66, 66, 0.5);
@@ -1126,7 +1127,7 @@ blockquote.question {
     }
 
     //归档
-    .posts-collapse .post-header {
+    .posts-collapse .post-content .post-header {
         background-color: rgb(27, 27, 27);
         box-shadow: inset 0px 0 13px 3px rgba(0,0,0,0.5)
         &:hover {
@@ -1218,7 +1219,7 @@ blockquote.question {
 // 亮主题
 @media (prefers-color-scheme: light)
     // 文章```代码块顶部样式
-    .highlight figcaption {
+    figure.highlight figcaption, pre .caption, pre figcaption {
         border-bottom: 2px solid #bcbcbc;
         color: #777
     }
@@ -1402,7 +1403,7 @@ blockquote.question {
         }
     }
     //归档
-    .posts-collapse .post-header {
+    .posts-collapse .post-content .post-header {
         background-color: rgb(255,255,255);
         box-shadow: inset 0px 0 13px 3px rgba(0,0,0,0.3)
         &:hover {
@@ -1466,14 +1467,14 @@ blockquote.question {
         }
     }
     //版权声明
-    .post-copyright {
+    .post-copyright ul {
         box-shadow: 0 0 13px 3px rgba(0, 0, 0, 0.5);
         border: 3px dashed #ababab;
         background: rgba(255, 255, 255, 0.5);
         border-image: linear-gradient(#ff6767, #9e9e9e) 10;
     }
     //tabs
-    .post-body .tabs .tab-content .tab-pane.active, .tabs-comment .tab-content .tab-pane.active {
+    .post-body .tabs .tab-content, .tabs-comment .tab-content {
         background-color: rgba(183, 183, 183, 0.3);
     }
     .post-body .tabs ul.nav-tabs li.tab, .tabs-comment ul.nav-tabs li.tab {
@@ -1747,7 +1748,7 @@ a {
     }
 }
 //归档
-.posts-collapse .post-header {
+.posts-collapse .post-content .post-header {
     border-bottom: none;
     font-size: 15px;
     transition: font-size 0.2s,margin 0.2s,color 1s,background 1s;
@@ -1821,7 +1822,7 @@ a {
     }
 }
 //版权声明
-.post-copyright {
+.post-copyright ul {
     transition-property: color,background;
     transition-delay: 0s;
     transition-duration: 1s;
@@ -1850,7 +1851,7 @@ a {
     }
 }
 //tabs
-.post-body .tabs .tab-content .tab-pane.active, .tabs-comment .tab-content .tab-pane.active {
+.post-body .tabs .tab-content, .tabs-comment .tab-content {
     border-left: 1px solid #aba7d5;
     border-right: 1px solid #aba7d5;
     border-bottom: 1px solid #aba7d5;
@@ -2470,10 +2471,16 @@ img {
     @media (prefers-color-scheme: dark)
         body {
             background-image: url('/images/background_dark.webp') !important;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
         }
     @media (prefers-color-scheme: light)
         body {
             background-image: url('/images/background_light.webp') !important;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
         }
         .footer-inner {
             color: #838383
@@ -2600,6 +2607,5 @@ tbody tr:nth-of-type(odd) {
 .friends-group {
     margin-bottom: 3em
 }
-
 
 
