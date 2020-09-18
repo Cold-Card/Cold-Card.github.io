@@ -34,50 +34,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Maya 学习日志：Arnold（阿诺德）aiMixShader（混合着色器）</title>
-    <url>/posts/aiMixShader/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="混合着色器"><a href="#混合着色器" class="headerlink" title="混合着色器"></a>混合着色器</h1><p>混合着色器用于混合或添加两个着色器（包括灯光 AOV）。它根据“混合权重”(Mix Weight)属性，返回着色器 1 和着色器 2 的线性插值。“混合权重”(Mix Weight)值为 0 时，将输出着色器 1；值为 1 时，将输出着色器 2，值为 0.5 时，将在着色器 1 和着色器 2 之间均匀地混合。</p>
-<ul>
-<li>以下部分资料参考了 <a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557238">Arnold 的官方技术文档和图片范例</a>。</li>
-</ul>
-<div class="note warning">不能混合曲面着色器（“闭包”）和诸如平面(Flat)的 RGBA 着色器，否则曲面着色器的效果将丢失。需要使用两个类型相同的着色器，例如标准曲面着色器。</div>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/aiMixShader.png"></p>
-<a id="more"></a>
-<h2 id="Mix-Mode（模式）"><a href="#Mix-Mode（模式）" class="headerlink" title="Mix Mode（模式）"></a>Mix Mode（模式）</h2><p>着色器的分层模式。在“混合”(Blend)和“叠加”(Add)之间选择。<br>如果使用不当，“添加”(Add)模式可能会破坏能量守恒。它用于添加两个体积着色器或两个仅发射灯光的着色器，而添加两个曲面着色器（如标准曲面着色器）在物理上不正确。</p>
-<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-mode_blend.png" alt="混合(Blend)（默认值）"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-mode_add.png" alt="相加(Add)"></div></div></div>
-<h2 id="Mix-Weight（混合权重）"><a href="#Mix-Weight（混合权重）" class="headerlink" title="Mix Weight（混合权重）"></a>Mix Weight（混合权重）</h2><p>控制着色器之间的混合量。</p>
-<div class="note default">将位图连接到“融合”(Mix)时，可能需要插入范围着色器。</div>
-<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-0.png" alt="0"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-0.5.png" alt="0.5（默认值）"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-1.png" alt="1"></div></div></div>
-可以将纹理连接到“混合权重”(Mix Weight)以控制着色器 1 和着色器 2 之间的混合。
-<table>
-<tbody>
-<tr>
-<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/shader1.png" alt="着色器 1"></td>
-<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/shader2.png" alt="着色器 2"></td>
-<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/checker-mix-image.png" alt="棋盘格 -> 混合权重"></td>
-<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/shader-mix_result.png" alt="混合着色器的结果"></td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="shader1（着色器-1）"><a href="#shader1（着色器-1）" class="headerlink" title="shader1（着色器 1）"></a>shader1（着色器 1）</h2><p>着色器 1 的输入。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-0.jpg"></p>
-<h2 id="shader2（着色器-2）"><a href="#shader2（着色器-2）" class="headerlink" title="shader2（着色器 2）"></a>shader2（着色器 2）</h2><p>着色器 1 的输入。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-1.jpg"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/Hypershade.png" alt="以上示例中使用的着色网络"></p>
-<h2 id="工作流示例"><a href="#工作流示例" class="headerlink" title="工作流示例"></a>工作流示例</h2><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/facing-ratio-melting-snow2.gif" alt="已设置动画的正面比着色器 -&gt;“混合权重”(Mix Weight)。 雪着色器 -&gt; shader1，山脉着色器 -&gt; shader2。"></p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557556">Arnold for Maya 用户手册：混合着色器</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
-      <categories>
-        <category>软件</category>
-        <category>Maya</category>
-        <category>Arnold 着色器</category>
-      </categories>
-      <tags>
-        <tag>Maya</tag>
-        <tag>Arnold</tag>
-        <tag>软件</tag>
-        <tag>着色器</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Maya 学习日志：Arnold（阿诺德）aiCarPaint（汽车涂料着色器）</title>
     <url>/posts/aiCarPaint/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="汽车涂料"><a href="#汽车涂料" class="headerlink" title="汽车涂料"></a>汽车涂料</h1><p>这个简单易用的着色器可用于创建汽车涂料材质。<strong>它支持三个层：基础层、镜面反射层和透明涂层。</strong>这些层的用法与标准曲面着色器中层的用法相似。但是，汽车涂料着色器有一些独特的属性，专门用来控制颜色渐变、光面颜色和衰减等。另外，我们还可以很容易向镜面反射层添加金属小亮片。</p>
@@ -143,6 +99,50 @@
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/coord_space-flake-Pref.png" alt="参考点（默认值）"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/coord_space-flake-UV.png" alt="UV"></div></div></div>
 <h2 id="Pref-Name（参考点名称）"><a href="#Pref-Name（参考点名称）" class="headerlink" title="Pref Name（参考点名称）"></a>Pref Name（参考点名称）</h2><p>指定引用位置用户数据数组的名称。以前，该名称被硬编码为“Pref”，现在这仍然是默认设置。</p>
 <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557493">Arnold for Maya 用户手册：汽车涂料</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>软件</category>
+        <category>Maya</category>
+        <category>Arnold 着色器</category>
+      </categories>
+      <tags>
+        <tag>Maya</tag>
+        <tag>Arnold</tag>
+        <tag>软件</tag>
+        <tag>着色器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Maya 学习日志：Arnold（阿诺德）aiMixShader（混合着色器）</title>
+    <url>/posts/aiMixShader/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="混合着色器"><a href="#混合着色器" class="headerlink" title="混合着色器"></a>混合着色器</h1><p>混合着色器用于混合或添加两个着色器（包括灯光 AOV）。它根据“混合权重”(Mix Weight)属性，返回着色器 1 和着色器 2 的线性插值。“混合权重”(Mix Weight)值为 0 时，将输出着色器 1；值为 1 时，将输出着色器 2，值为 0.5 时，将在着色器 1 和着色器 2 之间均匀地混合。</p>
+<ul>
+<li>以下部分资料参考了 <a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557238">Arnold 的官方技术文档和图片范例</a>。</li>
+</ul>
+<div class="note warning">不能混合曲面着色器（“闭包”）和诸如平面(Flat)的 RGBA 着色器，否则曲面着色器的效果将丢失。需要使用两个类型相同的着色器，例如标准曲面着色器。</div>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/aiMixShader.png"></p>
+<a id="more"></a>
+<h2 id="Mix-Mode（模式）"><a href="#Mix-Mode（模式）" class="headerlink" title="Mix Mode（模式）"></a>Mix Mode（模式）</h2><p>着色器的分层模式。在“混合”(Blend)和“叠加”(Add)之间选择。<br>如果使用不当，“添加”(Add)模式可能会破坏能量守恒。它用于添加两个体积着色器或两个仅发射灯光的着色器，而添加两个曲面着色器（如标准曲面着色器）在物理上不正确。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-mode_blend.png" alt="混合(Blend)（默认值）"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-mode_add.png" alt="相加(Add)"></div></div></div>
+<h2 id="Mix-Weight（混合权重）"><a href="#Mix-Weight（混合权重）" class="headerlink" title="Mix Weight（混合权重）"></a>Mix Weight（混合权重）</h2><p>控制着色器之间的混合量。</p>
+<div class="note default">将位图连接到“融合”(Mix)时，可能需要插入范围着色器。</div>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-0.png" alt="0"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-0.5.png" alt="0.5（默认值）"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-1.png" alt="1"></div></div></div>
+可以将纹理连接到“混合权重”(Mix Weight)以控制着色器 1 和着色器 2 之间的混合。
+<table>
+<tbody>
+<tr>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/shader1.png" alt="着色器 1"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/shader2.png" alt="着色器 2"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/checker-mix-image.png" alt="棋盘格 -> 混合权重"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/shader-mix_result.png" alt="混合着色器的结果"></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="shader1（着色器-1）"><a href="#shader1（着色器-1）" class="headerlink" title="shader1（着色器 1）"></a>shader1（着色器 1）</h2><p>着色器 1 的输入。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-0.jpg"></p>
+<h2 id="shader2（着色器-2）"><a href="#shader2（着色器-2）" class="headerlink" title="shader2（着色器 2）"></a>shader2（着色器 2）</h2><p>着色器 1 的输入。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-1.jpg"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/Hypershade.png" alt="以上示例中使用的着色网络"></p>
+<h2 id="工作流示例"><a href="#工作流示例" class="headerlink" title="工作流示例"></a>工作流示例</h2><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/facing-ratio-melting-snow2.gif" alt="已设置动画的正面比着色器 -&gt;“混合权重”(Mix Weight)。 雪着色器 -&gt; shader1，山脉着色器 -&gt; shader2。"></p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557556">Arnold for Maya 用户手册：混合着色器</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
       <categories>
         <category>软件</category>
         <category>Maya</category>
@@ -880,6 +880,41 @@
       </tags>
   </entry>
   <entry>
+    <title>Steam 的小黄信与小红信</title>
+    <url>/posts/Steam_Warning/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><center>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>先前，我专门写了一篇关于**<a href="https://coldcard.wang/Steam/Steam%E8%B7%A8%E5%8C%BA%E4%B9%B0%E6%B8%B8/">Steam跨区买游</a><strong>的日志,在文中我较详细的介绍了Steam跨区买游的方法以及安全性，结论是</strong><del>跨区买Key是较为安全的</del>**，本文将详细介绍商店、礼物、Key这三种方式的跨区安全问题。 </p>
+<hr>
+<h1 id="小黄信与小红信"><a href="#小黄信与小红信" class="headerlink" title="小黄信与小红信"></a>小黄信与小红信</h1><p>通常Steam可能的帐号及游戏的风险基本是两种，被玩家称为小黄信与小红信。</p>
+<span id="div-border-top-red">
+
+<h2 id="小红信"><a href="#小红信" class="headerlink" title=" 小红信 "></a><font color=#E45B5B><i class="fas fa-envelope"></i> 小红信 <i class="fas fa-envelope"></i></font></h2><p>初步了解跨区买游的有些人可能会想，能不能利用“科学上网”到低价区买一些中国区售价较高的游戏呢，这样会有什么样的风险？答案很简单，你大概率会获得G胖送出的“小红信”一张。</p>
+<p>那小红信的作用是什么，收到“小红信”之后，<mark class="label default">如果你无法出示跨区所在国家的居住证明或来往这些地区的机票等证明</mark>，<mark class="label danger">账户会被永久封停</mark>。<strong>目前在淘宝上有很多商户出售低于国区售价的游戏，并且说明需要提供账号密码进行代激活。他们的操作方式很可能是用你的账号跨区，然后用低价区货币进行结算，也可能是跨区来接受低价礼物。</strong>无论如何，这类购买行为都会招致G胖“小红信”的“青睐”。如果你爱惜自己的账号，请切记不要以身犯险。</p>
+<a id="more"></a>
+
+<p>当然，如果你“科学上网”到高价区去购买高价游戏是完全没有问题的，毕竟看在钱的面子上，G胖也没办法拒绝。如果你本人真的在去低价区旅行期间购买了游戏，这也是没有问题的，只要你有机票等证明就行。</p>
+<p>此外，还有一个可能收到“小红信”，但是处罚比较轻微的情况，这就是<mark class="label danger">收到黑礼物</mark>。有些商户会盗刷信用卡，购买礼物赠送给你套现，价格低廉到非常诱人，但到了信用卡月结时，礼物会因拒付而被收回，你的账户也会收到一张“小红信”。<mark class="label warning">这类处罚一般较轻，第一次只是回收游戏，第二次则是封禁9周，第三次才会永久封禁。</mark>当然，也可能有多次警告仍未被封禁的情况，但保险起见建议不要和来路不明、售价低廉的商户频繁交易。如果选择私人或商户代购礼物，请选择信誉好、规模大的商家，详情可以参考贴吧和**<a href="https://steamrepcn.com/">SteamRep（交易信誉评价平台）</a>**来查看交易对象的信誉。</p>
+</span>
+
+<span id="div-border-top-yellow">
+
+<h2 id="小黄信"><a href="#小黄信" class="headerlink" title=" 小黄信 "></a><font color=#E1BC48><i class="fas fa-envelope"></i> 小黄信 <i class="fas fa-envelope"></i></font></h2><p>接下来就要说为什么Key比礼物安全了，虽然市场也存在盗刷信用卡获取黑Key的情形，月结时黑Key仍会被收回，但此时你收到的会是“小黄信”而非“小红信”，而这不会对你的账户造成任何影响。虽然也有传闻称，黑Key被收回5次以上也会对账号造成影响，但是目前并没有相关的实例可以佐证。所以相对而言，Key要比购买礼物和“科学上网”安全许多。</p>
+<mark class="label info">因为CD Key是发行商向零售方出售的，属于第三方渠道，与V社（Steam）无关，也就是说Steam没有权利封禁因第三方渠道出现问题的账号。</mark>
+
+</span>
+
+<hr>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p><span id="div-border-right-left-blue"><strong><a href="https://steamcommunity.com/id/ColdCard/">欢迎加我Steam好友</a></strong></span></p>
+</center>]]></content>
+      <categories>
+        <category>Steam</category>
+      </categories>
+      <tags>
+        <tag>Steam</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Steam 跨区买游</title>
     <url>/posts/Steam_Buy/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><div class="note danger">
@@ -1055,85 +1090,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Steam 的小黄信与小红信</title>
-    <url>/posts/Steam_Warning/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><center>
-
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>先前，我专门写了一篇关于**<a href="https://coldcard.wang/Steam/Steam%E8%B7%A8%E5%8C%BA%E4%B9%B0%E6%B8%B8/">Steam跨区买游</a><strong>的日志,在文中我较详细的介绍了Steam跨区买游的方法以及安全性，结论是</strong><del>跨区买Key是较为安全的</del>**，本文将详细介绍商店、礼物、Key这三种方式的跨区安全问题。 </p>
-<hr>
-<h1 id="小黄信与小红信"><a href="#小黄信与小红信" class="headerlink" title="小黄信与小红信"></a>小黄信与小红信</h1><p>通常Steam可能的帐号及游戏的风险基本是两种，被玩家称为小黄信与小红信。</p>
-<span id="div-border-top-red">
-
-<h2 id="小红信"><a href="#小红信" class="headerlink" title=" 小红信 "></a><font color=#E45B5B><i class="fas fa-envelope"></i> 小红信 <i class="fas fa-envelope"></i></font></h2><p>初步了解跨区买游的有些人可能会想，能不能利用“科学上网”到低价区买一些中国区售价较高的游戏呢，这样会有什么样的风险？答案很简单，你大概率会获得G胖送出的“小红信”一张。</p>
-<p>那小红信的作用是什么，收到“小红信”之后，<mark class="label default">如果你无法出示跨区所在国家的居住证明或来往这些地区的机票等证明</mark>，<mark class="label danger">账户会被永久封停</mark>。<strong>目前在淘宝上有很多商户出售低于国区售价的游戏，并且说明需要提供账号密码进行代激活。他们的操作方式很可能是用你的账号跨区，然后用低价区货币进行结算，也可能是跨区来接受低价礼物。</strong>无论如何，这类购买行为都会招致G胖“小红信”的“青睐”。如果你爱惜自己的账号，请切记不要以身犯险。</p>
-<a id="more"></a>
-
-<p>当然，如果你“科学上网”到高价区去购买高价游戏是完全没有问题的，毕竟看在钱的面子上，G胖也没办法拒绝。如果你本人真的在去低价区旅行期间购买了游戏，这也是没有问题的，只要你有机票等证明就行。</p>
-<p>此外，还有一个可能收到“小红信”，但是处罚比较轻微的情况，这就是<mark class="label danger">收到黑礼物</mark>。有些商户会盗刷信用卡，购买礼物赠送给你套现，价格低廉到非常诱人，但到了信用卡月结时，礼物会因拒付而被收回，你的账户也会收到一张“小红信”。<mark class="label warning">这类处罚一般较轻，第一次只是回收游戏，第二次则是封禁9周，第三次才会永久封禁。</mark>当然，也可能有多次警告仍未被封禁的情况，但保险起见建议不要和来路不明、售价低廉的商户频繁交易。如果选择私人或商户代购礼物，请选择信誉好、规模大的商家，详情可以参考贴吧和**<a href="https://steamrepcn.com/">SteamRep（交易信誉评价平台）</a>**来查看交易对象的信誉。</p>
-</span>
-
-<span id="div-border-top-yellow">
-
-<h2 id="小黄信"><a href="#小黄信" class="headerlink" title=" 小黄信 "></a><font color=#E1BC48><i class="fas fa-envelope"></i> 小黄信 <i class="fas fa-envelope"></i></font></h2><p>接下来就要说为什么Key比礼物安全了，虽然市场也存在盗刷信用卡获取黑Key的情形，月结时黑Key仍会被收回，但此时你收到的会是“小黄信”而非“小红信”，而这不会对你的账户造成任何影响。虽然也有传闻称，黑Key被收回5次以上也会对账号造成影响，但是目前并没有相关的实例可以佐证。所以相对而言，Key要比购买礼物和“科学上网”安全许多。</p>
-<mark class="label info">因为CD Key是发行商向零售方出售的，属于第三方渠道，与V社（Steam）无关，也就是说Steam没有权利封禁因第三方渠道出现问题的账号。</mark>
-
-</span>
-
-<hr>
-<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p><span id="div-border-right-left-blue"><strong><a href="https://steamcommunity.com/id/ColdCard/">欢迎加我Steam好友</a></strong></span></p>
-</center>]]></content>
-      <categories>
-        <category>Steam</category>
-      </categories>
-      <tags>
-        <tag>Steam</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>オーバーロード（OVERLORD）</title>
-    <url>/posts/OVERLORD_All/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><center>
-<div class="note danger">
-
-<p><strong>· 施 · 工 · 中 ·</strong></p>
-</div>
-</center>
-<a id="more"></a>
-
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>OVERLORD（日语：オーバーロード）是日本小说家丸山くがね创作的轻小说系列，最初是发表于小说投稿网站——Arcadia，之后改在成为小说家吧上发表的网路连载小说，2012年正式发行书籍版（故事情节有若干变动，网路上的称为web版），动画版2015年7月于日本开始播放第一季。第二季于2018年1月开始播放。第三季于同年7月播放。</p>
-<hr>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>一款席卷游戏界的网路游戏“YGGDRASIL（世界树）”，在营运十二年后停止一切服务，一名喜欢该游戏的普通上班族“飞鼠”，在营运的最后一刻来到游戏中曾名噪一时、由其担任会长的强大公会—“安兹·乌尔·恭”的根据地纳萨力克大坟墓进行最后巡礼，等待营运的结束。原本应该是如此。虽然营运时间结束，玩家角色却无法登出游戏。而公会内的NPC也开始拥有自己的思想、如活人般地活动起来。在原本的游戏中拥有骷髅魔法师外表的飞鼠，就这样与他率领的公会展开前所未有的奇幻传奇冒险。</p>
-<hr>
-<h1 id="人物介绍"><a href="#人物介绍" class="headerlink" title="人物介绍"></a>人物介绍</h1><div class="tabs" id=""><ul class="nav-tabs"><li class="tab"><a href="#-1">安兹·乌尔·恭</a></li><li class="tab"><a href="#-2">卡恩村</a></li><li class="tab"><a href="#-3">里·耶斯提杰王国</a></li></ul><div class="tab-content"><div class="tab-pane" id="-1"><p><strong>安兹·乌尔·恭</strong></p>
-<ul>
-<li><a href="https://coldcard.wang/posts/OVERLORD_1">无上至尊</a> </li>
-<li><a href="https://coldcard.wang/posts/OVERLORD_2/#%E6%A5%BC%E5%B1%82%E5%AE%88%E6%8A%A4%E8%80%85">楼层守护者</a></li>
-<li><a href="https://coldcard.wang/posts/OVERLORD_2/#%E9%A2%86%E5%9F%9F%E5%AE%88%E6%8A%A4%E8%80%85">领域守护者</a></li>
-<li>昴宿星团</li>
-<li>纳萨利克一般女仆</li>
-<li>其他下属</div><div class="tab-pane" id="-2"><p><strong>卡恩村</strong></p></div><div class="tab-pane" id="-3"><p><strong>里·耶斯提杰王国</strong></li></p>
-<li>耶·兰提尔</li>
-<li>王族</li>
-<li>贵族大臣</li>
-<li>王室直属士兵</li>
-<li>一般官员</li>
-<li>冒险者</li>
-<li>其他</div></div></div>
-
-</li>
-</ul>
-<hr>
-]]></content>
-      <categories>
-        <category>动漫</category>
-        <category>オーバーロード（OVERLORD）</category>
-      </categories>
-      <tags>
-        <tag>动漫</tag>
-        <tag>OVERLORD</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Valine 评论升级</title>
     <url>/posts/Valine_Updata/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>“因流控原因，通过定时任务唤醒体验版实例失败，建议升级至标准版云引擎实例避免休眠”，如上所述，Valine 通过 LeanCloud 实现评论通知的自动唤醒功能失效了。所以我参考了几个大佬的文章，对 Valine 进行了升级。</p>
@@ -1238,6 +1194,50 @@
       </tags>
   </entry>
   <entry>
+    <title>オーバーロード（OVERLORD）</title>
+    <url>/posts/OVERLORD_All/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><center>
+<div class="note danger">
+
+<p><strong>· 施 · 工 · 中 ·</strong></p>
+</div>
+</center>
+<a id="more"></a>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>OVERLORD（日语：オーバーロード）是日本小说家丸山くがね创作的轻小说系列，最初是发表于小说投稿网站——Arcadia，之后改在成为小说家吧上发表的网路连载小说，2012年正式发行书籍版（故事情节有若干变动，网路上的称为web版），动画版2015年7月于日本开始播放第一季。第二季于2018年1月开始播放。第三季于同年7月播放。</p>
+<hr>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>一款席卷游戏界的网路游戏“YGGDRASIL（世界树）”，在营运十二年后停止一切服务，一名喜欢该游戏的普通上班族“飞鼠”，在营运的最后一刻来到游戏中曾名噪一时、由其担任会长的强大公会—“安兹·乌尔·恭”的根据地纳萨力克大坟墓进行最后巡礼，等待营运的结束。原本应该是如此。虽然营运时间结束，玩家角色却无法登出游戏。而公会内的NPC也开始拥有自己的思想、如活人般地活动起来。在原本的游戏中拥有骷髅魔法师外表的飞鼠，就这样与他率领的公会展开前所未有的奇幻传奇冒险。</p>
+<hr>
+<h1 id="人物介绍"><a href="#人物介绍" class="headerlink" title="人物介绍"></a>人物介绍</h1><div class="tabs" id=""><ul class="nav-tabs"><li class="tab"><a href="#-1">安兹·乌尔·恭</a></li><li class="tab"><a href="#-2">卡恩村</a></li><li class="tab"><a href="#-3">里·耶斯提杰王国</a></li></ul><div class="tab-content"><div class="tab-pane" id="-1"><p><strong>安兹·乌尔·恭</strong></p>
+<ul>
+<li><a href="https://coldcard.wang/posts/OVERLORD_1">无上至尊</a> </li>
+<li><a href="https://coldcard.wang/posts/OVERLORD_2/#%E6%A5%BC%E5%B1%82%E5%AE%88%E6%8A%A4%E8%80%85">楼层守护者</a></li>
+<li><a href="https://coldcard.wang/posts/OVERLORD_2/#%E9%A2%86%E5%9F%9F%E5%AE%88%E6%8A%A4%E8%80%85">领域守护者</a></li>
+<li>昴宿星团</li>
+<li>纳萨利克一般女仆</li>
+<li>其他下属</div><div class="tab-pane" id="-2"><p><strong>卡恩村</strong></p></div><div class="tab-pane" id="-3"><p><strong>里·耶斯提杰王国</strong></li></p>
+<li>耶·兰提尔</li>
+<li>王族</li>
+<li>贵族大臣</li>
+<li>王室直属士兵</li>
+<li>一般官员</li>
+<li>冒险者</li>
+<li>其他</div></div></div>
+
+</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>动漫</category>
+        <category>オーバーロード（OVERLORD）</category>
+      </categories>
+      <tags>
+        <tag>动漫</tag>
+        <tag>OVERLORD</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>博客升级记录（2020.05.13）</title>
     <url>/posts/Hexo_Updata(2020.05.13)/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><div style="text-align:center">
@@ -1279,30 +1279,6 @@
       </tags>
   </entry>
   <entry>
-    <title>战地Ⅴ 战火试炼</title>
-    <url>/posts/Battlefield5_1/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><center>
-
-<p><img data-src="https://media.contentapi.ea.com/content/dam/bf/common/bfv-horizontal-logo-spacing-bottom.png"></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>战地Ⅴ这次的战争之潮没啥可说的，只能说 DICE 换了运行分部后，整体质量趋势还是进步的，相比一开始确实好了，还有新地图很漂亮（啊，这光，啊，这水）。<br>这次最大的更新就是“大逃杀模式”的加入（火线风暴），但是，对于我来说没有兴趣（本人对于大逃杀类游戏一概没有兴趣），听别人以及网上所说，新的模式并不好玩，还有很大的进步空间。</p>
-<p><img data-src="https://media.contentapi.ea.com/content/dam/bf/images/2018/10/bf-inline-image-tow-chapter-3.jpg.adapt.crop16x9.817w.jpg"></p>
-<a id="more"></a>
-
-<h1 id="战火试炼"><a href="#战火试炼" class="headerlink" title="战火试炼"></a>战火试炼</h1><p>这次的战争之潮由于新模式的加入，导致很多的任务与新模式有关，但是本人对于大逃杀模式的极度不感冒，加上最近的学业紧张（二维动画与三维基础的加入，导致原本较为悠闲的学习生活变得极其忙碌）所以，很多任务没有完成（好在都不是决定性的任务，最后的任务奖励还是拿到了）。</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/01.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/02.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/03.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/04.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/05.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/06.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/07.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/08.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/09.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/10.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/11.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/12.png"></p>
-<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p><span id="div-border-right-left-blue"><strong>最后，欢迎大家来一起游玩，我的Origin账号为X-ColdCard-X</strong></span><br><strong>漂亮的新地图-克里特岛</strong><br><img data-src="https://media.contentapi.ea.com/content/dam/bf/common/maps/bf-full-bleed-maps-greece-crete.jpg"></p>
-</center>]]></content>
-      <categories>
-        <category>游戏</category>
-        <category>战地</category>
-      </categories>
-      <tags>
-        <tag>游戏</tag>
-        <tag>战地</tag>
-        <tag>战火试炼</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>战地Ⅴ 闪电突袭</title>
     <url>/posts/Battlefield5_2/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><center>
@@ -1324,6 +1300,30 @@
         <tag>游戏</tag>
         <tag>战地</tag>
         <tag>闪电突袭</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>战地Ⅴ 战火试炼</title>
+    <url>/posts/Battlefield5_1/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><center>
+
+<p><img data-src="https://media.contentapi.ea.com/content/dam/bf/common/bfv-horizontal-logo-spacing-bottom.png"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>战地Ⅴ这次的战争之潮没啥可说的，只能说 DICE 换了运行分部后，整体质量趋势还是进步的，相比一开始确实好了，还有新地图很漂亮（啊，这光，啊，这水）。<br>这次最大的更新就是“大逃杀模式”的加入（火线风暴），但是，对于我来说没有兴趣（本人对于大逃杀类游戏一概没有兴趣），听别人以及网上所说，新的模式并不好玩，还有很大的进步空间。</p>
+<p><img data-src="https://media.contentapi.ea.com/content/dam/bf/images/2018/10/bf-inline-image-tow-chapter-3.jpg.adapt.crop16x9.817w.jpg"></p>
+<a id="more"></a>
+
+<h1 id="战火试炼"><a href="#战火试炼" class="headerlink" title="战火试炼"></a>战火试炼</h1><p>这次的战争之潮由于新模式的加入，导致很多的任务与新模式有关，但是本人对于大逃杀模式的极度不感冒，加上最近的学业紧张（二维动画与三维基础的加入，导致原本较为悠闲的学习生活变得极其忙碌）所以，很多任务没有完成（好在都不是决定性的任务，最后的任务奖励还是拿到了）。</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/01.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/02.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/03.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/04.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/05.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/06.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/07.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/08.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/09.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/10.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/11.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_2/12.png"></p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p><span id="div-border-right-left-blue"><strong>最后，欢迎大家来一起游玩，我的Origin账号为X-ColdCard-X</strong></span><br><strong>漂亮的新地图-克里特岛</strong><br><img data-src="https://media.contentapi.ea.com/content/dam/bf/common/maps/bf-full-bleed-maps-greece-crete.jpg"></p>
+</center>]]></content>
+      <categories>
+        <category>游戏</category>
+        <category>战地</category>
+      </categories>
+      <tags>
+        <tag>游戏</tag>
+        <tag>战地</tag>
+        <tag>战火试炼</tag>
       </tags>
   </entry>
   <entry>
@@ -1798,217 +1798,6 @@
       </tags>
   </entry>
   <entry>
-    <title>オーバーロード（OVERLORD）（人物介绍）（守护者）</title>
-    <url>/posts/OVERLORD_2/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>OVERLORD（日语：オーバーロード）是日本小说家丸山くがね创作的轻小说系列，最初是发表于小说投稿网站——Arcadia，之后改在成为小说家吧上发表的网路连载小说，2012年正式发行书籍版（故事情节有若干变动，网路上的称为web版），动画版2015年7月于日本开始播放第一季。第二季于2018年1月开始播放。第三季于同年7月播放。</p>
-<a id="more"></a>
-<hr>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>一款席卷游戏界的网路游戏“YGGDRASIL（世界树）”，在营运十二年后停止一切服务，一名喜欢该游戏的普通上班族“飞鼠”，在营运的最后一刻来到游戏中曾名噪一时、由其担任会长的强大公会—“安兹·乌尔·恭”的根据地纳萨力克大坟墓进行最后巡礼，等待营运的结束。原本应该是如此。虽然营运时间结束，玩家角色却无法登出游戏。而公会内的NPC也开始拥有自己的思想、如活人般地活动起来。在原本的游戏中拥有骷髅魔法师外表的飞鼠，就这样与他率领的公会展开前所未有的奇幻传奇冒险。</p>
-<hr>
-<h1 id="人物介绍"><a href="#人物介绍" class="headerlink" title="人物介绍"></a>人物介绍</h1><h2 id="安兹·乌尔·恭"><a href="#安兹·乌尔·恭" class="headerlink" title="安兹·乌尔·恭"></a>安兹·乌尔·恭</h2><ul>
-<li>是网络游戏“YGGDRASIL”中的公会之一。成员41人，擅长PK的公会。</li>
-</ul>
-<h3 id="楼层守护者"><a href="#楼层守护者" class="headerlink" title="楼层守护者"></a>楼层守护者</h3><ul>
-<li>纳萨力克地下大坟墓NPC的顶点，除了威克提姆和高康大以外全部拥有“YGGDRASIL”中角色综合等级（种族Lv+职业Lv）上限的100级，在原始游戏中几乎是作为各楼层最终头目的存在。但在随安兹一起穿越到异世界后成为了活生生的个体，基于创造者们赋予的角色设定而拥有多采多姿的性格，并在一定程度上投射了创造者的个性，此外由于公会原本的反派角色定位，大多数都对人类持蔑视态度。 </li>
-</ul>
-<h4 id="雅儿贝德-アルベド-Albedo-声：原由实"><a href="#雅儿贝德-アルベド-Albedo-声：原由实" class="headerlink" title="雅儿贝德 アルベド | Albedo | 声：原由实"></a>雅儿贝德 <code>アルベド | Albedo | 声：原由实</code></h4><ul>
-<li><div class="note default no-icon">
-
-<p><strong>种族等级：</strong>小恶魔Lv10、其他<br><strong>职业等级：</strong>守护者Lv10、黑色护卫Lv5、邪恶骑士Lv10、护卫之主Lv5、其他<br><strong>别称：</strong>“温柔体贴的纯白恶魔”<br><strong>综合等级：</strong>Lv100【种族(30)+职业(70)】，<strong>角色创造者为翠玉录</strong>，在Web版没登场，文库版新增角色<br><strong>职位：</strong>纳萨力克地下大坟墓的守护者总管、王妃（自称）<br><strong>住处：</strong>王座之间-&gt;地下第九层的一个预备房间<br><strong>属性：</strong>极恶（正义值=负500）<br>女，身高170cm</p>
-</div>
-</li>
-<li><details ><summary> <p>详情</p> </summary>
-              <div class='content'>
-              <blockquote><p>白衣黑发黑翼的女性恶魔，总是面带温柔微笑的绝世美人，但在小说第一、八卷被间接提及拥有野兽般的变身型态，并曾因此被夏提雅讥讽为“大嘴猩猩”与“怪力女”。拥有在军事层面之外完美管理纳萨力克事务的才能，平时担任安兹的辅佐者，在安兹外出时则以代理人的身份管理大坟墓，魔导国建国后同时身兼宰相之职。</p></blockquote><blockquote><p>在纳萨力克四名近战特化的NPC中以无懈可击的防御著称。持有神器级铠甲－**&lt;赫尔梅斯·特利斯·美吉斯特斯&gt;<strong>，并因翠玉录的私下赐予而在穿越之初即持有世界级道具－</strong>&lt;地狱深渊&gt;**。</p></blockquote><blockquote><p>由于创造者翠玉录旺盛的设定癖及对反差萌的喜好，而在庞大的角色设定的末尾加上“同时是个贱人”的设定。在游戏营运关闭前飞鼠抱著“反正是最后了”的心态将其更改为“至今爱著飞鼠”，结果在穿越后对安兹（飞鼠）抱持著浓烈且略显异常的爱意，并因此作出许多令安兹及同伴为之哑然的奇行，即使安兹告知其爱慕是由于更改设定所致，本人却丝毫不在意并显得十分感激。</p></blockquote><blockquote><p>对于其他40位至尊感到不满，认为他们是抛弃纳萨力克的存在，故特别敬爱飞鼠，而看不起安兹·乌尔·恭本身。</p></blockquote><blockquote><p>代表魔导国出使里‧耶斯提杰王国，并与黄金公主和八指各领导人会面，进而实行吞并王国的计画；顺道一提，在出发前终于如愿以偿地得到了安兹的吻。</p></blockquote><blockquote><p>种族构成中包含了代表色欲的魅魔，但因为始终保持著清白之身，因此有些尴尬地无法骑乘专属的双角兽骑兽。</p></blockquote><blockquote><p>于2016年9月15日投票结果，以11,217张票得到第二名。在动画中目前没有战斗形势登场。但在广播剧得知会使用强大盾牌。</p></blockquote>
-              </div>
-            </details>
-
-</li>
-</ul>
-<h4 id="夏提雅·布拉德弗伦-シャルティア・ブラッドフォールン-Shalltear-Bloodfallen-声：上坂堇"><a href="#夏提雅·布拉德弗伦-シャルティア・ブラッドフォールン-Shalltear-Bloodfallen-声：上坂堇" class="headerlink" title="夏提雅·布拉德弗伦 シャルティア・ブラッドフォールン | Shalltear Bloodfallen | 声：上坂堇"></a>夏提雅·布拉德弗伦 <code>シャルティア・ブラッドフォールン | Shalltear Bloodfallen | 声：上坂堇</code></h4><ul>
-<li><div class="note default no-icon">
-
-<p><strong>种族等级：</strong>吸血鬼Lv10、真祖Lv10<br><strong>职业等级：</strong>女武神/长枪Lv5、诅咒骑士Lv5、祭司Lv10、其他<br><strong>别称：</strong>“鲜血的战争少女”<br><strong>综合等级：</strong>Lv100【种族(20)+职业(80)】，<strong>角色创造者是佩罗罗奇诺</strong><br><strong>职位：</strong>纳萨力克地下大坟墓地下第一~三层守护者<br><strong>住处：</strong>地下第二层死蜡玄室<br><strong>属性：</strong>邪恶～极恶（正义值=负450）<br>女，身高140cm</p>
-</div>
-</li>
-<li><details ><summary> <p>详情</p> </summary>
-              <div class='content'>
-              <blockquote><p>原本在“YGGDRASIL”中吸血鬼是口腔长满针状牙齿、状似长有四肢的吸血水蛭般的异型怪物，因而被雅儿贝德讥讽为“七鳃鳗”，但由于佩罗罗奇诺委托绘图的成员能力高超而拥有银发、身著华奢晚礼服的美少女拟态，不过在陷入亢奋状态时仍会现出原型。</p></blockquote><blockquote><p>是以严谨的职业结构创造出来的纳萨力克一对一能力最强守护者，全身装备传说级道具，并持有能借由伤害对手来恢复自己体力的神器级武器－**&lt;滴管长枪&gt;**。因为兼有著不死者的负面能力抗性、信仰系魔法吟唱者职业以及高输出的近战破坏力，在综合能力上可说是安兹天敌般的存在。</p></blockquote><blockquote><p>作为佩罗罗奇诺对H-GAME爱好的体现，集双性恋、虐待狂、受虐狂、恋尸癖等异常性癖于一身，讲话时的语调老成且习惯带著尾语“呀”（日文“ありんす”，是江户游廓花魁妓女说话常用的语尾。）。其实与外表年龄(14岁)不符的傲人上围，是绘图者对佩罗罗奇诺死缠烂打的报复，不得以加上了”对贫乳感到羞耻垫了好几片”的设定。虽然有性的经验但目前只有女性部分。</p></blockquote><blockquote><p>由于对骨骸的异常癖好而迷恋安兹，与雅儿贝德是争夺纳萨力克支配者正宫之位的情敌，和亚乌菈则是一见面就拌嘴的关系，不过并不讨厌彼此。<br>但对于守护者和部下们，有时表现粗暴不尊重，部下基本是怕她。</p></blockquote><blockquote><p>在作为情报搜集的一环下，袭击了耶·兰提尔近郊的盗匪佣兵团，但却因此陷入半狂暴化的血之狂乱而导致作为目标的布莱恩逃走，且在稍后与冒险者交战时曝露行踪，在陷入慌乱之际又偶然地遭遇斯连教国的菁英部队漆黑圣典，并遭到对方以世界级道具**&lt;倾城倾国&gt;**攻击，虽然因反抗避免了被精神控制的下场，却因此陷入自动对进入判定范围内的对象发动攻击的盲目NPC状态。由于无法解除世界级道具的影响，最后遭到安兹击杀，随后被复活，但失去了遭到控制时的关键记忆。之后一度因为自己的失态而意志消沉，不过在安兹对她处以人体椅子之惩罚后恢复了精神。</p></blockquote><blockquote><p>由于曾经的失败，在纳萨力克后续的行动中常被同伴给予次要的工作，本人也有所意识而感到自卑；不过在和亚乌菈陪同安兹前往矮人王国时，在全神贯注地听从教诲的同时完美完成了压制掘土兽人的使命，得以在安兹的赞赏下一扫阴霾。</p></blockquote><blockquote><p>除战斗外，也擅长信仰系的传送魔法，故事中常出现其负责传送要人乃至大军的情节，后来似乎因此当上了魔导国航空战力的负责人，管理在矮人王国降伏的霜龙们。</p></blockquote><blockquote><p>于2016年9月15日投票结果，以8,436张票得到第五名。</p></blockquote>
-              </div>
-            </details>
-
-</li>
-</ul>
-<h4 id="高康大-ガルガンチュア-Gargantua"><a href="#高康大-ガルガンチュア-Gargantua" class="headerlink" title="高康大 ガルガンチュア | Gargantua"></a>高康大 <code>ガルガンチュア | Gargantua</code></h4><ul>
-<li><div class="note default no-icon">
-
-<p>职位：纳萨力克地下大坟墓地下第四层守护者。<br>身高超过30m的战略级攻城用大型哥雷姆，没有自我意识，启动它要耗费大量时间。<br>属于兵器，并非无上至尊所创作的角色，因为被收纳在地下四层中心的地底湖而被权宜的赋予楼层守护者的地位。<br>名字的典故来自文艺复兴时代的小说巨人传的主角</p>
-</div>
-
-</li>
-</ul>
-<h4 id="科塞特斯-コキュートス，Cocytus-声：三宅健太"><a href="#科塞特斯-コキュートス，Cocytus-声：三宅健太" class="headerlink" title="科塞特斯 コキュートス，Cocytus | 声：三宅健太"></a>科塞特斯 <code>コキュートス，Cocytus | 声：三宅健太</code></h4><ul>
-<li><div class="note default no-icon">
-
-<p><strong>种族等级：</strong>昆虫战士Lv10、虫王Lv10、其他<br><strong>职业等级：</strong>剑圣Lv10、阿修罗Lv5、尼福尔海姆骑士Lv5、其他<br><strong>别称：</strong>“冰河统治者”<br><strong>综合等级：</strong>Lv100【种族(30)+职业(70)】，<strong>角色创造者是武人建御雷</strong><br><strong>职位：</strong>纳萨力克地下大坟墓地下第五层守护者<br><strong>住处：</strong>地下第五层大白球<br><strong>属性：</strong>中立（正义值=正50）<br>男，身高250cm</p>
-</div>
-</li>
-<li><details ><summary> <p>详情</p> </summary>
-              <div class='content'>
-              <blockquote><p>巨大双足步行昆虫形魔物，长有一条足有身高两倍长的尾巴，肩膀与背部隆起著有如冰柱的锐利尖刺，淡蓝色的外骨骼也散发出钻石星尘一般的璀璨光芒与慑人的寒气。</p></blockquote><blockquote><p>纳萨力克地下大坟墓中四名近战特化的NPC中最擅长使用武器的存在，使出全力时会以上臂同时持四把武器的方式迎敌，知晓无上至尊持有武器的一切资讯，本身也搜集有数量可观的武器。持有神器级太刀－**&lt;斩神刀皇&gt;**。</p></blockquote><blockquote><p>个性认真，有著磊落的武人性格，即使面对力量悬殊的对手也会毫不吝惜地给与敬意。由于在其他楼层守护者受命外出执行任务时负责纳萨力克的防卫工作，而对自己的无所贡献感到焦躁。</p></blockquote><blockquote><p>于小说第四集奉命担任进攻蜥蜴人部队的指挥官，不过安兹为测试守护者是否有学习教训的成长能力，故意派予其不足的战力而败北，但事后的检讨反省令安兹相当满意。由于在交战中感受到对方展现的可敬斗志，在受命进行彻底歼灭蜥蝪人的再进军时斗胆地提出手下留情的请求，并在迪米乌哥斯的助言下得到采纳。在单骑出阵击败蜥蝪人的四大族长及最强战士萨留斯后，被赋予以非恐怖统治方式治理蜥蝪人的工作。</p></blockquote><blockquote><p>对日后成为侍奉安兹后代的“老爷子”一事怀抱憧憬，在第十一卷中曾为了习惯少主的骑乘而请安兹坐到自己背上，但却令安兹担心起武人御建雷是否也对它做了变态的设定。</p></blockquote><blockquote><p>因为创造者的关系，和娜贝拉尔关系很好。</p></blockquote><blockquote><p>于2016年9月15日投票结果，以2,057张票得到第十八名。</p></blockquote>
-              </div>
-            </details>
-
-</li>
-</ul>
-<h4 id="亚乌菈·贝拉·菲欧拉-アウラ・ベラ・フィオーラ-Aura-Bella-Fiora-声：加藤英美里"><a href="#亚乌菈·贝拉·菲欧拉-アウラ・ベラ・フィオーラ-Aura-Bella-Fiora-声：加藤英美里" class="headerlink" title="亚乌菈·贝拉·菲欧拉 アウラ・ベラ・フィオーラ | Aura Bella Fiora | 声：加藤英美里"></a>亚乌菈·贝拉·菲欧拉 <code>アウラ・ベラ・フィオーラ | Aura Bella Fiora | 声：加藤英美里</code></h4><ul>
-<li><div class="note default no-icon">
-
-<p><strong>黑暗精灵，因为是人类种族所以没有种族等级</strong><br><strong>职业等级：</strong>游击兵Lv5、驯兽师Lv5、射手Lv5、狙击手Lv5、高级驯兽师Lv10、其他<br><strong>别称：</strong>“不服输的知名训练师”<br><strong>综合等级：</strong>Lv100【种族(0)+职业(100)】，<strong>角色创造者是泡泡茶壶</strong><br><strong>职位：</strong>纳萨力克地下大坟墓的第六层守护者之一<br><strong>住处：</strong>地下第六层的大树<br><strong>属性：</strong>中立～恶（正义值=负100）<br>女，身高104cm</p>
-</div>
-</li>
-<li><details ><summary> <p>详情</p> </summary>
-              <div class='content'>
-              <blockquote><p>马雷的双胞胎姊姊，种族是黑暗精灵，两眼为异色瞳，设定年龄是以黑暗精灵而言尚在发育中的76岁少女，拥有一把大弓目前尚未知名称的神器级武器。</p></blockquote><blockquote><p>个性像少年般活泼外向，打扮也如男孩子的少女。以个体能力来说在楼层守护者中属于后段，但拥有支配100只高等级魔兽的驯兽师能力，能借由使役它们压倒其他守护者而成为集团战的最强守护者。同时拥有多种侦查、追猎的特化能力，在森林中的行动非常灵敏，并拥有能借由呼吸吐出带有魅惑、毒性、负面效应气息的常驻技能。</p></blockquote><blockquote><p>在穿越之后主要负责纳萨力克附近的都武大森林的侦查与压制，并负责兴建森林中的前进基地，由于其游击兵的职业能力，也活跃于安兹以冒险者飞飞之姿在外活动时的支援工作。其实也爱安兹但动画没有明显行为。<br>与夏提雅是吵闹不休的和睦关系，其景象令安兹连想到两人的创造者姊弟间的相处。</p></blockquote><blockquote><p>与夏提雅陪同安兹前往矮人王国。期间受到安兹的拜托而多所照顾夏提雅，之后虽然误会安兹的举动，但对安兹的用心跟夏提雅两人感动到落泪。</p></blockquote><blockquote><p>于2016年9月15日投票结果，以4,760张票得到第十一名。</p></blockquote>
-              </div>
-            </details>
-
-</li>
-</ul>
-<h4 id="马雷·贝罗·菲欧雷-マーレ・ベロ・フィオーレ-Mare-Bello-Fiore-声：内山夕实"><a href="#马雷·贝罗·菲欧雷-マーレ・ベロ・フィオーレ-Mare-Bello-Fiore-声：内山夕实" class="headerlink" title="马雷·贝罗·菲欧雷 マーレ・ベロ・フィオーレ | Mare Bello Fiore | 声：内山夕实"></a>马雷·贝罗·菲欧雷 <code>マーレ・ベロ・フィオーレ | Mare Bello Fiore | 声：内山夕实</code></h4><ul>
-<li><div class="note default no-icon">
-
-<p><strong>黑暗精灵，因为是人类种族所以没有种族等级</strong><br><strong>职业等级：</strong>森林祭司Lv10、高级森林祭司Lv10、大自然先锋Lv10、灾厄使徒Lv5、森林法师Lv10、其他<br><strong>别称：</strong>“不可靠的大自然使者”<br><strong>综合等级：</strong>Lv100【种族(0)+职业(100)】，<strong>角色创造者同样是泡泡茶壶，文库版新增角色</strong><br><strong>职位：</strong>纳萨力克地下大坟墓的第六层守护者之一<br><strong>住处：</strong>地下第六层的大树<br><strong>属性：</strong>中立～恶（正义值=负100）<br>男，身高104cm</p>
-</div>
-</li>
-<li><details ><summary> <p>详情</p> </summary>
-              <div class='content'>
-              <blockquote><p>亚乌菈的双胞胎弟弟，种族是黑暗精灵，双眼的异色瞳颜色与亚乌菈左右颠倒。是被赋予了“伪娘”属性的少年，身上持有神器级法杖－**&lt;世界树之影&gt;**。</p></blockquote><blockquote><p>与姊姊相反地个性内向，讲话总是吞吞吐吐，很容易给人乖巧胆小少女的错觉，不过这其实是混杂了创作者角色设定与欺敌伪装的虚像，故事中就多次出现他眼神冰冷而不带感情地以扭捏的动作施暴、杀人的不协调举止。</p></blockquote><blockquote><p>是守护者中的最强法师系，以守护者个人实力排行来说仅次于夏提雅的实力者。</p></blockquote><blockquote><p>擅长操弄大地与植物的自然系魔法，因此多次被赋予构筑构造物的任务，在穿越之初制造了遮蔽纳萨力克地下大坟墓地上物的丘陵土垒，魔导国建国后则在耶·兰提尔郊外建造训练冒险者用的迷宫。</p></blockquote><blockquote><p>拥有2条等级接近90的龙，曾与亚乌菈一起骑乘著它们对帝国进行恫吓。</p></blockquote><blockquote><p>跟早熟的姊姊不同，对性方面的知识还十分清纯无知的样子。</p></blockquote><blockquote><p>于2016年9月15日投票结果，以2,666张票得到第十六名。</p></blockquote>
-              </div>
-            </details>
-
-</li>
-</ul>
-<h4 id="迪米乌哥斯-デミウルゴス-Demiurge-声：加藤将之"><a href="#迪米乌哥斯-デミウルゴス-Demiurge-声：加藤将之" class="headerlink" title="迪米乌哥斯 デミウルゴス | Demiurge | 声：加藤将之"></a>迪米乌哥斯 <code>デミウルゴス | Demiurge | 声：加藤将之</code></h4><ul>
-<li><div class="note default no-icon">
-
-<p><strong>种族等级：</strong>小恶魔Lv10、最高阶恶魔Lv5、其他<br><strong>职业等级：</strong>浑沌Lv10、黑暗王子Lv10、变形魔Lv10、其他<br><strong>别称：</strong>“炎狱造物主”<br><strong>综合等级：</strong>Lv100【种族(35)+职业(65)】，<strong>角色创造者是乌尔贝特·亚连·欧德尔</strong><br><strong>职位：</strong>纳萨力克地下大坟墓地下第七层守护者<br><strong>住处：</strong>地下第七层赤热神殿<br><strong>属性：</strong>极恶（正义值=负500）<br>男，身高181cm</p>
-</div>
-</li>
-<li><details ><summary> <p>详情</p> </summary>
-              <div class='content'>
-              <blockquote><p>守护者中的军师兼防卫外敌的NPC指挥官，有著多样的魔法技能，谈吐殷勤有礼的同时，拥有以言语支配40级以下生物行动的常驻技能，在纳萨力克里以最精明的头脑著称。</p></blockquote><blockquote><p>外型因为版本的不同有显著的差异： </p></blockquote><blockquote><p>文库版为皮肤黝黑且面容带东方色彩、穿戴圆框眼镜与全套英式西装，仿佛干练商业人士或律师般的精瘦男子。此外，平常眯著的眼睛张开时则有如多重切角宝石。</p></blockquote><blockquote><p>Web版为如帝王般地佩戴皇冠、权杖、大红披风，并长有双角、翅膀、赤红肤色等恶魔特征。</p></blockquote><blockquote><p>长有由银色金属板包覆、尾端有六根尖刺、周围不断晃动浅黑火焰的尾巴的设定则是共通。</p></blockquote><blockquote><p>即使以普遍藐视人类的众守护者的标准而言亦是极端残忍之人，会对掳获的人类进行各类摧残身心的实验并引以为乐，但在与纳萨力克的同伴们相处时却十分温柔。</p></blockquote><blockquote><p>由于属性的差异以及彼此创造者间的对立关系，与塞巴斯的关系欠佳。</p></blockquote><blockquote><p>在忠心耿耿之馀也将安兹视为智慧在己之上的智慧化身，而有将安兹的言行举止过度解读并进行对策的倾向，由于在第一卷误解了安兹“征服世界似乎也很有趣”的玩笑话，在将此语转达给诸守护者后认真地开始策划、执行征服世界的行动，成为日后纳萨力克一连串行动的动机。</p></blockquote><blockquote><p>在奉命前往外界搜集情报的守护者们中被分派予侦查南方旷野的工作，并立下了确保低阶法术用羊皮纸供应来源的功绩，之后受命策划了对王国犯罪集团八指的惩罚行动，并随机应变地在计画遭遇苍蔷薇而生变时盛大地进行了对王都的恶魔入侵。</p></blockquote><blockquote><p>由于创造者乌尔贝特对“恶”的执著而一如电玩中魔王般地拥有多段变身能力，目前已知在中间型态时头部会变为蛙首。</p></blockquote><blockquote><p>意外地拥有手工艺的兴趣并且十分巧手，曾亲手作了十分气派的骨骸王座献给安兹，但安兹对此敬谢不敏。</p></blockquote><blockquote><p>因为安兹只花费三天并在不造成任何死伤的情况下使帝国臣服而感动不已（原本的计画得花一个月外加一座城市发生暴动，造成严重的死伤），并因此表示羡慕由安兹创造的潘朵拉‧亚克特。</p></blockquote><blockquote><p>于2016年9月15日投票结果，以6,820张票得到第六名。</p></blockquote><blockquote><p>亚达巴沃（ヤルダバオト，Jaldabaoth）</p></blockquote><blockquote><p>迪米乌哥斯扮演提高大英雄飞飞与魔导国名声的恶魔时使用的假名。</p></blockquote><blockquote><p>角色设定上拥有两种不同的外貌；一个是外貌如西装男子戴著面具的人型样貌(由迪米乌哥斯本人假扮)，以及现出真面目的恶魔样貌(由迪米乌哥斯召唤的愤怒魔将假扮)。</p></blockquote><blockquote><p>于苍蔷薇击败安特玛时首次现身，假称为了寻回被八指走私到王都的神秘道具而来。轻易地瞬杀了格格兰与缇亚并将伊维尔哀逼入绝境，并在王都制造出火焰障壁、招来大批恶魔、于一夜之间掳走王都万馀人口，虽然遭到飞飞击退，但其魔王之姿却也因此广围人知。</p></blockquote><blockquote><p>王都事件后来到大陆东方的丘陵地带，以力量和恐怖支配了当地的亚人种族后以“魔皇”之名挥军进攻圣王国，并在只身入侵圣王都时显现“真面目”擒杀圣王女，令圣王国北部堕入凄惨的地狱。</p></blockquote><blockquote><p>在旗下的4万亚人大军遭到击灭后再次现身，与前来圣王国助战的魔导王展开对决，一度击败魔导王使之陷入生死不明的状况，但也因此身负重伤与失去对恶魔女仆‧希丝的支配。在消失数月后，于圣王国南北联军与亚人的最后决战中归来并轻易地令人类陷入绝望，但稍后旋即遭遇归来的魔导王，并在再次交战中遭到击败。</p></blockquote>
-              </div>
-            </details>
-
-</li>
-</ul>
-<h4 id="威克提姆-ヴィクティム-Victim-声：东山奈央"><a href="#威克提姆-ヴィクティム-Victim-声：东山奈央" class="headerlink" title="威克提姆 ヴィクティム | Victim | 声：东山奈央"></a>威克提姆 <code>ヴィクティム | Victim | 声：东山奈央</code></h4><ul>
-<li><div class="note default no-icon">
-
-<p><strong>种族等级：</strong>天使Lv10、大天使Lv10、其他<br><strong>职业等级：</strong>圣人Lv4、爱国者Lv1、殉教者Lv1、其他<br><strong>别称：</strong>“牺牲的婴儿”<br><strong>综合等级：</strong>Lv35【种族(29)+职业(6)】，角色创造者不明<br><strong>职位：</strong>纳萨力克地下大坟墓第八层守护者<br><strong>住处：</strong>地下第八层生命之树。<br><strong>属性：</strong>中立（正义值=正1）<br>?，身高100cm。</p>
-</div>
-</li>
-<li><details ><summary> <p>详情</p> </summary>
-              <div class='content'>
-              <blockquote><p>仿佛天使胚胎般的诡异楼层守护者，以守护者而言等级非常的低，但是在被杀死时会发动强力的束缚系能力，在当初歼灭入侵纳萨力克的玩家联合军时起了关键作用。</p></blockquote><blockquote><p>设定上使用天使专用的以诺语，但在旁人听来像是将颜色与染料名堆叠而成的奇异语汇，因此并不确定是否说的正确。</p></blockquote><blockquote><p>平时驻守在纳萨力克地下大坟墓的第八层，但安兹偶尔会在离开纳萨力克时将之带在身边当作逃脱的最后手段。</p></blockquote>
-              </div>
-            </details>
-
-</li>
-</ul>
-<h4 id="塞巴斯·强-セバス・チャン-Sebas-Tian-声：千叶繁"><a href="#塞巴斯·强-セバス・チャン-Sebas-Tian-声：千叶繁" class="headerlink" title="塞巴斯·强 セバス・チャン | Sebas Tian | 声：千叶繁"></a>塞巴斯·强 <code>セバス・チャン | Sebas Tian | 声：千叶繁</code></h4><ul>
-<li><div class="note default no-icon">
-
-<p>种族等级：龙人Lv?[19]（web版是狼人）<br>职业等级：修行僧Lv10、武王Lv10、前锋Lv5、内气武僧Lv15、外气武僧Lv5[19]等。<br>别称：“钢铁执事”。<br>种族(25)+职业(75)综合等级是100级，角色创造者是塔其·米。<br>职位：纳萨力克地下大坟墓的管家。<br>住处：地下第九层的佣人房之一。<br>属性：极善《正义值=正300》<br>男，身高179cm。</p>
-</div>
-</li>
-<li><details ><summary> <p>详情</p> </summary>
-              <div class='content'>
-              <blockquote><p>与部下的战斗女仆“昴宿星团”一起被配置在纳萨力克地下大坟墓第10层的守护者，在纳萨力克地下大坟墓四名近战特化的NPC中拥有最高的格斗能力。</p></blockquote><blockquote><p>角色设定为管家，除战斗女仆外还有指挥男仆与管家助手，平时除了担任安兹的近侍之外，也负责无上至尊起居区间的管理。</p></blockquote><blockquote><p>外貌为头发与胡须均已全白，但身形挺拔的初老绅士，其媲美大贵族的高雅仪表足以使任何女性为之心醉，但若仔细观察能发现其有著锐利如鹰的眼神。</p></blockquote><blockquote><p>是纳萨力克众NPC中罕见地拥有极善属性的人物，并且继承了创造者塔奇·米路见不平的人格特质，有著主动救济弱者的习惯，并不歧视人类，甚至会发自内心地赞赏个人的美德与坚定意志。虽然塔奇·米完全没写角色设定。</p></blockquote><blockquote><p>奉安兹之命与索琉香伪装成富商千金与管家的组合潜入王国首都进行情报与魔法的搜集，但却因搭救了被虐待的少女琪雅蕾，而被王国地下势力八指恐吓，并因索琉香的告发而受到安兹的诘问，所幸在表现出毫无疑问的忠义后得到了宽恕。</p></blockquote><blockquote><p>因与被救回的琪雅蕾的好关系而被同伴们取笑，认为早晚会成为情侣关系。</p></blockquote><blockquote><p>在八指的骚动中结识克莱姆与布莱恩，曾对他们进行过抵抗杀气的特训与精神的开导，并因压倒性的实力与高尚的人格而为两人所尊敬。</p></blockquote><blockquote><p>由于属性的差异以及彼此创造者间的对立关系，与迪米乌哥斯的关系欠佳。</p></blockquote><blockquote><p>曾被科赛特斯说过，在纳萨力克里“对人最强”，要全部一起上才有胜算。</p></blockquote><blockquote><p>于2016年9月15日投票结果，以1,944张票得到第十九名。</p></blockquote>
-              </div>
-            </details>
-
-</li>
-</ul>
-<h3 id="领域守护者"><a href="#领域守护者" class="headerlink" title="领域守护者"></a>领域守护者</h3><ul>
-<li>负责看守各楼层部分地方区域的领域守护者，身份仅次于楼层守护者。基本上由各楼层守护者来管理，主要任务是守护特定区域。 </li>
-</ul>
-<h4 id="潘朵拉·亚克特-パンドラズ・アクター-Pandora-39-s-Actor-声：宫野真守"><a href="#潘朵拉·亚克特-パンドラズ・アクター-Pandora-39-s-Actor-声：宫野真守" class="headerlink" title="潘朵拉·亚克特 パンドラズ・アクター | Pandora&#39;s Actor | 声：宫野真守"></a>潘朵拉·亚克特 <code>パンドラズ・アクター | Pandora&#39;s Actor | 声：宫野真守</code></h4><ul>
-<li><div class="note default no-icon">
-
-<p>种族等级：二重幻影Lv15、高阶二重幻影Lv10[15]等。<br>职业等级：专家Lv10、工艺家Lv10、城堡之王Lv15[15]等。<br>别称：“千变万化的无脸人”。<br>种族(45)+职业(55)综合等级是100级，角色创作者是飞鼠。<br>职位：纳萨力克地下大坟墓宝物殿领域守护者。<br>住处：宝物殿管理负责人室。<br>属性：中立《正义值=负50》<br>男，身高177cm。</p>
-</div>
-</li>
-<li><details ><summary> <p>详情</p> </summary>
-              <div class='content'>
-              <blockquote><p>安兹（飞鼠）亲自设计出来的守护者，最多能够记忆、变化四十五种模样的高阶二重幻影，与娜贝拉尔不同，平时皆以二重幻影的原型（鼻子等隆起部位都被抹平，眼睛和嘴巴的部位只有三个洞，没有眼球、牙齿和舌头。也没有任何毛发。只有四根手指而且相当细长，看起来像是尺蠖虫。）示人。</p></blockquote><blockquote><p>变身后可以发挥所变化本体80%（Web版中为75%）的能力，并拥有纳萨力克中顶级的智慧和谋略，有时就应用上是足以抵上全员守护者的珍宝；然而，平时会把这些智慧用偏到奇怪的方向。</p></blockquote><blockquote><p>安兹创造他的理由并不是为了战斗或经营组织。而是为了保存这个“安兹·乌尔·恭”的身影，纪录离开游戏的公会成员的模样。</p></blockquote><blockquote><p>由于不良的角色设定当时觉得这样设计很帅（如演员般浮夸的言行举止、会装模作样地说德语、直接使用二重幻影的原型）而被安兹视为黑历史，所以大半时候基于遮丑考量，将之藏在宝物殿负责看守世界级道具及纳萨力克财政的管理。</p></blockquote><blockquote><p>在夏提雅叛变事件时主动向安兹请缨参与对外的活动，并被授予安兹·乌尔·恭之戒，之后被雅儿贝德向安兹提议担当由她所领导的无上至尊秘密探索队的副官。</p></blockquote><blockquote><p>疑似在第六卷与第九卷某些暧昧的场景里，伪装成安兹或飞飞出场过。</p></blockquote><blockquote><p>外形因为版本的不同有所差异： </p></blockquote><blockquote><p>文库版：帽子的帽章是安兹·乌尔·恭的公会徽章，身上穿的制服为20年前在欧洲生态建筑战争中的新纳粹亲卫队制服（黄色纳粹亲卫队制服）。</p></blockquote><blockquote><p>Web版：身穿有著2个黑色钮扣的深色西装。单片袖、纯白的衬衫、银灰色的条纹领带、黑皮鞋、白色手套。虽然没有鼻子和耳朵，却戴著眼镜。</p></blockquote><blockquote><p>迷恋魔法道具到了变态的程度。长时间不能保养及整理魔法道具会受不了。 (安兹怕他一个人守护宝物库会无聊所以如此设定)</p></blockquote><blockquote><p>虽然设定时知道所有的世界级道具，但转移到异世界之后，只知道安兹·乌尔·恭拥有的11个世界级道具的性能。</p></blockquote><blockquote><p>被安兹命令禁止“敬礼”，而且禁止在安兹面前说德文。</p></blockquote><blockquote><p>第十卷时安兹向其表示“希望能看见没有设定到的部分，作为成长的证明”，以及“因为是我的孩子所以不需要刻意表现”，试图让潘朵拉停止浮夸的言行，却导致潘朵拉改口叫安兹“父亲大人”。</p></blockquote><blockquote><p>因为是安兹的创造物关系，而被雅儿贝德及迪米乌哥斯羡慕著。</p></blockquote><blockquote><p>在雅儿贝德出访王国时，负责纳萨力克及耶‧兰提尔的管理。雅儿贝德称其为“非常优秀的人才，孩子正如父母”。</p></blockquote><blockquote><p>第十卷时获得保养其他公会成员所有之道具之许可。</p></blockquote><blockquote><p>于2016年9月15日投票结果，以5,568张票得到第九名。</p></blockquote><blockquote><p>在番外小剧场中出场份量非常的多。</p></blockquote>
-              </div>
-            </details>
-
-</li>
-</ul>
-<h4 id="恐怖公-きょうふこう-Kyo-fukou-声：神谷浩史"><a href="#恐怖公-きょうふこう-Kyo-fukou-声：神谷浩史" class="headerlink" title="恐怖公 きょうふこう | Kyō fukou | 声：神谷浩史"></a>恐怖公 <code>きょうふこう | Kyō fukou | 声：神谷浩史</code></h4><ul>
-<li><div class="note default no-icon">
-
-<p>种族等级：昆虫森林祭司Lv10[20]等。<br>职业等级：高级森林祭司Lv5、召唤师Lv3、驯虫师Lv2、小人Lv3(付费)[20]等。<br>别称：“五大最恶‘据点最恶’”。<br>种族(12)+职业(18)综合等级是30级，角色创作者不明。<br>职位：夏提雅管理的第二层的领域守护者。<br>住处：地下第二层“黑棺”。<br>属性：中立《正义值=负10》<br>男，身高30cm。</p>
-</div>
-</li>
-<li><details ><summary> <p>详情</p> </summary>
-              <div class='content'>
-              <blockquote><p>穿著红色斗逢、戴王冠持权杖的大型直立蟑螂，指挥著黑棺内的庞大数量眷族蟑螂吞噬侵入领域的入侵者。言语间充满教养、是彬彬有礼的绅士，另外也精通帝王学。就连对统治纳萨力克感到迷惘的安兹都曾考虑向他请教，但一想到自己向蟑螂学习的画面就作罢了。</p></blockquote><blockquote><p>被科塞特斯称作盟友，但却是纳萨力克地下大坟墓所有女性NPC敬而远之的存在（安特玛是少数的例外，称恐怖公的蟑螂眷属为点心）。</p></blockquote><blockquote><p>虽然在游戏时代无法真正作到吞噬敌人，但黑棺内蟑螂群过于逼真的表现曾令侵入的玩家恐惧到强行登出游戏。</p></blockquote><blockquote><p>由于公会里的41人中有28人害怕恐怖公的设定，在多数决的公会中没有因此而被取消算是个奇迹。</p></blockquote><blockquote><p>于2016年9月15日投票结果，以3,515张票得到第十四名。</p></blockquote><blockquote><p>在漫画跟动画因为样子的关系所以常被马赛克跟画面故意用得比较黑暗。</p></blockquote>
-              </div>
-            </details>
-
-</li>
-</ul>
-<h4 id="饿食狐虫王-がしょくこちゅうおう-Ga-Shi-Yokukochuuou"><a href="#饿食狐虫王-がしょくこちゅうおう-Ga-Shi-Yokukochuuou" class="headerlink" title="饿食狐虫王 がしょくこちゅうおう | Ga Shi Yokukochuuou"></a>饿食狐虫王 <code>がしょくこちゅうおう | Ga Shi Yokukochuuou</code></h4><ul>
-<li><div class="note default no-icon">
-
-<p>别称：“五大最恶‘生态最恶’”之一。<br>角色创作者不明。<br>职位：亚乌菈、马雷管理的第六层的领域守护者。<br>住处：地下第六层“大穴”。</p>
-</div>
-</li>
-<li><details ><summary> <p>详情</p> </summary>
-              <div class='content'>
-              <blockquote><p>会使用寄生虫寄生在人体，并把人体称为“巢”。</p></blockquote><blockquote><p>精通帝王学，就连对统治纳萨力克感到迷惘的安兹都曾考虑向他请教。</p></blockquote>
-              </div>
-            </details>
-
-</li>
-</ul>
-<h4 id="红莲-紅蓮-ぐれん-Guren"><a href="#红莲-紅蓮-ぐれん-Guren" class="headerlink" title="红莲 紅蓮 | ぐれん | Guren"></a>红莲 <code>紅蓮 | ぐれん | Guren</code></h4><ul>
-<li><div class="note default no-icon">
-
-<p>等级90级的战斗特化守护者，超巨大的深渊史莱姆。单看攻击力是纳萨利克上层的存在，比这个阶层的守护者迪米乌哥斯更为难缠。在占有地利的第七层岩浆地型战斗时足以与一部分的楼层守护者不相上下。<br>平时隐藏在滚烫的熔岩河中，无法观察其模样，遇到敌人时会从熔岩底下伸出触手，将敌人拖进熔岩里进行攻击。由于隐藏在熔岩内，一般的战斗方式是没有办法对红莲造成致命伤的。<br>迪米乌哥斯不在的时候代理负责守护第七楼层。</p>
-</div>
-
-</li>
-</ul>
-<h4 id="格兰特-グラント-Grant"><a href="#格兰特-グラント-Grant" class="headerlink" title="格兰特 グラント | Grant"></a>格兰特 <code>グラント | Grant</code></h4><ul>
-<li><div class="note default no-icon">
-
-<p>与恐怖公、饿食狐虫王同样为昆虫型异形种。<br>被安特玛尊称为“圣母·格兰特”，推测也是蜘蛛型魔物。<br>是守护领域遍布多个阶层的稀有守护者。<br>“第八层的那些”（第八階層のあれら）<br>指配置在纳萨力克地下大坟墓的第八阶层的某些存在，其正体至今尚未解明，只知道是复数及被称为纳萨力克最大战力。</p>
-</div>
-</li>
-<li><details ><summary> <p>详情</p> </summary>
-              <div class='content'>
-              <blockquote><p>目前与第八阶层相关的情报为：</p></blockquote><blockquote><p>1500人的玩家联合军(此数字包含佣兵怪物&amp;无上位公会玩家)最终全灭于第八层。</p></blockquote><blockquote><p>第八层守护者是威克提姆。</p></blockquote><blockquote><p>第八层发生紧急事态时，会有连雅儿贝德的权限都无法处理的可能性。</p></blockquote><blockquote><p>第八层目前禁止进入。原则上只有安兹许可才能进去。</p></blockquote><blockquote><p>第八层配置了最强的存在们。</p></blockquote><blockquote><p>为了监视第八层，不能轻易派动威克提姆。</p></blockquote><blockquote><p>威克提姆死亡时会发动强力的束缚系能力。</p></blockquote><blockquote><p>樱花圣域的领域守护者在第八层。</p></blockquote><blockquote><p>第八层有称为生命之树的场所，同时也是威克提姆的住处。</p></blockquote><blockquote><p>八层的那些在并用世界级道具的情形下，能发挥出就算与号称纳萨力克最强个体的露贝德一对一战斗都能占上风的战斗力。</p></blockquote><blockquote><p>Web版作者回应表示单体战力匹敌6人小队，但大概没机会出场。</p></blockquote>
-              </div>
-            </details>
-
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>动漫</category>
-        <category>オーバーロード（OVERLORD）</category>
-      </categories>
-      <tags>
-        <tag>动漫</tag>
-        <tag>OVERLORD</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>オーバーロード（OVERLORD）（人物介绍）（无上至尊）</title>
     <url>/posts/OVERLORD_1/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p> OVERLORD（日语：オーバーロード）是日本小说家丸山くがね创作的轻小说系列，最初是发表于小说投稿网站——Arcadia，之后改在成为小说家吧上发表的网路连载小说，2012年正式发行书籍版（故事情节有若干变动，网路上的称为web版），动画版2015年7月于日本开始播放第一季。第二季于2018年1月开始播放。第三季于同年7月播放。 </p>
@@ -2324,6 +2113,217 @@
             </details>
 </li>
 </ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>动漫</category>
+        <category>オーバーロード（OVERLORD）</category>
+      </categories>
+      <tags>
+        <tag>动漫</tag>
+        <tag>OVERLORD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>オーバーロード（OVERLORD）（人物介绍）（守护者）</title>
+    <url>/posts/OVERLORD_2/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>OVERLORD（日语：オーバーロード）是日本小说家丸山くがね创作的轻小说系列，最初是发表于小说投稿网站——Arcadia，之后改在成为小说家吧上发表的网路连载小说，2012年正式发行书籍版（故事情节有若干变动，网路上的称为web版），动画版2015年7月于日本开始播放第一季。第二季于2018年1月开始播放。第三季于同年7月播放。</p>
+<a id="more"></a>
+<hr>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>一款席卷游戏界的网路游戏“YGGDRASIL（世界树）”，在营运十二年后停止一切服务，一名喜欢该游戏的普通上班族“飞鼠”，在营运的最后一刻来到游戏中曾名噪一时、由其担任会长的强大公会—“安兹·乌尔·恭”的根据地纳萨力克大坟墓进行最后巡礼，等待营运的结束。原本应该是如此。虽然营运时间结束，玩家角色却无法登出游戏。而公会内的NPC也开始拥有自己的思想、如活人般地活动起来。在原本的游戏中拥有骷髅魔法师外表的飞鼠，就这样与他率领的公会展开前所未有的奇幻传奇冒险。</p>
+<hr>
+<h1 id="人物介绍"><a href="#人物介绍" class="headerlink" title="人物介绍"></a>人物介绍</h1><h2 id="安兹·乌尔·恭"><a href="#安兹·乌尔·恭" class="headerlink" title="安兹·乌尔·恭"></a>安兹·乌尔·恭</h2><ul>
+<li>是网络游戏“YGGDRASIL”中的公会之一。成员41人，擅长PK的公会。</li>
+</ul>
+<h3 id="楼层守护者"><a href="#楼层守护者" class="headerlink" title="楼层守护者"></a>楼层守护者</h3><ul>
+<li>纳萨力克地下大坟墓NPC的顶点，除了威克提姆和高康大以外全部拥有“YGGDRASIL”中角色综合等级（种族Lv+职业Lv）上限的100级，在原始游戏中几乎是作为各楼层最终头目的存在。但在随安兹一起穿越到异世界后成为了活生生的个体，基于创造者们赋予的角色设定而拥有多采多姿的性格，并在一定程度上投射了创造者的个性，此外由于公会原本的反派角色定位，大多数都对人类持蔑视态度。 </li>
+</ul>
+<h4 id="雅儿贝德-アルベド-Albedo-声：原由实"><a href="#雅儿贝德-アルベド-Albedo-声：原由实" class="headerlink" title="雅儿贝德 アルベド | Albedo | 声：原由实"></a>雅儿贝德 <code>アルベド | Albedo | 声：原由实</code></h4><ul>
+<li><div class="note default no-icon">
+
+<p><strong>种族等级：</strong>小恶魔Lv10、其他<br><strong>职业等级：</strong>守护者Lv10、黑色护卫Lv5、邪恶骑士Lv10、护卫之主Lv5、其他<br><strong>别称：</strong>“温柔体贴的纯白恶魔”<br><strong>综合等级：</strong>Lv100【种族(30)+职业(70)】，<strong>角色创造者为翠玉录</strong>，在Web版没登场，文库版新增角色<br><strong>职位：</strong>纳萨力克地下大坟墓的守护者总管、王妃（自称）<br><strong>住处：</strong>王座之间-&gt;地下第九层的一个预备房间<br><strong>属性：</strong>极恶（正义值=负500）<br>女，身高170cm</p>
+</div>
+</li>
+<li><details ><summary> <p>详情</p> </summary>
+              <div class='content'>
+              <blockquote><p>白衣黑发黑翼的女性恶魔，总是面带温柔微笑的绝世美人，但在小说第一、八卷被间接提及拥有野兽般的变身型态，并曾因此被夏提雅讥讽为“大嘴猩猩”与“怪力女”。拥有在军事层面之外完美管理纳萨力克事务的才能，平时担任安兹的辅佐者，在安兹外出时则以代理人的身份管理大坟墓，魔导国建国后同时身兼宰相之职。</p></blockquote><blockquote><p>在纳萨力克四名近战特化的NPC中以无懈可击的防御著称。持有神器级铠甲－**&lt;赫尔梅斯·特利斯·美吉斯特斯&gt;<strong>，并因翠玉录的私下赐予而在穿越之初即持有世界级道具－</strong>&lt;地狱深渊&gt;**。</p></blockquote><blockquote><p>由于创造者翠玉录旺盛的设定癖及对反差萌的喜好，而在庞大的角色设定的末尾加上“同时是个贱人”的设定。在游戏营运关闭前飞鼠抱著“反正是最后了”的心态将其更改为“至今爱著飞鼠”，结果在穿越后对安兹（飞鼠）抱持著浓烈且略显异常的爱意，并因此作出许多令安兹及同伴为之哑然的奇行，即使安兹告知其爱慕是由于更改设定所致，本人却丝毫不在意并显得十分感激。</p></blockquote><blockquote><p>对于其他40位至尊感到不满，认为他们是抛弃纳萨力克的存在，故特别敬爱飞鼠，而看不起安兹·乌尔·恭本身。</p></blockquote><blockquote><p>代表魔导国出使里‧耶斯提杰王国，并与黄金公主和八指各领导人会面，进而实行吞并王国的计画；顺道一提，在出发前终于如愿以偿地得到了安兹的吻。</p></blockquote><blockquote><p>种族构成中包含了代表色欲的魅魔，但因为始终保持著清白之身，因此有些尴尬地无法骑乘专属的双角兽骑兽。</p></blockquote><blockquote><p>于2016年9月15日投票结果，以11,217张票得到第二名。在动画中目前没有战斗形势登场。但在广播剧得知会使用强大盾牌。</p></blockquote>
+              </div>
+            </details>
+
+</li>
+</ul>
+<h4 id="夏提雅·布拉德弗伦-シャルティア・ブラッドフォールン-Shalltear-Bloodfallen-声：上坂堇"><a href="#夏提雅·布拉德弗伦-シャルティア・ブラッドフォールン-Shalltear-Bloodfallen-声：上坂堇" class="headerlink" title="夏提雅·布拉德弗伦 シャルティア・ブラッドフォールン | Shalltear Bloodfallen | 声：上坂堇"></a>夏提雅·布拉德弗伦 <code>シャルティア・ブラッドフォールン | Shalltear Bloodfallen | 声：上坂堇</code></h4><ul>
+<li><div class="note default no-icon">
+
+<p><strong>种族等级：</strong>吸血鬼Lv10、真祖Lv10<br><strong>职业等级：</strong>女武神/长枪Lv5、诅咒骑士Lv5、祭司Lv10、其他<br><strong>别称：</strong>“鲜血的战争少女”<br><strong>综合等级：</strong>Lv100【种族(20)+职业(80)】，<strong>角色创造者是佩罗罗奇诺</strong><br><strong>职位：</strong>纳萨力克地下大坟墓地下第一~三层守护者<br><strong>住处：</strong>地下第二层死蜡玄室<br><strong>属性：</strong>邪恶～极恶（正义值=负450）<br>女，身高140cm</p>
+</div>
+</li>
+<li><details ><summary> <p>详情</p> </summary>
+              <div class='content'>
+              <blockquote><p>原本在“YGGDRASIL”中吸血鬼是口腔长满针状牙齿、状似长有四肢的吸血水蛭般的异型怪物，因而被雅儿贝德讥讽为“七鳃鳗”，但由于佩罗罗奇诺委托绘图的成员能力高超而拥有银发、身著华奢晚礼服的美少女拟态，不过在陷入亢奋状态时仍会现出原型。</p></blockquote><blockquote><p>是以严谨的职业结构创造出来的纳萨力克一对一能力最强守护者，全身装备传说级道具，并持有能借由伤害对手来恢复自己体力的神器级武器－**&lt;滴管长枪&gt;**。因为兼有著不死者的负面能力抗性、信仰系魔法吟唱者职业以及高输出的近战破坏力，在综合能力上可说是安兹天敌般的存在。</p></blockquote><blockquote><p>作为佩罗罗奇诺对H-GAME爱好的体现，集双性恋、虐待狂、受虐狂、恋尸癖等异常性癖于一身，讲话时的语调老成且习惯带著尾语“呀”（日文“ありんす”，是江户游廓花魁妓女说话常用的语尾。）。其实与外表年龄(14岁)不符的傲人上围，是绘图者对佩罗罗奇诺死缠烂打的报复，不得以加上了”对贫乳感到羞耻垫了好几片”的设定。虽然有性的经验但目前只有女性部分。</p></blockquote><blockquote><p>由于对骨骸的异常癖好而迷恋安兹，与雅儿贝德是争夺纳萨力克支配者正宫之位的情敌，和亚乌菈则是一见面就拌嘴的关系，不过并不讨厌彼此。<br>但对于守护者和部下们，有时表现粗暴不尊重，部下基本是怕她。</p></blockquote><blockquote><p>在作为情报搜集的一环下，袭击了耶·兰提尔近郊的盗匪佣兵团，但却因此陷入半狂暴化的血之狂乱而导致作为目标的布莱恩逃走，且在稍后与冒险者交战时曝露行踪，在陷入慌乱之际又偶然地遭遇斯连教国的菁英部队漆黑圣典，并遭到对方以世界级道具**&lt;倾城倾国&gt;**攻击，虽然因反抗避免了被精神控制的下场，却因此陷入自动对进入判定范围内的对象发动攻击的盲目NPC状态。由于无法解除世界级道具的影响，最后遭到安兹击杀，随后被复活，但失去了遭到控制时的关键记忆。之后一度因为自己的失态而意志消沉，不过在安兹对她处以人体椅子之惩罚后恢复了精神。</p></blockquote><blockquote><p>由于曾经的失败，在纳萨力克后续的行动中常被同伴给予次要的工作，本人也有所意识而感到自卑；不过在和亚乌菈陪同安兹前往矮人王国时，在全神贯注地听从教诲的同时完美完成了压制掘土兽人的使命，得以在安兹的赞赏下一扫阴霾。</p></blockquote><blockquote><p>除战斗外，也擅长信仰系的传送魔法，故事中常出现其负责传送要人乃至大军的情节，后来似乎因此当上了魔导国航空战力的负责人，管理在矮人王国降伏的霜龙们。</p></blockquote><blockquote><p>于2016年9月15日投票结果，以8,436张票得到第五名。</p></blockquote>
+              </div>
+            </details>
+
+</li>
+</ul>
+<h4 id="高康大-ガルガンチュア-Gargantua"><a href="#高康大-ガルガンチュア-Gargantua" class="headerlink" title="高康大 ガルガンチュア | Gargantua"></a>高康大 <code>ガルガンチュア | Gargantua</code></h4><ul>
+<li><div class="note default no-icon">
+
+<p>职位：纳萨力克地下大坟墓地下第四层守护者。<br>身高超过30m的战略级攻城用大型哥雷姆，没有自我意识，启动它要耗费大量时间。<br>属于兵器，并非无上至尊所创作的角色，因为被收纳在地下四层中心的地底湖而被权宜的赋予楼层守护者的地位。<br>名字的典故来自文艺复兴时代的小说巨人传的主角</p>
+</div>
+
+</li>
+</ul>
+<h4 id="科塞特斯-コキュートス，Cocytus-声：三宅健太"><a href="#科塞特斯-コキュートス，Cocytus-声：三宅健太" class="headerlink" title="科塞特斯 コキュートス，Cocytus | 声：三宅健太"></a>科塞特斯 <code>コキュートス，Cocytus | 声：三宅健太</code></h4><ul>
+<li><div class="note default no-icon">
+
+<p><strong>种族等级：</strong>昆虫战士Lv10、虫王Lv10、其他<br><strong>职业等级：</strong>剑圣Lv10、阿修罗Lv5、尼福尔海姆骑士Lv5、其他<br><strong>别称：</strong>“冰河统治者”<br><strong>综合等级：</strong>Lv100【种族(30)+职业(70)】，<strong>角色创造者是武人建御雷</strong><br><strong>职位：</strong>纳萨力克地下大坟墓地下第五层守护者<br><strong>住处：</strong>地下第五层大白球<br><strong>属性：</strong>中立（正义值=正50）<br>男，身高250cm</p>
+</div>
+</li>
+<li><details ><summary> <p>详情</p> </summary>
+              <div class='content'>
+              <blockquote><p>巨大双足步行昆虫形魔物，长有一条足有身高两倍长的尾巴，肩膀与背部隆起著有如冰柱的锐利尖刺，淡蓝色的外骨骼也散发出钻石星尘一般的璀璨光芒与慑人的寒气。</p></blockquote><blockquote><p>纳萨力克地下大坟墓中四名近战特化的NPC中最擅长使用武器的存在，使出全力时会以上臂同时持四把武器的方式迎敌，知晓无上至尊持有武器的一切资讯，本身也搜集有数量可观的武器。持有神器级太刀－**&lt;斩神刀皇&gt;**。</p></blockquote><blockquote><p>个性认真，有著磊落的武人性格，即使面对力量悬殊的对手也会毫不吝惜地给与敬意。由于在其他楼层守护者受命外出执行任务时负责纳萨力克的防卫工作，而对自己的无所贡献感到焦躁。</p></blockquote><blockquote><p>于小说第四集奉命担任进攻蜥蜴人部队的指挥官，不过安兹为测试守护者是否有学习教训的成长能力，故意派予其不足的战力而败北，但事后的检讨反省令安兹相当满意。由于在交战中感受到对方展现的可敬斗志，在受命进行彻底歼灭蜥蝪人的再进军时斗胆地提出手下留情的请求，并在迪米乌哥斯的助言下得到采纳。在单骑出阵击败蜥蝪人的四大族长及最强战士萨留斯后，被赋予以非恐怖统治方式治理蜥蝪人的工作。</p></blockquote><blockquote><p>对日后成为侍奉安兹后代的“老爷子”一事怀抱憧憬，在第十一卷中曾为了习惯少主的骑乘而请安兹坐到自己背上，但却令安兹担心起武人御建雷是否也对它做了变态的设定。</p></blockquote><blockquote><p>因为创造者的关系，和娜贝拉尔关系很好。</p></blockquote><blockquote><p>于2016年9月15日投票结果，以2,057张票得到第十八名。</p></blockquote>
+              </div>
+            </details>
+
+</li>
+</ul>
+<h4 id="亚乌菈·贝拉·菲欧拉-アウラ・ベラ・フィオーラ-Aura-Bella-Fiora-声：加藤英美里"><a href="#亚乌菈·贝拉·菲欧拉-アウラ・ベラ・フィオーラ-Aura-Bella-Fiora-声：加藤英美里" class="headerlink" title="亚乌菈·贝拉·菲欧拉 アウラ・ベラ・フィオーラ | Aura Bella Fiora | 声：加藤英美里"></a>亚乌菈·贝拉·菲欧拉 <code>アウラ・ベラ・フィオーラ | Aura Bella Fiora | 声：加藤英美里</code></h4><ul>
+<li><div class="note default no-icon">
+
+<p><strong>黑暗精灵，因为是人类种族所以没有种族等级</strong><br><strong>职业等级：</strong>游击兵Lv5、驯兽师Lv5、射手Lv5、狙击手Lv5、高级驯兽师Lv10、其他<br><strong>别称：</strong>“不服输的知名训练师”<br><strong>综合等级：</strong>Lv100【种族(0)+职业(100)】，<strong>角色创造者是泡泡茶壶</strong><br><strong>职位：</strong>纳萨力克地下大坟墓的第六层守护者之一<br><strong>住处：</strong>地下第六层的大树<br><strong>属性：</strong>中立～恶（正义值=负100）<br>女，身高104cm</p>
+</div>
+</li>
+<li><details ><summary> <p>详情</p> </summary>
+              <div class='content'>
+              <blockquote><p>马雷的双胞胎姊姊，种族是黑暗精灵，两眼为异色瞳，设定年龄是以黑暗精灵而言尚在发育中的76岁少女，拥有一把大弓目前尚未知名称的神器级武器。</p></blockquote><blockquote><p>个性像少年般活泼外向，打扮也如男孩子的少女。以个体能力来说在楼层守护者中属于后段，但拥有支配100只高等级魔兽的驯兽师能力，能借由使役它们压倒其他守护者而成为集团战的最强守护者。同时拥有多种侦查、追猎的特化能力，在森林中的行动非常灵敏，并拥有能借由呼吸吐出带有魅惑、毒性、负面效应气息的常驻技能。</p></blockquote><blockquote><p>在穿越之后主要负责纳萨力克附近的都武大森林的侦查与压制，并负责兴建森林中的前进基地，由于其游击兵的职业能力，也活跃于安兹以冒险者飞飞之姿在外活动时的支援工作。其实也爱安兹但动画没有明显行为。<br>与夏提雅是吵闹不休的和睦关系，其景象令安兹连想到两人的创造者姊弟间的相处。</p></blockquote><blockquote><p>与夏提雅陪同安兹前往矮人王国。期间受到安兹的拜托而多所照顾夏提雅，之后虽然误会安兹的举动，但对安兹的用心跟夏提雅两人感动到落泪。</p></blockquote><blockquote><p>于2016年9月15日投票结果，以4,760张票得到第十一名。</p></blockquote>
+              </div>
+            </details>
+
+</li>
+</ul>
+<h4 id="马雷·贝罗·菲欧雷-マーレ・ベロ・フィオーレ-Mare-Bello-Fiore-声：内山夕实"><a href="#马雷·贝罗·菲欧雷-マーレ・ベロ・フィオーレ-Mare-Bello-Fiore-声：内山夕实" class="headerlink" title="马雷·贝罗·菲欧雷 マーレ・ベロ・フィオーレ | Mare Bello Fiore | 声：内山夕实"></a>马雷·贝罗·菲欧雷 <code>マーレ・ベロ・フィオーレ | Mare Bello Fiore | 声：内山夕实</code></h4><ul>
+<li><div class="note default no-icon">
+
+<p><strong>黑暗精灵，因为是人类种族所以没有种族等级</strong><br><strong>职业等级：</strong>森林祭司Lv10、高级森林祭司Lv10、大自然先锋Lv10、灾厄使徒Lv5、森林法师Lv10、其他<br><strong>别称：</strong>“不可靠的大自然使者”<br><strong>综合等级：</strong>Lv100【种族(0)+职业(100)】，<strong>角色创造者同样是泡泡茶壶，文库版新增角色</strong><br><strong>职位：</strong>纳萨力克地下大坟墓的第六层守护者之一<br><strong>住处：</strong>地下第六层的大树<br><strong>属性：</strong>中立～恶（正义值=负100）<br>男，身高104cm</p>
+</div>
+</li>
+<li><details ><summary> <p>详情</p> </summary>
+              <div class='content'>
+              <blockquote><p>亚乌菈的双胞胎弟弟，种族是黑暗精灵，双眼的异色瞳颜色与亚乌菈左右颠倒。是被赋予了“伪娘”属性的少年，身上持有神器级法杖－**&lt;世界树之影&gt;**。</p></blockquote><blockquote><p>与姊姊相反地个性内向，讲话总是吞吞吐吐，很容易给人乖巧胆小少女的错觉，不过这其实是混杂了创作者角色设定与欺敌伪装的虚像，故事中就多次出现他眼神冰冷而不带感情地以扭捏的动作施暴、杀人的不协调举止。</p></blockquote><blockquote><p>是守护者中的最强法师系，以守护者个人实力排行来说仅次于夏提雅的实力者。</p></blockquote><blockquote><p>擅长操弄大地与植物的自然系魔法，因此多次被赋予构筑构造物的任务，在穿越之初制造了遮蔽纳萨力克地下大坟墓地上物的丘陵土垒，魔导国建国后则在耶·兰提尔郊外建造训练冒险者用的迷宫。</p></blockquote><blockquote><p>拥有2条等级接近90的龙，曾与亚乌菈一起骑乘著它们对帝国进行恫吓。</p></blockquote><blockquote><p>跟早熟的姊姊不同，对性方面的知识还十分清纯无知的样子。</p></blockquote><blockquote><p>于2016年9月15日投票结果，以2,666张票得到第十六名。</p></blockquote>
+              </div>
+            </details>
+
+</li>
+</ul>
+<h4 id="迪米乌哥斯-デミウルゴス-Demiurge-声：加藤将之"><a href="#迪米乌哥斯-デミウルゴス-Demiurge-声：加藤将之" class="headerlink" title="迪米乌哥斯 デミウルゴス | Demiurge | 声：加藤将之"></a>迪米乌哥斯 <code>デミウルゴス | Demiurge | 声：加藤将之</code></h4><ul>
+<li><div class="note default no-icon">
+
+<p><strong>种族等级：</strong>小恶魔Lv10、最高阶恶魔Lv5、其他<br><strong>职业等级：</strong>浑沌Lv10、黑暗王子Lv10、变形魔Lv10、其他<br><strong>别称：</strong>“炎狱造物主”<br><strong>综合等级：</strong>Lv100【种族(35)+职业(65)】，<strong>角色创造者是乌尔贝特·亚连·欧德尔</strong><br><strong>职位：</strong>纳萨力克地下大坟墓地下第七层守护者<br><strong>住处：</strong>地下第七层赤热神殿<br><strong>属性：</strong>极恶（正义值=负500）<br>男，身高181cm</p>
+</div>
+</li>
+<li><details ><summary> <p>详情</p> </summary>
+              <div class='content'>
+              <blockquote><p>守护者中的军师兼防卫外敌的NPC指挥官，有著多样的魔法技能，谈吐殷勤有礼的同时，拥有以言语支配40级以下生物行动的常驻技能，在纳萨力克里以最精明的头脑著称。</p></blockquote><blockquote><p>外型因为版本的不同有显著的差异： </p></blockquote><blockquote><p>文库版为皮肤黝黑且面容带东方色彩、穿戴圆框眼镜与全套英式西装，仿佛干练商业人士或律师般的精瘦男子。此外，平常眯著的眼睛张开时则有如多重切角宝石。</p></blockquote><blockquote><p>Web版为如帝王般地佩戴皇冠、权杖、大红披风，并长有双角、翅膀、赤红肤色等恶魔特征。</p></blockquote><blockquote><p>长有由银色金属板包覆、尾端有六根尖刺、周围不断晃动浅黑火焰的尾巴的设定则是共通。</p></blockquote><blockquote><p>即使以普遍藐视人类的众守护者的标准而言亦是极端残忍之人，会对掳获的人类进行各类摧残身心的实验并引以为乐，但在与纳萨力克的同伴们相处时却十分温柔。</p></blockquote><blockquote><p>由于属性的差异以及彼此创造者间的对立关系，与塞巴斯的关系欠佳。</p></blockquote><blockquote><p>在忠心耿耿之馀也将安兹视为智慧在己之上的智慧化身，而有将安兹的言行举止过度解读并进行对策的倾向，由于在第一卷误解了安兹“征服世界似乎也很有趣”的玩笑话，在将此语转达给诸守护者后认真地开始策划、执行征服世界的行动，成为日后纳萨力克一连串行动的动机。</p></blockquote><blockquote><p>在奉命前往外界搜集情报的守护者们中被分派予侦查南方旷野的工作，并立下了确保低阶法术用羊皮纸供应来源的功绩，之后受命策划了对王国犯罪集团八指的惩罚行动，并随机应变地在计画遭遇苍蔷薇而生变时盛大地进行了对王都的恶魔入侵。</p></blockquote><blockquote><p>由于创造者乌尔贝特对“恶”的执著而一如电玩中魔王般地拥有多段变身能力，目前已知在中间型态时头部会变为蛙首。</p></blockquote><blockquote><p>意外地拥有手工艺的兴趣并且十分巧手，曾亲手作了十分气派的骨骸王座献给安兹，但安兹对此敬谢不敏。</p></blockquote><blockquote><p>因为安兹只花费三天并在不造成任何死伤的情况下使帝国臣服而感动不已（原本的计画得花一个月外加一座城市发生暴动，造成严重的死伤），并因此表示羡慕由安兹创造的潘朵拉‧亚克特。</p></blockquote><blockquote><p>于2016年9月15日投票结果，以6,820张票得到第六名。</p></blockquote><blockquote><p>亚达巴沃（ヤルダバオト，Jaldabaoth）</p></blockquote><blockquote><p>迪米乌哥斯扮演提高大英雄飞飞与魔导国名声的恶魔时使用的假名。</p></blockquote><blockquote><p>角色设定上拥有两种不同的外貌；一个是外貌如西装男子戴著面具的人型样貌(由迪米乌哥斯本人假扮)，以及现出真面目的恶魔样貌(由迪米乌哥斯召唤的愤怒魔将假扮)。</p></blockquote><blockquote><p>于苍蔷薇击败安特玛时首次现身，假称为了寻回被八指走私到王都的神秘道具而来。轻易地瞬杀了格格兰与缇亚并将伊维尔哀逼入绝境，并在王都制造出火焰障壁、招来大批恶魔、于一夜之间掳走王都万馀人口，虽然遭到飞飞击退，但其魔王之姿却也因此广围人知。</p></blockquote><blockquote><p>王都事件后来到大陆东方的丘陵地带，以力量和恐怖支配了当地的亚人种族后以“魔皇”之名挥军进攻圣王国，并在只身入侵圣王都时显现“真面目”擒杀圣王女，令圣王国北部堕入凄惨的地狱。</p></blockquote><blockquote><p>在旗下的4万亚人大军遭到击灭后再次现身，与前来圣王国助战的魔导王展开对决，一度击败魔导王使之陷入生死不明的状况，但也因此身负重伤与失去对恶魔女仆‧希丝的支配。在消失数月后，于圣王国南北联军与亚人的最后决战中归来并轻易地令人类陷入绝望，但稍后旋即遭遇归来的魔导王，并在再次交战中遭到击败。</p></blockquote>
+              </div>
+            </details>
+
+</li>
+</ul>
+<h4 id="威克提姆-ヴィクティム-Victim-声：东山奈央"><a href="#威克提姆-ヴィクティム-Victim-声：东山奈央" class="headerlink" title="威克提姆 ヴィクティム | Victim | 声：东山奈央"></a>威克提姆 <code>ヴィクティム | Victim | 声：东山奈央</code></h4><ul>
+<li><div class="note default no-icon">
+
+<p><strong>种族等级：</strong>天使Lv10、大天使Lv10、其他<br><strong>职业等级：</strong>圣人Lv4、爱国者Lv1、殉教者Lv1、其他<br><strong>别称：</strong>“牺牲的婴儿”<br><strong>综合等级：</strong>Lv35【种族(29)+职业(6)】，角色创造者不明<br><strong>职位：</strong>纳萨力克地下大坟墓第八层守护者<br><strong>住处：</strong>地下第八层生命之树。<br><strong>属性：</strong>中立（正义值=正1）<br>?，身高100cm。</p>
+</div>
+</li>
+<li><details ><summary> <p>详情</p> </summary>
+              <div class='content'>
+              <blockquote><p>仿佛天使胚胎般的诡异楼层守护者，以守护者而言等级非常的低，但是在被杀死时会发动强力的束缚系能力，在当初歼灭入侵纳萨力克的玩家联合军时起了关键作用。</p></blockquote><blockquote><p>设定上使用天使专用的以诺语，但在旁人听来像是将颜色与染料名堆叠而成的奇异语汇，因此并不确定是否说的正确。</p></blockquote><blockquote><p>平时驻守在纳萨力克地下大坟墓的第八层，但安兹偶尔会在离开纳萨力克时将之带在身边当作逃脱的最后手段。</p></blockquote>
+              </div>
+            </details>
+
+</li>
+</ul>
+<h4 id="塞巴斯·强-セバス・チャン-Sebas-Tian-声：千叶繁"><a href="#塞巴斯·强-セバス・チャン-Sebas-Tian-声：千叶繁" class="headerlink" title="塞巴斯·强 セバス・チャン | Sebas Tian | 声：千叶繁"></a>塞巴斯·强 <code>セバス・チャン | Sebas Tian | 声：千叶繁</code></h4><ul>
+<li><div class="note default no-icon">
+
+<p>种族等级：龙人Lv?[19]（web版是狼人）<br>职业等级：修行僧Lv10、武王Lv10、前锋Lv5、内气武僧Lv15、外气武僧Lv5[19]等。<br>别称：“钢铁执事”。<br>种族(25)+职业(75)综合等级是100级，角色创造者是塔其·米。<br>职位：纳萨力克地下大坟墓的管家。<br>住处：地下第九层的佣人房之一。<br>属性：极善《正义值=正300》<br>男，身高179cm。</p>
+</div>
+</li>
+<li><details ><summary> <p>详情</p> </summary>
+              <div class='content'>
+              <blockquote><p>与部下的战斗女仆“昴宿星团”一起被配置在纳萨力克地下大坟墓第10层的守护者，在纳萨力克地下大坟墓四名近战特化的NPC中拥有最高的格斗能力。</p></blockquote><blockquote><p>角色设定为管家，除战斗女仆外还有指挥男仆与管家助手，平时除了担任安兹的近侍之外，也负责无上至尊起居区间的管理。</p></blockquote><blockquote><p>外貌为头发与胡须均已全白，但身形挺拔的初老绅士，其媲美大贵族的高雅仪表足以使任何女性为之心醉，但若仔细观察能发现其有著锐利如鹰的眼神。</p></blockquote><blockquote><p>是纳萨力克众NPC中罕见地拥有极善属性的人物，并且继承了创造者塔奇·米路见不平的人格特质，有著主动救济弱者的习惯，并不歧视人类，甚至会发自内心地赞赏个人的美德与坚定意志。虽然塔奇·米完全没写角色设定。</p></blockquote><blockquote><p>奉安兹之命与索琉香伪装成富商千金与管家的组合潜入王国首都进行情报与魔法的搜集，但却因搭救了被虐待的少女琪雅蕾，而被王国地下势力八指恐吓，并因索琉香的告发而受到安兹的诘问，所幸在表现出毫无疑问的忠义后得到了宽恕。</p></blockquote><blockquote><p>因与被救回的琪雅蕾的好关系而被同伴们取笑，认为早晚会成为情侣关系。</p></blockquote><blockquote><p>在八指的骚动中结识克莱姆与布莱恩，曾对他们进行过抵抗杀气的特训与精神的开导，并因压倒性的实力与高尚的人格而为两人所尊敬。</p></blockquote><blockquote><p>由于属性的差异以及彼此创造者间的对立关系，与迪米乌哥斯的关系欠佳。</p></blockquote><blockquote><p>曾被科赛特斯说过，在纳萨力克里“对人最强”，要全部一起上才有胜算。</p></blockquote><blockquote><p>于2016年9月15日投票结果，以1,944张票得到第十九名。</p></blockquote>
+              </div>
+            </details>
+
+</li>
+</ul>
+<h3 id="领域守护者"><a href="#领域守护者" class="headerlink" title="领域守护者"></a>领域守护者</h3><ul>
+<li>负责看守各楼层部分地方区域的领域守护者，身份仅次于楼层守护者。基本上由各楼层守护者来管理，主要任务是守护特定区域。 </li>
+</ul>
+<h4 id="潘朵拉·亚克特-パンドラズ・アクター-Pandora-39-s-Actor-声：宫野真守"><a href="#潘朵拉·亚克特-パンドラズ・アクター-Pandora-39-s-Actor-声：宫野真守" class="headerlink" title="潘朵拉·亚克特 パンドラズ・アクター | Pandora&#39;s Actor | 声：宫野真守"></a>潘朵拉·亚克特 <code>パンドラズ・アクター | Pandora&#39;s Actor | 声：宫野真守</code></h4><ul>
+<li><div class="note default no-icon">
+
+<p>种族等级：二重幻影Lv15、高阶二重幻影Lv10[15]等。<br>职业等级：专家Lv10、工艺家Lv10、城堡之王Lv15[15]等。<br>别称：“千变万化的无脸人”。<br>种族(45)+职业(55)综合等级是100级，角色创作者是飞鼠。<br>职位：纳萨力克地下大坟墓宝物殿领域守护者。<br>住处：宝物殿管理负责人室。<br>属性：中立《正义值=负50》<br>男，身高177cm。</p>
+</div>
+</li>
+<li><details ><summary> <p>详情</p> </summary>
+              <div class='content'>
+              <blockquote><p>安兹（飞鼠）亲自设计出来的守护者，最多能够记忆、变化四十五种模样的高阶二重幻影，与娜贝拉尔不同，平时皆以二重幻影的原型（鼻子等隆起部位都被抹平，眼睛和嘴巴的部位只有三个洞，没有眼球、牙齿和舌头。也没有任何毛发。只有四根手指而且相当细长，看起来像是尺蠖虫。）示人。</p></blockquote><blockquote><p>变身后可以发挥所变化本体80%（Web版中为75%）的能力，并拥有纳萨力克中顶级的智慧和谋略，有时就应用上是足以抵上全员守护者的珍宝；然而，平时会把这些智慧用偏到奇怪的方向。</p></blockquote><blockquote><p>安兹创造他的理由并不是为了战斗或经营组织。而是为了保存这个“安兹·乌尔·恭”的身影，纪录离开游戏的公会成员的模样。</p></blockquote><blockquote><p>由于不良的角色设定当时觉得这样设计很帅（如演员般浮夸的言行举止、会装模作样地说德语、直接使用二重幻影的原型）而被安兹视为黑历史，所以大半时候基于遮丑考量，将之藏在宝物殿负责看守世界级道具及纳萨力克财政的管理。</p></blockquote><blockquote><p>在夏提雅叛变事件时主动向安兹请缨参与对外的活动，并被授予安兹·乌尔·恭之戒，之后被雅儿贝德向安兹提议担当由她所领导的无上至尊秘密探索队的副官。</p></blockquote><blockquote><p>疑似在第六卷与第九卷某些暧昧的场景里，伪装成安兹或飞飞出场过。</p></blockquote><blockquote><p>外形因为版本的不同有所差异： </p></blockquote><blockquote><p>文库版：帽子的帽章是安兹·乌尔·恭的公会徽章，身上穿的制服为20年前在欧洲生态建筑战争中的新纳粹亲卫队制服（黄色纳粹亲卫队制服）。</p></blockquote><blockquote><p>Web版：身穿有著2个黑色钮扣的深色西装。单片袖、纯白的衬衫、银灰色的条纹领带、黑皮鞋、白色手套。虽然没有鼻子和耳朵，却戴著眼镜。</p></blockquote><blockquote><p>迷恋魔法道具到了变态的程度。长时间不能保养及整理魔法道具会受不了。 (安兹怕他一个人守护宝物库会无聊所以如此设定)</p></blockquote><blockquote><p>虽然设定时知道所有的世界级道具，但转移到异世界之后，只知道安兹·乌尔·恭拥有的11个世界级道具的性能。</p></blockquote><blockquote><p>被安兹命令禁止“敬礼”，而且禁止在安兹面前说德文。</p></blockquote><blockquote><p>第十卷时安兹向其表示“希望能看见没有设定到的部分，作为成长的证明”，以及“因为是我的孩子所以不需要刻意表现”，试图让潘朵拉停止浮夸的言行，却导致潘朵拉改口叫安兹“父亲大人”。</p></blockquote><blockquote><p>因为是安兹的创造物关系，而被雅儿贝德及迪米乌哥斯羡慕著。</p></blockquote><blockquote><p>在雅儿贝德出访王国时，负责纳萨力克及耶‧兰提尔的管理。雅儿贝德称其为“非常优秀的人才，孩子正如父母”。</p></blockquote><blockquote><p>第十卷时获得保养其他公会成员所有之道具之许可。</p></blockquote><blockquote><p>于2016年9月15日投票结果，以5,568张票得到第九名。</p></blockquote><blockquote><p>在番外小剧场中出场份量非常的多。</p></blockquote>
+              </div>
+            </details>
+
+</li>
+</ul>
+<h4 id="恐怖公-きょうふこう-Kyo-fukou-声：神谷浩史"><a href="#恐怖公-きょうふこう-Kyo-fukou-声：神谷浩史" class="headerlink" title="恐怖公 きょうふこう | Kyō fukou | 声：神谷浩史"></a>恐怖公 <code>きょうふこう | Kyō fukou | 声：神谷浩史</code></h4><ul>
+<li><div class="note default no-icon">
+
+<p>种族等级：昆虫森林祭司Lv10[20]等。<br>职业等级：高级森林祭司Lv5、召唤师Lv3、驯虫师Lv2、小人Lv3(付费)[20]等。<br>别称：“五大最恶‘据点最恶’”。<br>种族(12)+职业(18)综合等级是30级，角色创作者不明。<br>职位：夏提雅管理的第二层的领域守护者。<br>住处：地下第二层“黑棺”。<br>属性：中立《正义值=负10》<br>男，身高30cm。</p>
+</div>
+</li>
+<li><details ><summary> <p>详情</p> </summary>
+              <div class='content'>
+              <blockquote><p>穿著红色斗逢、戴王冠持权杖的大型直立蟑螂，指挥著黑棺内的庞大数量眷族蟑螂吞噬侵入领域的入侵者。言语间充满教养、是彬彬有礼的绅士，另外也精通帝王学。就连对统治纳萨力克感到迷惘的安兹都曾考虑向他请教，但一想到自己向蟑螂学习的画面就作罢了。</p></blockquote><blockquote><p>被科塞特斯称作盟友，但却是纳萨力克地下大坟墓所有女性NPC敬而远之的存在（安特玛是少数的例外，称恐怖公的蟑螂眷属为点心）。</p></blockquote><blockquote><p>虽然在游戏时代无法真正作到吞噬敌人，但黑棺内蟑螂群过于逼真的表现曾令侵入的玩家恐惧到强行登出游戏。</p></blockquote><blockquote><p>由于公会里的41人中有28人害怕恐怖公的设定，在多数决的公会中没有因此而被取消算是个奇迹。</p></blockquote><blockquote><p>于2016年9月15日投票结果，以3,515张票得到第十四名。</p></blockquote><blockquote><p>在漫画跟动画因为样子的关系所以常被马赛克跟画面故意用得比较黑暗。</p></blockquote>
+              </div>
+            </details>
+
+</li>
+</ul>
+<h4 id="饿食狐虫王-がしょくこちゅうおう-Ga-Shi-Yokukochuuou"><a href="#饿食狐虫王-がしょくこちゅうおう-Ga-Shi-Yokukochuuou" class="headerlink" title="饿食狐虫王 がしょくこちゅうおう | Ga Shi Yokukochuuou"></a>饿食狐虫王 <code>がしょくこちゅうおう | Ga Shi Yokukochuuou</code></h4><ul>
+<li><div class="note default no-icon">
+
+<p>别称：“五大最恶‘生态最恶’”之一。<br>角色创作者不明。<br>职位：亚乌菈、马雷管理的第六层的领域守护者。<br>住处：地下第六层“大穴”。</p>
+</div>
+</li>
+<li><details ><summary> <p>详情</p> </summary>
+              <div class='content'>
+              <blockquote><p>会使用寄生虫寄生在人体，并把人体称为“巢”。</p></blockquote><blockquote><p>精通帝王学，就连对统治纳萨力克感到迷惘的安兹都曾考虑向他请教。</p></blockquote>
+              </div>
+            </details>
+
+</li>
+</ul>
+<h4 id="红莲-紅蓮-ぐれん-Guren"><a href="#红莲-紅蓮-ぐれん-Guren" class="headerlink" title="红莲 紅蓮 | ぐれん | Guren"></a>红莲 <code>紅蓮 | ぐれん | Guren</code></h4><ul>
+<li><div class="note default no-icon">
+
+<p>等级90级的战斗特化守护者，超巨大的深渊史莱姆。单看攻击力是纳萨利克上层的存在，比这个阶层的守护者迪米乌哥斯更为难缠。在占有地利的第七层岩浆地型战斗时足以与一部分的楼层守护者不相上下。<br>平时隐藏在滚烫的熔岩河中，无法观察其模样，遇到敌人时会从熔岩底下伸出触手，将敌人拖进熔岩里进行攻击。由于隐藏在熔岩内，一般的战斗方式是没有办法对红莲造成致命伤的。<br>迪米乌哥斯不在的时候代理负责守护第七楼层。</p>
+</div>
+
+</li>
+</ul>
+<h4 id="格兰特-グラント-Grant"><a href="#格兰特-グラント-Grant" class="headerlink" title="格兰特 グラント | Grant"></a>格兰特 <code>グラント | Grant</code></h4><ul>
+<li><div class="note default no-icon">
+
+<p>与恐怖公、饿食狐虫王同样为昆虫型异形种。<br>被安特玛尊称为“圣母·格兰特”，推测也是蜘蛛型魔物。<br>是守护领域遍布多个阶层的稀有守护者。<br>“第八层的那些”（第八階層のあれら）<br>指配置在纳萨力克地下大坟墓的第八阶层的某些存在，其正体至今尚未解明，只知道是复数及被称为纳萨力克最大战力。</p>
+</div>
+</li>
+<li><details ><summary> <p>详情</p> </summary>
+              <div class='content'>
+              <blockquote><p>目前与第八阶层相关的情报为：</p></blockquote><blockquote><p>1500人的玩家联合军(此数字包含佣兵怪物&amp;无上位公会玩家)最终全灭于第八层。</p></blockquote><blockquote><p>第八层守护者是威克提姆。</p></blockquote><blockquote><p>第八层发生紧急事态时，会有连雅儿贝德的权限都无法处理的可能性。</p></blockquote><blockquote><p>第八层目前禁止进入。原则上只有安兹许可才能进去。</p></blockquote><blockquote><p>第八层配置了最强的存在们。</p></blockquote><blockquote><p>为了监视第八层，不能轻易派动威克提姆。</p></blockquote><blockquote><p>威克提姆死亡时会发动强力的束缚系能力。</p></blockquote><blockquote><p>樱花圣域的领域守护者在第八层。</p></blockquote><blockquote><p>第八层有称为生命之树的场所，同时也是威克提姆的住处。</p></blockquote><blockquote><p>八层的那些在并用世界级道具的情形下，能发挥出就算与号称纳萨力克最强个体的露贝德一对一战斗都能占上风的战斗力。</p></blockquote><blockquote><p>Web版作者回应表示单体战力匹敌6人小队，但大概没机会出场。</p></blockquote>
+              </div>
+            </details>
+
 </li>
 </ul>
 ]]></content>
