@@ -411,65 +411,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Maya 实例练习：水壶材质制作</title>
-    <url>/posts/Kettle/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在制作前，先明确一下步骤：</p>
-<ul>
-<li><strong>这个水壶的材质是由<code>金属</code>与<code>锈迹</code>两大部分组成。</strong></li>
-<li><strong>所以首先，制作<code>金属</code>部分的材质。</strong><ul>
-<li><strong><a href="/posts/aiStandardSurface/">aiStandardSurface（标准曲面着色器）</a> ⇢ <a href="/posts/aiNoise/">aiNoise（噪波）</a> ⇢ <a href="/posts/aiStandardSurface/#Bump-Mapping%EF%BC%88%E5%87%B9%E5%87%B8%E8%B4%B4%E5%9B%BE%EF%BC%89">bump2d</a></strong></li>
-</ul>
-</li>
-<li><strong>然后，与<code>金属</code>部分制作方法一样，制作<code>锈迹</code>。</strong></li>
-<li><strong>最后通过 <a href="/posts/aiMixShader/">aiMixShader（混合着色器）</a>将<code>金属</code>与<code>锈迹</code>结合。</strong></li>
-</ul>
-<img style="width:30%" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/kettle.jpg" alt="最后效果">
-
-<a id="more"></a>
-<h1 id="金属部分"><a href="#金属部分" class="headerlink" title="金属部分"></a>金属部分</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/Metal.png" alt="金属部分 Hypershade"></p>
-<blockquote>
-<p>通过 aiNoise（噪波）节点来模拟水壶金属颜色部分的不均匀以及斑点</p>
-<blockquote>
-<p>aiNoise1 节点用来制作大块的金属颜色不均匀<br>aiNoise2 节点用来制作金属颜色斑点以及 bump2d 节点的输入值<br>  <table><tbody><tr><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise1.jpg" alt="aiNoise1"></td><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise2.jpg" alt="aiNoise2"></td></tr></tbody></table></p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>bump2d 节点以 aiNoise2 节点输出颜色的 RGB 单色通道为输入值</p>
-</blockquote>
-<blockquote>
-<div class="note warning">还可以通过 colorCorrect 节点调整颜色</div>
-</blockquote>
-<h1 id="锈迹部分"><a href="#锈迹部分" class="headerlink" title="锈迹部分"></a>锈迹部分</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/Rust.png" alt="锈迹部分 Hypershade"></p>
-<blockquote>
-<p>与金属部分制作相同</p>
-</blockquote>
-<blockquote>
-<p>只是这次使用了三个 aiNoise（噪波）节点</p>
-<blockquote>
-<p>aiNoise4 节点用来制作主要的锈迹颜色<br>aiNoise5 节点用来制作锈迹斑点颜色以及 bump2d 节点的输入值<br>aiNoise3 节点用来合并 aiNoise4 与 aiNoise5 节点<br>  <table><tbody><tr><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise4.jpg" alt="aiNoise4"></td><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise5.jpg" alt="aiNoise5"></td><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise3.jpg" alt="aiNoise3"></td></tr></tbody></table></p>
-</blockquote>
-</blockquote>
-<h1 id="结合"><a href="#结合" class="headerlink" title="结合"></a>结合</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiMixShader.png"></p>
-<blockquote>
-<p>通过 <a href="/posts/aiMixShader/">aiMixShader（混合着色器）</a>将<code>金属</code>与<code>锈迹</code>结合。</p>
-</blockquote>
-<blockquote>
-<p>但是由于 <a href="/posts/aiMixShader/">aiMixShader（混合着色器）</a>只能生硬的进行材质叠加，所以还需要使用 <a href="/posts/solidFractal/">solidFractal（匀值分形）</a>节点来更好的结合</p>
-</blockquote>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<div><a href="/posts/aiStandardSurface/">Maya 学习日志：Arnold（阿诺德）aiStandardSurface（标准曲面着色器）</a></div><div><a href="/posts/aiMixShader/">Maya 学习日志：Arnold（阿诺德）aiMixShader（混合着色器）</a></div><div><a href="/posts/solidFractal/">Maya 学习日志：solidFractal（均值分形）</a></div><div><a href="/posts/aiNoise/">Maya 学习日志：Arnold（阿诺德）aiNoise（噪波）</a></div><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
-      <categories>
-        <category>软件</category>
-        <category>Maya</category>
-        <category>练习</category>
-      </categories>
-      <tags>
-        <tag>Maya</tag>
-        <tag>Arnold</tag>
-        <tag>软件</tag>
-        <tag>着色器</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Minecraft Hypixel BedWars 日志</title>
     <url>/posts/Hypixel_BedWars/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img data-src="https://hypixel.net/styles/hypixel-uix/hypixel/logo2.png"></p>
@@ -816,6 +757,65 @@
         <tag>游戏</tag>
         <tag>Minecraft</tag>
         <tag>Hypixel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Maya 实例练习：水壶材质制作</title>
+    <url>/posts/Kettle/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在制作前，先明确一下步骤：</p>
+<ul>
+<li><strong>这个水壶的材质是由<code>金属</code>与<code>锈迹</code>两大部分组成。</strong></li>
+<li><strong>所以首先，制作<code>金属</code>部分的材质。</strong><ul>
+<li><strong><a href="/posts/aiStandardSurface/">aiStandardSurface（标准曲面着色器）</a> ⇢ <a href="/posts/aiNoise/">aiNoise（噪波）</a> ⇢ <a href="/posts/aiStandardSurface/#Bump-Mapping%EF%BC%88%E5%87%B9%E5%87%B8%E8%B4%B4%E5%9B%BE%EF%BC%89">bump2d</a></strong></li>
+</ul>
+</li>
+<li><strong>然后，与<code>金属</code>部分制作方法一样，制作<code>锈迹</code>。</strong></li>
+<li><strong>最后通过 <a href="/posts/aiMixShader/">aiMixShader（混合着色器）</a>将<code>金属</code>与<code>锈迹</code>结合。</strong></li>
+</ul>
+<img style="width:30%" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/kettle.jpg" alt="最后效果">
+
+<a id="more"></a>
+<h1 id="金属部分"><a href="#金属部分" class="headerlink" title="金属部分"></a>金属部分</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/Metal.png" alt="金属部分 Hypershade"></p>
+<blockquote>
+<p>通过 aiNoise（噪波）节点来模拟水壶金属颜色部分的不均匀以及斑点</p>
+<blockquote>
+<p>aiNoise1 节点用来制作大块的金属颜色不均匀<br>aiNoise2 节点用来制作金属颜色斑点以及 bump2d 节点的输入值<br>  <table><tbody><tr><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise1.jpg" alt="aiNoise1"></td><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise2.jpg" alt="aiNoise2"></td></tr></tbody></table></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>bump2d 节点以 aiNoise2 节点输出颜色的 RGB 单色通道为输入值</p>
+</blockquote>
+<blockquote>
+<div class="note warning">还可以通过 colorCorrect 节点调整颜色</div>
+</blockquote>
+<h1 id="锈迹部分"><a href="#锈迹部分" class="headerlink" title="锈迹部分"></a>锈迹部分</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/Rust.png" alt="锈迹部分 Hypershade"></p>
+<blockquote>
+<p>与金属部分制作相同</p>
+</blockquote>
+<blockquote>
+<p>只是这次使用了三个 aiNoise（噪波）节点</p>
+<blockquote>
+<p>aiNoise4 节点用来制作主要的锈迹颜色<br>aiNoise5 节点用来制作锈迹斑点颜色以及 bump2d 节点的输入值<br>aiNoise3 节点用来合并 aiNoise4 与 aiNoise5 节点<br>  <table><tbody><tr><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise4.jpg" alt="aiNoise4"></td><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise5.jpg" alt="aiNoise5"></td><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise3.jpg" alt="aiNoise3"></td></tr></tbody></table></p>
+</blockquote>
+</blockquote>
+<h1 id="结合"><a href="#结合" class="headerlink" title="结合"></a>结合</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiMixShader.png"></p>
+<blockquote>
+<p>通过 <a href="/posts/aiMixShader/">aiMixShader（混合着色器）</a>将<code>金属</code>与<code>锈迹</code>结合。</p>
+</blockquote>
+<blockquote>
+<p>但是由于 <a href="/posts/aiMixShader/">aiMixShader（混合着色器）</a>只能生硬的进行材质叠加，所以还需要使用 <a href="/posts/solidFractal/">solidFractal（匀值分形）</a>节点来更好的结合</p>
+</blockquote>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<div><a href="/posts/aiStandardSurface/">Maya 学习日志：Arnold（阿诺德）aiStandardSurface（标准曲面着色器）</a></div><div><a href="/posts/aiMixShader/">Maya 学习日志：Arnold（阿诺德）aiMixShader（混合着色器）</a></div><div><a href="/posts/solidFractal/">Maya 学习日志：solidFractal（均值分形）</a></div><div><a href="/posts/aiNoise/">Maya 学习日志：Arnold（阿诺德）aiNoise（噪波）</a></div><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>软件</category>
+        <category>Maya</category>
+        <category>练习</category>
+      </categories>
+      <tags>
+        <tag>Maya</tag>
+        <tag>Arnold</tag>
+        <tag>软件</tag>
+        <tag>着色器</tag>
       </tags>
   </entry>
   <entry>
@@ -1279,30 +1279,6 @@
       </tags>
   </entry>
   <entry>
-    <title>战地Ⅴ 闪电突袭</title>
-    <url>/posts/Battlefield5_2/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><center>
-
-<p><img data-src="https://media.contentapi.ea.com/content/dam/bf/common/bfv-horizontal-logo-spacing-bottom.png"></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>战地Ⅴ是我正式接触的第一部战地系列作品，回想初中时，我在同学家第一次知道了战地系列，说实话，当时的我对于 FPS 游戏并不感冒，直到上了大学后，渐渐的对 FPS 游戏起了兴趣，尤其是大型多人 FPS 游戏，所以我在2018年12月中下旬时购买了战地Ⅴ（买完了就打5折😡<code>EA游戏，早买早享受，晚买享折扣，不买免费送（滑稽）</code> ），入手较晚，所以第一个战争之潮-停火协议的任务并没有全部完成，但停火协议的等级我肝到了满级🙃。<br>这次的战争之潮-闪电突袭，我成功的将所有的任务完成了，并且等级也满级了😎。</p>
-<p><img data-src="https://media.contentapi.ea.com/content/dam/bf/images/2018/10/bf-inline-image-tow-chapter-2.jpg.adapt.crop16x9.817w.jpg"></p>
-<a id="more"></a>
-
-<h1 id="闪电突袭"><a href="#闪电突袭" class="headerlink" title="闪电突袭"></a>闪电突袭</h1><p>战地Ⅴ的战争之潮-闪电突袭快要结束了，这个赛季为期九周，其中奖励有四把武器，两辆坦克，两架飞机，一件皮肤。</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/01.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/02.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/03.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/04.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/05.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/06.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/07.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/08.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/09.png"></p>
-<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p><span id="div-border-right-left-blue"><strong>最后，欢迎大家来一起游玩，我的Origin账号为X-ColdCard-X</strong></span></p>
-</center>]]></content>
-      <categories>
-        <category>游戏</category>
-        <category>战地</category>
-      </categories>
-      <tags>
-        <tag>游戏</tag>
-        <tag>战地</tag>
-        <tag>闪电突袭</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>战地Ⅴ 战火试炼</title>
     <url>/posts/Battlefield5_1/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><center>
@@ -1324,6 +1300,30 @@
         <tag>游戏</tag>
         <tag>战地</tag>
         <tag>战火试炼</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>战地Ⅴ 闪电突袭</title>
+    <url>/posts/Battlefield5_2/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><center>
+
+<p><img data-src="https://media.contentapi.ea.com/content/dam/bf/common/bfv-horizontal-logo-spacing-bottom.png"></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>战地Ⅴ是我正式接触的第一部战地系列作品，回想初中时，我在同学家第一次知道了战地系列，说实话，当时的我对于 FPS 游戏并不感冒，直到上了大学后，渐渐的对 FPS 游戏起了兴趣，尤其是大型多人 FPS 游戏，所以我在2018年12月中下旬时购买了战地Ⅴ（买完了就打5折😡<code>EA游戏，早买早享受，晚买享折扣，不买免费送（滑稽）</code> ），入手较晚，所以第一个战争之潮-停火协议的任务并没有全部完成，但停火协议的等级我肝到了满级🙃。<br>这次的战争之潮-闪电突袭，我成功的将所有的任务完成了，并且等级也满级了😎。</p>
+<p><img data-src="https://media.contentapi.ea.com/content/dam/bf/images/2018/10/bf-inline-image-tow-chapter-2.jpg.adapt.crop16x9.817w.jpg"></p>
+<a id="more"></a>
+
+<h1 id="闪电突袭"><a href="#闪电突袭" class="headerlink" title="闪电突袭"></a>闪电突袭</h1><p>战地Ⅴ的战争之潮-闪电突袭快要结束了，这个赛季为期九周，其中奖励有四把武器，两辆坦克，两架飞机，一件皮肤。</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/01.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/02.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/03.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/04.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/05.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/06.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/07.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/08.png"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Battlefield_1/09.png"></p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p><span id="div-border-right-left-blue"><strong>最后，欢迎大家来一起游玩，我的Origin账号为X-ColdCard-X</strong></span></p>
+</center>]]></content>
+      <categories>
+        <category>游戏</category>
+        <category>战地</category>
+      </categories>
+      <tags>
+        <tag>游戏</tag>
+        <tag>战地</tag>
+        <tag>闪电突袭</tag>
       </tags>
   </entry>
   <entry>
