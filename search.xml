@@ -34,6 +34,50 @@
       </tags>
   </entry>
   <entry>
+    <title>Maya 学习日志：Arnold（阿诺德）aiMixShader（混合着色器）</title>
+    <url>/posts/aiMixShader/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="混合着色器"><a href="#混合着色器" class="headerlink" title="混合着色器"></a>混合着色器</h1><p>混合着色器用于混合或添加两个着色器（包括灯光 AOV）。它根据“混合权重”(Mix Weight)属性，返回着色器 1 和着色器 2 的线性插值。“混合权重”(Mix Weight)值为 0 时，将输出着色器 1；值为 1 时，将输出着色器 2，值为 0.5 时，将在着色器 1 和着色器 2 之间均匀地混合。</p>
+<ul>
+<li>以下部分资料参考了 <a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557238">Arnold 的官方技术文档和图片范例</a>。</li>
+</ul>
+<div class="note warning">不能混合曲面着色器（“闭包”）和诸如平面(Flat)的 RGBA 着色器，否则曲面着色器的效果将丢失。需要使用两个类型相同的着色器，例如标准曲面着色器。</div>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/aiMixShader.png"></p>
+<a id="more"></a>
+<h2 id="Mix-Mode（模式）"><a href="#Mix-Mode（模式）" class="headerlink" title="Mix Mode（模式）"></a>Mix Mode（模式）</h2><p>着色器的分层模式。在“混合”(Blend)和“叠加”(Add)之间选择。<br>如果使用不当，“添加”(Add)模式可能会破坏能量守恒。它用于添加两个体积着色器或两个仅发射灯光的着色器，而添加两个曲面着色器（如标准曲面着色器）在物理上不正确。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-mode_blend.png" alt="混合(Blend)（默认值）"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-mode_add.png" alt="相加(Add)"></div></div></div>
+<h2 id="Mix-Weight（混合权重）"><a href="#Mix-Weight（混合权重）" class="headerlink" title="Mix Weight（混合权重）"></a>Mix Weight（混合权重）</h2><p>控制着色器之间的混合量。</p>
+<div class="note default">将位图连接到“融合”(Mix)时，可能需要插入范围着色器。</div>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-0.png" alt="0"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-0.5.png" alt="0.5（默认值）"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-1.png" alt="1"></div></div></div>
+可以将纹理连接到“混合权重”(Mix Weight)以控制着色器 1 和着色器 2 之间的混合。
+<table>
+<tbody>
+<tr>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/shader1.png" alt="着色器 1"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/shader2.png" alt="着色器 2"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/checker-mix-image.png" alt="棋盘格 -> 混合权重"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/shader-mix_result.png" alt="混合着色器的结果"></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="shader1（着色器-1）"><a href="#shader1（着色器-1）" class="headerlink" title="shader1（着色器 1）"></a>shader1（着色器 1）</h2><p>着色器 1 的输入。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-0.jpg"></p>
+<h2 id="shader2（着色器-2）"><a href="#shader2（着色器-2）" class="headerlink" title="shader2（着色器 2）"></a>shader2（着色器 2）</h2><p>着色器 1 的输入。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-1.jpg"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/Hypershade.png" alt="以上示例中使用的着色网络"></p>
+<h2 id="工作流示例"><a href="#工作流示例" class="headerlink" title="工作流示例"></a>工作流示例</h2><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/facing-ratio-melting-snow2.gif" alt="已设置动画的正面比着色器 -&gt;“混合权重”(Mix Weight)。 雪着色器 -&gt; shader1，山脉着色器 -&gt; shader2。"></p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557556">Arnold for Maya 用户手册：混合着色器</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>软件</category>
+        <category>Maya</category>
+        <category>Arnold 着色器</category>
+      </categories>
+      <tags>
+        <tag>Maya</tag>
+        <tag>Arnold</tag>
+        <tag>软件</tag>
+        <tag>着色器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Maya 学习日志：Arnold（阿诺德）aiCarPaint（汽车涂料着色器）</title>
     <url>/posts/aiCarPaint/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="汽车涂料"><a href="#汽车涂料" class="headerlink" title="汽车涂料"></a>汽车涂料</h1><p>这个简单易用的着色器可用于创建汽车涂料材质。<strong>它支持三个层：基础层、镜面反射层和透明涂层。</strong>这些层的用法与标准曲面着色器中层的用法相似。但是，汽车涂料着色器有一些独特的属性，专门用来控制颜色渐变、光面颜色和衰减等。另外，我们还可以很容易向镜面反射层添加金属小亮片。</p>
@@ -141,50 +185,6 @@
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/noise_offset_A_0.png" alt="0（默认值）"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/noise_offset_B_0.5.png" alt="0.5"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiNoise/noise_offset_C_1.png" alt="1"></div></div></div>
 
 <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557406">Arnold for Maya 用户手册：噪波</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
-      <categories>
-        <category>软件</category>
-        <category>Maya</category>
-        <category>Arnold 着色器</category>
-      </categories>
-      <tags>
-        <tag>Maya</tag>
-        <tag>Arnold</tag>
-        <tag>软件</tag>
-        <tag>着色器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Maya 学习日志：Arnold（阿诺德）aiMixShader（混合着色器）</title>
-    <url>/posts/aiMixShader/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="混合着色器"><a href="#混合着色器" class="headerlink" title="混合着色器"></a>混合着色器</h1><p>混合着色器用于混合或添加两个着色器（包括灯光 AOV）。它根据“混合权重”(Mix Weight)属性，返回着色器 1 和着色器 2 的线性插值。“混合权重”(Mix Weight)值为 0 时，将输出着色器 1；值为 1 时，将输出着色器 2，值为 0.5 时，将在着色器 1 和着色器 2 之间均匀地混合。</p>
-<ul>
-<li>以下部分资料参考了 <a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557238">Arnold 的官方技术文档和图片范例</a>。</li>
-</ul>
-<div class="note warning">不能混合曲面着色器（“闭包”）和诸如平面(Flat)的 RGBA 着色器，否则曲面着色器的效果将丢失。需要使用两个类型相同的着色器，例如标准曲面着色器。</div>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/aiMixShader.png"></p>
-<a id="more"></a>
-<h2 id="Mix-Mode（模式）"><a href="#Mix-Mode（模式）" class="headerlink" title="Mix Mode（模式）"></a>Mix Mode（模式）</h2><p>着色器的分层模式。在“混合”(Blend)和“叠加”(Add)之间选择。<br>如果使用不当，“添加”(Add)模式可能会破坏能量守恒。它用于添加两个体积着色器或两个仅发射灯光的着色器，而添加两个曲面着色器（如标准曲面着色器）在物理上不正确。</p>
-<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-mode_blend.png" alt="混合(Blend)（默认值）"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-mode_add.png" alt="相加(Add)"></div></div></div>
-<h2 id="Mix-Weight（混合权重）"><a href="#Mix-Weight（混合权重）" class="headerlink" title="Mix Weight（混合权重）"></a>Mix Weight（混合权重）</h2><p>控制着色器之间的混合量。</p>
-<div class="note default">将位图连接到“融合”(Mix)时，可能需要插入范围着色器。</div>
-<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-0.png" alt="0"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-0.5.png" alt="0.5（默认值）"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-1.png" alt="1"></div></div></div>
-可以将纹理连接到“混合权重”(Mix Weight)以控制着色器 1 和着色器 2 之间的混合。
-<table>
-<tbody>
-<tr>
-<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/shader1.png" alt="着色器 1"></td>
-<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/shader2.png" alt="着色器 2"></td>
-<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/checker-mix-image.png" alt="棋盘格 -> 混合权重"></td>
-<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/shader-mix_result.png" alt="混合着色器的结果"></td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="shader1（着色器-1）"><a href="#shader1（着色器-1）" class="headerlink" title="shader1（着色器 1）"></a>shader1（着色器 1）</h2><p>着色器 1 的输入。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-0.jpg"></p>
-<h2 id="shader2（着色器-2）"><a href="#shader2（着色器-2）" class="headerlink" title="shader2（着色器 2）"></a>shader2（着色器 2）</h2><p>着色器 1 的输入。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-1.jpg"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/Hypershade.png" alt="以上示例中使用的着色网络"></p>
-<h2 id="工作流示例"><a href="#工作流示例" class="headerlink" title="工作流示例"></a>工作流示例</h2><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/facing-ratio-melting-snow2.gif" alt="已设置动画的正面比着色器 -&gt;“混合权重”(Mix Weight)。 雪着色器 -&gt; shader1，山脉着色器 -&gt; shader2。"></p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557556">Arnold for Maya 用户手册：混合着色器</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
       <categories>
         <category>软件</category>
         <category>Maya</category>
@@ -1049,47 +1049,6 @@
       </tags>
   </entry>
   <entry>
-    <title>SteamDB 指南</title>
-    <url>/posts/SteamDB/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><div class="note warning">
-
-<p><strong>2019年8月，Steam由于更改了相关政策，本文“前言”部分内容已不再准确，但并不影响SteamDB的使用方法</strong></p>
-</div>
-
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>先前，我专门写了一篇关于**<a href="https://coldcard.wang/Steam/Steam%E8%B7%A8%E5%8C%BA%E4%B9%B0%E6%B8%B8/">Steam跨区买游</a><strong>的日志,在文中我较详细的介绍了Steam跨区买游的方法以及安全性，结论是<del><mark class="label default">跨区买Key是较为安全的</mark></del>，那跨区买Key则通常会出现锁区现象，本篇文章将会介绍一个功能强大，对Steam跨区买Key锁区信息查询有莫大帮助的一个网站——</strong><a href="https://steamdb.info/">SteamDB</a>**。</p>
-<p>入Steam坑有段时间了，从不知道SteamDB这个网站，也忘了在那个地方了解了这个网站，摸爬滚打到现在也可以简单使用了，SteamDB其实还有很多功能可以发掘，本着授人以鱼不如授人以渔的想法写下这篇指南，希望能帮助到你们。（已经可以熟练使用的大佬可能会觉得这篇指南写的很啰嗦，纯萌新向嘛 _(:зゝ∠)_）。</p>
-<hr>
-<h1 id="SteamDB-简介"><a href="#SteamDB-简介" class="headerlink" title="SteamDB 简介"></a>SteamDB 简介</h1><p>SteamDB是一个关于Steam数据库的一个网站，这个网站的建立是为了让用户更深入了解Steam数据库。它可以追溯<strong>应用（Application）</strong>和<strong>包（Package）</strong>的更新情况并将他们保存在历史中。同时也提供一些像**<a href="https://steamdb.info/calculator/">Calculator</a>**一样的工具给用户，让用户更了解自己的Steam账户。</p>
-<a id="more"></a>
-
-<p>这个网站可以提供Steam中游戏的各种数据，如<strong>当前打折游戏、游戏价格历史变动、游戏限制（锁区情况、锁运行状况、锁语言情况）、游戏DLC查询、游戏内容变动历史查询、简单的成就查询等</strong>。</p>
-<hr>
-<h1 id="SteamDB-部分重要名词解释"><a href="#SteamDB-部分重要名词解释" class="headerlink" title="SteamDB 部分重要名词解释"></a>SteamDB 部分重要名词解释</h1><p>很多刚开始接触Steam以及SteamDB的同学可能存在一个误区，“应用”就是一个游戏；“包”就是在商店里面买的几个游戏或DLC的集合。其实不然，下面就几个重要名词进行解释。</p>
-<h2 id="应用（Application）"><a href="#应用（Application）" class="headerlink" title="应用（Application）"></a>应用（Application）</h2><blockquote>
-<p><strong>应用（Application）（下简称：App）</strong></p>
-<blockquote>
-<p><strong>应用官方定义是Game、Application、DLC、Tool以及Demo中的一种，它就是一个游戏/应用/DLC/工具/试玩版。</strong>在SteamDB中将其分的更细，分为：Application、Config、DLC、Demo、Depot(Not Used)、Driver、Game、Guide、Hardware、Legacy Media、Music、Plugin、Series、Tool、Unknown、Video。在Steam商店或SteamDB中的浏览器地址栏处是“app/XXXXX”的则是App。</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p><strong>应用标识（Application ID , AppID）</strong></p>
-<blockquote>
-<p>每个应用都有一个数字ID来唯一确定，不同App的AppID是不同的。</p>
-</blockquote>
-</blockquote>
-<div class="note danger">
-
-<p><strong>由于部分原因，后续内容暂缓</strong></p>
-</div>]]></content>
-      <categories>
-        <category>Steam</category>
-      </categories>
-      <tags>
-        <tag>Steam</tag>
-        <tag>SteamDB</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Valine 评论升级</title>
     <url>/posts/Valine_Updata/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>“因流控原因，通过定时任务唤醒体验版实例失败，建议升级至标准版云引擎实例避免休眠”，如上所述，Valine 通过 LeanCloud 实现评论通知的自动唤醒功能失效了。所以我参考了几个大佬的文章，对 Valine 进行了升级。</p>
@@ -1191,6 +1150,47 @@
       <tags>
         <tag>Hexo</tag>
         <tag>Valine</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SteamDB 指南</title>
+    <url>/posts/SteamDB/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><div class="note warning">
+
+<p><strong>2019年8月，Steam由于更改了相关政策，本文“前言”部分内容已不再准确，但并不影响SteamDB的使用方法</strong></p>
+</div>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>先前，我专门写了一篇关于**<a href="https://coldcard.wang/Steam/Steam%E8%B7%A8%E5%8C%BA%E4%B9%B0%E6%B8%B8/">Steam跨区买游</a><strong>的日志,在文中我较详细的介绍了Steam跨区买游的方法以及安全性，结论是<del><mark class="label default">跨区买Key是较为安全的</mark></del>，那跨区买Key则通常会出现锁区现象，本篇文章将会介绍一个功能强大，对Steam跨区买Key锁区信息查询有莫大帮助的一个网站——</strong><a href="https://steamdb.info/">SteamDB</a>**。</p>
+<p>入Steam坑有段时间了，从不知道SteamDB这个网站，也忘了在那个地方了解了这个网站，摸爬滚打到现在也可以简单使用了，SteamDB其实还有很多功能可以发掘，本着授人以鱼不如授人以渔的想法写下这篇指南，希望能帮助到你们。（已经可以熟练使用的大佬可能会觉得这篇指南写的很啰嗦，纯萌新向嘛 _(:зゝ∠)_）。</p>
+<hr>
+<h1 id="SteamDB-简介"><a href="#SteamDB-简介" class="headerlink" title="SteamDB 简介"></a>SteamDB 简介</h1><p>SteamDB是一个关于Steam数据库的一个网站，这个网站的建立是为了让用户更深入了解Steam数据库。它可以追溯<strong>应用（Application）</strong>和<strong>包（Package）</strong>的更新情况并将他们保存在历史中。同时也提供一些像**<a href="https://steamdb.info/calculator/">Calculator</a>**一样的工具给用户，让用户更了解自己的Steam账户。</p>
+<a id="more"></a>
+
+<p>这个网站可以提供Steam中游戏的各种数据，如<strong>当前打折游戏、游戏价格历史变动、游戏限制（锁区情况、锁运行状况、锁语言情况）、游戏DLC查询、游戏内容变动历史查询、简单的成就查询等</strong>。</p>
+<hr>
+<h1 id="SteamDB-部分重要名词解释"><a href="#SteamDB-部分重要名词解释" class="headerlink" title="SteamDB 部分重要名词解释"></a>SteamDB 部分重要名词解释</h1><p>很多刚开始接触Steam以及SteamDB的同学可能存在一个误区，“应用”就是一个游戏；“包”就是在商店里面买的几个游戏或DLC的集合。其实不然，下面就几个重要名词进行解释。</p>
+<h2 id="应用（Application）"><a href="#应用（Application）" class="headerlink" title="应用（Application）"></a>应用（Application）</h2><blockquote>
+<p><strong>应用（Application）（下简称：App）</strong></p>
+<blockquote>
+<p><strong>应用官方定义是Game、Application、DLC、Tool以及Demo中的一种，它就是一个游戏/应用/DLC/工具/试玩版。</strong>在SteamDB中将其分的更细，分为：Application、Config、DLC、Demo、Depot(Not Used)、Driver、Game、Guide、Hardware、Legacy Media、Music、Plugin、Series、Tool、Unknown、Video。在Steam商店或SteamDB中的浏览器地址栏处是“app/XXXXX”的则是App。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><strong>应用标识（Application ID , AppID）</strong></p>
+<blockquote>
+<p>每个应用都有一个数字ID来唯一确定，不同App的AppID是不同的。</p>
+</blockquote>
+</blockquote>
+<div class="note danger">
+
+<p><strong>由于部分原因，后续内容暂缓</strong></p>
+</div>]]></content>
+      <categories>
+        <category>Steam</category>
+      </categories>
+      <tags>
+        <tag>Steam</tag>
+        <tag>SteamDB</tag>
       </tags>
   </entry>
   <entry>
