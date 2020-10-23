@@ -34,50 +34,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Maya 学习日志：Arnold（阿诺德）aiMixShader（混合着色器）</title>
-    <url>/posts/aiMixShader/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="混合着色器"><a href="#混合着色器" class="headerlink" title="混合着色器"></a>混合着色器</h1><p>混合着色器用于混合或添加两个着色器（包括灯光 AOV）。它根据“混合权重”(Mix Weight)属性，返回着色器 1 和着色器 2 的线性插值。“混合权重”(Mix Weight)值为 0 时，将输出着色器 1；值为 1 时，将输出着色器 2，值为 0.5 时，将在着色器 1 和着色器 2 之间均匀地混合。</p>
-<ul>
-<li>以下部分资料参考了 <a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557238">Arnold 的官方技术文档和图片范例</a>。</li>
-</ul>
-<div class="note warning">不能混合曲面着色器（“闭包”）和诸如平面(Flat)的 RGBA 着色器，否则曲面着色器的效果将丢失。需要使用两个类型相同的着色器，例如标准曲面着色器。</div>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/aiMixShader.png"></p>
-<a id="more"></a>
-<h2 id="Mix-Mode（模式）"><a href="#Mix-Mode（模式）" class="headerlink" title="Mix Mode（模式）"></a>Mix Mode（模式）</h2><p>着色器的分层模式。在“混合”(Blend)和“叠加”(Add)之间选择。<br>如果使用不当，“添加”(Add)模式可能会破坏能量守恒。它用于添加两个体积着色器或两个仅发射灯光的着色器，而添加两个曲面着色器（如标准曲面着色器）在物理上不正确。</p>
-<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-mode_blend.png" alt="混合(Blend)（默认值）"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-mode_add.png" alt="相加(Add)"></div></div></div>
-<h2 id="Mix-Weight（混合权重）"><a href="#Mix-Weight（混合权重）" class="headerlink" title="Mix Weight（混合权重）"></a>Mix Weight（混合权重）</h2><p>控制着色器之间的混合量。</p>
-<div class="note default">将位图连接到“融合”(Mix)时，可能需要插入范围着色器。</div>
-<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-0.png" alt="0"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-0.5.png" alt="0.5（默认值）"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-1.png" alt="1"></div></div></div>
-可以将纹理连接到“混合权重”(Mix Weight)以控制着色器 1 和着色器 2 之间的混合。
-<table>
-<tbody>
-<tr>
-<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/shader1.png" alt="着色器 1"></td>
-<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/shader2.png" alt="着色器 2"></td>
-<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/checker-mix-image.png" alt="棋盘格 -> 混合权重"></td>
-<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/shader-mix_result.png" alt="混合着色器的结果"></td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="shader1（着色器-1）"><a href="#shader1（着色器-1）" class="headerlink" title="shader1（着色器 1）"></a>shader1（着色器 1）</h2><p>着色器 1 的输入。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-0.jpg"></p>
-<h2 id="shader2（着色器-2）"><a href="#shader2（着色器-2）" class="headerlink" title="shader2（着色器 2）"></a>shader2（着色器 2）</h2><p>着色器 1 的输入。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-1.jpg"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/Hypershade.png" alt="以上示例中使用的着色网络"></p>
-<h2 id="工作流示例"><a href="#工作流示例" class="headerlink" title="工作流示例"></a>工作流示例</h2><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/facing-ratio-melting-snow2.gif" alt="已设置动画的正面比着色器 -&gt;“混合权重”(Mix Weight)。 雪着色器 -&gt; shader1，山脉着色器 -&gt; shader2。"></p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557556">Arnold for Maya 用户手册：混合着色器</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
-      <categories>
-        <category>软件</category>
-        <category>Maya</category>
-        <category>Arnold 着色器</category>
-      </categories>
-      <tags>
-        <tag>Maya</tag>
-        <tag>Arnold</tag>
-        <tag>软件</tag>
-        <tag>着色器</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Maya 学习日志：Arnold（阿诺德）aiCarPaint（汽车涂料着色器）</title>
     <url>/posts/aiCarPaint/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="汽车涂料"><a href="#汽车涂料" class="headerlink" title="汽车涂料"></a>汽车涂料</h1><p>这个简单易用的着色器可用于创建汽车涂料材质。<strong>它支持三个层：基础层、镜面反射层和透明涂层。</strong>这些层的用法与标准曲面着色器中层的用法相似。但是，汽车涂料着色器有一些独特的属性，专门用来控制颜色渐变、光面颜色和衰减等。另外，我们还可以很容易向镜面反射层添加金属小亮片。</p>
@@ -143,6 +99,50 @@
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/coord_space-flake-Pref.png" alt="参考点（默认值）"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiCarPaint/coord_space-flake-UV.png" alt="UV"></div></div></div>
 <h2 id="Pref-Name（参考点名称）"><a href="#Pref-Name（参考点名称）" class="headerlink" title="Pref Name（参考点名称）"></a>Pref Name（参考点名称）</h2><p>指定引用位置用户数据数组的名称。以前，该名称被硬编码为“Pref”，现在这仍然是默认设置。</p>
 <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557493">Arnold for Maya 用户手册：汽车涂料</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>软件</category>
+        <category>Maya</category>
+        <category>Arnold 着色器</category>
+      </categories>
+      <tags>
+        <tag>Maya</tag>
+        <tag>Arnold</tag>
+        <tag>软件</tag>
+        <tag>着色器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Maya 学习日志：Arnold（阿诺德）aiMixShader（混合着色器）</title>
+    <url>/posts/aiMixShader/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="混合着色器"><a href="#混合着色器" class="headerlink" title="混合着色器"></a>混合着色器</h1><p>混合着色器用于混合或添加两个着色器（包括灯光 AOV）。它根据“混合权重”(Mix Weight)属性，返回着色器 1 和着色器 2 的线性插值。“混合权重”(Mix Weight)值为 0 时，将输出着色器 1；值为 1 时，将输出着色器 2，值为 0.5 时，将在着色器 1 和着色器 2 之间均匀地混合。</p>
+<ul>
+<li>以下部分资料参考了 <a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557238">Arnold 的官方技术文档和图片范例</a>。</li>
+</ul>
+<div class="note warning">不能混合曲面着色器（“闭包”）和诸如平面(Flat)的 RGBA 着色器，否则曲面着色器的效果将丢失。需要使用两个类型相同的着色器，例如标准曲面着色器。</div>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/aiMixShader.png"></p>
+<a id="more"></a>
+<h2 id="Mix-Mode（模式）"><a href="#Mix-Mode（模式）" class="headerlink" title="Mix Mode（模式）"></a>Mix Mode（模式）</h2><p>着色器的分层模式。在“混合”(Blend)和“叠加”(Add)之间选择。<br>如果使用不当，“添加”(Add)模式可能会破坏能量守恒。它用于添加两个体积着色器或两个仅发射灯光的着色器，而添加两个曲面着色器（如标准曲面着色器）在物理上不正确。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-mode_blend.png" alt="混合(Blend)（默认值）"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-mode_add.png" alt="相加(Add)"></div></div></div>
+<h2 id="Mix-Weight（混合权重）"><a href="#Mix-Weight（混合权重）" class="headerlink" title="Mix Weight（混合权重）"></a>Mix Weight（混合权重）</h2><p>控制着色器之间的混合量。</p>
+<div class="note default">将位图连接到“融合”(Mix)时，可能需要插入范围着色器。</div>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-0.png" alt="0"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-0.5.png" alt="0.5（默认值）"></div><div class="group-picture-column"><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-1.png" alt="1"></div></div></div>
+可以将纹理连接到“混合权重”(Mix Weight)以控制着色器 1 和着色器 2 之间的混合。
+<table>
+<tbody>
+<tr>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/shader1.png" alt="着色器 1"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/shader2.png" alt="着色器 2"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/checker-mix-image.png" alt="棋盘格 -> 混合权重"></td>
+<td><img style="float:left;margin-bottom: 0px;" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/shader-mix_result.png" alt="混合着色器的结果"></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="shader1（着色器-1）"><a href="#shader1（着色器-1）" class="headerlink" title="shader1（着色器 1）"></a>shader1（着色器 1）</h2><p>着色器 1 的输入。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-0.jpg"></p>
+<h2 id="shader2（着色器-2）"><a href="#shader2（着色器-2）" class="headerlink" title="shader2（着色器 2）"></a>shader2（着色器 2）</h2><p>着色器 1 的输入。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/mix-weight-1.jpg"><br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/Hypershade.png" alt="以上示例中使用的着色网络"></p>
+<h2 id="工作流示例"><a href="#工作流示例" class="headerlink" title="工作流示例"></a>工作流示例</h2><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/aiMixShader/facing-ratio-melting-snow2.gif" alt="已设置动画的正面比着色器 -&gt;“混合权重”(Mix Weight)。 雪着色器 -&gt; shader1，山脉着色器 -&gt; shader2。"></p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=114557556">Arnold for Maya 用户手册：混合着色器</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
       <categories>
         <category>软件</category>
         <category>Maya</category>
@@ -311,39 +311,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Maya 学习日志：solidFractal（均值分形）</title>
-    <url>/posts/solidFractal/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>表示具有某个特定频率分布（分形）的 3D 随机函数。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/solidFractal/solidFractal.png"></p>
-<h1 id="Threshold（阈值）"><a href="#Threshold（阈值）" class="headerlink" title="Threshold（阈值）"></a>Threshold（阈值）</h1><p>应用于纹理中所有值的偏移因子。有效范围是 0 到无限。滑块范围是 0 到 1。默认值为 0。</p>
-<h1 id="Amplitude（振幅）⇠"><a href="#Amplitude（振幅）⇠" class="headerlink" title="Amplitude（振幅）⇠"></a>Amplitude（振幅）⇠</h1><p><strong>应用于纹理中所有值的比例因子。有效范围是 0 到无限。滑块范围是 0（无噪波）到 1（强噪波）。默认值为 1。</strong></p>
-<h1 id="Ratio（比率）⇠"><a href="#Ratio（比率）⇠" class="headerlink" title="Ratio（比率）⇠"></a>Ratio（比率）⇠</h1><p><strong>控制分形噪波的频率。取值范围是 0（低频率）到 1（高频率）。默认值为 0.707。</strong></p>
-<a id="more"></a>
-<h1 id="Frequency-Ratio（频率比）"><a href="#Frequency-Ratio（频率比）" class="headerlink" title="Frequency Ratio（频率比）"></a>Frequency Ratio（频率比）</h1><p>确定噪波频率的相对特殊比例。如果不是整数，那么分形就不会在 UV 边界处重复。例如，具有默认放置的圆柱体会显示一条接缝。</p>
-<h1 id="Ripples（涟漪）"><a href="#Ripples（涟漪）" class="headerlink" title="Ripples（涟漪）"></a>Ripples（涟漪）</h1><p>确定纹理在 X、Y 和 Z 方向上的波纹。该值表示用于生成纹理的分形频率比例。取值范围是 0 到无限。默认值为 1。</p>
-<h1 id="Depth（深度）"><a href="#Depth（深度）" class="headerlink" title="Depth（深度）"></a>Depth（深度）</h1><p>用于计算纹理图案的最小和最大迭代数。该参数控制纹理颗粒的精细程度。取值范围是 0 到 20。</p>
-<h1 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h1><p>下列属性可以使“匀值分形”(Solid Fractal)纹理中的噪波图案形成漩涡，以便创建出有趣的效果。</p>
-<h1 id="Bias（偏移）"><a href="#Bias（偏移）" class="headerlink" title="Bias（偏移）"></a>Bias（偏移）</h1><p>将 -1 到 1 的噪波吸引向 1 或 0。大于零的值会导致分形的对比更大；小于零的值会使其更为平坦和尖锐。</p>
-<h1 id="Inflection（弯曲）"><a href="#Inflection（弯曲）" class="headerlink" title="Inflection（弯曲）"></a>Inflection（弯曲）</h1><p>在噪波函数中应用折点。该选项可用于创建膨胀或凹凸效果。默认情况下，“弯曲”(Inflection)处于禁用状态。</p>
-<h1 id="Animated（已设置动画）"><a href="#Animated（已设置动画）" class="headerlink" title="Animated（已设置动画）"></a>Animated（已设置动画）</h1><p>启用以访问“时间”(Time)和“时间比”(Time Ratio)属性（参见以下内容）。</p>
-<ul>
-<li><h2 id="时间-Time"><a href="#时间-Time" class="headerlink" title="时间(Time)"></a>时间(Time)</h2><p>确定噪波频率的相对时间比例。如果不是整数，那么动画就不会在“时间”(Time)为 1 处重复。</p>
-</li>
-<li><h2 id="时间比-Time-Ratio"><a href="#时间比-Time-Ratio" class="headerlink" title="时间比(Time Ratio)"></a>时间比(Time Ratio)</h2><p>默认与“频率比”(Frequency Ratio)设置相等，这意味着噪波频率越高，则移动将与频率成正比地加快。例如，若要创建更加自然的效果（例如水波），如果“频率比”(Frequency Ratio)为 2，则应将“时间比”(Time Ratio)设定为 1.4。</p>
-</li>
-</ul>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<a href="http://help.autodesk.com/view/MAYAUL/2020/CHS/?guid=GUID-14AB46D1-65B6-4E97-A95F-E81BA89980D8">Autodesk Maya 2020 帮助：匀值分形(Solid Fractal)</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
-      <categories>
-        <category>软件</category>
-        <category>Maya</category>
-        <category>着色器</category>
-      </categories>
-      <tags>
-        <tag>Maya</tag>
-        <tag>软件</tag>
-        <tag>着色器</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Maya 实例练习：SSS（次表面）皮肤材质制作</title>
     <url>/posts/Skin/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong><div class="note danger">此实例是在拥有皮肤材质贴图的基础上进行再一步的修改</div></strong></p>
@@ -408,6 +375,293 @@
         <tag>Arnold</tag>
         <tag>软件</tag>
         <tag>着色器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Maya 学习日志：solidFractal（均值分形）</title>
+    <url>/posts/solidFractal/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>表示具有某个特定频率分布（分形）的 3D 随机函数。<br><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/solidFractal/solidFractal.png"></p>
+<h1 id="Threshold（阈值）"><a href="#Threshold（阈值）" class="headerlink" title="Threshold（阈值）"></a>Threshold（阈值）</h1><p>应用于纹理中所有值的偏移因子。有效范围是 0 到无限。滑块范围是 0 到 1。默认值为 0。</p>
+<h1 id="Amplitude（振幅）⇠"><a href="#Amplitude（振幅）⇠" class="headerlink" title="Amplitude（振幅）⇠"></a>Amplitude（振幅）⇠</h1><p><strong>应用于纹理中所有值的比例因子。有效范围是 0 到无限。滑块范围是 0（无噪波）到 1（强噪波）。默认值为 1。</strong></p>
+<h1 id="Ratio（比率）⇠"><a href="#Ratio（比率）⇠" class="headerlink" title="Ratio（比率）⇠"></a>Ratio（比率）⇠</h1><p><strong>控制分形噪波的频率。取值范围是 0（低频率）到 1（高频率）。默认值为 0.707。</strong></p>
+<a id="more"></a>
+<h1 id="Frequency-Ratio（频率比）"><a href="#Frequency-Ratio（频率比）" class="headerlink" title="Frequency Ratio（频率比）"></a>Frequency Ratio（频率比）</h1><p>确定噪波频率的相对特殊比例。如果不是整数，那么分形就不会在 UV 边界处重复。例如，具有默认放置的圆柱体会显示一条接缝。</p>
+<h1 id="Ripples（涟漪）"><a href="#Ripples（涟漪）" class="headerlink" title="Ripples（涟漪）"></a>Ripples（涟漪）</h1><p>确定纹理在 X、Y 和 Z 方向上的波纹。该值表示用于生成纹理的分形频率比例。取值范围是 0 到无限。默认值为 1。</p>
+<h1 id="Depth（深度）"><a href="#Depth（深度）" class="headerlink" title="Depth（深度）"></a>Depth（深度）</h1><p>用于计算纹理图案的最小和最大迭代数。该参数控制纹理颗粒的精细程度。取值范围是 0 到 20。</p>
+<h1 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h1><p>下列属性可以使“匀值分形”(Solid Fractal)纹理中的噪波图案形成漩涡，以便创建出有趣的效果。</p>
+<h1 id="Bias（偏移）"><a href="#Bias（偏移）" class="headerlink" title="Bias（偏移）"></a>Bias（偏移）</h1><p>将 -1 到 1 的噪波吸引向 1 或 0。大于零的值会导致分形的对比更大；小于零的值会使其更为平坦和尖锐。</p>
+<h1 id="Inflection（弯曲）"><a href="#Inflection（弯曲）" class="headerlink" title="Inflection（弯曲）"></a>Inflection（弯曲）</h1><p>在噪波函数中应用折点。该选项可用于创建膨胀或凹凸效果。默认情况下，“弯曲”(Inflection)处于禁用状态。</p>
+<h1 id="Animated（已设置动画）"><a href="#Animated（已设置动画）" class="headerlink" title="Animated（已设置动画）"></a>Animated（已设置动画）</h1><p>启用以访问“时间”(Time)和“时间比”(Time Ratio)属性（参见以下内容）。</p>
+<ul>
+<li><h2 id="时间-Time"><a href="#时间-Time" class="headerlink" title="时间(Time)"></a>时间(Time)</h2><p>确定噪波频率的相对时间比例。如果不是整数，那么动画就不会在“时间”(Time)为 1 处重复。</p>
+</li>
+<li><h2 id="时间比-Time-Ratio"><a href="#时间比-Time-Ratio" class="headerlink" title="时间比(Time Ratio)"></a>时间比(Time Ratio)</h2><p>默认与“频率比”(Frequency Ratio)设置相等，这意味着噪波频率越高，则移动将与频率成正比地加快。例如，若要创建更加自然的效果（例如水波），如果“频率比”(Frequency Ratio)为 2，则应将“时间比”(Time Ratio)设定为 1.4。</p>
+</li>
+</ul>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<a href="http://help.autodesk.com/view/MAYAUL/2020/CHS/?guid=GUID-14AB46D1-65B6-4E97-A95F-E81BA89980D8">Autodesk Maya 2020 帮助：匀值分形(Solid Fractal)</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>软件</category>
+        <category>Maya</category>
+        <category>着色器</category>
+      </categories>
+      <tags>
+        <tag>Maya</tag>
+        <tag>软件</tag>
+        <tag>着色器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Maya 实例练习：水壶材质制作</title>
+    <url>/posts/Kettle/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在制作前，先明确一下步骤：</p>
+<ul>
+<li><strong>这个水壶的材质是由<code>金属</code>与<code>锈迹</code>两大部分组成。</strong></li>
+<li><strong>所以首先，制作<code>金属</code>部分的材质。</strong><ul>
+<li><strong><a href="/posts/aiStandardSurface/">aiStandardSurface（标准曲面着色器）</a> ⇢ <a href="/posts/aiNoise/">aiNoise（噪波）</a> ⇢ <a href="/posts/aiStandardSurface/#Bump-Mapping%EF%BC%88%E5%87%B9%E5%87%B8%E8%B4%B4%E5%9B%BE%EF%BC%89">bump2d</a></strong></li>
+</ul>
+</li>
+<li><strong>然后，与<code>金属</code>部分制作方法一样，制作<code>锈迹</code>。</strong></li>
+<li><strong>最后通过 <a href="/posts/aiMixShader/">aiMixShader（混合着色器）</a>将<code>金属</code>与<code>锈迹</code>结合。</strong></li>
+</ul>
+<img style="width:30%" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/kettle.jpg" alt="最后效果">
+
+<a id="more"></a>
+<h1 id="金属部分"><a href="#金属部分" class="headerlink" title="金属部分"></a>金属部分</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/Metal.png" alt="金属部分 Hypershade"></p>
+<blockquote>
+<p>通过 aiNoise（噪波）节点来模拟水壶金属颜色部分的不均匀以及斑点</p>
+<blockquote>
+<p>aiNoise1 节点用来制作大块的金属颜色不均匀<br>aiNoise2 节点用来制作金属颜色斑点以及 bump2d 节点的输入值<br>  <table><tbody><tr><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise1.jpg" alt="aiNoise1"></td><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise2.jpg" alt="aiNoise2"></td></tr></tbody></table></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>bump2d 节点以 aiNoise2 节点输出颜色的 RGB 单色通道为输入值</p>
+</blockquote>
+<blockquote>
+<div class="note warning">还可以通过 colorCorrect 节点调整颜色</div>
+</blockquote>
+<h1 id="锈迹部分"><a href="#锈迹部分" class="headerlink" title="锈迹部分"></a>锈迹部分</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/Rust.png" alt="锈迹部分 Hypershade"></p>
+<blockquote>
+<p>与金属部分制作相同</p>
+</blockquote>
+<blockquote>
+<p>只是这次使用了三个 aiNoise（噪波）节点</p>
+<blockquote>
+<p>aiNoise4 节点用来制作主要的锈迹颜色<br>aiNoise5 节点用来制作锈迹斑点颜色以及 bump2d 节点的输入值<br>aiNoise3 节点用来合并 aiNoise4 与 aiNoise5 节点<br>  <table><tbody><tr><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise4.jpg" alt="aiNoise4"></td><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise5.jpg" alt="aiNoise5"></td><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise3.jpg" alt="aiNoise3"></td></tr></tbody></table></p>
+</blockquote>
+</blockquote>
+<h1 id="结合"><a href="#结合" class="headerlink" title="结合"></a>结合</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiMixShader.png"></p>
+<blockquote>
+<p>通过 <a href="/posts/aiMixShader/">aiMixShader（混合着色器）</a>将<code>金属</code>与<code>锈迹</code>结合。</p>
+</blockquote>
+<blockquote>
+<p>但是由于 <a href="/posts/aiMixShader/">aiMixShader（混合着色器）</a>只能生硬的进行材质叠加，所以还需要使用 <a href="/posts/solidFractal/">solidFractal（匀值分形）</a>节点来更好的结合</p>
+</blockquote>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<div><a href="/posts/aiStandardSurface/">Maya 学习日志：Arnold（阿诺德）aiStandardSurface（标准曲面着色器）</a></div><div><a href="/posts/aiMixShader/">Maya 学习日志：Arnold（阿诺德）aiMixShader（混合着色器）</a></div><div><a href="/posts/solidFractal/">Maya 学习日志：solidFractal（均值分形）</a></div><div><a href="/posts/aiNoise/">Maya 学习日志：Arnold（阿诺德）aiNoise（噪波）</a></div><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>软件</category>
+        <category>Maya</category>
+        <category>练习</category>
+      </categories>
+      <tags>
+        <tag>Maya</tag>
+        <tag>Arnold</tag>
+        <tag>软件</tag>
+        <tag>着色器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Minecraft Imbox 服务器</title>
+    <url>/posts/Imbox/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><center>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="有一款游戏，Ta看似简陋，但其乐无穷，最后你会发现，Ta将成为你的全部"><a href="#有一款游戏，Ta看似简陋，但其乐无穷，最后你会发现，Ta将成为你的全部" class="headerlink" title="有一款游戏，Ta看似简陋，但其乐无穷，最后你会发现，Ta将成为你的全部"></a>有一款游戏，Ta看似简陋，但其乐无穷，最后你会发现，Ta将成为你的全部</h2><p>Minecraft，一个陪伴多数玩家包括我在内初高中生活的一款“沙盒生存”<code>之所以打引号是因为Ta不仅仅只局限于沙盒生存</code> 游戏。现在的我上了大学，但Minecraft依旧没有淡出我的生活，Ta不仅仅是一款陪伴我童年的游戏，Ta的意义，回想起让我欣慰，让我感动，让我坚定。。。。。。<br>Ta，让我的课余生活充满期待；Ta，让我知道了单机网络游戏；Ta，让我了解了游戏种类的丰富；Ta，让我与同学间的友谊加固；Ta，让我交到了同学外的其他朋友；Ta，让我对电脑技术方面产生了兴趣。。。。。。 </p>
+<h2 id="你还记得有一款游戏叫Minecraft吗？"><a href="#你还记得有一款游戏叫Minecraft吗？" class="headerlink" title="你还记得有一款游戏叫Minecraft吗？"></a>你还记得有一款游戏叫Minecraft吗？</h2><p>Minecraft，随着时间的推移，相较15-17年Ta已经不再辉煌，有人说，不是MC不火了，而是我们长大了。在我看来，市场上的游戏越来越多的，但在沙盒游戏中，Minecraft依旧是第一。在这里我不讨论MC为何不在辉煌，如需了解详情可以去看<strong>籽岷</strong>做过的几期视频 <a href="https://www.bilibili.com/video/av41871636/"><code>视频一</code></a><a href="https://www.bilibili.com/video/av42062680/"><code>视频二</code></a><a href="https://www.bilibili.com/video/av42155940/"><code>视频三</code></a><a href="https://www.bilibili.com/video/av45601121/"><code>视频四</code></a><a href="https://www.bilibili.com/video/av45654190/"><code>视频五</code></a><a href="https://www.bilibili.com/video/av46301192/"><code>视频六</code></a> 在这里，我想说，MC不倒，陪你到老！！！</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="Imbox-服务器"><a href="#Imbox-服务器" class="headerlink" title="Imbox 服务器"></a>Imbox 服务器</h1><h2 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h2><p>Imbox服务器的前身是领域服，在一周目时，我正式加入，服务器主打纯净生存，服主是现居在加拿大温尼伯的一名华人学生，由于是在加拿大，国内延迟较高，在经过几周目的领域生存以及玩家们的建议，“高层”决定开设服务器，并将其放在国内，在2019年3月中旬服务器开始内测。 </p>
+<hr>
+<h2 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h2><p><span id="div-border-right-left-green"><font color=#5cb85c size=5px><i class="far fa-hand-point-down"></i><br><a href="https://www.imboxmc.org/">Imbox MC</a><br><i class="far fa-hand-point-up"></i></font></span></p>
+<hr>
+<h2 id="Feature-社区特色"><a href="#Feature-社区特色" class="headerlink" title="Feature | 社区特色"></a>Feature | 社区特色</h2><p>We commit to bring you the best Minecraft experience<br><strong>我们致力于带给您最好的生存体验</strong> </p>
+<h3 id="Original-Minecraft-原版MC"><a href="#Original-Minecraft-原版MC" class="headerlink" title=" Original Minecraft | 原版MC"></a><div style="color:rgb(75, 155, 48)"><i class="fa fa-check"></i> Original Minecraft | 原版MC</h3><p>To provide you with the best vanilla experience, we do not have economy, protection or keep inventory<br><strong>致力原版，我们没有任何防护，经济插件或防掉落</strong> </p>
+<h3 id="Strict-rules-防熊体验"><a href="#Strict-rules-防熊体验" class="headerlink" title=" Strict rules | 防熊体验"></a><div style="color:rgb(75, 155, 48)"><i class="fas fa-gavel"></i> Strict rules | 防熊体验</h3><p>We do not tolerant rule breaking, any hacking/threating/activitys that has an negative impact on other players are strictly prohabited<br><strong>任何作弊，言语辱骂或其他破环游戏平衡的活动明令禁止</strong> </p>
+<h3 id="Community-社区"><a href="#Community-社区" class="headerlink" title=" Community | 社区"></a><div style="color:rgb(75, 155, 48)"><i class="fa fa-home"></i> Community | 社区</h3><p>If you are a person that want to be part of a group, we got you covered! Join one of the communitys and have fun togther!<br><strong>独乐乐不如众乐乐，加入社区，一起生存！</strong> </p>
+<h3 id="Equal-平衡生存"><a href="#Equal-平衡生存" class="headerlink" title=" Equal | 平衡生存"></a><div style="color:rgb(75, 155, 48)"><i class="fa fa-balance-scale"></i> Equal | 平衡生存</h3><p>The server only accept donations, we do not have any shop or others that will break the balance of the game<br><strong>公益性服务器，只接受无偿赞助</strong> </p>
+<h3 id="Whitelist-白名单"><a href="#Whitelist-白名单" class="headerlink" title=" Whitelist | 白名单"></a><div style="color:rgb(75, 155, 48)"><i class="fa fa-unlock"></i> Whitelist | 白名单</h3><p>We have whitelist to keep the rule breakers out the server<br><strong>白名单启用，杜绝一切熊孩子</strong> </p>
+<h3 id="Support-帮助"><a href="#Support-帮助" class="headerlink" title=" Support | 帮助"></a><div style="color:rgb(75, 155, 48)"><i class="fas fa-comment-dots"></i> Support | 帮助</h3><p>Any questions or report will be processed and get back to you ASAP<br><strong>管理将会以最快的速度解答您的问题</strong> </p>
+<hr>
+<h2 id="Chat-and-contact-服务器交流"><a href="#Chat-and-contact-服务器交流" class="headerlink" title="Chat and contact | 服务器交流"></a>Chat and contact | 服务器交流</h2><p><span id="div-border-right-left-green"><font color=#5cb85c size=4px>Stay in touch, left click to join!<br><strong>保持交流，左键加入！</strong><br><a href="https://discord.gg/ZRnK6S6">Discord</a><br><strong>QQ群：583017869</strong></font></span></p>
+<hr>
+<h2 id="Notable-Members-知名成员"><a href="#Notable-Members-知名成员" class="headerlink" title="Notable Members | 知名成员"></a>Notable Members | 知名成员</h2><p>“You are all great people, and I truely agree to that” –Donald Trump<br><strong>“你们都是伟大的人，对此我一直坚信”–唐纳德 特朗普</strong> </p>
+<img style="height:10%;width:10%" data-src="https://www.imboxmc.org/wp-content/uploads/2019/03/Redstone_ray.png">
+<font color=#5cb85c>
+
+<p><strong>Redstone_ray</strong></font><br><code>Developer | 研发者</code><br>No one knows where he came from, a rock, a tree, or even the big bang. The only thing I’m sure is, he is addicted to Redstone.   This guy held bigger power than the owner! </p>
+<img style="height:10%;width:10%" data-src="https://www.imboxmc.org/wp-content/uploads/2019/03/Cokumo.png">
+<font color=#5cb85c>
+
+<p><strong>Cokumo</strong></font><br><code>Owner | 腐竹</code><br>The server provider. Or in other words, the overpowered owner. </p>
+<img style="height:10%;width:10%" data-src="https://www.imboxmc.org/wp-content/uploads/2019/03/Coldcard.png">
+<font color=#5cb85c>
+
+<p><strong>ColdCard</strong></font><br><code>Admin | 吃瓜的管理</code><br>He is busy creating and building things, from useless to useful, from scratch to everything. </p>
+<img style="height:10%;width:10%" data-src="https://www.imboxmc.org/wp-content/uploads/2019/03/LocusAzzurro.png">
+<font color=#5cb85c>
+
+<p><strong>LocusAzzurro</strong></font><br><code>Plugin provider | 插件提供</code><br>Contact Redstone_ray for AD here. </p>
+<hr>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><font color=#5cb85c>
+
+<p><strong>你可以通过imboxmc.com或者imboxmc.xyz连接到服务器（如开设白名单，请至官网申请白名单）</strong></font> </p>
+<p><span id="div-border-right-left-green"><strong>最后的最后，欢迎大家来一起游玩，Minecraft就是要一起玩才精彩</strong></span></p>
+</center>
+
+<p><a href="https://discord.gg/ZRnK6S6"><img data-src="https://img.shields.io/discord/552255730602999820?label=Imbox%20Discord&logo=Discord"></a></p>
+]]></content>
+      <categories>
+        <category>游戏</category>
+        <category>Minecraft</category>
+        <category>Imbox</category>
+      </categories>
+      <tags>
+        <tag>游戏</tag>
+        <tag>Minecraft</tag>
+        <tag>Imbox</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Steam 跨区买游</title>
+    <url>/posts/Steam_Buy/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><div class="note danger">
+
+<p><strong>2019年8月，Steam由于更改了相关政策，本文部分内容已不再准确</strong></p>
+</div>
+
+<div class="note warning">
+
+<p><strong>具体政策更改内容已在原文下方补充</strong></p>
+</div>
+<center>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>中国有句老话叫“货比三家”，对于游戏玩家这句话也非常实用。在PC游戏领域，很多人可能沉浸在G胖的绿Buff中无法自拔，只知道Steam上的游戏只能通过Steam商店购买这一种方式。但是，我们其实也可以在保证比较安全的前提下，买相对更便宜的一款游戏，乃至买到在国区Steam上买不到的游戏。 </p>
+<hr>
+<h1 id="Steam的低价区"><a href="#Steam的低价区" class="headerlink" title="Steam的低价区"></a>Steam的低价区</h1><p>Steam采用的是分区定价方式，不同地区有不同地区的售价，所以就产生了<mark class="label danger">高价区</mark>和<mark class="label success">低价区</mark>，常见的高价区主要是美国和欧洲地区，低价区则是巴西、印度、俄罗斯等。中国玩家所在的中国区也属于低价区，绝大多数游戏在我国的售价都低于高价区。当然也有一些例外，比如部分日厂的部分游戏，其定价策略就是中国区的售价反而比欧美要高一些。<mark class="label info">因此，如果你想买到低价的游戏，或者锁区的游戏，那么合理的购买策略就是跨区购买。</mark></p>
+<h2 id="Steam国区的打折策略和售价变化"><a href="#Steam国区的打折策略和售价变化" class="headerlink" title=" Steam国区的打折策略和售价变化 "></a><i class="fa fa-align-right"></i> Steam国区的打折策略和售价变化 <i class="fa fa-align-left"></i></h2><p>虽然中国区还是严格意义上的低价区，但其实际的打折力度，已比不上两年前国区刚刚推出的那段时间了。<br>很多游戏去年大半时间内都没有大幅度打折，就算有其折扣力度也基本没有跌破历史最低价（以下简称“史低”），各大促销时段（暑促、黑五、圣诞、春节）的促销游戏数量也有所下滑。</p>
+<a id="more"></a>
+
+<p>除此之外，中国区的3A大作售价也有轻微上涨。 具体来说，就是2015年100多块就能买到一款首发3A大作，而到现在一般都得至少支付两三百才行。虽然说随着用户增长购买力提升是一个必然，但是我们现在依然可以转而用其它方式“薅羊毛”。 </p>
+<h2 id="Steam的低价区查询"><a href="#Steam的低价区查询" class="headerlink" title=" Steam的低价区查询 "></a><i class="fa fa-align-right"></i> Steam的低价区查询 <i class="fa fa-align-left"></i></h2><p><span id="div-border-right-left-purple"> 既然了解了Steam有低价区，那如何查询哪个地区或国家比中国区便宜呢？<br>那就需要一个查询网站<a href="https://steamdb.info/"><strong>SteamDB</strong></a><br><span id="inline-gray"><a href="https://coldcard.wang/post/SteamDB/">☛ SteamDB对于跨区购买信息查询十分有用，具体查询教程 ☚</a></span> </span></p>
+<hr>
+<h1 id="礼物和Key"><a href="#礼物和Key" class="headerlink" title="礼物和Key"></a>礼物和Key</h1><p>买过游戏的一定了解游戏礼物和游戏Key的作用。但Steam的礼物与Key有一些限制与规则需要了解。</p>
+<h2 id="礼物"><a href="#礼物" class="headerlink" title=" 礼物 "></a><i class="fa fa-align-right"></i> 礼物 <i class="fa fa-align-left"></i></h2><mark class="label default">2017年5月4日Steam礼物新政之后，游戏礼物无法再作为库存囤积，锁区的礼物也没办法送出。</mark>从低价区向高价区赠送礼物，如果差价超过游戏价值的10%，会提示“无法赠送”，这意味着，如果一款游戏在外国区售价比中国区低10%以上，是无法从外国区赠送过来的。
+<p>当然，如果土豪想从高价区给低价区赠送礼物，这仍然是可行的。G胖说不定还鼓励你这么干呢</p>
+<p><strong>虽然高、低价区直接赠送礼物有了很多限制，可土豪们还有礼品卡和套现钱包余额的选择，但前者钱多后者水深，所以对不是土豪以及对其不了解的人建议不要尝试。</strong></p>
+</center>
+
+<div class="note info">
+
+<p><strong>新政策补充（2019.8）：V社（Valve，Steam的母公司）出台了新的礼物赠送限制</strong><br><strong>通过Steam余额（钱包）赠送礼物金额不能超过为自己消费金额的1.8倍（玩家测试得出，非官方通知）</strong></p>
+</div>
+
+<div class="note danger">
+
+<p><strong>结果：某宝代购凉了一堆，充值卡价格出现波动（收购充值卡大头是代购），对于玩家影响不大</strong> </p>
+</div>
+<center>
+
+<h2 id="Key"><a href="#Key" class="headerlink" title=" Key "></a><i class="fa fa-align-right"></i> Key <i class="fa fa-align-left"></i></h2><p> 除了Steam商店购买、收礼物之外，还有一种购买游戏的方式，就是直接购买游戏Key（即序列号）。  Key或者CD Key，最开始来源于发售的实体版的PC游戏，那时候打开正版游戏包装，除了光盘，包装盒通常还附了张贴纸，上面有一串由十几位数字和字母组合而成的代码。当时玩过破解游戏的人一定对“算号器”这种程序不会陌生，它就是用来算出貌似“合法”的CD Key，以便骗过加密机制从而激活并安装游戏。 </p>
+<p> 随着数字下载的快速发展，光盘媒介逐渐被淘汰，现在大多数零售版PC游戏包装盒只剩下这张写着序列号的纸条，以供玩家在对应的平台上输入并激活。  <strong>另外，随着时代的发展，Key也已经数字化了，许多零售或网购平台开始售卖数字版游戏的Key。</strong> </p>
+<p> 多数Key的零售商都会有自己的打折促销时间，有时甚至会以低于Steam商店史低的价格出售Key，也有些私人卖家会以超低价格出售拆包得到的Key，那我们就可以趁这个机会狠狠薅一把G胖的羊毛了。</p>
+<h2 id="礼物和Key的区别"><a href="#礼物和Key的区别" class="headerlink" title=" 礼物和Key的区别 "></a><i class="fa fa-align-right"></i> 礼物和Key的区别 <i class="fa fa-align-left"></i></h2><p> 从本质上来说，商店、礼物、Key这3个购买来源没有太大区别，通过这3种渠道激活的游戏都会存在你的游戏库里，其他玩家也可以清楚地看到你拥有这些游戏。  <strong>不过，除去Steam商店购买这个最为保险的途径，Key其实比起礼物要安全许多。<span id="inline-yellow"><a href="https://coldcard.wang/post/Steam_Warning"><i class="fa fa-hand-o-right"></i> 原因详情 <i class="fa fa-hand-o-left"></i></a></span></strong><br> <span id="inline-purple"><del>所以跨区买Key才是正解</del></span> </p>
+<hr>
+<h1 id="锁区"><a href="#锁区" class="headerlink" title="锁区"></a>锁区</h1><p> 锁区的意思就是无法从账号所在区域购买某款特定的游戏。通常游戏发行商会采用这种策略维护自己的利益，或是为了达到某些额外的目的。  要想买到锁区的游戏，除了2017年5月4日之前囤积的礼物存货入库，最好的方法就是上面说的购买游戏Key。通常情况下，一个没有任何限制的Key直接输入Steam就可以下载游玩了。 </p>
+<p> <strong>但Steam跨区买Key常遇到有限制的锁区。</strong>  <strong>Steam锁区一般分为三种，锁激活、锁运行和锁语言。</strong>  <del>其解决难度为，<mark class="label danger">锁激活＜锁运行＜锁语言</mark></del>  <span id="inline-gray"><a href="https://coldcard.wang/Steam/SteamDB%E6%8C%87%E5%8D%97/">☛ SteamDB锁区信息查询教程 ☚</a></span></p>
+<h2 id="锁激活"><a href="#锁激活" class="headerlink" title=" 锁激活 "></a><i class="fa fa-align-right"></i> 锁激活 <i class="fa fa-align-left"></i></h2><p> 在输入Key时你会得到提醒，这一枚Key无法在你所在的地区激活。<del>这个问题可以解决，而且解决起来也简单，你只需要用Key所适用地区当地的IP来激活即可，而且毫无风险，不会导致Key失效或者账号被封。</del>  如果不会“科学上网”，也可以向提供云激活服务的网站寻求帮助。<span id="inline-yellow"><a href="https://stkey.win/">☛ 云激活网站 ☚</a></span> </p>
+</center>
+<div class="note info">
+
+<p><strong>新政策补充（2019.8）：Steam更改了游戏锁区Key激活的规则</strong><br><strong>无法通过更改IP地址登录激活Key，需要商店地址（钱包地址）与Key可激活地址相同，方可激活，与IP无关</strong></p>
+</div>
+
+<div class="note danger">
+
+<p><strong>结果：对于玩家（尤其中重度玩家）影响较大，因为现在要激活锁区Key（俄区Key等）要改商店地址，风险极大，某宝代购也有影响</strong></p>
+</div>
+<center>
+
+<h2 id="锁运行"><a href="#锁运行" class="headerlink" title=" 锁运行 "></a><i class="fa fa-align-right"></i> 锁运行 <i class="fa fa-align-left"></i></h2><p> 在激活成功入库后，点击“安装”按钮，系统提示“未在你所在地区发行”或者“您目前不在该地区”，导致无法安装和进入游戏。  这时有两种解决方式，如果你想马上玩到这款游戏，那就采用Key所在地区IP上网的方式下载运行。</p>
+ <mark class="label success">如果你不着急，那就等3个月，锁运行的游戏会自动解锁，到时就不再有地区限制了。（没有相关官方说明，但根据Steam玩家测试，目前均无未解情况）</mark>
+
+<h2 id="锁语言"><a href="#锁语言" class="headerlink" title=" 锁语言 "></a><i class="fa fa-align-right"></i> 锁语言 <i class="fa fa-align-left"></i></h2><p> 这是相对比较难解决以及解决起来比较麻烦的情况，此情况多出现在俄区，具体表现在进入游戏只有俄语选择，不能更改语言。因此购买Key时请看清支持的语言。<br> <span id="inline-blue"><a href="https://steamdb.info/">至于解决方法可以查看此贴，但并不适用所有游戏</a></span> </p>
+</center>
+
+<hr>
+<center>
+
+<h1 id="各大Key商"><a href="#各大Key商" class="headerlink" title="各大Key商"></a>各大Key商</h1><p> 目前全球各地区的Key商种类繁多，安全性参差不齐，由于俄区是在国内最常见，价格相对较低的地区，在这里具体介绍几个俄区和一些支付方便安全度高的的零售商。 </p>
+</center>
+
+<h2 id="Ⅰ-Yuplay"><a href="#Ⅰ-Yuplay" class="headerlink" title="  Ⅰ  Yuplay "></a><span id="div-border-top-red"> <span id="inline-toc"> Ⅰ </span> <a href="https://yuplay.ru/">Yuplay</a> </span></h2><blockquote>
+<p><strong>平台性质：零售商</strong><br><strong>所在地：俄罗斯</strong><br><strong>语言：俄文</strong><br><strong>支付方式：支持支付宝，微信，银联</strong><br><strong>备注：不需要科学上网</strong><br><strong>安全程度：高</strong></p>
+</blockquote>
+<h2 id="Ⅱ-Gama-Gama"><a href="#Ⅱ-Gama-Gama" class="headerlink" title="  Ⅱ  Gama-Gama "></a><span id="div-border-top-blue"> <span id="inline-toc"> Ⅱ </span> <a href="https://gama-gama.ru/">Gama-Gama</a> </span></h2><blockquote>
+<p><strong>平台性质：零售商</strong><br><strong>所在地：俄罗斯</strong><br><strong>语言：俄文</strong><br><strong>支付方式：支付宝</strong><br><strong>备注：要注意Key的区域限制和平台</strong><br><strong>安全程度：高</strong></p>
+<blockquote>
+<p>俄区著名零售商，只有俄语页面，不会俄语的同学可以使用谷歌浏览器自带的翻译。支持支付宝，不需要使用针对俄区的额外上网方式。Key有时候是全球的，可以直接激活，如果是俄区Key则需要云激活。有时候Key的价格会比国区低很多，属于十分推荐的零售商。</p>
+</blockquote>
+</blockquote>
+<h2 id="Ⅲ-ChinaPlay"><a href="#Ⅲ-ChinaPlay" class="headerlink" title="  Ⅲ  ChinaPlay "></a><span id="div-border-top-red"> <span id="inline-toc"> Ⅲ </span> <a href="https://chinaplay.store/">ChinaPlay</a> </span></h2><blockquote>
+<p><strong>Gama-Gama面向中国地区开设的网站，但Key多为俄区，折扣与Gama-Gama差不多</strong><br><strong>语言：中文</strong><br><strong>支付方式：支付宝</strong><br><strong>备注：购买时要求填写接收Key的邮箱，暂不支持QQ邮箱</strong><br><strong>安全程度：高</strong></p>
+</blockquote>
+<h2 id="Ⅳ-Gamersgate"><a href="#Ⅳ-Gamersgate" class="headerlink" title="  Ⅳ  Gamersgate "></a><span id="div-border-top-purple"> <span id="inline-toc"> Ⅳ </span> <a href="https://www.voidu.com/">Gamersgate</a> </span></h2><blockquote>
+<p><strong>平台性质：零售商</strong><br><strong>所在地：瑞典</strong><br><strong>语言：中文</strong><br><strong>支付方式：微信支付、支付宝、PayPal</strong><br><strong>备注：要注意Key的区域限制和平台</strong><br><strong>安全程度：高</strong></p>
+<blockquote>
+<p>中国区的一家瑞典零售商，有中文页面，Key来自厂家，安全有保证。只不过游戏可选的数量比较少。这家可能会在人工审核上卡比较长的时间，需要做好和客服交涉的准备。<strong>如果碰到谷歌验证码刷不出来、无法登录的情况，需要辅以科学上网的方式。</strong></p>
+</blockquote>
+</blockquote>
+<h2 id="Ⅴ-Green-Man-Gaming"><a href="#Ⅴ-Green-Man-Gaming" class="headerlink" title="  Ⅴ  Green Man Gaming "></a><span id="div-border-top-purple"> <span id="inline-toc"> Ⅴ </span> <a href="https://www.greenmangaming.com/">Green Man Gaming</a> </span></h2><blockquote>
+<p><strong>平台性质：零售商</strong><br><strong>所在地：英国</strong><br><strong>语言：英文</strong><br><strong>支付方式：银联</strong><br><strong>备注：要注意Key的区域限制和平台</strong><br><strong>安全程度：高</strong></p>
+<blockquote>
+<p>俗称“小绿人”的GMG是来自英国的零售商，英文页面。Key来自厂家，安全有保证。针对不同国家他们只会提供该区域可以使用的Key，所以也可以采用跨区GMG薅羊毛的方式捡到一些便宜。国区支持银联支付，但是最好确保你浏览器里的银联插件正常工作才不会导致卡单。总体而言十分推荐。</p>
+</blockquote>
+</blockquote>
+<h2 id="Ⅵ-Fanatical"><a href="#Ⅵ-Fanatical" class="headerlink" title="  Ⅵ  Fanatical "></a><span id="div-border-top-green"> <span id="inline-toc"> Ⅵ </span> <a href="https://www.fanatical.com/">Fanatical</a> </span></h2><blockquote>
+<p><strong>平台性质：零售商</strong><br><strong>所在地：英国</strong><br><strong>语言：英文</strong><br><strong>支付方式：银联、支付宝、PayPal</strong><br><strong>备注：多为慈善包</strong><br><strong>安全程度：高</strong></p>
+<blockquote>
+<p>改过一次名字的英国零售网站，也专注于打包游戏，只有英文页面，安全有保证。支付方式支持银联和支付宝。小游戏打包比较丰富，大作比较少。对小游戏有兴趣的玩家可以考虑。</p>
+</blockquote>
+</blockquote>
+<h2 id="Ⅶ-Plati"><a href="#Ⅶ-Plati" class="headerlink" title="  Ⅶ  Plati "></a><span id="div-border-top-red"> <span id="inline-toc"> Ⅶ </span> <a href="https://plati.market/">Plati</a> </span></h2><blockquote>
+<p><strong>平台性质：零售商</strong><br><strong>所在地：俄罗斯</strong><br><strong>语言：英文，俄文</strong><br><strong>支付方式：银联、支付宝</strong><br><strong>备注：推荐，价格比Yuplay低</strong><br><strong>安全程度：高</strong></p>
+</blockquote>
+<h2 id="Ⅷ-G2play"><a href="#Ⅷ-G2play" class="headerlink" title="  Ⅷ  G2play "></a><span id="div-border-top-yellow"> <span id="inline-toc"> Ⅷ </span> <a href="https://www.fanatical.com/">G2play</a> </span></h2><blockquote>
+<p><strong>平台性质：零售商</strong><br><strong>所在地：迪拜、阿拉伯</strong><br><strong>语言：英文</strong><br><strong>支付方式：银联、支付宝、PayPal</strong><br><strong>备注：支持人民币显示价格</strong><br><strong>安全程度：高</strong></p>
+<blockquote>
+<p><strong>显示游戏语言和锁区情况，可了解锁语言情况</strong></p>
+</blockquote>
+</blockquote>
+<hr>
+<center>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p> Steam游戏的购买分为3种：商店、礼物和Key。<mark class="label danger">如果想要保住自己的账号：第一，不要把自己的账号、密码提供给他人，无论是什么原因；第二，不要跨到低价区商店买游戏，不要收低级区的礼物，这两种行为都会导致你的账号被封禁。</mark><del><mark class="label danger">低价区的Key则是相对安全的</mark></del><br> 此外，购物时请注意购买的游戏是礼物还是Key，以及去什么平台激活。不要买成了Origin、Uplay乃至Xbox和PSN上的游戏，因为用户疏忽买错的商品是不会退货的。 </p>
+<div class="note danger no-icon"><font size="6px">
+
+<p><strong>新政策感想（2019.8）</strong><br></font></p>
+<p><strong>第一件事比较耐人寻味。照理说，钱包套现直接导致更多的玩家愿意在Steam商店购买游戏，对V社来说应该是好事，但是V社缺禁止了这一行为，看上去无论对玩家还是对V社都是不利的。</strong><br><strong>目前有一种说法是，市场上突然出现大量低价的充值卡很显然不正常的，由于比特币的特殊性，部分交易的背后涉及一些灰色地带，不排除steam充值卡被作为一些金融犯罪诸如洗钱之类的工具的可能，而且代购行为，很多是没有安全保障的，即使走交易平台，由于虚拟物品的特殊性，也难以保证100%的安全，而且往往涉及的金额不算小，V社出台这项规定估计也是为了及时制止，当然，真正的原因为何官方并没有公布。</strong></p>
+<p><strong>第二件事，很显然V社不是第一次干这事了，2014年前的第一次打击玩家群体寻求低价途径，到后来的2017年5月的礼物政策改革。</strong></p>
+<p><strong>其实说明白点，V社这些措施目的就是在更安全的情况下赚更多的钱。</strong><br><strong>担心Steam余额被用于不正当活动，遍限制礼物赠送；担心中国玩家利用Steam进行一些政治擦边球活动，于是禁止中国IP访问Steam社区，导致玩家想要浏览社区注册账号必须采取特殊措施；限制俄区礼物赠送，玩家就只能在自己所处的“高”价区消费更多金额购买游戏；限制礼物赠送和存放，多出来的钱就从依附Steam这个平台进行交易的小商人们手中流入V社的口袋，而现在限制低价区游戏KEY，则是彻底堵死了最后一条路，不管怎么说，这些政策下来吃亏的肯定是玩家。</strong></p>
+<p><strong>对于V社的行为，只能说商人赚钱天经地义，只要是合法的行为，都是对的，不管消费者权益是否受损，但是也希望国内很多玩家能明白，商人都是以赚钱为目的的，没有谁是真正站在玩家这边的。</strong></p>
+</div>
+
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p> <span id="div-border-right-left-blue"><strong><a href="https://steamcommunity.com/id/ColdCard/">欢迎加我Steam好友</a></strong></span></p>
+</center>]]></content>
+      <categories>
+        <category>Steam</category>
+      </categories>
+      <tags>
+        <tag>游戏</tag>
+        <tag>Steam</tag>
       </tags>
   </entry>
   <entry>
@@ -760,292 +1014,44 @@
       </tags>
   </entry>
   <entry>
-    <title>Maya 实例练习：水壶材质制作</title>
-    <url>/posts/Kettle/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在制作前，先明确一下步骤：</p>
-<ul>
-<li><strong>这个水壶的材质是由<code>金属</code>与<code>锈迹</code>两大部分组成。</strong></li>
-<li><strong>所以首先，制作<code>金属</code>部分的材质。</strong><ul>
-<li><strong><a href="/posts/aiStandardSurface/">aiStandardSurface（标准曲面着色器）</a> ⇢ <a href="/posts/aiNoise/">aiNoise（噪波）</a> ⇢ <a href="/posts/aiStandardSurface/#Bump-Mapping%EF%BC%88%E5%87%B9%E5%87%B8%E8%B4%B4%E5%9B%BE%EF%BC%89">bump2d</a></strong></li>
-</ul>
-</li>
-<li><strong>然后，与<code>金属</code>部分制作方法一样，制作<code>锈迹</code>。</strong></li>
-<li><strong>最后通过 <a href="/posts/aiMixShader/">aiMixShader（混合着色器）</a>将<code>金属</code>与<code>锈迹</code>结合。</strong></li>
-</ul>
-<img style="width:30%" data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/kettle.jpg" alt="最后效果">
+    <title>SteamDB 指南</title>
+    <url>/posts/SteamDB/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><div class="note warning">
 
-<a id="more"></a>
-<h1 id="金属部分"><a href="#金属部分" class="headerlink" title="金属部分"></a>金属部分</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/Metal.png" alt="金属部分 Hypershade"></p>
-<blockquote>
-<p>通过 aiNoise（噪波）节点来模拟水壶金属颜色部分的不均匀以及斑点</p>
-<blockquote>
-<p>aiNoise1 节点用来制作大块的金属颜色不均匀<br>aiNoise2 节点用来制作金属颜色斑点以及 bump2d 节点的输入值<br>  <table><tbody><tr><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise1.jpg" alt="aiNoise1"></td><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise2.jpg" alt="aiNoise2"></td></tr></tbody></table></p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>bump2d 节点以 aiNoise2 节点输出颜色的 RGB 单色通道为输入值</p>
-</blockquote>
-<blockquote>
-<div class="note warning">还可以通过 colorCorrect 节点调整颜色</div>
-</blockquote>
-<h1 id="锈迹部分"><a href="#锈迹部分" class="headerlink" title="锈迹部分"></a>锈迹部分</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/Rust.png" alt="锈迹部分 Hypershade"></p>
-<blockquote>
-<p>与金属部分制作相同</p>
-</blockquote>
-<blockquote>
-<p>只是这次使用了三个 aiNoise（噪波）节点</p>
-<blockquote>
-<p>aiNoise4 节点用来制作主要的锈迹颜色<br>aiNoise5 节点用来制作锈迹斑点颜色以及 bump2d 节点的输入值<br>aiNoise3 节点用来合并 aiNoise4 与 aiNoise5 节点<br>  <table><tbody><tr><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise4.jpg" alt="aiNoise4"></td><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise5.jpg" alt="aiNoise5"></td><td><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiNoise3.jpg" alt="aiNoise3"></td></tr></tbody></table></p>
-</blockquote>
-</blockquote>
-<h1 id="结合"><a href="#结合" class="headerlink" title="结合"></a>结合</h1><p><img data-src="https://cdn.jsdelivr.net/gh/Cold-Card/Gallery@master/Kettle/aiMixShader.png"></p>
-<blockquote>
-<p>通过 <a href="/posts/aiMixShader/">aiMixShader（混合着色器）</a>将<code>金属</code>与<code>锈迹</code>结合。</p>
-</blockquote>
-<blockquote>
-<p>但是由于 <a href="/posts/aiMixShader/">aiMixShader（混合着色器）</a>只能生硬的进行材质叠加，所以还需要使用 <a href="/posts/solidFractal/">solidFractal（匀值分形）</a>节点来更好的结合</p>
-</blockquote>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">参考：<div><a href="/posts/aiStandardSurface/">Maya 学习日志：Arnold（阿诺德）aiStandardSurface（标准曲面着色器）</a></div><div><a href="/posts/aiMixShader/">Maya 学习日志：Arnold（阿诺德）aiMixShader（混合着色器）</a></div><div><a href="/posts/solidFractal/">Maya 学习日志：solidFractal（均值分形）</a></div><div><a href="/posts/aiNoise/">Maya 学习日志：Arnold（阿诺德）aiNoise（噪波）</a></div><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
-      <categories>
-        <category>软件</category>
-        <category>Maya</category>
-        <category>练习</category>
-      </categories>
-      <tags>
-        <tag>Maya</tag>
-        <tag>Arnold</tag>
-        <tag>软件</tag>
-        <tag>着色器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Minecraft Imbox 服务器</title>
-    <url>/posts/Imbox/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><center>
+<p><strong>2019年8月，Steam由于更改了相关政策，本文“前言”部分内容已不再准确，但并不影响SteamDB的使用方法</strong></p>
+</div>
 
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="有一款游戏，Ta看似简陋，但其乐无穷，最后你会发现，Ta将成为你的全部"><a href="#有一款游戏，Ta看似简陋，但其乐无穷，最后你会发现，Ta将成为你的全部" class="headerlink" title="有一款游戏，Ta看似简陋，但其乐无穷，最后你会发现，Ta将成为你的全部"></a>有一款游戏，Ta看似简陋，但其乐无穷，最后你会发现，Ta将成为你的全部</h2><p>Minecraft，一个陪伴多数玩家包括我在内初高中生活的一款“沙盒生存”<code>之所以打引号是因为Ta不仅仅只局限于沙盒生存</code> 游戏。现在的我上了大学，但Minecraft依旧没有淡出我的生活，Ta不仅仅是一款陪伴我童年的游戏，Ta的意义，回想起让我欣慰，让我感动，让我坚定。。。。。。<br>Ta，让我的课余生活充满期待；Ta，让我知道了单机网络游戏；Ta，让我了解了游戏种类的丰富；Ta，让我与同学间的友谊加固；Ta，让我交到了同学外的其他朋友；Ta，让我对电脑技术方面产生了兴趣。。。。。。 </p>
-<h2 id="你还记得有一款游戏叫Minecraft吗？"><a href="#你还记得有一款游戏叫Minecraft吗？" class="headerlink" title="你还记得有一款游戏叫Minecraft吗？"></a>你还记得有一款游戏叫Minecraft吗？</h2><p>Minecraft，随着时间的推移，相较15-17年Ta已经不再辉煌，有人说，不是MC不火了，而是我们长大了。在我看来，市场上的游戏越来越多的，但在沙盒游戏中，Minecraft依旧是第一。在这里我不讨论MC为何不在辉煌，如需了解详情可以去看<strong>籽岷</strong>做过的几期视频 <a href="https://www.bilibili.com/video/av41871636/"><code>视频一</code></a><a href="https://www.bilibili.com/video/av42062680/"><code>视频二</code></a><a href="https://www.bilibili.com/video/av42155940/"><code>视频三</code></a><a href="https://www.bilibili.com/video/av45601121/"><code>视频四</code></a><a href="https://www.bilibili.com/video/av45654190/"><code>视频五</code></a><a href="https://www.bilibili.com/video/av46301192/"><code>视频六</code></a> 在这里，我想说，MC不倒，陪你到老！！！</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>先前，我专门写了一篇关于**<a href="https://coldcard.wang/Steam/Steam%E8%B7%A8%E5%8C%BA%E4%B9%B0%E6%B8%B8/">Steam跨区买游</a><strong>的日志,在文中我较详细的介绍了Steam跨区买游的方法以及安全性，结论是<del><mark class="label default">跨区买Key是较为安全的</mark></del>，那跨区买Key则通常会出现锁区现象，本篇文章将会介绍一个功能强大，对Steam跨区买Key锁区信息查询有莫大帮助的一个网站——</strong><a href="https://steamdb.info/">SteamDB</a>**。</p>
+<p>入Steam坑有段时间了，从不知道SteamDB这个网站，也忘了在那个地方了解了这个网站，摸爬滚打到现在也可以简单使用了，SteamDB其实还有很多功能可以发掘，本着授人以鱼不如授人以渔的想法写下这篇指南，希望能帮助到你们。（已经可以熟练使用的大佬可能会觉得这篇指南写的很啰嗦，纯萌新向嘛 _(:зゝ∠)_）。</p>
+<hr>
+<h1 id="SteamDB-简介"><a href="#SteamDB-简介" class="headerlink" title="SteamDB 简介"></a>SteamDB 简介</h1><p>SteamDB是一个关于Steam数据库的一个网站，这个网站的建立是为了让用户更深入了解Steam数据库。它可以追溯<strong>应用（Application）</strong>和<strong>包（Package）</strong>的更新情况并将他们保存在历史中。同时也提供一些像**<a href="https://steamdb.info/calculator/">Calculator</a>**一样的工具给用户，让用户更了解自己的Steam账户。</p>
 <a id="more"></a>
 
+<p>这个网站可以提供Steam中游戏的各种数据，如<strong>当前打折游戏、游戏价格历史变动、游戏限制（锁区情况、锁运行状况、锁语言情况）、游戏DLC查询、游戏内容变动历史查询、简单的成就查询等</strong>。</p>
 <hr>
-<h1 id="Imbox-服务器"><a href="#Imbox-服务器" class="headerlink" title="Imbox 服务器"></a>Imbox 服务器</h1><h2 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h2><p>Imbox服务器的前身是领域服，在一周目时，我正式加入，服务器主打纯净生存，服主是现居在加拿大温尼伯的一名华人学生，由于是在加拿大，国内延迟较高，在经过几周目的领域生存以及玩家们的建议，“高层”决定开设服务器，并将其放在国内，在2019年3月中旬服务器开始内测。 </p>
-<hr>
-<h2 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h2><p><span id="div-border-right-left-green"><font color=#5cb85c size=5px><i class="far fa-hand-point-down"></i><br><a href="https://www.imboxmc.org/">Imbox MC</a><br><i class="far fa-hand-point-up"></i></font></span></p>
-<hr>
-<h2 id="Feature-社区特色"><a href="#Feature-社区特色" class="headerlink" title="Feature | 社区特色"></a>Feature | 社区特色</h2><p>We commit to bring you the best Minecraft experience<br><strong>我们致力于带给您最好的生存体验</strong> </p>
-<h3 id="Original-Minecraft-原版MC"><a href="#Original-Minecraft-原版MC" class="headerlink" title=" Original Minecraft | 原版MC"></a><div style="color:rgb(75, 155, 48)"><i class="fa fa-check"></i> Original Minecraft | 原版MC</h3><p>To provide you with the best vanilla experience, we do not have economy, protection or keep inventory<br><strong>致力原版，我们没有任何防护，经济插件或防掉落</strong> </p>
-<h3 id="Strict-rules-防熊体验"><a href="#Strict-rules-防熊体验" class="headerlink" title=" Strict rules | 防熊体验"></a><div style="color:rgb(75, 155, 48)"><i class="fas fa-gavel"></i> Strict rules | 防熊体验</h3><p>We do not tolerant rule breaking, any hacking/threating/activitys that has an negative impact on other players are strictly prohabited<br><strong>任何作弊，言语辱骂或其他破环游戏平衡的活动明令禁止</strong> </p>
-<h3 id="Community-社区"><a href="#Community-社区" class="headerlink" title=" Community | 社区"></a><div style="color:rgb(75, 155, 48)"><i class="fa fa-home"></i> Community | 社区</h3><p>If you are a person that want to be part of a group, we got you covered! Join one of the communitys and have fun togther!<br><strong>独乐乐不如众乐乐，加入社区，一起生存！</strong> </p>
-<h3 id="Equal-平衡生存"><a href="#Equal-平衡生存" class="headerlink" title=" Equal | 平衡生存"></a><div style="color:rgb(75, 155, 48)"><i class="fa fa-balance-scale"></i> Equal | 平衡生存</h3><p>The server only accept donations, we do not have any shop or others that will break the balance of the game<br><strong>公益性服务器，只接受无偿赞助</strong> </p>
-<h3 id="Whitelist-白名单"><a href="#Whitelist-白名单" class="headerlink" title=" Whitelist | 白名单"></a><div style="color:rgb(75, 155, 48)"><i class="fa fa-unlock"></i> Whitelist | 白名单</h3><p>We have whitelist to keep the rule breakers out the server<br><strong>白名单启用，杜绝一切熊孩子</strong> </p>
-<h3 id="Support-帮助"><a href="#Support-帮助" class="headerlink" title=" Support | 帮助"></a><div style="color:rgb(75, 155, 48)"><i class="fas fa-comment-dots"></i> Support | 帮助</h3><p>Any questions or report will be processed and get back to you ASAP<br><strong>管理将会以最快的速度解答您的问题</strong> </p>
-<hr>
-<h2 id="Chat-and-contact-服务器交流"><a href="#Chat-and-contact-服务器交流" class="headerlink" title="Chat and contact | 服务器交流"></a>Chat and contact | 服务器交流</h2><p><span id="div-border-right-left-green"><font color=#5cb85c size=4px>Stay in touch, left click to join!<br><strong>保持交流，左键加入！</strong><br><a href="https://discord.gg/ZRnK6S6">Discord</a><br><strong>QQ群：583017869</strong></font></span></p>
-<hr>
-<h2 id="Notable-Members-知名成员"><a href="#Notable-Members-知名成员" class="headerlink" title="Notable Members | 知名成员"></a>Notable Members | 知名成员</h2><p>“You are all great people, and I truely agree to that” –Donald Trump<br><strong>“你们都是伟大的人，对此我一直坚信”–唐纳德 特朗普</strong> </p>
-<img style="height:10%;width:10%" data-src="https://www.imboxmc.org/wp-content/uploads/2019/03/Redstone_ray.png">
-<font color=#5cb85c>
+<h1 id="SteamDB-部分重要名词解释"><a href="#SteamDB-部分重要名词解释" class="headerlink" title="SteamDB 部分重要名词解释"></a>SteamDB 部分重要名词解释</h1><p>很多刚开始接触Steam以及SteamDB的同学可能存在一个误区，“应用”就是一个游戏；“包”就是在商店里面买的几个游戏或DLC的集合。其实不然，下面就几个重要名词进行解释。</p>
+<h2 id="应用（Application）"><a href="#应用（Application）" class="headerlink" title="应用（Application）"></a>应用（Application）</h2><blockquote>
+<p><strong>应用（Application）（下简称：App）</strong></p>
+<blockquote>
+<p><strong>应用官方定义是Game、Application、DLC、Tool以及Demo中的一种，它就是一个游戏/应用/DLC/工具/试玩版。</strong>在SteamDB中将其分的更细，分为：Application、Config、DLC、Demo、Depot(Not Used)、Driver、Game、Guide、Hardware、Legacy Media、Music、Plugin、Series、Tool、Unknown、Video。在Steam商店或SteamDB中的浏览器地址栏处是“app/XXXXX”的则是App。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><strong>应用标识（Application ID , AppID）</strong></p>
+<blockquote>
+<p>每个应用都有一个数字ID来唯一确定，不同App的AppID是不同的。</p>
+</blockquote>
+</blockquote>
+<div class="note danger">
 
-<p><strong>Redstone_ray</strong></font><br><code>Developer | 研发者</code><br>No one knows where he came from, a rock, a tree, or even the big bang. The only thing I’m sure is, he is addicted to Redstone.   This guy held bigger power than the owner! </p>
-<img style="height:10%;width:10%" data-src="https://www.imboxmc.org/wp-content/uploads/2019/03/Cokumo.png">
-<font color=#5cb85c>
-
-<p><strong>Cokumo</strong></font><br><code>Owner | 腐竹</code><br>The server provider. Or in other words, the overpowered owner. </p>
-<img style="height:10%;width:10%" data-src="https://www.imboxmc.org/wp-content/uploads/2019/03/Coldcard.png">
-<font color=#5cb85c>
-
-<p><strong>ColdCard</strong></font><br><code>Admin | 吃瓜的管理</code><br>He is busy creating and building things, from useless to useful, from scratch to everything. </p>
-<img style="height:10%;width:10%" data-src="https://www.imboxmc.org/wp-content/uploads/2019/03/LocusAzzurro.png">
-<font color=#5cb85c>
-
-<p><strong>LocusAzzurro</strong></font><br><code>Plugin provider | 插件提供</code><br>Contact Redstone_ray for AD here. </p>
-<hr>
-<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><font color=#5cb85c>
-
-<p><strong>你可以通过imboxmc.com或者imboxmc.xyz连接到服务器（如开设白名单，请至官网申请白名单）</strong></font> </p>
-<p><span id="div-border-right-left-green"><strong>最后的最后，欢迎大家来一起游玩，Minecraft就是要一起玩才精彩</strong></span></p>
-</center>
-
-<p><a href="https://discord.gg/ZRnK6S6"><img data-src="https://img.shields.io/discord/552255730602999820?label=Imbox%20Discord&logo=Discord"></a></p>
-]]></content>
-      <categories>
-        <category>游戏</category>
-        <category>Minecraft</category>
-        <category>Imbox</category>
-      </categories>
-      <tags>
-        <tag>游戏</tag>
-        <tag>Minecraft</tag>
-        <tag>Imbox</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Steam 的小黄信与小红信</title>
-    <url>/posts/Steam_Warning/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><center>
-
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>先前，我专门写了一篇关于**<a href="https://coldcard.wang/Steam/Steam%E8%B7%A8%E5%8C%BA%E4%B9%B0%E6%B8%B8/">Steam跨区买游</a><strong>的日志,在文中我较详细的介绍了Steam跨区买游的方法以及安全性，结论是</strong><del>跨区买Key是较为安全的</del>**，本文将详细介绍商店、礼物、Key这三种方式的跨区安全问题。 </p>
-<hr>
-<h1 id="小黄信与小红信"><a href="#小黄信与小红信" class="headerlink" title="小黄信与小红信"></a>小黄信与小红信</h1><p>通常Steam可能的帐号及游戏的风险基本是两种，被玩家称为小黄信与小红信。</p>
-<span id="div-border-top-red">
-
-<h2 id="小红信"><a href="#小红信" class="headerlink" title=" 小红信 "></a><font color=#E45B5B><i class="fas fa-envelope"></i> 小红信 <i class="fas fa-envelope"></i></font></h2><p>初步了解跨区买游的有些人可能会想，能不能利用“科学上网”到低价区买一些中国区售价较高的游戏呢，这样会有什么样的风险？答案很简单，你大概率会获得G胖送出的“小红信”一张。</p>
-<p>那小红信的作用是什么，收到“小红信”之后，<mark class="label default">如果你无法出示跨区所在国家的居住证明或来往这些地区的机票等证明</mark>，<mark class="label danger">账户会被永久封停</mark>。<strong>目前在淘宝上有很多商户出售低于国区售价的游戏，并且说明需要提供账号密码进行代激活。他们的操作方式很可能是用你的账号跨区，然后用低价区货币进行结算，也可能是跨区来接受低价礼物。</strong>无论如何，这类购买行为都会招致G胖“小红信”的“青睐”。如果你爱惜自己的账号，请切记不要以身犯险。</p>
-<a id="more"></a>
-
-<p>当然，如果你“科学上网”到高价区去购买高价游戏是完全没有问题的，毕竟看在钱的面子上，G胖也没办法拒绝。如果你本人真的在去低价区旅行期间购买了游戏，这也是没有问题的，只要你有机票等证明就行。</p>
-<p>此外，还有一个可能收到“小红信”，但是处罚比较轻微的情况，这就是<mark class="label danger">收到黑礼物</mark>。有些商户会盗刷信用卡，购买礼物赠送给你套现，价格低廉到非常诱人，但到了信用卡月结时，礼物会因拒付而被收回，你的账户也会收到一张“小红信”。<mark class="label warning">这类处罚一般较轻，第一次只是回收游戏，第二次则是封禁9周，第三次才会永久封禁。</mark>当然，也可能有多次警告仍未被封禁的情况，但保险起见建议不要和来路不明、售价低廉的商户频繁交易。如果选择私人或商户代购礼物，请选择信誉好、规模大的商家，详情可以参考贴吧和**<a href="https://steamrepcn.com/">SteamRep（交易信誉评价平台）</a>**来查看交易对象的信誉。</p>
-</span>
-
-<span id="div-border-top-yellow">
-
-<h2 id="小黄信"><a href="#小黄信" class="headerlink" title=" 小黄信 "></a><font color=#E1BC48><i class="fas fa-envelope"></i> 小黄信 <i class="fas fa-envelope"></i></font></h2><p>接下来就要说为什么Key比礼物安全了，虽然市场也存在盗刷信用卡获取黑Key的情形，月结时黑Key仍会被收回，但此时你收到的会是“小黄信”而非“小红信”，而这不会对你的账户造成任何影响。虽然也有传闻称，黑Key被收回5次以上也会对账号造成影响，但是目前并没有相关的实例可以佐证。所以相对而言，Key要比购买礼物和“科学上网”安全许多。</p>
-<mark class="label info">因为CD Key是发行商向零售方出售的，属于第三方渠道，与V社（Steam）无关，也就是说Steam没有权利封禁因第三方渠道出现问题的账号。</mark>
-
-</span>
-
-<hr>
-<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p><span id="div-border-right-left-blue"><strong><a href="https://steamcommunity.com/id/ColdCard/">欢迎加我Steam好友</a></strong></span></p>
-</center>]]></content>
+<p><strong>由于部分原因，后续内容暂缓</strong></p>
+</div>]]></content>
       <categories>
         <category>Steam</category>
       </categories>
       <tags>
         <tag>Steam</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Steam 跨区买游</title>
-    <url>/posts/Steam_Buy/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><div class="note danger">
-
-<p><strong>2019年8月，Steam由于更改了相关政策，本文部分内容已不再准确</strong></p>
-</div>
-
-<div class="note warning">
-
-<p><strong>具体政策更改内容已在原文下方补充</strong></p>
-</div>
-<center>
-
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>中国有句老话叫“货比三家”，对于游戏玩家这句话也非常实用。在PC游戏领域，很多人可能沉浸在G胖的绿Buff中无法自拔，只知道Steam上的游戏只能通过Steam商店购买这一种方式。但是，我们其实也可以在保证比较安全的前提下，买相对更便宜的一款游戏，乃至买到在国区Steam上买不到的游戏。 </p>
-<hr>
-<h1 id="Steam的低价区"><a href="#Steam的低价区" class="headerlink" title="Steam的低价区"></a>Steam的低价区</h1><p>Steam采用的是分区定价方式，不同地区有不同地区的售价，所以就产生了<mark class="label danger">高价区</mark>和<mark class="label success">低价区</mark>，常见的高价区主要是美国和欧洲地区，低价区则是巴西、印度、俄罗斯等。中国玩家所在的中国区也属于低价区，绝大多数游戏在我国的售价都低于高价区。当然也有一些例外，比如部分日厂的部分游戏，其定价策略就是中国区的售价反而比欧美要高一些。<mark class="label info">因此，如果你想买到低价的游戏，或者锁区的游戏，那么合理的购买策略就是跨区购买。</mark></p>
-<h2 id="Steam国区的打折策略和售价变化"><a href="#Steam国区的打折策略和售价变化" class="headerlink" title=" Steam国区的打折策略和售价变化 "></a><i class="fa fa-align-right"></i> Steam国区的打折策略和售价变化 <i class="fa fa-align-left"></i></h2><p>虽然中国区还是严格意义上的低价区，但其实际的打折力度，已比不上两年前国区刚刚推出的那段时间了。<br>很多游戏去年大半时间内都没有大幅度打折，就算有其折扣力度也基本没有跌破历史最低价（以下简称“史低”），各大促销时段（暑促、黑五、圣诞、春节）的促销游戏数量也有所下滑。</p>
-<a id="more"></a>
-
-<p>除此之外，中国区的3A大作售价也有轻微上涨。 具体来说，就是2015年100多块就能买到一款首发3A大作，而到现在一般都得至少支付两三百才行。虽然说随着用户增长购买力提升是一个必然，但是我们现在依然可以转而用其它方式“薅羊毛”。 </p>
-<h2 id="Steam的低价区查询"><a href="#Steam的低价区查询" class="headerlink" title=" Steam的低价区查询 "></a><i class="fa fa-align-right"></i> Steam的低价区查询 <i class="fa fa-align-left"></i></h2><p><span id="div-border-right-left-purple"> 既然了解了Steam有低价区，那如何查询哪个地区或国家比中国区便宜呢？<br>那就需要一个查询网站<a href="https://steamdb.info/"><strong>SteamDB</strong></a><br><span id="inline-gray"><a href="https://coldcard.wang/post/SteamDB/">☛ SteamDB对于跨区购买信息查询十分有用，具体查询教程 ☚</a></span> </span></p>
-<hr>
-<h1 id="礼物和Key"><a href="#礼物和Key" class="headerlink" title="礼物和Key"></a>礼物和Key</h1><p>买过游戏的一定了解游戏礼物和游戏Key的作用。但Steam的礼物与Key有一些限制与规则需要了解。</p>
-<h2 id="礼物"><a href="#礼物" class="headerlink" title=" 礼物 "></a><i class="fa fa-align-right"></i> 礼物 <i class="fa fa-align-left"></i></h2><mark class="label default">2017年5月4日Steam礼物新政之后，游戏礼物无法再作为库存囤积，锁区的礼物也没办法送出。</mark>从低价区向高价区赠送礼物，如果差价超过游戏价值的10%，会提示“无法赠送”，这意味着，如果一款游戏在外国区售价比中国区低10%以上，是无法从外国区赠送过来的。
-<p>当然，如果土豪想从高价区给低价区赠送礼物，这仍然是可行的。G胖说不定还鼓励你这么干呢</p>
-<p><strong>虽然高、低价区直接赠送礼物有了很多限制，可土豪们还有礼品卡和套现钱包余额的选择，但前者钱多后者水深，所以对不是土豪以及对其不了解的人建议不要尝试。</strong></p>
-</center>
-
-<div class="note info">
-
-<p><strong>新政策补充（2019.8）：V社（Valve，Steam的母公司）出台了新的礼物赠送限制</strong><br><strong>通过Steam余额（钱包）赠送礼物金额不能超过为自己消费金额的1.8倍（玩家测试得出，非官方通知）</strong></p>
-</div>
-
-<div class="note danger">
-
-<p><strong>结果：某宝代购凉了一堆，充值卡价格出现波动（收购充值卡大头是代购），对于玩家影响不大</strong> </p>
-</div>
-<center>
-
-<h2 id="Key"><a href="#Key" class="headerlink" title=" Key "></a><i class="fa fa-align-right"></i> Key <i class="fa fa-align-left"></i></h2><p> 除了Steam商店购买、收礼物之外，还有一种购买游戏的方式，就是直接购买游戏Key（即序列号）。  Key或者CD Key，最开始来源于发售的实体版的PC游戏，那时候打开正版游戏包装，除了光盘，包装盒通常还附了张贴纸，上面有一串由十几位数字和字母组合而成的代码。当时玩过破解游戏的人一定对“算号器”这种程序不会陌生，它就是用来算出貌似“合法”的CD Key，以便骗过加密机制从而激活并安装游戏。 </p>
-<p> 随着数字下载的快速发展，光盘媒介逐渐被淘汰，现在大多数零售版PC游戏包装盒只剩下这张写着序列号的纸条，以供玩家在对应的平台上输入并激活。  <strong>另外，随着时代的发展，Key也已经数字化了，许多零售或网购平台开始售卖数字版游戏的Key。</strong> </p>
-<p> 多数Key的零售商都会有自己的打折促销时间，有时甚至会以低于Steam商店史低的价格出售Key，也有些私人卖家会以超低价格出售拆包得到的Key，那我们就可以趁这个机会狠狠薅一把G胖的羊毛了。</p>
-<h2 id="礼物和Key的区别"><a href="#礼物和Key的区别" class="headerlink" title=" 礼物和Key的区别 "></a><i class="fa fa-align-right"></i> 礼物和Key的区别 <i class="fa fa-align-left"></i></h2><p> 从本质上来说，商店、礼物、Key这3个购买来源没有太大区别，通过这3种渠道激活的游戏都会存在你的游戏库里，其他玩家也可以清楚地看到你拥有这些游戏。  <strong>不过，除去Steam商店购买这个最为保险的途径，Key其实比起礼物要安全许多。<span id="inline-yellow"><a href="https://coldcard.wang/post/Steam_Warning"><i class="fa fa-hand-o-right"></i> 原因详情 <i class="fa fa-hand-o-left"></i></a></span></strong><br> <span id="inline-purple"><del>所以跨区买Key才是正解</del></span> </p>
-<hr>
-<h1 id="锁区"><a href="#锁区" class="headerlink" title="锁区"></a>锁区</h1><p> 锁区的意思就是无法从账号所在区域购买某款特定的游戏。通常游戏发行商会采用这种策略维护自己的利益，或是为了达到某些额外的目的。  要想买到锁区的游戏，除了2017年5月4日之前囤积的礼物存货入库，最好的方法就是上面说的购买游戏Key。通常情况下，一个没有任何限制的Key直接输入Steam就可以下载游玩了。 </p>
-<p> <strong>但Steam跨区买Key常遇到有限制的锁区。</strong>  <strong>Steam锁区一般分为三种，锁激活、锁运行和锁语言。</strong>  <del>其解决难度为，<mark class="label danger">锁激活＜锁运行＜锁语言</mark></del>  <span id="inline-gray"><a href="https://coldcard.wang/Steam/SteamDB%E6%8C%87%E5%8D%97/">☛ SteamDB锁区信息查询教程 ☚</a></span></p>
-<h2 id="锁激活"><a href="#锁激活" class="headerlink" title=" 锁激活 "></a><i class="fa fa-align-right"></i> 锁激活 <i class="fa fa-align-left"></i></h2><p> 在输入Key时你会得到提醒，这一枚Key无法在你所在的地区激活。<del>这个问题可以解决，而且解决起来也简单，你只需要用Key所适用地区当地的IP来激活即可，而且毫无风险，不会导致Key失效或者账号被封。</del>  如果不会“科学上网”，也可以向提供云激活服务的网站寻求帮助。<span id="inline-yellow"><a href="https://stkey.win/">☛ 云激活网站 ☚</a></span> </p>
-</center>
-<div class="note info">
-
-<p><strong>新政策补充（2019.8）：Steam更改了游戏锁区Key激活的规则</strong><br><strong>无法通过更改IP地址登录激活Key，需要商店地址（钱包地址）与Key可激活地址相同，方可激活，与IP无关</strong></p>
-</div>
-
-<div class="note danger">
-
-<p><strong>结果：对于玩家（尤其中重度玩家）影响较大，因为现在要激活锁区Key（俄区Key等）要改商店地址，风险极大，某宝代购也有影响</strong></p>
-</div>
-<center>
-
-<h2 id="锁运行"><a href="#锁运行" class="headerlink" title=" 锁运行 "></a><i class="fa fa-align-right"></i> 锁运行 <i class="fa fa-align-left"></i></h2><p> 在激活成功入库后，点击“安装”按钮，系统提示“未在你所在地区发行”或者“您目前不在该地区”，导致无法安装和进入游戏。  这时有两种解决方式，如果你想马上玩到这款游戏，那就采用Key所在地区IP上网的方式下载运行。</p>
- <mark class="label success">如果你不着急，那就等3个月，锁运行的游戏会自动解锁，到时就不再有地区限制了。（没有相关官方说明，但根据Steam玩家测试，目前均无未解情况）</mark>
-
-<h2 id="锁语言"><a href="#锁语言" class="headerlink" title=" 锁语言 "></a><i class="fa fa-align-right"></i> 锁语言 <i class="fa fa-align-left"></i></h2><p> 这是相对比较难解决以及解决起来比较麻烦的情况，此情况多出现在俄区，具体表现在进入游戏只有俄语选择，不能更改语言。因此购买Key时请看清支持的语言。<br> <span id="inline-blue"><a href="https://steamdb.info/">至于解决方法可以查看此贴，但并不适用所有游戏</a></span> </p>
-</center>
-
-<hr>
-<center>
-
-<h1 id="各大Key商"><a href="#各大Key商" class="headerlink" title="各大Key商"></a>各大Key商</h1><p> 目前全球各地区的Key商种类繁多，安全性参差不齐，由于俄区是在国内最常见，价格相对较低的地区，在这里具体介绍几个俄区和一些支付方便安全度高的的零售商。 </p>
-</center>
-
-<h2 id="Ⅰ-Yuplay"><a href="#Ⅰ-Yuplay" class="headerlink" title="  Ⅰ  Yuplay "></a><span id="div-border-top-red"> <span id="inline-toc"> Ⅰ </span> <a href="https://yuplay.ru/">Yuplay</a> </span></h2><blockquote>
-<p><strong>平台性质：零售商</strong><br><strong>所在地：俄罗斯</strong><br><strong>语言：俄文</strong><br><strong>支付方式：支持支付宝，微信，银联</strong><br><strong>备注：不需要科学上网</strong><br><strong>安全程度：高</strong></p>
-</blockquote>
-<h2 id="Ⅱ-Gama-Gama"><a href="#Ⅱ-Gama-Gama" class="headerlink" title="  Ⅱ  Gama-Gama "></a><span id="div-border-top-blue"> <span id="inline-toc"> Ⅱ </span> <a href="https://gama-gama.ru/">Gama-Gama</a> </span></h2><blockquote>
-<p><strong>平台性质：零售商</strong><br><strong>所在地：俄罗斯</strong><br><strong>语言：俄文</strong><br><strong>支付方式：支付宝</strong><br><strong>备注：要注意Key的区域限制和平台</strong><br><strong>安全程度：高</strong></p>
-<blockquote>
-<p>俄区著名零售商，只有俄语页面，不会俄语的同学可以使用谷歌浏览器自带的翻译。支持支付宝，不需要使用针对俄区的额外上网方式。Key有时候是全球的，可以直接激活，如果是俄区Key则需要云激活。有时候Key的价格会比国区低很多，属于十分推荐的零售商。</p>
-</blockquote>
-</blockquote>
-<h2 id="Ⅲ-ChinaPlay"><a href="#Ⅲ-ChinaPlay" class="headerlink" title="  Ⅲ  ChinaPlay "></a><span id="div-border-top-red"> <span id="inline-toc"> Ⅲ </span> <a href="https://chinaplay.store/">ChinaPlay</a> </span></h2><blockquote>
-<p><strong>Gama-Gama面向中国地区开设的网站，但Key多为俄区，折扣与Gama-Gama差不多</strong><br><strong>语言：中文</strong><br><strong>支付方式：支付宝</strong><br><strong>备注：购买时要求填写接收Key的邮箱，暂不支持QQ邮箱</strong><br><strong>安全程度：高</strong></p>
-</blockquote>
-<h2 id="Ⅳ-Gamersgate"><a href="#Ⅳ-Gamersgate" class="headerlink" title="  Ⅳ  Gamersgate "></a><span id="div-border-top-purple"> <span id="inline-toc"> Ⅳ </span> <a href="https://www.voidu.com/">Gamersgate</a> </span></h2><blockquote>
-<p><strong>平台性质：零售商</strong><br><strong>所在地：瑞典</strong><br><strong>语言：中文</strong><br><strong>支付方式：微信支付、支付宝、PayPal</strong><br><strong>备注：要注意Key的区域限制和平台</strong><br><strong>安全程度：高</strong></p>
-<blockquote>
-<p>中国区的一家瑞典零售商，有中文页面，Key来自厂家，安全有保证。只不过游戏可选的数量比较少。这家可能会在人工审核上卡比较长的时间，需要做好和客服交涉的准备。<strong>如果碰到谷歌验证码刷不出来、无法登录的情况，需要辅以科学上网的方式。</strong></p>
-</blockquote>
-</blockquote>
-<h2 id="Ⅴ-Green-Man-Gaming"><a href="#Ⅴ-Green-Man-Gaming" class="headerlink" title="  Ⅴ  Green Man Gaming "></a><span id="div-border-top-purple"> <span id="inline-toc"> Ⅴ </span> <a href="https://www.greenmangaming.com/">Green Man Gaming</a> </span></h2><blockquote>
-<p><strong>平台性质：零售商</strong><br><strong>所在地：英国</strong><br><strong>语言：英文</strong><br><strong>支付方式：银联</strong><br><strong>备注：要注意Key的区域限制和平台</strong><br><strong>安全程度：高</strong></p>
-<blockquote>
-<p>俗称“小绿人”的GMG是来自英国的零售商，英文页面。Key来自厂家，安全有保证。针对不同国家他们只会提供该区域可以使用的Key，所以也可以采用跨区GMG薅羊毛的方式捡到一些便宜。国区支持银联支付，但是最好确保你浏览器里的银联插件正常工作才不会导致卡单。总体而言十分推荐。</p>
-</blockquote>
-</blockquote>
-<h2 id="Ⅵ-Fanatical"><a href="#Ⅵ-Fanatical" class="headerlink" title="  Ⅵ  Fanatical "></a><span id="div-border-top-green"> <span id="inline-toc"> Ⅵ </span> <a href="https://www.fanatical.com/">Fanatical</a> </span></h2><blockquote>
-<p><strong>平台性质：零售商</strong><br><strong>所在地：英国</strong><br><strong>语言：英文</strong><br><strong>支付方式：银联、支付宝、PayPal</strong><br><strong>备注：多为慈善包</strong><br><strong>安全程度：高</strong></p>
-<blockquote>
-<p>改过一次名字的英国零售网站，也专注于打包游戏，只有英文页面，安全有保证。支付方式支持银联和支付宝。小游戏打包比较丰富，大作比较少。对小游戏有兴趣的玩家可以考虑。</p>
-</blockquote>
-</blockquote>
-<h2 id="Ⅶ-Plati"><a href="#Ⅶ-Plati" class="headerlink" title="  Ⅶ  Plati "></a><span id="div-border-top-red"> <span id="inline-toc"> Ⅶ </span> <a href="https://plati.market/">Plati</a> </span></h2><blockquote>
-<p><strong>平台性质：零售商</strong><br><strong>所在地：俄罗斯</strong><br><strong>语言：英文，俄文</strong><br><strong>支付方式：银联、支付宝</strong><br><strong>备注：推荐，价格比Yuplay低</strong><br><strong>安全程度：高</strong></p>
-</blockquote>
-<h2 id="Ⅷ-G2play"><a href="#Ⅷ-G2play" class="headerlink" title="  Ⅷ  G2play "></a><span id="div-border-top-yellow"> <span id="inline-toc"> Ⅷ </span> <a href="https://www.fanatical.com/">G2play</a> </span></h2><blockquote>
-<p><strong>平台性质：零售商</strong><br><strong>所在地：迪拜、阿拉伯</strong><br><strong>语言：英文</strong><br><strong>支付方式：银联、支付宝、PayPal</strong><br><strong>备注：支持人民币显示价格</strong><br><strong>安全程度：高</strong></p>
-<blockquote>
-<p><strong>显示游戏语言和锁区情况，可了解锁语言情况</strong></p>
-</blockquote>
-</blockquote>
-<hr>
-<center>
-
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p> Steam游戏的购买分为3种：商店、礼物和Key。<mark class="label danger">如果想要保住自己的账号：第一，不要把自己的账号、密码提供给他人，无论是什么原因；第二，不要跨到低价区商店买游戏，不要收低级区的礼物，这两种行为都会导致你的账号被封禁。</mark><del><mark class="label danger">低价区的Key则是相对安全的</mark></del><br> 此外，购物时请注意购买的游戏是礼物还是Key，以及去什么平台激活。不要买成了Origin、Uplay乃至Xbox和PSN上的游戏，因为用户疏忽买错的商品是不会退货的。 </p>
-<div class="note danger no-icon"><font size="6px">
-
-<p><strong>新政策感想（2019.8）</strong><br></font></p>
-<p><strong>第一件事比较耐人寻味。照理说，钱包套现直接导致更多的玩家愿意在Steam商店购买游戏，对V社来说应该是好事，但是V社缺禁止了这一行为，看上去无论对玩家还是对V社都是不利的。</strong><br><strong>目前有一种说法是，市场上突然出现大量低价的充值卡很显然不正常的，由于比特币的特殊性，部分交易的背后涉及一些灰色地带，不排除steam充值卡被作为一些金融犯罪诸如洗钱之类的工具的可能，而且代购行为，很多是没有安全保障的，即使走交易平台，由于虚拟物品的特殊性，也难以保证100%的安全，而且往往涉及的金额不算小，V社出台这项规定估计也是为了及时制止，当然，真正的原因为何官方并没有公布。</strong></p>
-<p><strong>第二件事，很显然V社不是第一次干这事了，2014年前的第一次打击玩家群体寻求低价途径，到后来的2017年5月的礼物政策改革。</strong></p>
-<p><strong>其实说明白点，V社这些措施目的就是在更安全的情况下赚更多的钱。</strong><br><strong>担心Steam余额被用于不正当活动，遍限制礼物赠送；担心中国玩家利用Steam进行一些政治擦边球活动，于是禁止中国IP访问Steam社区，导致玩家想要浏览社区注册账号必须采取特殊措施；限制俄区礼物赠送，玩家就只能在自己所处的“高”价区消费更多金额购买游戏；限制礼物赠送和存放，多出来的钱就从依附Steam这个平台进行交易的小商人们手中流入V社的口袋，而现在限制低价区游戏KEY，则是彻底堵死了最后一条路，不管怎么说，这些政策下来吃亏的肯定是玩家。</strong></p>
-<p><strong>对于V社的行为，只能说商人赚钱天经地义，只要是合法的行为，都是对的，不管消费者权益是否受损，但是也希望国内很多玩家能明白，商人都是以赚钱为目的的，没有谁是真正站在玩家这边的。</strong></p>
-</div>
-
-<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p> <span id="div-border-right-left-blue"><strong><a href="https://steamcommunity.com/id/ColdCard/">欢迎加我Steam好友</a></strong></span></p>
-</center>]]></content>
-      <categories>
-        <category>Steam</category>
-      </categories>
-      <tags>
-        <tag>游戏</tag>
-        <tag>Steam</tag>
+        <tag>SteamDB</tag>
       </tags>
   </entry>
   <entry>
@@ -1153,47 +1159,6 @@
       </tags>
   </entry>
   <entry>
-    <title>SteamDB 指南</title>
-    <url>/posts/SteamDB/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><div class="note warning">
-
-<p><strong>2019年8月，Steam由于更改了相关政策，本文“前言”部分内容已不再准确，但并不影响SteamDB的使用方法</strong></p>
-</div>
-
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>先前，我专门写了一篇关于**<a href="https://coldcard.wang/Steam/Steam%E8%B7%A8%E5%8C%BA%E4%B9%B0%E6%B8%B8/">Steam跨区买游</a><strong>的日志,在文中我较详细的介绍了Steam跨区买游的方法以及安全性，结论是<del><mark class="label default">跨区买Key是较为安全的</mark></del>，那跨区买Key则通常会出现锁区现象，本篇文章将会介绍一个功能强大，对Steam跨区买Key锁区信息查询有莫大帮助的一个网站——</strong><a href="https://steamdb.info/">SteamDB</a>**。</p>
-<p>入Steam坑有段时间了，从不知道SteamDB这个网站，也忘了在那个地方了解了这个网站，摸爬滚打到现在也可以简单使用了，SteamDB其实还有很多功能可以发掘，本着授人以鱼不如授人以渔的想法写下这篇指南，希望能帮助到你们。（已经可以熟练使用的大佬可能会觉得这篇指南写的很啰嗦，纯萌新向嘛 _(:зゝ∠)_）。</p>
-<hr>
-<h1 id="SteamDB-简介"><a href="#SteamDB-简介" class="headerlink" title="SteamDB 简介"></a>SteamDB 简介</h1><p>SteamDB是一个关于Steam数据库的一个网站，这个网站的建立是为了让用户更深入了解Steam数据库。它可以追溯<strong>应用（Application）</strong>和<strong>包（Package）</strong>的更新情况并将他们保存在历史中。同时也提供一些像**<a href="https://steamdb.info/calculator/">Calculator</a>**一样的工具给用户，让用户更了解自己的Steam账户。</p>
-<a id="more"></a>
-
-<p>这个网站可以提供Steam中游戏的各种数据，如<strong>当前打折游戏、游戏价格历史变动、游戏限制（锁区情况、锁运行状况、锁语言情况）、游戏DLC查询、游戏内容变动历史查询、简单的成就查询等</strong>。</p>
-<hr>
-<h1 id="SteamDB-部分重要名词解释"><a href="#SteamDB-部分重要名词解释" class="headerlink" title="SteamDB 部分重要名词解释"></a>SteamDB 部分重要名词解释</h1><p>很多刚开始接触Steam以及SteamDB的同学可能存在一个误区，“应用”就是一个游戏；“包”就是在商店里面买的几个游戏或DLC的集合。其实不然，下面就几个重要名词进行解释。</p>
-<h2 id="应用（Application）"><a href="#应用（Application）" class="headerlink" title="应用（Application）"></a>应用（Application）</h2><blockquote>
-<p><strong>应用（Application）（下简称：App）</strong></p>
-<blockquote>
-<p><strong>应用官方定义是Game、Application、DLC、Tool以及Demo中的一种，它就是一个游戏/应用/DLC/工具/试玩版。</strong>在SteamDB中将其分的更细，分为：Application、Config、DLC、Demo、Depot(Not Used)、Driver、Game、Guide、Hardware、Legacy Media、Music、Plugin、Series、Tool、Unknown、Video。在Steam商店或SteamDB中的浏览器地址栏处是“app/XXXXX”的则是App。</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p><strong>应用标识（Application ID , AppID）</strong></p>
-<blockquote>
-<p>每个应用都有一个数字ID来唯一确定，不同App的AppID是不同的。</p>
-</blockquote>
-</blockquote>
-<div class="note danger">
-
-<p><strong>由于部分原因，后续内容暂缓</strong></p>
-</div>]]></content>
-      <categories>
-        <category>Steam</category>
-      </categories>
-      <tags>
-        <tag>Steam</tag>
-        <tag>SteamDB</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>オーバーロード（OVERLORD）</title>
     <url>/posts/OVERLORD_All/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><center>
@@ -1235,6 +1200,41 @@
       <tags>
         <tag>动漫</tag>
         <tag>OVERLORD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Steam 的小黄信与小红信</title>
+    <url>/posts/Steam_Warning/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><center>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>先前，我专门写了一篇关于**<a href="https://coldcard.wang/Steam/Steam%E8%B7%A8%E5%8C%BA%E4%B9%B0%E6%B8%B8/">Steam跨区买游</a><strong>的日志,在文中我较详细的介绍了Steam跨区买游的方法以及安全性，结论是</strong><del>跨区买Key是较为安全的</del>**，本文将详细介绍商店、礼物、Key这三种方式的跨区安全问题。 </p>
+<hr>
+<h1 id="小黄信与小红信"><a href="#小黄信与小红信" class="headerlink" title="小黄信与小红信"></a>小黄信与小红信</h1><p>通常Steam可能的帐号及游戏的风险基本是两种，被玩家称为小黄信与小红信。</p>
+<span id="div-border-top-red">
+
+<h2 id="小红信"><a href="#小红信" class="headerlink" title=" 小红信 "></a><font color=#E45B5B><i class="fas fa-envelope"></i> 小红信 <i class="fas fa-envelope"></i></font></h2><p>初步了解跨区买游的有些人可能会想，能不能利用“科学上网”到低价区买一些中国区售价较高的游戏呢，这样会有什么样的风险？答案很简单，你大概率会获得G胖送出的“小红信”一张。</p>
+<p>那小红信的作用是什么，收到“小红信”之后，<mark class="label default">如果你无法出示跨区所在国家的居住证明或来往这些地区的机票等证明</mark>，<mark class="label danger">账户会被永久封停</mark>。<strong>目前在淘宝上有很多商户出售低于国区售价的游戏，并且说明需要提供账号密码进行代激活。他们的操作方式很可能是用你的账号跨区，然后用低价区货币进行结算，也可能是跨区来接受低价礼物。</strong>无论如何，这类购买行为都会招致G胖“小红信”的“青睐”。如果你爱惜自己的账号，请切记不要以身犯险。</p>
+<a id="more"></a>
+
+<p>当然，如果你“科学上网”到高价区去购买高价游戏是完全没有问题的，毕竟看在钱的面子上，G胖也没办法拒绝。如果你本人真的在去低价区旅行期间购买了游戏，这也是没有问题的，只要你有机票等证明就行。</p>
+<p>此外，还有一个可能收到“小红信”，但是处罚比较轻微的情况，这就是<mark class="label danger">收到黑礼物</mark>。有些商户会盗刷信用卡，购买礼物赠送给你套现，价格低廉到非常诱人，但到了信用卡月结时，礼物会因拒付而被收回，你的账户也会收到一张“小红信”。<mark class="label warning">这类处罚一般较轻，第一次只是回收游戏，第二次则是封禁9周，第三次才会永久封禁。</mark>当然，也可能有多次警告仍未被封禁的情况，但保险起见建议不要和来路不明、售价低廉的商户频繁交易。如果选择私人或商户代购礼物，请选择信誉好、规模大的商家，详情可以参考贴吧和**<a href="https://steamrepcn.com/">SteamRep（交易信誉评价平台）</a>**来查看交易对象的信誉。</p>
+</span>
+
+<span id="div-border-top-yellow">
+
+<h2 id="小黄信"><a href="#小黄信" class="headerlink" title=" 小黄信 "></a><font color=#E1BC48><i class="fas fa-envelope"></i> 小黄信 <i class="fas fa-envelope"></i></font></h2><p>接下来就要说为什么Key比礼物安全了，虽然市场也存在盗刷信用卡获取黑Key的情形，月结时黑Key仍会被收回，但此时你收到的会是“小黄信”而非“小红信”，而这不会对你的账户造成任何影响。虽然也有传闻称，黑Key被收回5次以上也会对账号造成影响，但是目前并没有相关的实例可以佐证。所以相对而言，Key要比购买礼物和“科学上网”安全许多。</p>
+<mark class="label info">因为CD Key是发行商向零售方出售的，属于第三方渠道，与V社（Steam）无关，也就是说Steam没有权利封禁因第三方渠道出现问题的账号。</mark>
+
+</span>
+
+<hr>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p><span id="div-border-right-left-blue"><strong><a href="https://steamcommunity.com/id/ColdCard/">欢迎加我Steam好友</a></strong></span></p>
+</center>]]></content>
+      <categories>
+        <category>Steam</category>
+      </categories>
+      <tags>
+        <tag>Steam</tag>
       </tags>
   </entry>
   <entry>
